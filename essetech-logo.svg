@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#1a2744" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="leftHalf">
+      <rect x="0" y="0" width="100" height="200"/>
+    </clipPath>
+    <clipPath id="rightHalf">
+      <rect x="100" y="0" width="100" height="200"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Outer circle -->
+    <circle cx="100" cy="72" r="58" fill="#1e3058"/>
+    <!-- Inner white ring -->
+    <circle cx="100" cy="72" r="50" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <!-- Inner dark fill -->
+    <circle cx="100" cy="72" r="46" fill="#1e3058"/>
+
+    <!-- Rocket body -->
+    <g>
+      <!-- Rocket nose cone + body shape -->
+      <path d="M100 18 C100 18 78 55 78 95 C78 115 88 130 100 135 C112 130 122 115 122 95 C122 55 100 18 100 18Z" fill="#1e3058"/>
+      <!-- Left half red overlay -->
+      <path d="M100 18 C100 18 78 55 78 95 C78 115 88 130 100 135 L100 18Z" fill="#e83a3d"/>
+
+      <!-- Portholes -->
+      <!-- Top porthole -->
+      <ellipse cx="100" cy="62" rx="6" ry="5" fill="#1e3058" stroke="#ffffff" stroke-width="2.5"/>
+      <ellipse cx="97" cy="62" rx="6" ry="5" fill="#e83a3d" stroke="none">
+        <set attributeName="clip-path" to="url(#leftHalf)"/>
+      </ellipse>
+
+      <!-- Middle porthole -->
+      <ellipse cx="100" cy="82" rx="6" ry="5" fill="#1e3058" stroke="#ffffff" stroke-width="2.5"/>
+      <ellipse cx="97" cy="82" rx="6" ry="5" fill="#e83a3d" stroke="none">
+        <set attributeName="clip-path" to="url(#leftHalf)"/>
+      </ellipse>
+
+      <!-- Bottom porthole -->
+      <ellipse cx="100" cy="102" rx="6" ry="5" fill="#1e3058" stroke="#ffffff" stroke-width="2.5"/>
+      <ellipse cx="97" cy="102" rx="6" ry="5" fill="#e83a3d" stroke="none">
+        <set attributeName="clip-path" to="url(#leftHalf)"/>
+      </ellipse>
+
+      <!-- Fins -->
+      <!-- Left fin -->
+      <path d="M78 105 L65 128 L78 125Z" fill="#e83a3d"/>
+      <!-- Right fin -->
+      <path d="M122 105 L135 128 L122 125Z" fill="#1e3058"/>
+
+      <!-- Rocket base -->
+      <path d="M88 132 L88 138 C88 138 94 142 100 142 C106 142 112 138 112 138 L112 132Z" fill="#1e3058"/>
+      <path d="M88 132 L88 138 C88 138 94 142 100 142 L100 132Z" fill="#e83a3d"/>
+
+      <!-- Exhaust nozzle -->
+      <path d="M93 142 L96 152 C96 152 98 154 100 154 C102 154 104 152 104 152 L107 142Z" fill="#2a3f66"/>
+      <path d="M93 142 L96 152 C96 152 98 154 100 154 L100 142Z" fill="#c42f32"/>
+    </g>
+  </g>
+
+  <!-- Text: essetech -->
+  <text x="100" y="176" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="24" fill="#111111" letter-spacing="-0.5">essetech</text>
+
+  <!-- Text: IT CONSULTING -->
+  <text x="100" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#111111" letter-spacing="3">IT CONSULTING</text>
+</svg>
