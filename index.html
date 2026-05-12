@@ -230,6 +230,23 @@
             .stat-card:active{transform:translateY(-4px) scale(1.01)}
         }
 
+        /* ===== FOUNDER BADGE (hero) ===== */
+        .founder-badge{padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all .35s cubic-bezier(.22,1,.36,1);text-decoration:none;max-width:fit-content}
+        .founder-badge:hover{background:rgba(255,255,255,0.1);border-color:rgba(232,68,37,0.35);transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(232,68,37,0.25)}
+        .founder-avatar{display:block;width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;position:relative;box-shadow:0 0 0 2px rgba(232,68,37,0.5),0 0 0 4px rgba(17,26,51,0.9),0 8px 22px rgba(232,68,37,0.25);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+        .founder-badge:hover .founder-avatar{transform:scale(1.06) rotate(-2deg);box-shadow:0 0 0 2px rgba(232,68,37,0.8),0 0 0 4px rgba(17,26,51,0.9),0 10px 30px rgba(232,68,37,0.4)}
+        .founder-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+        .founder-status{position:absolute;bottom:1px;right:1px;width:11px;height:11px;border-radius:50%;background:#34d399;border:2px solid #111a33;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:statusPulse 2.5s ease-in-out infinite}
+        @keyframes statusPulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+        .founder-text{display:flex;flex-direction:column;line-height:1.25}
+        .founder-line-1{font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+        .founder-line-2{font-size:.72rem;font-weight:500;color:rgba(255,255,255,0.5);margin-top:2px;letter-spacing:.01em}
+        @media(max-width:480px){
+            .founder-line-1{font-size:.82rem}
+            .founder-line-2{font-size:.65rem}
+            .founder-avatar{width:44px;height:44px}
+        }
+
         /* ===== SERVICES DROPDOWN ===== */
         .nav-dropdown{position:relative}
         .nav-dropdown-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
@@ -398,6 +415,20 @@
                         Explore Services
                     </a>
                 </div>
+
+                <a href="#contact" class="founder-badge anim-fade-up d5 mt-8 inline-flex items-center gap-3 group" aria-label="Meet Jonathon, founder of Essetech">
+                    <span class="founder-avatar relative">
+                        <picture>
+                            <source srcset="jonathon-sm.webp" type="image/webp">
+                            <img src="jonathon-sm.jpg" alt="Jonathon, founder of Essetech" loading="eager" decoding="async">
+                        </picture>
+                        <span class="founder-status"></span>
+                    </span>
+                    <span class="founder-text">
+                        <span class="founder-line-1">Hi, I'm Jonathon &mdash; the human behind Essetech.</span>
+                        <span class="founder-line-2">Adelaide-based founder &middot; Real reply within 1 business day</span>
+                    </span>
+                </a>
             </div>
 
             <!-- Trust pills -->
