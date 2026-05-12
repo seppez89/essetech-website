@@ -185,6 +185,32 @@
         /* Reporting: animated counter */
         .count-up{font-variant-numeric:tabular-nums}
 
+        /* ===== SERVICES DROPDOWN ===== */
+        .nav-dropdown{position:relative}
+        .nav-dropdown-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+        .nav-dropdown-trigger .chevron{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+        .nav-dropdown:hover .chevron,.nav-dropdown:focus-within .chevron{transform:rotate(180deg)}
+        .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);padding-top:14px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear .25s;z-index:60}
+        .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .25s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear 0s}
+        .nav-dropdown-panel{background:rgba(17,26,51,0.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,0.08);border-radius:18px;box-shadow:0 30px 80px -10px rgba(0,0,0,0.55),0 10px 40px rgba(232,68,37,0.08);padding:10px;min-width:300px}
+        .dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:rgba(255,255,255,0.72);font-size:14px;font-weight:500;transition:background .25s ease,color .25s ease,transform .25s ease;text-decoration:none}
+        .dropdown-item:hover{background:rgba(232,68,37,0.12);color:#fff;transform:translateX(2px)}
+        .dropdown-item-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(78,106,175,0.25),rgba(232,68,37,0.18));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,0.85);transition:background .25s ease,box-shadow .25s ease}
+        .dropdown-item:hover .dropdown-item-icon{background:linear-gradient(135deg,#4E6AAF,#E84425);box-shadow:0 8px 20px rgba(232,68,37,0.35)}
+        .dropdown-item-title{font-weight:600;line-height:1.2}
+        .dropdown-item-desc{font-size:11.5px;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.3}
+
+        /* Mobile services accordion */
+        .mobile-services{overflow:hidden}
+        .mobile-services-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;cursor:pointer}
+        .mobile-services-toggle .chevron{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+        .mobile-services.open .mobile-services-toggle .chevron{transform:rotate(180deg)}
+        .mobile-services-panel{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1)}
+        .mobile-services.open .mobile-services-panel{max-height:600px}
+        .mobile-sub-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.75);font-size:15px;font-weight:500;transition:background .25s ease,color .25s ease;text-decoration:none}
+        .mobile-sub-link:hover,.mobile-sub-link:active{background:rgba(232,68,37,0.1);color:#fff}
+        .mobile-sub-icon{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,rgba(78,106,175,0.22),rgba(232,68,37,0.15));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,0.85)}
+
         /* ===== LIVE SHOWCASE / BROWSER FRAME ===== */
         .browser-frame{position:relative;transition:transform .6s cubic-bezier(.22,1,.36,1)}
         .browser-frame:hover{transform:translateY(-6px) perspective(1500px) rotateX(.5deg)}
@@ -216,11 +242,43 @@
                     <img src="essetechlogo.png" alt="Essetech" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105 brightness-0 invert" onerror="this.outerHTML='<span class=\'text-white text-2xl font-black tracking-tight\'>Essetech</span>'">
                 </a>
                 <nav class="hidden md:flex items-center gap-8">
+                    <div class="nav-dropdown">
+                        <a href="/" class="nav-dropdown-trigger text-sm font-medium text-white/70 hover:text-white transition-all duration-300">
+                            Services
+                            <svg class="chevron w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <div class="nav-dropdown-panel">
+                                <a href="/managed-it-services-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg></div>
+                                    <div><div class="dropdown-item-title">Managed IT Services</div><div class="dropdown-item-desc">Proactive monitoring &amp; management</div></div>
+                                </a>
+                                <a href="/it-support-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+                                    <div><div class="dropdown-item-title">IT Support</div><div class="dropdown-item-desc">Fast remote &amp; on-site help</div></div>
+                                </a>
+                                <a href="/cybersecurity-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg></div>
+                                    <div><div class="dropdown-item-title">Cybersecurity</div><div class="dropdown-item-desc">Layered protection for SMBs</div></div>
+                                </a>
+                                <a href="/cloud-solutions-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg></div>
+                                    <div><div class="dropdown-item-title">Cloud Solutions</div><div class="dropdown-item-desc">Microsoft 365, Azure, AWS, GWS</div></div>
+                                </a>
+                                <a href="/ai-implementation-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg></div>
+                                    <div><div class="dropdown-item-title">AI Implementation</div><div class="dropdown-item-desc">Workflow automation &amp; AI tools</div></div>
+                                </a>
+                                <a href="/website-care.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m0 0h2.25A2.25 2.25 0 0019.5 15V6.75A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75V15a2.25 2.25 0 002.25 2.25H9m6 0H9"/></svg></div>
+                                    <div><div class="dropdown-item-title">Web Design &amp; Care</div><div class="dropdown-item-desc">New builds + $150/mo care plan</div></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="#maintenance" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300 hover:tracking-wide">Care Plan</a>
                     <a href="#showcase" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300 hover:tracking-wide">Example</a>
-                    <a href="#web-design" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300 hover:tracking-wide">Web Design</a>
                     <a href="#reporting" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300 hover:tracking-wide">Reporting</a>
-                    <a href="https://essetech.com.au/" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300 hover:tracking-wide">Main Site</a>
                     <a href="#enquire" class="btn-shimmer inline-flex items-center gap-2 bg-fire-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold">
                         Enquire Now
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -234,11 +292,43 @@
         <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-navy-900/95 backdrop-blur-xl shadow-2xl z-50 p-8 pt-24 md:hidden">
             <button id="menuClose" class="absolute top-6 right-6 text-white/80 hover:text-white" aria-label="Close menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
             <nav class="flex flex-col gap-6">
+                <div class="mobile-services" id="mobileServices">
+                    <button class="mobile-services-toggle text-lg font-medium text-white/90 hover:text-fire-400 transition-colors" type="button" aria-expanded="false">
+                        <span>Services</span>
+                        <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="mobile-services-panel mt-3">
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="/managed-it-services-adelaide.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg></div>
+                                Managed IT Services
+                            </a>
+                            <a href="/it-support-adelaide.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+                                IT Support
+                            </a>
+                            <a href="/cybersecurity-adelaide.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg></div>
+                                Cybersecurity
+                            </a>
+                            <a href="/cloud-solutions-adelaide.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg></div>
+                                Cloud Solutions
+                            </a>
+                            <a href="/ai-implementation-adelaide.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg></div>
+                                AI Implementation
+                            </a>
+                            <a href="/website-care.html" class="mobile-sub-link mobile-link">
+                                <div class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m0 0h2.25A2.25 2.25 0 0019.5 15V6.75A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75V15a2.25 2.25 0 002.25 2.25H9m6 0H9"/></svg></div>
+                                Web Design &amp; Care
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#maintenance" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Care Plan</a>
                 <a href="#showcase" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Example</a>
-                <a href="#web-design" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Web Design</a>
                 <a href="#reporting" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Reporting</a>
-                <a href="https://essetech.com.au/" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Main Site</a>
                 <a href="#enquire" class="mobile-link btn-shimmer inline-flex items-center justify-center gap-2 bg-fire-500 text-white px-6 py-3 rounded-full text-base font-semibold mt-4">Enquire Now</a>
             </nav>
         </div>
@@ -973,6 +1063,17 @@
             menuToggle.addEventListener('click',()=>mobileMenu.classList.add('open'));
             menuClose.addEventListener('click',()=>mobileMenu.classList.remove('open'));
             document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+        }
+
+        // Mobile services accordion
+        const mobileServices=document.getElementById('mobileServices');
+        if(mobileServices){
+            const btn=mobileServices.querySelector('.mobile-services-toggle');
+            btn.addEventListener('click',(e)=>{
+                e.preventDefault();
+                const open=mobileServices.classList.toggle('open');
+                btn.setAttribute('aria-expanded',open?'true':'false');
+            });
         }
 
         // Scroll reveal with stagger
