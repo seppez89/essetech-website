@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De-identified Network Remediation Case Study | Essetech</title>
+    <meta name="description" content="A de-identified Essetech capability demo showing how practical IT remediation turns assessment findings into clear actions, evidence, estimates, and handover documentation.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Essetech">
+    <meta name="geo.region" content="AU-SA">
+    <meta name="geo.placename" content="Adelaide">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <link rel="canonical" href="https://essetech.com.au/case-studies/deidentified-network-remediation/">
+    <meta property="og:title" content="De-identified Network Remediation Case Study | Essetech">
+    <meta property="og:description" content="A realistic sample case study showing how Essetech reviews, prioritises, remediates, and documents a small business IT environment.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://essetech.com.au/case-studies/deidentified-network-remediation/">
+    <meta property="og:image" content="https://essetech.com.au/essetechlogo.png">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:site_name" content="Essetech">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De-identified Network Remediation Case Study | Essetech">
+    <meta name="twitter:description" content="How Essetech turns IT and cyber assessment findings into practical remediation work, estimates, evidence, and documentation.">
+    <meta name="twitter:image" content="https://essetech.com.au/essetechlogo.png">
+
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "De-identified Network Remediation Case Study",
+        "description": "A de-identified capability demo showing how Essetech converts technical findings into scoped remediation work, evidence, estimates and handover documentation.",
+        "author": {
+            "@type": "Organization",
+            "name": "Essetech"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Essetech",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://essetech.com.au/essetechlogo.png"
+            }
+        },
+        "dateModified": "2026-05-28",
+        "mainEntityOfPage": "https://essetech.com.au/case-studies/deidentified-network-remediation/"
+    }</script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50:'#f0f3fa',100:'#dce2f0',200:'#b8c4e1',300:'#94a6d2',400:'#7088c3',500:'#4E6AAF',600:'#3e5590',700:'#2e4070',800:'#1e2b50',900:'#111a33' },
+                        fire: { 50:'#fef2ee',100:'#fde0d6',200:'#fbbcab',300:'#f89075',400:'#f4633f',500:'#E84425',600:'#c2341b',700:'#922716',800:'#631b10',900:'#3d110a' }
+                    },
+                    fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <style>
+        *{font-family:'Inter',system-ui,-apple-system,sans-serif}
+        html,body{background:#fff}
+        section[id]{scroll-margin-top:96px}
+        .gradient-text{background:linear-gradient(135deg,#f4633f 0%,#E84425 50%,#f89075 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-text-blue{background:linear-gradient(135deg,#7088c3 0%,#4E6AAF 50%,#94a6d2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .btn-shimmer{position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;background:#E84425;box-shadow:0 4px 20px rgba(232,68,37,0.3)}
+        .btn-shimmer::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left .5s ease}
+        .btn-shimmer:hover::before{left:100%}
+        .btn-shimmer:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(232,68,37,0.45)}
+        .header-scrolled{background:rgba(17,26,51,0.9)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 4px 30px rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.05)}
+        .mobile-menu{transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+        .mobile-menu.open{transform:translateX(0)}
+        .nav-dropdown{position:relative}
+        .nav-dropdown-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+        .nav-dropdown-trigger .chevron{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+        .nav-dropdown:hover .chevron,.nav-dropdown:focus-within .chevron{transform:rotate(180deg)}
+        .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);padding-top:14px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear .25s;z-index:60}
+        .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .25s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear 0s}
+        .nav-dropdown-panel{background:rgba(17,26,51,0.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,0.08);border-radius:18px;box-shadow:0 30px 80px -10px rgba(0,0,0,0.55),0 10px 40px rgba(232,68,37,0.08);padding:10px;min-width:300px}
+        .dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:rgba(255,255,255,0.72);font-size:14px;font-weight:500;transition:background .25s ease,color .25s ease,transform .25s ease;text-decoration:none}
+        .dropdown-item:hover{background:rgba(232,68,37,0.12);color:#fff;transform:translateX(2px)}
+        .dropdown-item-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(78,106,175,0.25),rgba(232,68,37,0.18));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,0.85);transition:background .25s ease,box-shadow .25s ease}
+        .dropdown-item:hover .dropdown-item-icon{background:linear-gradient(135deg,#4E6AAF,#E84425);box-shadow:0 8px 20px rgba(232,68,37,0.35)}
+        .dropdown-item-title{font-weight:600;line-height:1.2}
+        .dropdown-item-desc{font-size:11.5px;color:rgba(255,255,255,0.4);margin-top:2px;line-height:1.3}
+        .mobile-services-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;gap:12px}
+        .mobile-services-toggle .chevron{transition:transform .3s ease}
+        .mobile-services.open .mobile-services-toggle .chevron{transform:rotate(180deg)}
+        .mobile-services-panel{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1)}
+        .mobile-services.open .mobile-services-panel{max-height:620px}
+        .mobile-sub-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.75);font-size:15px;font-weight:500;transition:background .25s ease,color .25s ease;text-decoration:none}
+        .mobile-sub-link:hover,.mobile-sub-link:active{background:rgba(232,68,37,0.1);color:#fff}
+        .mobile-sub-icon{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,rgba(78,106,175,0.22),rgba(232,68,37,0.15));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,0.85)}
+        .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#E84425,#f4633f,#4E6AAF);z-index:9999;width:0%;transition:width .1s linear;box-shadow:0 0 10px rgba(232,68,37,0.5)}
+        .cursor-glow{position:fixed;width:360px;height:360px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(232,68,37,0.06) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .3s ease;opacity:0;will-change:transform}
+        @media(max-width:768px){.cursor-glow{display:none}}
+        .hero-shell{position:relative;background:#111a33;overflow:hidden}
+        .hero-shell::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(17,26,51,1) 0%,rgba(30,43,80,.98) 48%,rgba(46,64,112,.9) 100%)}
+        .hero-shell::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(232,68,37,.18),transparent 38%,rgba(78,106,175,.18));opacity:.7}
+        .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+        .reveal-left{opacity:0;transform:translateX(-50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+        .reveal-right{opacity:0;transform:translateX(50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+        .visible{opacity:1!important;transform:none!important}
+        .case-card{background:linear-gradient(180deg,#fff 0%,#f8faff 100%);border:1px solid rgba(184,196,225,.45);border-radius:20px;box-shadow:0 18px 55px -24px rgba(78,106,175,.45);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+        .case-card:hover{transform:translateY(-5px);border-color:rgba(232,68,37,.24);box-shadow:0 28px 70px -26px rgba(78,106,175,.55),0 16px 40px -28px rgba(232,68,37,.45)}
+        .dark-card{background:rgba(17,26,51,.72);border:1px solid rgba(255,255,255,.09);border-radius:20px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+        .section-kicker{font-size:.78rem;font-weight:800;text-transform:uppercase;color:#E84425}
+        .finding-answer{max-height:0;overflow:hidden;padding-top:0!important;padding-bottom:0!important;transition:max-height .45s cubic-bezier(.22,1,.36,1),padding .25s ease}
+        .finding-item.active .finding-answer{max-height:680px;padding-top:18px!important;padding-bottom:24px!important}
+        .finding-item.active{border-color:rgba(232,68,37,.32);box-shadow:0 20px 55px -32px rgba(232,68,37,.55)}
+        .finding-icon{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+        .finding-item.active .finding-icon{transform:rotate(135deg);color:#E84425}
+        .risk-option.active{background:#111a33;color:#fff;border-color:#111a33;box-shadow:0 14px 35px -22px rgba(17,26,51,.8)}
+        .estimate-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1),opacity .35s ease;opacity:0}
+        .estimate-detail.open{max-height:900px;opacity:1}
+        .demo-nav{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+        @media(prefers-reduced-motion:reduce){
+            *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+            .reveal,.reveal-left,.reveal-right{opacity:1;transform:none}
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center gap-3 group">
+                    <img src="/essetechlogo.png" alt="Essetech IT Consulting Adelaide" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105 brightness-0 invert" onerror="this.outerHTML='<span class=\'text-white text-xl font-black\'>Essetech</span>'">
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <div class="nav-dropdown">
+                        <a href="/#services" class="nav-dropdown-trigger text-sm font-medium text-white/70 hover:text-white transition-all duration-300">
+                            Services
+                            <svg class="chevron w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <div class="nav-dropdown-panel">
+                                <a href="/managed-it-services-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg></div>
+                                    <div><div class="dropdown-item-title">Managed IT Services</div><div class="dropdown-item-desc">Proactive monitoring &amp; management</div></div>
+                                </a>
+                                <a href="/it-support-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+                                    <div><div class="dropdown-item-title">IT Support</div><div class="dropdown-item-desc">Fast remote &amp; on-site help</div></div>
+                                </a>
+                                <a href="/cybersecurity-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg></div>
+                                    <div><div class="dropdown-item-title">Cybersecurity</div><div class="dropdown-item-desc">Layered protection for SMBs</div></div>
+                                </a>
+                                <a href="/cloud-solutions-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg></div>
+                                    <div><div class="dropdown-item-title">Cloud Solutions</div><div class="dropdown-item-desc">Microsoft 365, Azure, AWS, GWS</div></div>
+                                </a>
+                                <a href="/ai-implementation-adelaide.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg></div>
+                                    <div><div class="dropdown-item-title">AI Implementation</div><div class="dropdown-item-desc">Workflow automation &amp; AI tools</div></div>
+                                </a>
+                                <a href="/website-care.html" class="dropdown-item">
+                                    <div class="dropdown-item-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m0 0h2.25A2.25 2.25 0 0019.5 15V6.75A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75V15a2.25 2.25 0 002.25 2.25H9m6 0H9"/></svg></div>
+                                    <div><div class="dropdown-item-title">Web Design &amp; Care</div><div class="dropdown-item-desc">New builds + care plans</div></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#snapshot" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300">Snapshot</a>
+                    <a href="#findings" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300">Findings</a>
+                    <a href="#workflow" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300">Workflow</a>
+                    <a href="#estimate" class="text-sm font-medium text-white/70 hover:text-white transition-all duration-300">Estimate</a>
+                    <a href="https://essetech.com.au/#contact" class="btn-shimmer inline-flex items-center gap-2 text-white px-6 py-2.5 rounded-full text-sm font-semibold">
+                        Talk to Essetech
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </nav>
+                <button id="menuToggle" class="md:hidden text-white p-2" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 max-w-[88vw] h-full bg-navy-900/95 backdrop-blur-xl shadow-2xl z-50 p-8 pt-24 md:hidden">
+            <button id="menuClose" class="absolute top-6 right-6 text-white/80 hover:text-white" aria-label="Close menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <nav class="flex flex-col gap-6">
+                <a href="/" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Home</a>
+                <div class="mobile-services" id="mobileServices">
+                    <button class="mobile-services-toggle text-lg font-medium text-white/90 hover:text-fire-400 transition-colors" type="button" aria-expanded="false">
+                        <span>Services</span>
+                        <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="mobile-services-panel mt-3">
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="/managed-it-services-adelaide.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25"/></svg></span>Managed IT Services</a>
+                            <a href="/it-support-adelaide.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>IT Support</a>
+                            <a href="/cybersecurity-adelaide.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068"/></svg></span>Cybersecurity</a>
+                            <a href="/cloud-solutions-adelaide.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257"/></svg></span>Cloud Solutions</a>
+                            <a href="/ai-implementation-adelaide.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846"/></svg></span>AI Implementation</a>
+                            <a href="/website-care.html" class="mobile-sub-link mobile-link"><span class="mobile-sub-icon"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007A3 3 0 017.5 21h9"/></svg></span>Web Design &amp; Care</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#snapshot" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Snapshot</a>
+                <a href="#findings" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Findings</a>
+                <a href="#workflow" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Workflow</a>
+                <a href="#estimate" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Estimate</a>
+                <a href="https://essetech.com.au/#contact" class="mobile-link btn-shimmer inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full text-base font-semibold mt-2">Discuss workflow</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-shell pt-32 pb-16 md:pt-40 md:pb-24">
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-12 lg:gap-16 items-center">
+                    <div class="reveal">
+                        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-7">
+                            <span class="w-2 h-2 bg-fire-400 rounded-full animate-pulse"></span>
+                            <span class="text-sm text-white/80 font-medium">De-identified Network Remediation Case Study</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.08]">
+                            From messy IT environment to <span class="gradient-text">secure, documented, supportable systems</span>
+                        </h1>
+                        <p class="mt-7 text-lg sm:text-xl text-white/60 leading-relaxed max-w-3xl">
+                            A practical example of how Essetech reviews a small business environment, identifies risks, prioritises remediation, completes the work, and leaves the client with clear documentation.
+                        </p>
+                        <div class="mt-8 grid sm:grid-cols-2 gap-3 max-w-2xl">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/75"><span class="w-1.5 h-1.5 rounded-full bg-fire-400"></span>De-identified client example</span>
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/75"><span class="w-1.5 h-1.5 rounded-full bg-fire-400"></span>Microsoft 365 + network remediation</span>
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/75"><span class="w-1.5 h-1.5 rounded-full bg-fire-400"></span>Practical security uplift</span>
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/75"><span class="w-1.5 h-1.5 rounded-full bg-fire-400"></span>Client-ready handover</span>
+                        </div>
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                            <a href="#workflow" class="btn-shimmer inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-full text-base font-bold">
+                                View remediation workflow
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="#findings" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/5 transition-all duration-300">
+                                View example findings
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="reveal-right">
+                        <div class="dark-card p-6 sm:p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7.5 4.5v5.25c0 4.35-3.2 7.35-7.5 8.25-4.3-.9-7.5-3.9-7.5-8.25V7.5L12 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 12.5l1.7 1.7 3.8-4.4"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-white mb-2">Privacy note</p>
+                                    <p class="text-white/70 leading-relaxed">
+                                        De-identified case study. Client details, network information, and identifying data have been replaced with realistic sample information.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mt-8 grid grid-cols-2 gap-4">
+                                <div class="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+                                    <p class="text-3xl font-black text-white">18</p>
+                                    <p class="mt-1 text-xs font-semibold text-white/50">sample users</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+                                    <p class="text-3xl font-black text-white">24</p>
+                                    <p class="mt-1 text-xs font-semibold text-white/50">sample endpoints</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+                                    <p class="text-3xl font-black text-white">10</p>
+                                    <p class="mt-1 text-xs font-semibold text-white/50">deliverables</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/[.04] p-4">
+                                    <p class="text-3xl font-black text-white">4</p>
+                                    <p class="mt-1 text-xs font-semibold text-white/50">workflow stages</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 rounded-2xl bg-white/[.04] border border-white/10 p-5">
+                                <p class="text-xs font-bold text-fire-300 uppercase">Capability demo</p>
+                                <p class="mt-2 text-sm text-white/60 leading-relaxed">Built to show how findings can become practical fixes, clear estimates, and evidence a client can understand.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="demo-nav hidden 2xl:block fixed right-6 top-28 z-40 w-48 rounded-2xl border border-navy-100 bg-white/80 shadow-xl shadow-navy-900/5 p-3">
+            <p class="px-3 py-2 text-xs font-black text-navy-900">Demo contents</p>
+            <a href="#snapshot" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Snapshot</a>
+            <a href="#findings" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Findings</a>
+            <a href="#workflow" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Workflow</a>
+            <a href="#deliverables" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Deliverables</a>
+            <a href="#estimate" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Estimate</a>
+            <a href="#cyber-partners" class="block rounded-xl px-3 py-2 text-sm font-semibold text-gray-500 hover:bg-navy-50 hover:text-navy-800 transition-colors">Cyber partners</a>
+        </nav>
+
+        <section id="snapshot" class="py-20 md:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl reveal">
+                    <p class="section-kicker">Case study snapshot</p>
+                    <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">A realistic small business remediation profile</h2>
+                    <p class="mt-5 text-lg text-gray-600 leading-relaxed">The sample scenario is intentionally ordinary: a busy small business with practical technology, inherited access, and documentation gaps that made security and support harder than it needed to be.</p>
+                </div>
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <article class="case-card p-6 reveal">
+                        <p class="text-sm font-black text-fire-500">Client type</p>
+                        <p class="mt-3 text-2xl font-black text-navy-900">Hospitality / multi-site small business</p>
+                    </article>
+                    <article class="case-card p-6 reveal d1">
+                        <p class="text-sm font-black text-fire-500">Location</p>
+                        <p class="mt-3 text-2xl font-black text-navy-900">South Australia</p>
+                    </article>
+                    <article class="case-card p-6 reveal d2">
+                        <p class="text-sm font-black text-fire-500">Users</p>
+                        <p class="mt-3 text-5xl font-black gradient-text-blue">18</p>
+                        <p class="mt-2 text-sm text-gray-500">staff across shared and individual accounts</p>
+                    </article>
+                    <article class="case-card p-6 reveal">
+                        <p class="text-sm font-black text-fire-500">Devices</p>
+                        <p class="mt-3 text-5xl font-black gradient-text-blue">24</p>
+                        <p class="mt-2 text-sm text-gray-500">endpoints including laptops and shared workstations</p>
+                    </article>
+                    <article class="case-card p-6 sm:col-span-2 reveal d1">
+                        <p class="text-sm font-black text-fire-500">Environment</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Microsoft 365</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Windows laptops</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Shared workstations</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Network printer</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Firewall</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Managed switch</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Business Wi-Fi</span>
+                            <span class="rounded-full bg-navy-50 px-3 py-1.5 text-sm font-semibold text-navy-700">Guest Wi-Fi</span>
+                        </div>
+                    </article>
+                    <article class="case-card p-6 reveal">
+                        <p class="text-sm font-black text-fire-500">Initial state</p>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Ad-hoc IT support, limited documentation, inconsistent user access controls, unclear backup visibility.</p>
+                    </article>
+                    <article class="case-card p-6 reveal d1">
+                        <p class="text-sm font-black text-fire-500">Engagement type</p>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Network review, Microsoft 365 clean-up, documentation, remediation plan, handover.</p>
+                    </article>
+                    <article class="case-card p-6 reveal d2">
+                        <p class="text-sm font-black text-fire-500">Outcome</p>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Cleaner access control, clearer documentation, improved backup visibility, prioritised remediation plan, reduced operational risk.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="findings" class="py-20 md:py-28 bg-navy-50/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[.78fr_1.22fr] gap-10 lg:gap-16 items-start">
+                    <div class="reveal-left lg:sticky lg:top-28">
+                        <p class="section-kicker">What we found</p>
+                        <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">Example findings with business impact and effort</h2>
+                        <p class="mt-5 text-lg text-gray-600 leading-relaxed">Each item was written so a business owner, cyber adviser, or internal manager could understand the risk, the recommended action, and what evidence would be produced.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <article class="finding-item active case-card p-0 reveal">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="true">
+                                <span><span class="block text-lg font-black text-navy-900">MFA not fully enforced</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 2&ndash;5 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Some user accounts did not have consistent multi-factor authentication enforcement.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Increased risk of account takeover, email compromise, invoice fraud, and unauthorised access.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Review all users, enforce MFA, confirm admin accounts are protected, and apply conditional access policies where licensing allows.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">User access summary, MFA status notes, screenshots of policy configuration, before-and-after remediation notes.</p></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="finding-item case-card p-0 reveal d1">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="false">
+                                <span><span class="block text-lg font-black text-navy-900">Admin access unclear</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 2&ndash;4 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Administrative access was not clearly documented and some elevated permissions had not been recently reviewed.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">If an admin account was compromised, the attacker could gain broad access to systems, mailboxes, and business data.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Review global administrators, remove stale access, separate admin accounts from daily-use accounts, and document account ownership.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Admin access register, removed-access summary, privileged account notes, handover recommendations.</p></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="finding-item case-card p-0 reveal d2">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="false">
+                                <span><span class="block text-lg font-black text-navy-900">Backup visibility weak</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 3&ndash;8 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Backups existed, but the scope, retention, alerting, and restore process were not clearly documented.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">The business could not confidently prove how quickly it could recover from accidental deletion, ransomware, device failure, or supplier issues.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Confirm backup scope, retention settings, alerting, restore process, and complete a sample restore test.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Backup summary, restore test notes, screenshots where appropriate, gap list, next-step recommendations.</p></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="finding-item case-card p-0 reveal">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="false">
+                                <span><span class="block text-lg font-black text-navy-900">Asset register missing</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 4&ndash;10 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Devices, users, software, vendors, and key systems were not tracked in one central register.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Harder to patch, secure, replace, support, quote, or investigate systems during an outage or incident.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Create a basic asset register covering devices, users, software, network equipment, vendors, warranties, and renewal dates.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Asset register, device count, vendor list, support notes, renewal visibility.</p></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="finding-item case-card p-0 reveal d1">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="false">
+                                <span><span class="block text-lg font-black text-navy-900">Network documentation incomplete</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 3&ndash;8 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">The network layout, key devices, Wi-Fi configuration, vendor access, and support notes were not documented clearly.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Support and incident response would be slower because the environment was dependent on memory rather than documentation.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Create a simple network diagram, document core devices, confirm access ownership, and record known support dependencies.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Network summary, device list, support notes, simple topology diagram, handover document.</p></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="finding-item case-card p-0 reveal d2">
+                            <button class="finding-toggle w-full flex items-start justify-between gap-5 p-6 text-left" type="button" aria-expanded="false">
+                                <span><span class="block text-lg font-black text-navy-900">Onboarding and offboarding process inconsistent</span><span class="mt-1 block text-sm text-gray-500">Estimated effort: 2&ndash;6 hours</span></span>
+                                <span class="finding-icon text-2xl leading-none text-navy-300">+</span>
+                            </button>
+                            <div class="finding-answer px-6">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">There was no clear checklist for creating users, assigning access, removing old users, or securing departed staff accounts.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Old accounts could remain active, new users may receive incorrect access, and access control becomes harder to audit over time.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Recommended action</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Create a lightweight onboarding/offboarding checklist and review inactive accounts.</p></div>
+                                    <div><p class="text-xs font-black text-fire-500 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Checklist, inactive account summary, access review notes, recommended process.</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="py-20 md:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <p class="section-kicker">Remediation workflow</p>
+                    <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">A practical path from review to handover</h2>
+                    <p class="mt-5 text-lg text-gray-600 leading-relaxed">The goal is not a bigger report. It is a clean list of decisions, fixes, evidence, and next steps.</p>
+                </div>
+                <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <article class="case-card p-7 reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-navy-500 to-navy-800 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-navy-500/20">1</div>
+                        <h3 class="mt-6 text-xl font-black text-navy-900">Discover</h3>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Review network, Microsoft 365, users, devices, backup visibility, vendor access, and documentation gaps.</p>
+                    </article>
+                    <article class="case-card p-7 reveal d1">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fire-500 to-fire-700 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-fire-500/20">2</div>
+                        <h3 class="mt-6 text-xl font-black text-navy-900">Prioritise</h3>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Sort findings by risk, business impact, urgency, effort, and cost so the client can make sensible decisions.</p>
+                    </article>
+                    <article class="case-card p-7 reveal d2">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-navy-500 to-navy-800 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-navy-500/20">3</div>
+                        <h3 class="mt-6 text-xl font-black text-navy-900">Remediate</h3>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Fix MFA, admin access, backups, endpoint visibility, network documentation, vendor access, and support processes.</p>
+                    </article>
+                    <article class="case-card p-7 reveal d3">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fire-500 to-fire-700 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-fire-500/20">4</div>
+                        <h3 class="mt-6 text-xl font-black text-navy-900">Handover</h3>
+                        <p class="mt-3 text-gray-600 leading-relaxed">Provide clear documentation, evidence, screenshots where appropriate, recommendations, and a next-step roadmap.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-28 bg-navy-900 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+                    <div class="reveal-left">
+                        <p class="section-kicker">Example before</p>
+                        <h2 class="mt-3 text-3xl md:text-4xl font-black text-white">Operational risk was hiding in plain sight</h2>
+                        <div class="mt-8 rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8">
+                            <ul class="space-y-4">
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>MFA inconsistently applied</li>
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>Admin access unclear</li>
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>Backup scope not documented</li>
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>No central asset register</li>
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>Network knowledge dependent on memory</li>
+                                <li class="flex gap-3 text-white/70"><span class="mt-1.5 w-2 h-2 rounded-full bg-fire-400 flex-shrink-0"></span>No clear onboarding/offboarding checklist</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="reveal-right">
+                        <p class="section-kicker">Example after</p>
+                        <h2 class="mt-3 text-3xl md:text-4xl font-black text-white">The client had clearer systems and cleaner handover notes</h2>
+                        <div class="mt-8 rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8">
+                            <ul class="space-y-4">
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>MFA reviewed and enforced</li>
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Admin access documented</li>
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Backup visibility improved</li>
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Asset register created</li>
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Network summary and support notes prepared</li>
+                                <li class="flex gap-3 text-white/75"><span class="mt-0.5 w-6 h-6 rounded-full bg-fire-500/15 text-fire-300 flex items-center justify-center flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>Simple onboarding/offboarding process created</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="deliverables" class="py-20 md:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl reveal">
+                    <p class="section-kicker">Example deliverables</p>
+                    <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">Clear artefacts the client can keep using</h2>
+                    <p class="mt-5 text-lg text-gray-600 leading-relaxed">The handover is designed for support continuity, decision making, cyber review follow-up, and future quoting.</p>
+                </div>
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Network scan summary</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A plain-English summary of key devices, unknowns, risks, and support dependencies.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Microsoft 365 access review</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A user and access summary that highlights accounts needing review or remediation.</p></article>
+                    <article class="case-card p-5 reveal d2"><h3 class="font-black text-navy-900">Admin access register</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A clear record of privileged access and recommended changes.</p></article>
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Backup visibility summary</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A practical record of backup scope, retention, alerts, and restore test notes.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Asset register</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A central list covering devices, key systems, vendors, warranties, and renewals.</p></article>
+                    <article class="case-card p-5 reveal d2"><h3 class="font-black text-navy-900">Remediation checklist</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A prioritised task list showing what was fixed, deferred, or needs approval.</p></article>
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Client estimate</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A scoped effort range that gives the client clear budget expectations.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Handover document</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A concise support reference covering systems, owners, access notes, and next steps.</p></article>
+                    <article class="case-card p-5 reveal d2"><h3 class="font-black text-navy-900">Next-step roadmap</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">A practical sequence for future security uplift and operational improvement.</p></article>
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Evidence pack</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Screenshots, configuration notes, and before-and-after details to support compliance or cyber review outcomes.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="risk-tool" class="py-20 md:py-28 bg-navy-50/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[.82fr_1.18fr] gap-10 lg:gap-16 items-start">
+                    <div class="reveal-left">
+                        <p class="section-kicker">Risk to remediation tool</p>
+                        <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">Select a risk and see the pathway</h2>
+                        <p class="mt-5 text-lg text-gray-600 leading-relaxed">This sample interaction shows how Essetech can translate a finding into a scoped fix, evidence, and effort estimate.</p>
+                        <div class="mt-8 flex flex-wrap gap-3" role="tablist" aria-label="Risk examples">
+                            <button class="risk-option active rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="mfa">MFA gap</button>
+                            <button class="risk-option rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="backup">Backup uncertainty</button>
+                            <button class="risk-option rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="admin">Admin access risk</button>
+                            <button class="risk-option rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="docs">Missing documentation</button>
+                            <button class="risk-option rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="devices">Unmanaged devices</button>
+                            <button class="risk-option rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-bold text-navy-700 transition-all" type="button" data-risk="offboarding">Offboarding gap</button>
+                        </div>
+                    </div>
+                    <div class="case-card p-6 sm:p-8 reveal-right" id="riskPanel" aria-live="polite">
+                        <p class="text-sm font-black text-fire-500" id="riskPanelTitle">MFA gap</p>
+                        <div class="mt-6 grid sm:grid-cols-2 gap-5">
+                            <div><p class="text-xs font-black text-navy-900 uppercase">Risk</p><p class="mt-2 text-sm text-gray-600 leading-relaxed" id="riskRisk">User accounts may be exposed if credentials are reused, phished, or leaked.</p></div>
+                            <div><p class="text-xs font-black text-navy-900 uppercase">Business impact</p><p class="mt-2 text-sm text-gray-600 leading-relaxed" id="riskImpact">Email compromise, invoice fraud, unauthorised mailbox access, data exposure.</p></div>
+                            <div><p class="text-xs font-black text-navy-900 uppercase">Fix</p><p class="mt-2 text-sm text-gray-600 leading-relaxed" id="riskFix">Review user MFA status, enforce MFA, protect admin accounts, and document exceptions.</p></div>
+                            <div><p class="text-xs font-black text-navy-900 uppercase">Evidence produced</p><p class="mt-2 text-sm text-gray-600 leading-relaxed" id="riskEvidence">MFA status summary, configuration screenshots, user list notes, remediation record.</p></div>
+                        </div>
+                        <div class="mt-6 rounded-2xl bg-navy-900 p-5 text-white">
+                            <p class="text-xs font-black text-white/50 uppercase">Estimated effort</p>
+                            <p class="mt-2 text-3xl font-black" id="riskEffort">2&ndash;5 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estimate" class="py-20 md:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+                    <div class="reveal-left">
+                        <p class="section-kicker">Example estimate preview</p>
+                        <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">A scoped clean-up the client can approve</h2>
+                        <p class="mt-5 text-lg text-gray-600 leading-relaxed">The estimate is practical and transparent: what is included, what is excluded, what evidence will be handed over, and the likely effort range.</p>
+                    </div>
+                    <div class="case-card p-6 sm:p-8 reveal-right">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
+                            <div>
+                                <p class="text-sm font-black text-fire-500">Microsoft 365 Security Clean-up</p>
+                                <h3 class="mt-2 text-3xl font-black text-navy-900">8&ndash;16 hours</h3>
+                                <p class="mt-2 text-gray-500">Indicative range: <span class="font-black text-navy-900">$1,500&ndash;$3,500 + GST</span></p>
+                            </div>
+                            <button id="estimateToggle" class="btn-shimmer inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full text-sm font-bold" type="button" aria-expanded="false">
+                                Reveal example estimate
+                            </button>
+                        </div>
+                        <div class="mt-8">
+                            <p class="text-xs font-black text-navy-900 uppercase">Scope includes</p>
+                            <div class="mt-4 grid sm:grid-cols-2 gap-3">
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">MFA review</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Admin account clean-up</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">User access review</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Mailbox security check</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Secure sharing review</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Inactive account review</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Baseline documentation</p>
+                                <p class="rounded-xl bg-navy-50 px-4 py-3 text-sm font-semibold text-navy-700">Handover notes</p>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-sm text-gray-500 leading-relaxed">Indicative only. Final scope depends on tenant size, licensing, risk, and required evidence.</p>
+                        <div id="estimateDetail" class="estimate-detail mt-8 border-t border-navy-100">
+                            <div class="pt-8 grid sm:grid-cols-2 gap-5">
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Project objective</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Improve Microsoft 365 access control, reduce common account risks, and leave the client with evidence and clear handover notes.</p></div>
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Included tasks</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">MFA checks, admin review, inactive account review, mailbox baseline, secure sharing review, and documentation.</p></div>
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Exclusions</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Licensing purchases, complex migrations, third-party security tooling, and unrelated endpoint remediation.</p></div>
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Estimated effort</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">8&ndash;16 hours depending on user count, licensing, tenant history, and evidence requirements.</p></div>
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Indicative range</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">$1,500&ndash;$3,500 + GST, subject to final scope approval.</p></div>
+                                <div><p class="text-xs font-black text-fire-500 uppercase">Handover deliverables</p><p class="mt-2 text-sm text-gray-600 leading-relaxed">Access review, configuration notes, before-and-after record, exceptions list, and recommended next steps.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cyber-partners" class="py-20 md:py-28 bg-navy-50/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl reveal">
+                    <p class="section-kicker">Why this matters for cyber partners</p>
+                    <h2 class="mt-3 text-3xl md:text-5xl font-black text-navy-900 leading-tight">Built to support cyber assessment outcomes</h2>
+                    <p class="mt-5 text-lg text-gray-600 leading-relaxed">Cyber assessments create the most value when the findings are remediated quickly, clearly, and with evidence. Essetech can help bridge the gap between advisory findings and completed technical actions.</p>
+                </div>
+                <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Post-assessment remediation</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Turns advisory findings into practical work items and completed actions.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Local South Australian support</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Clear communication for clients who want practical local assistance.</p></article>
+                    <article class="case-card p-5 reveal d2"><h3 class="font-black text-navy-900">Practical Microsoft 365 hardening</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Focuses on account control, access hygiene, secure sharing, and documentation.</p></article>
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Client-friendly estimates</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Gives the client plain scope, effort, cost range, and exclusions.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Evidence capture</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Keeps notes, screenshots where appropriate, and before-and-after details.</p></article>
+                    <article class="case-card p-5 reveal d2"><h3 class="font-black text-navy-900">Clean handover notes</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Leaves future support teams with a useful operational reference.</p></article>
+                    <article class="case-card p-5 reveal"><h3 class="font-black text-navy-900">Reduced friction after audits</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Helps clients move from concern to action without being overwhelmed.</p></article>
+                    <article class="case-card p-5 reveal d1"><h3 class="font-black text-navy-900">Ongoing support pathway</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">Creates a sensible path for maintenance, monitoring, and future improvements.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-28 bg-navy-900 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700"></div>
+            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+                <p class="section-kicker">Prepared by Essetech</p>
+                <h2 class="mt-3 text-4xl md:text-6xl font-black text-white leading-tight">From report findings to completed actions</h2>
+                <p class="mt-6 text-lg md:text-xl text-white/60 leading-relaxed max-w-3xl mx-auto">This de-identified case study shows how Essetech converts technical findings into scoped work, practical fixes, and client-ready documentation.</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://essetech.com.au/#contact" class="btn-shimmer inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-full text-base font-bold">
+                        Discuss a remediation workflow
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="/#services" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/5 transition-all duration-300">View Essetech services</a>
+                </div>
+                <p class="mt-8 text-sm text-white/40">Prepared by Essetech as a de-identified capability demo. No client-sensitive information displayed.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-navy-900 py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10 md:gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="/essetechlogo.png" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert" onerror="this.outerHTML='<span class=\'text-white text-xl font-black\'>Essetech</span>'">
+                    </div>
+                    <p class="text-white/40 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible so you can focus on what matters most.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase mb-4">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/managed-it-services-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Managed IT Services</a></li>
+                        <li><a href="/it-support-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">IT Support</a></li>
+                        <li><a href="/cybersecurity-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cybersecurity</a></li>
+                        <li><a href="/cloud-solutions-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cloud Solutions</a></li>
+                        <li><a href="/ai-implementation-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">AI Implementation</a></li>
+                        <li><a href="/web-design-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Web Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li><a href="mailto:support@essetech.com.au" class="text-sm text-white/40 hover:text-fire-400 transition-colors">support@essetech.com.au</a></li>
+                        <li><a href="tel:0404311791" class="text-sm text-white/40 hover:text-fire-400 transition-colors">0404 311 791</a></li>
+                        <li><span class="text-sm text-white/40">Adelaide, SA</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-white/30">&copy; 2026 Essetech. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/" class="text-xs text-white/30 hover:text-white/50 transition-colors">Privacy Policy</a>
+                    <a href="/" class="text-xs text-white/30 hover:text-white/50 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function(){
+        const header=document.getElementById('header');
+        if(header){
+            window.addEventListener('scroll',()=>header.classList.toggle('header-scrolled',window.scrollY>50),{passive:true});
+        }
+
+        const menuToggle=document.getElementById('menuToggle');
+        const menuClose=document.getElementById('menuClose');
+        const mobileMenu=document.getElementById('mobileMenu');
+        if(menuToggle&&menuClose&&mobileMenu){
+            menuToggle.addEventListener('click',()=>mobileMenu.classList.add('open'));
+            menuClose.addEventListener('click',()=>mobileMenu.classList.remove('open'));
+            document.querySelectorAll('.mobile-link').forEach(link=>link.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+        }
+
+        const mobileServices=document.getElementById('mobileServices');
+        if(mobileServices){
+            const btn=mobileServices.querySelector('.mobile-services-toggle');
+            if(btn){
+                btn.addEventListener('click',(event)=>{
+                    event.preventDefault();
+                    const open=mobileServices.classList.toggle('open');
+                    btn.setAttribute('aria-expanded',open?'true':'false');
+                });
+            }
+        }
+
+        const revealObserver=new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    const el=entry.target;
+                    const delays=['d1','d2','d3','d4'];
+                    let delay=0;
+                    delays.forEach(cls=>{if(el.classList.contains(cls))delay=parseInt(cls.replace('d',''),10)*90});
+                    setTimeout(()=>el.classList.add('visible'),delay);
+                    revealObserver.unobserve(el);
+                }
+            });
+        },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObserver.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+            anchor.addEventListener('click',function(event){
+                const selector=this.getAttribute('href');
+                const target=selector?document.querySelector(selector):null;
+                if(target){
+                    event.preventDefault();
+                    window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-88,behavior:'smooth'});
+                }
+            });
+        });
+
+        const progressBar=document.getElementById('scrollProgress');
+        if(progressBar){
+            window.addEventListener('scroll',()=>{
+                const scrollRange=document.documentElement.scrollHeight-window.innerHeight;
+                const percent=scrollRange>0?(window.scrollY/scrollRange)*100:0;
+                progressBar.style.width=percent+'%';
+            },{passive:true});
+        }
+
+        const cursorGlow=document.getElementById('cursorGlow');
+        if(cursorGlow&&!('ontouchstart' in window)){
+            document.addEventListener('mousemove',(event)=>{
+                cursorGlow.style.left=event.clientX+'px';
+                cursorGlow.style.top=event.clientY+'px';
+                cursorGlow.style.opacity='1';
+            });
+            document.addEventListener('mouseleave',()=>{cursorGlow.style.opacity='0'});
+        }
+
+        document.querySelectorAll('.finding-toggle').forEach(toggle=>{
+            toggle.addEventListener('click',()=>{
+                const item=toggle.closest('.finding-item');
+                if(!item)return;
+                const isOpen=item.classList.contains('active');
+                document.querySelectorAll('.finding-item').forEach(finding=>{
+                    finding.classList.remove('active');
+                    const btn=finding.querySelector('.finding-toggle');
+                    if(btn)btn.setAttribute('aria-expanded','false');
+                });
+                if(!isOpen){
+                    item.classList.add('active');
+                    toggle.setAttribute('aria-expanded','true');
+                }
+            });
+        });
+
+        const riskData={
+            mfa:{title:'MFA gap',risk:'User accounts may be exposed if credentials are reused, phished, or leaked.',impact:'Email compromise, invoice fraud, unauthorised mailbox access, data exposure.',fix:'Review user MFA status, enforce MFA, protect admin accounts, and document exceptions.',evidence:'MFA status summary, configuration screenshots, user list notes, remediation record.',effort:'2&ndash;5 hours'},
+            backup:{title:'Backup uncertainty',risk:'Backup coverage may not match the systems the business relies on day to day.',impact:'Slower recovery from accidental deletion, ransomware, device failure, or supplier issues.',fix:'Confirm backup scope, retention, alerting, and complete a sample restore test.',evidence:'Backup summary, restore notes, screenshots where appropriate, gap list.',effort:'3&ndash;8 hours'},
+            admin:{title:'Admin access risk',risk:'Privileged accounts may have broad access without recent review or clear ownership.',impact:'A compromised admin account could expose systems, mailboxes, files, and configuration.',fix:'Review administrators, remove stale access, separate daily and admin accounts, and record ownership.',evidence:'Admin register, removed-access summary, privileged account notes.',effort:'2&ndash;4 hours'},
+            docs:{title:'Missing documentation',risk:'Key systems, vendors, access, and support notes may be held in memory rather than a usable record.',impact:'Support is slower, handover is harder, and incident response depends too heavily on specific people.',fix:'Document core systems, support dependencies, access owners, and the agreed next-step roadmap.',evidence:'Handover document, support notes, vendor list, topology summary.',effort:'3&ndash;8 hours'},
+            devices:{title:'Unmanaged devices',risk:'Some devices may not be consistently patched, protected, backed up, or visible to support.',impact:'Harder to secure, replace, investigate, or recover devices during an outage or incident.',fix:'Build an endpoint list, confirm ownership, identify gaps, and prioritise monitoring or replacement.',evidence:'Asset register, device count, support status notes, remediation checklist.',effort:'4&ndash;10 hours'},
+            offboarding:{title:'Offboarding gap',risk:'Departed staff accounts or access may not be disabled consistently.',impact:'Old accounts can remain active and access control becomes harder to audit over time.',fix:'Create an onboarding/offboarding checklist, review inactive accounts, and document required approvals.',evidence:'Checklist, inactive account summary, access review notes, recommended process.',effort:'2&ndash;6 hours'}
+        };
+
+        const riskEls={
+            title:document.getElementById('riskPanelTitle'),
+            risk:document.getElementById('riskRisk'),
+            impact:document.getElementById('riskImpact'),
+            fix:document.getElementById('riskFix'),
+            evidence:document.getElementById('riskEvidence'),
+            effort:document.getElementById('riskEffort')
+        };
+
+        document.querySelectorAll('.risk-option').forEach(button=>{
+            button.addEventListener('click',()=>{
+                const key=button.dataset.risk;
+                const item=riskData[key];
+                if(!item)return;
+                document.querySelectorAll('.risk-option').forEach(option=>option.classList.remove('active'));
+                button.classList.add('active');
+                riskEls.title.textContent=item.title;
+                riskEls.risk.textContent=item.risk;
+                riskEls.impact.textContent=item.impact;
+                riskEls.fix.textContent=item.fix;
+                riskEls.evidence.textContent=item.evidence;
+                riskEls.effort.innerHTML=item.effort;
+            });
+        });
+
+        const estimateToggle=document.getElementById('estimateToggle');
+        const estimateDetail=document.getElementById('estimateDetail');
+        if(estimateToggle&&estimateDetail){
+            estimateToggle.addEventListener('click',()=>{
+                const open=estimateDetail.classList.toggle('open');
+                estimateToggle.setAttribute('aria-expanded',open?'true':'false');
+                estimateToggle.textContent=open?'Hide example estimate':'Reveal example estimate';
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
