@@ -120,6 +120,19 @@
         .estimate-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1),opacity .35s ease;opacity:0}
         .estimate-detail.open{max-height:900px;opacity:1}
         .demo-nav{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+        /* ===== animated-bg shared ===== */
+        .cs-mesh{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 180deg at 50% 50%,#111a33 0deg,#1e2b50 50deg,#2e4070 110deg,#E84425 175deg,#3e5590 235deg,#4E6AAF 295deg,#111a33 360deg);animation:meshRotate 16s linear infinite;opacity:0.42;z-index:1;pointer-events:none;will-change:transform}
+        @keyframes meshRotate{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.18)}100%{transform:rotate(360deg) scale(1)}}
+        .orb{position:absolute;border-radius:50%;filter:blur(70px);animation:orbFloat 7s ease-in-out infinite;pointer-events:none;will-change:transform,opacity;z-index:1}
+        .orb-1{width:460px;height:460px;background:rgba(232,68,37,0.34);top:8%;right:-6%;animation-delay:0s}
+        .orb-2{width:360px;height:360px;background:rgba(78,106,175,0.38);bottom:8%;left:-6%;animation-delay:-3s}
+        .orb-3{width:300px;height:300px;background:rgba(244,99,63,0.26);top:48%;left:38%;animation-delay:-5s}
+        .orb-4{width:280px;height:280px;background:rgba(78,106,175,0.3);top:22%;right:28%;animation-delay:-6.5s}
+        .orb-5{width:240px;height:240px;background:rgba(232,68,37,0.24);bottom:16%;right:10%;animation-delay:-2s}
+        @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);opacity:.82}50%{transform:translate(24px,-62px) scale(1.16);opacity:1}}
+        .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+        .particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,0.5);border-radius:50%;animation:particleRise linear infinite;box-shadow:0 0 6px rgba(255,255,255,0.45)}
+        @keyframes particleRise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-20vh) scale(1);opacity:0}}
         @media(prefers-reduced-motion:reduce){
             *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
             .reveal,.reveal-left,.reveal-right{opacity:1;transform:none}
@@ -216,6 +229,14 @@
 
     <main>
         <section class="hero-shell pt-32 pb-16 md:pt-40 md:pb-24">
+            <!-- animated-bg -->
+            <div class="cs-mesh"></div>
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+            <div class="orb orb-5"></div>
+            <div class="particles" id="particles"></div>
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-12 lg:gap-16 items-center">
                     <div class="reveal">
@@ -834,6 +855,27 @@
                 estimateToggle.setAttribute('aria-expanded',open?'true':'false');
                 estimateToggle.textContent=open?'Hide example estimate':'Reveal example estimate';
             });
+        }
+    })();
+    </script>
+    <script>
+    (function(){
+        var c=document.getElementById('particles');
+        if(!c)return;
+        var palette=['255,255,255','255,255,255','244,99,63','112,136,175','232,68,37'];
+        for(var i=0;i<60;i++){
+            var p=document.createElement('div');
+            p.className='particle';
+            var col=palette[Math.floor(Math.random()*palette.length)];
+            var op=(0.4+Math.random()*0.45).toFixed(2);
+            var size=(1.5+Math.random()*3.5).toFixed(1);
+            p.style.left=Math.random()*100+'%';
+            p.style.animationDuration=(7+Math.random()*11)+'s';
+            p.style.animationDelay=(-Math.random()*20)+'s';
+            p.style.width=p.style.height=size+'px';
+            p.style.background='rgba('+col+','+op+')';
+            p.style.boxShadow='0 0 '+(5+Math.random()*7).toFixed(0)+'px rgba('+col+','+op+')';
+            c.appendChild(p);
         }
     })();
     </script>
