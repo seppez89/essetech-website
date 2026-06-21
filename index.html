@@ -117,21 +117,31 @@
         /* Secondary button glow */
         .btn-outline:hover{background:rgba(255,255,255,0.08);box-shadow:0 0 30px rgba(78,106,175,0.2)}
 
-        /* ===== HERO FIGURINE DISPLAY CASE ===== */
-        .figurine-stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
-        .figurine-float{animation:figFloat 6s ease-in-out infinite;will-change:transform}
-        @keyframes figFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-        .figurine-case{position:relative;width:100%;max-width:430px;border-radius:30px;padding:14px;background:linear-gradient(160deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04));border:1px solid rgba(255,255,255,0.14);box-shadow:0 35px 90px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-        .figurine-case::after{content:'';position:absolute;inset:0;border-radius:30px;padding:1px;background:linear-gradient(140deg,rgba(232,68,37,0.55),rgba(78,106,175,0.45),transparent 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-        .figurine-screen{position:relative;border-radius:19px;overflow:hidden;background:radial-gradient(125% 105% at 50% 0%,#ffffff 0%,#f3f5fa 58%,#e6ebf4 100%)}
-        .figurine-screen video,.figurine-screen img{display:block;width:100%;height:auto}
-        .figurine-glow{position:absolute;left:-12%;right:-12%;top:-26%;height:55%;background:radial-gradient(60% 60% at 50% 100%,rgba(232,68,37,0.3),transparent 70%);filter:blur(26px);pointer-events:none;z-index:-1}
-        .figurine-badge{position:absolute;top:16px;left:16px;z-index:5;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(17,26,51,0.78);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:12px;font-weight:700;letter-spacing:.01em;color:#fff;white-space:nowrap}
-        .figurine-badge .dot{width:7px;height:7px;border-radius:50%;background:#E84425;box-shadow:0 0 0 4px rgba(232,68,37,0.22);animation:figPulse 2s ease-in-out infinite}
-        @keyframes figPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.3)}}
-        .figurine-caption{margin-top:20px;text-align:center}
-        @media (max-width:1023px){.figurine-stage{margin-top:44px}.figurine-case{max-width:340px}}
-        @media (prefers-reduced-motion:reduce){.figurine-float{animation:none}}
+        /* ===== ORBITING CAPABILITIES SPHERE (hero) ===== */
+        .orbit-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center}
+        .orbit-stage{position:relative;width:min(440px,86vw);aspect-ratio:1/1;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+        .orbit-stage.dragging{cursor:grabbing}
+        .orbit-stage::before{content:'';position:absolute;inset:8%;border-radius:50%;border:1px dashed rgba(255,255,255,0.10);pointer-events:none}
+        .orbit-stage::after{content:'';position:absolute;inset:24%;border-radius:50%;border:1px dashed rgba(255,255,255,0.06);pointer-events:none}
+        .orbit-glow{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(232,68,37,0.20),rgba(78,106,175,0.12) 46%,transparent 72%);filter:blur(10px);pointer-events:none}
+        /* Center logo core */
+        .orbit-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:100;width:34%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:26px;background:linear-gradient(160deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05));border:1px solid rgba(255,255,255,0.18);box-shadow:0 22px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);pointer-events:none}
+        .orbit-core img{width:78%;height:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.45))}
+        .orbit-core-ring{position:absolute;inset:-12%;border-radius:32px;border:1.5px solid rgba(232,68,37,0.40);animation:orbitCorePulse 3.4s ease-in-out infinite;pointer-events:none}
+        @keyframes orbitCorePulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:.12}}
+        /* Orbiting tiles */
+        .orbit-sphere{position:absolute;inset:0}
+        .orbit-item{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:rgba(17,26,51,0.62);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-shadow:0 10px 30px rgba(0,0,0,0.38);color:#fff;text-decoration:none;cursor:pointer;will-change:transform,opacity;transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
+        .orbit-item svg{width:28px;height:28px;stroke:rgba(255,255,255,0.88);transition:stroke .25s ease}
+        .orbit-item:hover{border-color:rgba(232,68,37,0.65);background:rgba(17,26,51,0.78);box-shadow:0 16px 44px rgba(232,68,37,0.32),0 0 0 3px rgba(232,68,37,0.14)}
+        .orbit-item:hover svg{stroke:#f4633f}
+        .orbit-item--photo{padding:0;overflow:hidden;border-color:rgba(232,68,37,0.45)}
+        .orbit-item--photo img{width:100%;height:100%;object-fit:cover}
+        .orbit-tip{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;font-size:11px;font-weight:700;letter-spacing:.02em;color:#fff;background:rgba(17,26,51,0.94);border:1px solid rgba(255,255,255,0.16);padding:4px 9px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+        .orbit-item:hover .orbit-tip{opacity:1;transform:translateX(-50%) translateY(0)}
+        .orbit-caption{margin-top:26px;text-align:center}
+        @media (max-width:1023px){.orbit-wrap{margin-top:40px}.orbit-item{width:54px;height:54px;margin:-27px;border-radius:15px}.orbit-item svg{width:24px;height:24px}}
+        @media (prefers-reduced-motion:reduce){.orbit-core-ring{animation:none}}
 
         /* Sticky header */
         .header-scrolled{background:rgba(17,26,51,0.85)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 4px 30px rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.05)}
@@ -490,18 +500,48 @@
                 </a>
             </div>
 
-            <!-- Figurine of Jonathon — spinning collectible -->
-            <div class="figurine-stage anim-fade-up d3">
-                <div class="figurine-case figurine-float">
-                    <div class="figurine-glow"></div>
-                    <div class="figurine-badge"><span class="dot"></span>The human behind Essetech</div>
-                    <div class="figurine-screen">
-                        <video src="figurine-spin.mp4" poster="figurine-jonathon.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Collectible figurine of Jonathon, founder of Essetech, slowly spinning 360 degrees"></video>
+            <!-- Orbiting capabilities sphere — drag to spin -->
+            <div class="orbit-wrap anim-fade-up d3">
+                <div class="orbit-stage" id="orbitStage" role="group" aria-label="Essetech capabilities orbiting the Essetech logo. Drag to rotate.">
+                    <div class="orbit-glow"></div>
+                    <div class="orbit-core">
+                        <span class="orbit-core-ring"></span>
+                        <img src="essetech-logo.png" alt="Essetech" width="116" height="116" decoding="async">
+                    </div>
+                    <div class="orbit-sphere" id="orbitSphere">
+                        <a class="orbit-item" href="managed-it-services-adelaide.html" aria-label="Managed IT Services">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>
+                            <span class="orbit-tip">Managed IT</span>
+                        </a>
+                        <a class="orbit-item" href="cybersecurity-adelaide.html" aria-label="Cybersecurity">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                            <span class="orbit-tip">Cybersecurity</span>
+                        </a>
+                        <a class="orbit-item" href="cloud-solutions-adelaide.html" aria-label="Cloud Solutions">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1.3A3.5 3.5 0 0117 18H7z"/></svg>
+                            <span class="orbit-tip">Cloud</span>
+                        </a>
+                        <a class="orbit-item" href="ai-growth-system-adelaide.html" aria-label="AI Growth System">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3z"/><path d="M5 16l.6 1.4L7 18l-1.4.6L5 20l-.6-1.4L3 18l1.4-.6L5 16z"/></svg>
+                            <span class="orbit-tip">AI Growth</span>
+                        </a>
+                        <a class="orbit-item" href="web-design-adelaide.html" aria-label="Web Design">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M9.5 13l-2 2 2 2"/><path d="M14.5 13l2 2-2 2"/></svg>
+                            <span class="orbit-tip">Web Design</span>
+                        </a>
+                        <a class="orbit-item" href="it-support-adelaide.html" aria-label="IT Support">
+                            <svg fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><line x1="5.6" y1="5.6" x2="9.5" y2="9.5"/><line x1="14.5" y1="14.5" x2="18.4" y2="18.4"/><line x1="14.5" y1="9.5" x2="18.4" y2="5.6"/><line x1="5.6" y1="18.4" x2="9.5" y2="14.5"/></svg>
+                            <span class="orbit-tip">IT Support</span>
+                        </a>
+                        <a class="orbit-item orbit-item--photo" href="#contact" aria-label="Meet Jonathon, founder of Essetech">
+                            <img src="figurine-jonathon.jpg" alt="Jonathon, founder of Essetech" decoding="async">
+                            <span class="orbit-tip">Meet Jonathon</span>
+                        </a>
                     </div>
                 </div>
-                <div class="figurine-caption">
-                    <p class="text-white font-bold text-lg sm:text-xl">Jonathon <span class="text-white/40 font-medium">&mdash; founder of Essetech</span></p>
-                    <p class="text-white/50 text-sm mt-1.5">Adelaide-based &middot; A real human, not a helpdesk ticket</p>
+                <div class="orbit-caption">
+                    <p class="text-white font-bold text-lg sm:text-xl">Everything Essetech does <span class="text-white/40 font-medium">&mdash; orbiting one team</span></p>
+                    <p class="text-white/50 text-sm mt-1.5">Drag to explore &middot; Adelaide-based, human&nbsp;+&nbsp;AI-powered IT</p>
                 </div>
             </div>
             </div><!-- /hero grid -->
@@ -1090,6 +1130,102 @@
             p.style.boxShadow='0 0 '+(5+Math.random()*7).toFixed(0)+'px rgba('+col+','+op+')';
             c.appendChild(p);
         }
+    })();
+
+    // ===== ORBITING CAPABILITIES SPHERE (hero) =====
+    (function(){
+        const stage=document.getElementById('orbitStage');
+        const sphere=document.getElementById('orbitSphere');
+        if(!stage||!sphere)return;
+        const items=Array.from(sphere.querySelectorAll('.orbit-item'));
+        const N=items.length;
+        if(!N)return;
+        const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+        // Fibonacci-sphere base positions (even distribution)
+        const base=items.map((el,i)=>{
+            const y=1-(i/(N-1||1))*2;
+            const r=Math.sqrt(Math.max(0,1-y*y));
+            const t=i*2.399963229728653;
+            return {x:Math.cos(t)*r,y:y,z:Math.sin(t)*r,el:el};
+        });
+
+        let R=stage.clientWidth*0.37;
+        const setR=()=>{R=stage.clientWidth*0.37;};
+        window.addEventListener('resize',setR);
+
+        const AUTO=reduce?0:0.0026;          // idle auto-rotation speed
+        let rotX=0.35, rotY=0;
+        let velX=0, velY=AUTO;
+        let dragging=false, hovering=false, inView=true;
+        let lastX=0, lastY=0, moved=0, raf=null;
+        const clamp=(v,a,b)=>v<a?a:(v>b?b:v);
+
+        function render(){
+            const cy=Math.cos(rotY),sy=Math.sin(rotY),cx=Math.cos(rotX),sx=Math.sin(rotX);
+            for(let i=0;i<base.length;i++){
+                const b=base[i];
+                const x1=b.x*cy+b.z*sy;
+                const z1=-b.x*sy+b.z*cy;
+                const y2=b.y*cx-z1*sx;
+                const z2=b.y*sx+z1*cx;
+                const depth=(z2+1)/2;            // 0 (back) .. 1 (front)
+                let sc=0.62+depth*0.50;
+                if(b.el._hover)sc*=1.18;
+                b.el.style.transform='translate('+(x1*R).toFixed(1)+'px,'+(y2*R).toFixed(1)+'px) scale('+sc.toFixed(3)+')';
+                b.el.style.opacity=(0.42+depth*0.58).toFixed(3);
+                b.el.style.zIndex=Math.round((z2+1)*100);
+                b.el.style.filter=z2<0?('blur('+(-z2*1.6).toFixed(2)+'px)'):'none';
+            }
+        }
+
+        function frame(){
+            if(inView||dragging){
+                if(!dragging){
+                    rotY+=velY; rotX=clamp(rotX+velX,-1.25,1.25);
+                    velX*=0.94;
+                    velY=hovering?velY*0.9:(velY*0.94+AUTO*0.06);
+                }
+                render();
+            }
+            if(reduce&&!dragging&&Math.abs(velX)<0.0003&&Math.abs(velY)<0.0003){raf=null;return;}
+            raf=requestAnimationFrame(frame);
+        }
+        const ensureLoop=()=>{if(!raf)raf=requestAnimationFrame(frame);};
+
+        stage.addEventListener('pointerdown',(e)=>{
+            dragging=true; moved=0; velX=0; velY=0;
+            lastX=e.clientX; lastY=e.clientY;
+            stage.classList.add('dragging');
+            if(stage.setPointerCapture){try{stage.setPointerCapture(e.pointerId);}catch(_){}}
+            ensureLoop();
+        });
+        stage.addEventListener('pointermove',(e)=>{
+            if(!dragging)return;
+            const dx=e.clientX-lastX, dy=e.clientY-lastY;
+            lastX=e.clientX; lastY=e.clientY;
+            moved+=Math.abs(dx)+Math.abs(dy);
+            rotY+=dx*0.006; rotX=clamp(rotX+dy*0.006,-1.25,1.25);
+            velY=dx*0.006; velX=dy*0.006;
+            render();
+        });
+        function endDrag(){ if(!dragging)return; dragging=false; stage.classList.remove('dragging'); ensureLoop(); }
+        stage.addEventListener('pointerup',endDrag);
+        stage.addEventListener('pointercancel',endDrag);
+
+        items.forEach(el=>{
+            el.addEventListener('mouseenter',()=>{el._hover=true; hovering=true; ensureLoop();});
+            el.addEventListener('mouseleave',()=>{el._hover=false; hovering=items.some(i=>i._hover);});
+            el.addEventListener('click',(e)=>{ if(moved>8)e.preventDefault(); });   // suppress click after a drag
+        });
+
+        if('IntersectionObserver' in window){
+            new IntersectionObserver((ents)=>{ents.forEach(en=>{inView=en.isIntersecting; if(inView)ensureLoop();});},{threshold:0.04}).observe(stage);
+        }
+
+        setR();
+        render();
+        if(!reduce)ensureLoop();
     })();
 
     // Header scroll
