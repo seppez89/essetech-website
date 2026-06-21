@@ -143,6 +143,19 @@
         @media (max-width:1023px){.orbit-wrap{margin-top:40px}.orbit-item{width:54px;height:54px;margin:-27px;border-radius:15px}.orbit-item svg{width:24px;height:24px}}
         @media (prefers-reduced-motion:reduce){.orbit-core-ring{animation:none}}
 
+        /* ===== FOUNDER FIGURINE CARD (floating collectible) ===== */
+        .founder-portrait{position:relative}
+        .founder-fig-card{position:absolute;right:-14px;bottom:-26px;width:40%;max-width:180px;z-index:3;border-radius:22px;padding:9px;background:linear-gradient(160deg,#ffffff,#eef1f7);border:1px solid rgba(17,26,51,0.08);box-shadow:0 26px 55px rgba(17,26,51,0.24),inset 0 1px 0 rgba(255,255,255,0.9);animation:figFloat 6s ease-in-out infinite;will-change:transform}
+        .founder-fig-card::after{content:'';position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(140deg,rgba(232,68,37,0.6),rgba(78,106,175,0.45),transparent 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+        .founder-fig-screen{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(125% 105% at 50% 0%,#ffffff 0%,#f3f5fa 60%,#e6ebf4 100%)}
+        .founder-fig-screen video{display:block;width:100%;height:auto}
+        .founder-fig-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);z-index:4;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(17,26,51,0.92);border:1px solid rgba(255,255,255,0.14);font-size:11px;font-weight:700;letter-spacing:.01em;color:#fff;white-space:nowrap}
+        .founder-fig-tag .dot{width:6px;height:6px;border-radius:50%;background:#E84425;box-shadow:0 0 0 4px rgba(232,68,37,0.22);animation:figPulse 2s ease-in-out infinite}
+        @keyframes figFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        @keyframes figPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.3)}}
+        @media (max-width:640px){.founder-fig-card{width:42%;right:-6px;bottom:-18px}}
+        @media (prefers-reduced-motion:reduce){.founder-fig-card{animation:none}}
+
         /* Sticky header */
         .header-scrolled{background:rgba(17,26,51,0.85)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 4px 30px rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.05)}
 
@@ -986,11 +999,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="reveal-left">
-                    <div class="photo-frame rounded-2xl overflow-hidden">
-                        <picture>
-                            <source type="image/webp" srcset="jonathon-sm.webp 600w, jonathon.webp 1200w" sizes="(max-width:768px) 100vw, 600px">
-                            <img src="jonathon.jpg" srcset="jonathon-sm.jpg 600w, jonathon.jpg 1200w" sizes="(max-width:768px) 100vw, 600px" alt="Jonathon — Founder of Essetech IT Consulting Adelaide" class="rounded-2xl w-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700" width="1200" height="801" loading="lazy" decoding="async">
-                        </picture>
+                    <div class="founder-portrait">
+                        <div class="photo-frame rounded-2xl overflow-hidden">
+                            <picture>
+                                <source type="image/webp" srcset="jonathon-sm.webp 600w, jonathon.webp 1200w" sizes="(max-width:768px) 100vw, 600px">
+                                <img src="jonathon.jpg" srcset="jonathon-sm.jpg 600w, jonathon.jpg 1200w" sizes="(max-width:768px) 100vw, 600px" alt="Jonathon — Founder of Essetech IT Consulting Adelaide" class="rounded-2xl w-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700" width="1200" height="801" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <!-- Spinning collectible figurine of Jonathon -->
+                        <div class="founder-fig-card">
+                            <span class="founder-fig-tag"><span class="dot"></span>Me, collectible edition</span>
+                            <div class="founder-fig-screen">
+                                <video src="figurine-spin.mp4" poster="figurine-jonathon.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Collectible figurine of Jonathon, founder of Essetech, slowly spinning 360 degrees"></video>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="reveal-right">
