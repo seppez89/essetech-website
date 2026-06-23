@@ -227,8 +227,28 @@
         .spark{position:absolute;border-radius:50%;will-change:transform,opacity}
         @keyframes sparkFloat{0%{transform:translateY(0) translateX(0) scale(1);opacity:0}10%{opacity:1}45%{transform:translateY(-92px) translateX(12px) scale(.8)}78%{opacity:.85}100%{transform:translateY(-188px) translateX(-8px) scale(.2);opacity:0}}
 
+        /* ===== VIBRANT LIVING SERVICE CARDS ===== */
+        .svc-float:nth-child(1) .svc-card{--c1:78,106,175;--c2:112,136,195}
+        .svc-float:nth-child(2) .svc-card{--c1:232,68,37;--c2:244,99,63}
+        .svc-float:nth-child(3) .svc-card{--c1:232,68,37;--c2:78,106,175}
+        .svc-card .card-inner{position:relative;z-index:2}
+        .svc-fx{position:absolute;inset:0;border-radius:16px;overflow:hidden;z-index:0;pointer-events:none}
+        .svc-aurora,.svc-aurora2{position:absolute;border-radius:50%;will-change:transform}
+        .svc-aurora{width:170%;height:130%;left:-35%;top:-45%;background:radial-gradient(circle at 50% 50%,rgba(var(--c1),.28),rgba(var(--c2),.12) 46%,transparent 70%);filter:blur(22px);animation:svcAurora 9s ease-in-out infinite}
+        .svc-aurora2{width:150%;height:120%;right:-35%;bottom:-45%;background:radial-gradient(circle at 50% 50%,rgba(var(--c2),.24),transparent 64%);filter:blur(24px);animation:svcAurora2 12s ease-in-out infinite}
+        .svc-float:nth-child(2) .svc-aurora{animation-delay:-3s}
+        .svc-float:nth-child(3) .svc-aurora{animation-delay:-6s}
+        @keyframes svcAurora{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(12%,9%) scale(1.14)}66%{transform:translate(-10%,5%) scale(1.06)}}
+        @keyframes svcAurora2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-14%,-10%) scale(1.18)}}
+        .svc-card .svc-icon.icon-float{animation:iconLive 4.5s ease-in-out infinite}
+        @keyframes iconLive{0%,100%{transform:translateY(0) rotate(0deg);box-shadow:0 8px 22px rgba(var(--c1),.32)}50%{transform:translateY(-7px) rotate(3deg);box-shadow:0 16px 36px rgba(var(--c1),.58)}}
+        .svc-card .accent-line{transform:scaleX(1);background-size:200% 100%;animation:gradientShift 3.5s ease infinite}
+        .svc-card:hover .accent-line{height:4px}
+        #services h2 .gradient-text{background-size:220% auto;animation:gradientShift 4.5s ease infinite}
+
         @media (prefers-reduced-motion:reduce){
             .svc-float,.svc-float::before,.spark{animation:none!important}
+            .svc-aurora,.svc-aurora2,.svc-icon,.service-card-glow::before,.svc-card .accent-line,#services h2 .gradient-text{animation:none!important}
             .svc-card ul li{opacity:1;transform:none;transition:none}
             .svc-card:hover .svc-icon svg{animation:none}
             .how-line-fill{transform:scaleX(1);transition:none}
@@ -327,7 +347,7 @@
 
         /* ===== SERVICE CARD ANIMATED BORDER ===== */
         .service-card-glow{position:relative;overflow:hidden}
-        .service-card-glow::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:conic-gradient(from var(--angle,0deg),transparent 60%,#E84425 78%,#4E6AAF 88%,transparent 95%);border-radius:inherit;z-index:-1;opacity:0;transition:opacity 0.5s ease}
+        .service-card-glow::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:conic-gradient(from var(--angle,0deg),transparent 55%,#E84425 74%,#4E6AAF 86%,transparent 96%);border-radius:inherit;z-index:-1;opacity:.55;transition:opacity 0.5s ease;animation:rotateBorder 7s linear infinite}
         .service-card-glow:hover::before,.service-card-glow:active::before{opacity:1;animation:rotateBorder 3s linear infinite}
         .service-card-glow::after{content:'';position:absolute;inset:2px;background:white;border-radius:inherit;z-index:-1}
         @keyframes rotateBorder{0%{--angle:0deg}100%{--angle:360deg}}
@@ -771,6 +791,7 @@
                 <!-- Card 1 -->
                 <div class="svc-float">
                 <div class="tilt-card reveal service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                    <div class="svc-fx"><i class="svc-aurora"></i><i class="svc-aurora2"></i></div>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 flex items-center justify-center mb-6 shadow-lg shadow-navy-500/20">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
@@ -792,6 +813,7 @@
                 <!-- Card 2 -->
                 <div class="svc-float">
                 <div class="tilt-card reveal d2 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                    <div class="svc-fx"><i class="svc-aurora"></i><i class="svc-aurora2"></i></div>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/20" style="animation-delay:-2s">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -813,6 +835,7 @@
                 <!-- Card 3 -->
                 <div class="svc-float">
                 <div class="tilt-card reveal d4 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                    <div class="svc-fx"><i class="svc-aurora"></i><i class="svc-aurora2"></i></div>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/15" style="animation-delay:-4s">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
