@@ -167,6 +167,45 @@
         @media (max-width:1199px){.hero-fig{display:none}}
         @media (prefers-reduced-motion:reduce){.hero-fig-case{animation:none}}
 
+        /* ===== SERVICES — engaging card motion ===== */
+        .svc-icon svg{transition:transform .3s ease}
+        .svc-card:hover .svc-icon svg{animation:iconPop .55s cubic-bezier(.34,1.56,.64,1)}
+        @keyframes iconPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.22) rotate(-9deg)}65%{transform:scale(.92) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+        .svc-card ul li{opacity:0;transform:translateX(-10px);transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+        .svc-card.visible ul li{opacity:1;transform:none}
+        .svc-card.visible ul li:nth-child(1){transition-delay:.30s}
+        .svc-card.visible ul li:nth-child(2){transition-delay:.42s}
+        .svc-card.visible ul li:nth-child(3){transition-delay:.54s}
+        .svc-card.visible ul li:nth-child(4){transition-delay:.66s}
+        .svc-card ul li svg{transition:transform .25s ease}
+        .svc-card ul li:hover svg{transform:scale(1.35)}
+
+        /* ===== HOW IT WORKS — sequenced dopamine reveal ===== */
+        .how-line{overflow:visible!important}
+        .how-line-track{position:absolute;inset:0;border-radius:2px;background:rgba(78,106,175,.2)}
+        .how-line-fill{position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#4E6AAF,#E84425,#4E6AAF);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.22,1,.36,1) .15s;box-shadow:0 0 14px rgba(232,68,37,.55)}
+        .howSteps.go .how-line-fill{transform:scaleX(1)}
+        .how-line-pulse{position:absolute;top:50%;left:0;width:13px;height:13px;margin-top:-6.5px;border-radius:50%;background:#fff;transform:translateX(-50%);box-shadow:0 0 10px 3px rgba(232,68,37,.85),0 0 20px 6px rgba(78,106,175,.5);opacity:0}
+        .howSteps.go .how-line-pulse{animation:linePulse 2.8s cubic-bezier(.45,0,.55,1) 1.3s infinite}
+        @keyframes linePulse{0%{left:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+        .step-circle{will-change:transform}
+        .step-circle::after{content:'';position:absolute;inset:0;border-radius:inherit;opacity:0;box-shadow:0 0 0 0 rgba(232,68,37,.45);pointer-events:none}
+        .reveal.visible .step-circle{animation:stepBounce .75s cubic-bezier(.34,1.56,.64,1)}
+        .reveal.visible .step-circle::after{animation:stepRing 1.1s ease-out .1s}
+        @keyframes stepBounce{0%{transform:scale(.15);opacity:.2}55%{transform:scale(1.2)}75%{transform:scale(.94)}100%{transform:scale(1);opacity:1}}
+        @keyframes stepRing{0%{opacity:.7;box-shadow:0 0 0 0 rgba(232,68,37,.5)}100%{opacity:0;box-shadow:0 0 0 18px rgba(232,68,37,0)}}
+        .step-sparkles{position:absolute;top:32px;left:50%;width:0;height:0;pointer-events:none;z-index:20}
+        .step-sparkles i{position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;opacity:0;box-shadow:0 0 9px 1px rgba(232,68,37,.45)}
+        .reveal.visible .step-sparkles i{animation:sparkleBurst 1.05s cubic-bezier(.22,1,.36,1) .5s}
+        @keyframes sparkleBurst{0%{opacity:0;transform:translate(0,0) scale(.2)}20%{opacity:1;transform:translate(calc(var(--tx)*.5),calc(var(--ty)*.5)) scale(1.25)}100%{opacity:0;transform:translate(calc(var(--tx)*1.5),calc(var(--ty)*1.5)) scale(.6)}}
+        @media (prefers-reduced-motion:reduce){
+            .svc-card ul li{opacity:1;transform:none;transition:none}
+            .svc-card:hover .svc-icon svg{animation:none}
+            .how-line-fill{transform:scaleX(1);transition:none}
+            .how-line-pulse{display:none}
+            .reveal.visible .step-circle,.reveal.visible .step-circle::after,.reveal.visible .step-sparkles i{animation:none}
+        }
+
         /* Sticky header */
         .header-scrolled{background:rgba(17,26,51,0.85)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 4px 30px rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.05)}
 
@@ -686,9 +725,9 @@
 
             <div class="grid md:grid-cols-3 gap-8" id="serviceCards">
                 <!-- Card 1 -->
-                <div class="tilt-card reveal service-card-glow bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                <div class="tilt-card reveal service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
-                        <div class="icon-float w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 flex items-center justify-center mb-6 shadow-lg shadow-navy-500/20">
+                        <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 flex items-center justify-center mb-6 shadow-lg shadow-navy-500/20">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-navy-800 mb-3">Managed IT Services</h3>
@@ -705,9 +744,9 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="tilt-card reveal d2 service-card-glow bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                <div class="tilt-card reveal d2 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
-                        <div class="icon-float w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/20" style="animation-delay:-2s">
+                        <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/20" style="animation-delay:-2s">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-navy-800 mb-3">IT Support Services</h3>
@@ -724,9 +763,9 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="tilt-card reveal d4 service-card-glow bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
+                <div class="tilt-card reveal d4 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
-                        <div class="icon-float w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/15" style="animation-delay:-4s">
+                        <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/15" style="animation-delay:-4s">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-navy-800 mb-3">AI Implementation & Web Design</h3>
@@ -759,28 +798,38 @@
                 <p class="mt-5 text-lg text-gray-500">No complicated onboarding. No confusing contracts. Just a clear path to better IT.</p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-8 md:gap-6 relative">
-                <div class="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-navy-300 via-fire-400 to-navy-300" style="background-size:200% 100%;animation:gradientShift 3s ease infinite"></div>
+            <div class="grid md:grid-cols-4 gap-8 md:gap-6 relative howSteps" id="howSteps">
+                <div class="how-line hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5">
+                    <div class="how-line-track"></div>
+                    <div class="how-line-fill"></div>
+                    <div class="how-line-pulse"></div>
                 </div>
 
                 <div class="reveal text-center relative">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-navy-500/20 hover:scale-110 transition-transform">1</div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 step-circle text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-navy-500/20 hover:scale-110 transition-transform">1</div>
                     <h3 class="text-lg font-bold text-navy-800 mb-2">We Assess</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">We review your current IT setup and identify what's working and what isn't.</p>
                 </div>
                 <div class="reveal d2 text-center relative">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-fire-500/20 hover:scale-110 transition-transform">2</div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 step-circle text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-fire-500/20 hover:scale-110 transition-transform">2</div>
                     <h3 class="text-lg font-bold text-navy-800 mb-2">We Identify</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">We uncover risks, gaps, and opportunities to make your tech more reliable.</p>
                 </div>
                 <div class="reveal d4 text-center relative">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-navy-500/15 hover:scale-110 transition-transform">3</div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 step-circle text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-navy-500/15 hover:scale-110 transition-transform">3</div>
                     <h3 class="text-lg font-bold text-navy-800 mb-2">We Support & Optimise</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">We manage, secure, and continuously improve your systems proactively.</p>
                 </div>
                 <div class="reveal d6 text-center relative">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-500 to-fire-400 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-fire-500/20 hover:scale-110 transition-transform">4</div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-500 to-fire-400 step-circle text-white font-black text-xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-xl shadow-fire-500/20 hover:scale-110 transition-transform">4</div>
+                    <span class="step-sparkles" aria-hidden="true">
+                        <i style="--tx:-28px;--ty:-24px;background:#E84425"></i>
+                        <i style="--tx:26px;--ty:-28px;background:#4E6AAF"></i>
+                        <i style="--tx:32px;--ty:10px;background:#f4633f"></i>
+                        <i style="--tx:-32px;--ty:8px;background:#7088c3"></i>
+                        <i style="--tx:-10px;--ty:-36px;background:#ffffff"></i>
+                        <i style="--tx:14px;--ty:32px;background:#E84425"></i>
+                    </span>
                     <h3 class="text-lg font-bold text-navy-800 mb-2">You Focus on Business</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">With technology handled, you get back to doing what you do best.</p>
                 </div>
@@ -1265,6 +1314,16 @@
         setR();
         render();
         if(!reduce)ensureLoop();
+    })();
+
+    // ===== HOW IT WORKS — line draw + traveling pulse on scroll-in =====
+    (function(){
+        const grid=document.getElementById('howSteps');
+        if(!grid||!('IntersectionObserver' in window))return;
+        const io=new IntersectionObserver((ents)=>{
+            ents.forEach(e=>{ if(e.isIntersecting){ grid.classList.add('go'); io.disconnect(); } });
+        },{threshold:0.25});
+        io.observe(grid);
     })();
 
     // Header scroll
