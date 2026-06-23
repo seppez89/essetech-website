@@ -198,12 +198,43 @@
         .step-sparkles i{position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;opacity:0;box-shadow:0 0 9px 1px rgba(232,68,37,.45)}
         .reveal.visible .step-sparkles i{animation:sparkleBurst 1.05s cubic-bezier(.22,1,.36,1) .5s}
         @keyframes sparkleBurst{0%{opacity:0;transform:translate(0,0) scale(.2)}20%{opacity:1;transform:translate(calc(var(--tx)*.5),calc(var(--ty)*.5)) scale(1.25)}100%{opacity:0;transform:translate(calc(var(--tx)*1.5),calc(var(--ty)*1.5)) scale(.6)}}
+        /* ===== SPACEY FLOATING DECOR ===== */
+        .space-decor{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+        .space-orb{position:absolute;border-radius:50%;filter:blur(44px);opacity:.4;will-change:transform}
+        .space-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(78,106,175,.16);will-change:transform}
+        .space-ring::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#E84425;box-shadow:0 0 9px 2px rgba(232,68,37,.6);top:-4px;left:50%;margin-left:-4px}
+        .space-cross{position:absolute;width:14px;height:14px;color:rgba(232,68,37,.5);will-change:transform,opacity;animation:spaceTwinkle 4.5s ease-in-out infinite}
+        .space-cross::before,.space-cross::after{content:'';position:absolute;background:currentColor;border-radius:2px}
+        .space-cross::before{left:50%;top:0;width:2px;height:100%;transform:translateX(-50%)}
+        .space-cross::after{top:50%;left:0;height:2px;width:100%;transform:translateY(-50%)}
+        .space-dots span{position:absolute;border-radius:50%;will-change:transform,opacity}
+        @keyframes spaceDriftA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34px,-30px) scale(1.08)}}
+        @keyframes spaceDriftB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-38px,26px) scale(1.12)}}
+        @keyframes spaceSpinFloat{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-22px) rotate(180deg)}100%{transform:translateY(0) rotate(360deg)}}
+        @keyframes spaceTwinkle{0%,100%{opacity:.2;transform:scale(.65) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
+        @keyframes spaceFloatUp{0%{transform:translateY(12px) translateX(0);opacity:0}12%{opacity:1}50%{transform:translateY(-20px) translateX(10px)}88%{opacity:1}100%{transform:translateY(-46px) translateX(-8px);opacity:0}}
+
+        /* ===== SERVICES — floaty cards, glow halos, embers ===== */
+        .svc-float{position:relative;z-index:1;height:100%;animation:svcBob 7s ease-in-out infinite;will-change:transform}
+        .svc-float:nth-child(2){animation-delay:-2.3s}
+        .svc-float:nth-child(3){animation-delay:-4.6s}
+        .svc-float>.svc-card{height:100%}
+        @keyframes svcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        .svc-float::before{content:'';position:absolute;inset:-24px;border-radius:34px;z-index:-1;background:radial-gradient(60% 54% at 50% 45%,rgba(232,68,37,.28),rgba(78,106,175,.16) 55%,transparent 78%);filter:blur(20px);opacity:.6;animation:svcGlow 6.5s ease-in-out infinite}
+        .svc-float:nth-child(2)::before{animation-delay:-2s}
+        .svc-float:nth-child(3)::before{animation-delay:-4s}
+        @keyframes svcGlow{0%,100%{opacity:.45;transform:scale(.95)}50%{opacity:.95;transform:scale(1.06)}}
+        .spark{position:absolute;border-radius:50%;will-change:transform,opacity}
+        @keyframes sparkFloat{0%{transform:translateY(0) translateX(0) scale(1);opacity:0}10%{opacity:1}45%{transform:translateY(-92px) translateX(12px) scale(.8)}78%{opacity:.85}100%{transform:translateY(-188px) translateX(-8px) scale(.2);opacity:0}}
+
         @media (prefers-reduced-motion:reduce){
+            .svc-float,.svc-float::before,.spark{animation:none!important}
             .svc-card ul li{opacity:1;transform:none;transition:none}
             .svc-card:hover .svc-icon svg{animation:none}
             .how-line-fill{transform:scaleX(1);transition:none}
             .how-line-pulse{display:none}
             .reveal.visible .step-circle,.reveal.visible .step-circle::after,.reveal.visible .step-sparkles i{animation:none}
+            .space-orb,.space-ring,.space-cross,.space-dots span{animation:none!important}
         }
 
         /* Sticky header */
@@ -714,7 +745,20 @@
     <section id="services" class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-navy-100/40 rounded-full blur-[120px] -mt-60 pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <!-- Spacey floating decor -->
+        <div class="space-decor" aria-hidden="true">
+            <div class="space-orb" style="width:230px;height:230px;left:-70px;top:18%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.5),transparent 70%);animation:spaceDriftA 13s ease-in-out infinite"></div>
+            <div class="space-orb" style="width:300px;height:300px;right:-90px;bottom:-40px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.5),transparent 70%);animation:spaceDriftB 17s ease-in-out infinite"></div>
+            <div class="space-ring" style="width:120px;height:120px;left:5%;bottom:12%;animation:spaceSpinFloat 19s linear infinite"></div>
+            <div class="space-ring" style="width:66px;height:66px;right:8%;top:14%;animation:spaceSpinFloat 14s linear infinite reverse"></div>
+            <div class="space-cross" style="left:16%;top:26%"></div>
+            <div class="space-cross" style="right:20%;bottom:28%;animation-delay:-2s"></div>
+            <div class="space-cross" style="left:48%;top:8%;animation-delay:-1.2s"></div>
+            <div class="space-dots" data-dots="16"></div>
+            <div class="spark-field" data-sparks="24"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="inline-block text-fire-500 font-bold text-sm uppercase tracking-widest mb-4">What We Do</span>
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-navy-800 leading-tight">
@@ -725,6 +769,7 @@
 
             <div class="grid md:grid-cols-3 gap-8" id="serviceCards">
                 <!-- Card 1 -->
+                <div class="svc-float">
                 <div class="tilt-card reveal service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-400 to-navy-600 flex items-center justify-center mb-6 shadow-lg shadow-navy-500/20">
@@ -742,8 +787,10 @@
                     </div>
                     <div class="accent-line bg-gradient-to-r from-navy-500 to-navy-400"></div>
                 </div>
+                </div>
 
                 <!-- Card 2 -->
+                <div class="svc-float">
                 <div class="tilt-card reveal d2 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-fire-400 to-fire-600 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/20" style="animation-delay:-2s">
@@ -761,8 +808,10 @@
                     </div>
                     <div class="accent-line bg-gradient-to-r from-fire-500 to-fire-400"></div>
                 </div>
+                </div>
 
                 <!-- Card 3 -->
+                <div class="svc-float">
                 <div class="tilt-card reveal d4 service-card-glow svc-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm relative group cursor-default" data-tilt>
                     <div class="card-inner relative z-10">
                         <div class="icon-float svc-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-500 to-fire-500 flex items-center justify-center mb-6 shadow-lg shadow-fire-500/15" style="animation-delay:-4s">
@@ -783,6 +832,7 @@
                     </div>
                     <div class="accent-line bg-gradient-to-r from-navy-500 to-fire-500"></div>
                 </div>
+                </div>
             </div>
         </div>
     </section>
@@ -791,7 +841,19 @@
     <section id="how-it-works" class="py-24 md:py-32 bg-white relative overflow-hidden">
         <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-fire-100/50 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <!-- Spacey floating decor -->
+        <div class="space-decor" aria-hidden="true">
+            <div class="space-orb" style="width:260px;height:260px;left:-80px;bottom:-30px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.5),transparent 70%);animation:spaceDriftB 16s ease-in-out infinite"></div>
+            <div class="space-orb" style="width:210px;height:210px;right:-60px;top:6%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.45),transparent 70%);animation:spaceDriftA 14s ease-in-out infinite"></div>
+            <div class="space-ring" style="width:90px;height:90px;left:9%;top:18%;animation:spaceSpinFloat 17s linear infinite"></div>
+            <div class="space-ring" style="width:54px;height:54px;right:13%;bottom:16%;animation:spaceSpinFloat 12s linear infinite reverse"></div>
+            <div class="space-cross" style="left:24%;bottom:20%"></div>
+            <div class="space-cross" style="right:26%;top:22%;animation-delay:-1.6s"></div>
+            <div class="space-cross" style="left:62%;bottom:30%;animation-delay:-2.4s"></div>
+            <div class="space-dots" data-dots="16"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="inline-block text-fire-500 font-bold text-sm uppercase tracking-widest mb-4">How It Works</span>
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-navy-800 leading-tight">Getting started is <span class="gradient-text">simple</span></h2>
@@ -1324,6 +1386,53 @@
             ents.forEach(e=>{ if(e.isIntersecting){ grid.classList.add('go'); io.disconnect(); } });
         },{threshold:0.25});
         io.observe(grid);
+    })();
+
+    // ===== SPACEY FLOATING DOTS (services + how it works) =====
+    (function(){
+        const fields=document.querySelectorAll('.space-dots');
+        if(!fields.length||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+        const cols=['232,68,37','78,106,175','244,99,63','112,136,195'];
+        fields.forEach(f=>{
+            const n=parseInt(f.dataset.dots||'14',10);
+            for(let i=0;i<n;i++){
+                const s=document.createElement('span');
+                const c=cols[Math.floor(Math.random()*cols.length)];
+                const op=(0.45+Math.random()*0.4).toFixed(2);
+                const sz=(2+Math.random()*3.2).toFixed(1);
+                s.style.left=Math.random()*100+'%';
+                s.style.top=Math.random()*100+'%';
+                s.style.width=s.style.height=sz+'px';
+                s.style.background='rgba('+c+','+op+')';
+                s.style.boxShadow='0 0 '+(4+Math.random()*6).toFixed(0)+'px rgba('+c+','+op+')';
+                s.style.animation='spaceFloatUp '+(7+Math.random()*8).toFixed(1)+'s ease-in-out '+(-Math.random()*12).toFixed(1)+'s infinite';
+                f.appendChild(s);
+            }
+        });
+    })();
+
+    // ===== EMBER SPARKS (services) =====
+    (function(){
+        const fields=document.querySelectorAll('.spark-field');
+        if(!fields.length||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+        const cols=['232,68,37','244,99,63','255,150,90','255,200,120'];
+        fields.forEach(f=>{
+            const n=parseInt(f.dataset.sparks||'18',10);
+            for(let i=0;i<n;i++){
+                const s=document.createElement('span');
+                s.className='spark';
+                const c=cols[Math.floor(Math.random()*cols.length)];
+                const op=(0.6+Math.random()*0.4).toFixed(2);
+                const sz=(2+Math.random()*2.6).toFixed(1);
+                s.style.left=Math.random()*100+'%';
+                s.style.top=(55+Math.random()*45)+'%';
+                s.style.width=s.style.height=sz+'px';
+                s.style.background='rgba('+c+','+op+')';
+                s.style.boxShadow='0 0 '+(5+Math.random()*7).toFixed(0)+'px rgba('+c+','+op+')';
+                s.style.animation='sparkFloat '+(5+Math.random()*5).toFixed(1)+'s ease-in '+(-Math.random()*9).toFixed(1)+'s infinite';
+                f.appendChild(s);
+            }
+        });
     })();
 
     // Header scroll
