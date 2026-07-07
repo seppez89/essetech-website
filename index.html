@@ -391,17 +391,22 @@
             .founder-avatar{width:44px;height:44px}
         }
 
-        /* ===== PARTNERSHIP ANNOUNCEMENT (slim ticker above nav) ===== */
-        .announce-bar{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 16px;background:rgba(17,26,51,0.92);border-bottom:1px solid rgba(232,68,37,0.25);text-decoration:none;transition:background .3s ease}
-        .announce-bar:hover{background:rgba(30,43,80,0.95)}
-        .announce-dot{flex-shrink:0;width:7px;height:7px;border-radius:50%;background:#E84425;box-shadow:0 0 0 0 rgba(232,68,37,.7);animation:announcePulse 2.2s ease-in-out infinite}
-        @keyframes announcePulse{0%,100%{box-shadow:0 0 0 0 rgba(232,68,37,.55)}50%{box-shadow:0 0 0 6px rgba(232,68,37,0)}}
-        .announce-bar-text{font-size:.8rem;font-weight:500;color:rgba(255,255,255,0.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .announce-bar-text strong{color:#fff;font-weight:700}
-        .announce-bar-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;color:#f4633f;white-space:nowrap}
-        .announce-bar-cta svg{width:13px;height:13px;transition:transform .3s ease}
-        .announce-bar:hover .announce-bar-cta svg{transform:translateX(3px)}
-        @media(max-width:640px){.announce-bar-cta span{display:none}}
+        /* ===== PARTNERSHIP ANNOUNCEMENT (hero) ===== */
+        .announce-banner{position:relative;display:flex;align-items:center;gap:18px;max-width:fit-content;padding:14px 26px 14px 26px;border-radius:18px;background:rgba(17,26,51,0.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(232,68,37,0.25);overflow:hidden;box-shadow:0 14px 44px -16px rgba(232,68,37,0.25);text-decoration:none;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s ease,box-shadow .35s ease}
+        a.announce-banner:hover{transform:translateY(-2px);border-color:rgba(232,68,37,0.55);box-shadow:0 22px 56px -14px rgba(232,68,37,0.42)}
+        .announce-banner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#f4633f,#E84425)}
+        .announce-media{flex-shrink:0;width:78px;height:104px;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px -6px rgba(0,0,0,0.55);outline:1px solid rgba(255,255,255,0.1);outline-offset:-1px}
+        .announce-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+        a.announce-banner:hover .announce-media img{transform:scale(1.06)}
+        .announce-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f89075}
+        .announce-dot{width:8px;height:8px;border-radius:50%;background:#E84425;box-shadow:0 0 0 0 rgba(232,68,37,.7);animation:announcePulse 2.2s ease-in-out infinite}
+        @keyframes announcePulse{0%,100%{box-shadow:0 0 0 0 rgba(232,68,37,.55)}50%{box-shadow:0 0 0 7px rgba(232,68,37,0)}}
+        .announce-headline{margin-top:9px;font-size:1.18rem;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.3}
+        .announce-sub{margin-top:5px;font-size:.82rem;font-weight:500;color:rgba(255,255,255,0.55);line-height:1.45;max-width:34rem}
+        .announce-cta{display:inline-flex;align-items:center;gap:6px;margin-top:11px;font-size:.78rem;font-weight:700;color:#f4633f;letter-spacing:.005em}
+        .announce-cta svg{width:14px;height:14px;transition:transform .3s ease}
+        a.announce-banner:hover .announce-cta svg{transform:translateX(4px)}
+        @media(max-width:480px){.announce-banner{gap:14px;padding:13px 18px 13px 20px}.announce-media{width:60px;height:82px}.announce-headline{font-size:1rem}.announce-sub{font-size:.74rem}.announce-cta{font-size:.72rem}}
 
         /* ===== SERVICES DROPDOWN ===== */
         .nav-dropdown{position:relative}
@@ -440,11 +445,6 @@
 
     <!-- ===== HEADER ===== -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-        <a href="https://www.linkedin.com/posts/jonathon-battifuoco-53257b3b8_quietly-excited-to-share-that-essetech-has-share-7466758225691058176-Pir9/" target="_blank" rel="noopener noreferrer" class="announce-bar" aria-label="Read the partnership announcement on LinkedIn — Essetech named Primary IT Partner for the Polites Group">
-            <span class="announce-dot"></span>
-            <span class="announce-bar-text"><strong>Partnership:</strong> Now the Primary IT Partner for the Polites Group</span>
-            <span class="announce-bar-cta"><span>Read on LinkedIn</span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-        </a>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center gap-3 group">
@@ -575,7 +575,25 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 w-full z-10">
             <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
             <div class="max-w-3xl">
-                <h1 class="anim-fade-up d1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                <!-- Partnership Announcement -->
+                <a href="https://www.linkedin.com/posts/jonathon-battifuoco-53257b3b8_quietly-excited-to-share-that-essetech-has-share-7466758225691058176-Pir9/" target="_blank" rel="noopener noreferrer" class="announce-banner anim-fade-up mb-8" aria-label="Read the partnership announcement on LinkedIn — Essetech named Primary IT Partner for the Polites Group">
+                    <div class="announce-media">
+                        <picture>
+                            <source srcset="polites-building.webp" type="image/webp">
+                            <img src="polites-building.jpg" alt="The Polites Group's heritage building in Adelaide, with its iconic blue POLITES sign" loading="eager" decoding="async" width="78" height="104">
+                        </picture>
+                    </div>
+                    <div class="announce-body">
+                        <span class="announce-eyebrow"><span class="announce-dot"></span>Partnership Announcement</span>
+                        <p class="announce-headline">Now the Primary IT Partner for the <span class="gradient-text-blue">Polites&nbsp;Group</span></p>
+                        <p class="announce-sub">Proud to deliver trusted IT solutions and a long-term technology partnership for one of Adelaide's most iconic names.</p>
+                        <span class="announce-cta">Read the announcement on LinkedIn
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <h1 class="anim-fade-up d2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
                     IT support that<br>keeps your <span class="gradient-text whitespace-nowrap">business moving</span>
                 </h1>
 
