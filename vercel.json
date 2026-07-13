@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/ai-implementation-adelaide.html",
+      "destination": "/secure-ai-enablement-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/ai-implementation-adelaide",
+      "destination": "/secure-ai-enablement-adelaide.html",
+      "permanent": true
+    }
+  ]
+}
