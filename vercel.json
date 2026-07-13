@@ -9,6 +9,16 @@
       "source": "/ai-implementation-adelaide",
       "destination": "/secure-ai-enablement-adelaide.html",
       "permanent": true
+    },
+    {
+      "source": "/website-care.html",
+      "destination": "/web-design-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/website-care",
+      "destination": "/web-design-adelaide.html",
+      "permanent": true
     }
   ]
 }
