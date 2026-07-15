@@ -1,6 +1,6 @@
 /** Build: npx tailwindcss@3.4.17 -c tailwind.config.js -i tailwind-input.css -o tailwind.css --minify */
 module.exports = {
-    content: ['./*.html', './case-studies/**/*.html'],
+    content: ['./*.html', './blog/**/*.html', './case-studies/**/*.html'],
     theme: {
         extend: {
             colors: {
