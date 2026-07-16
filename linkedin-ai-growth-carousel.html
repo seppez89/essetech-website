@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Essetech AI Growth System carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#0f1a2e;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:1080px 1080px;margin:0}
+  @media print{.card{page-break-after:always}.card:last-child{page-break-after:auto}}
+  *{font-family:'Inter',system-ui,-apple-system,sans-serif;box-sizing:border-box}
+  .card{position:relative;width:1080px;height:1080px;overflow:hidden;
+        background:linear-gradient(135deg,#16243f 0%,#1e3058 55%,#21365b 100%)}
+  .glow1{position:absolute;top:-140px;right:-140px;width:520px;height:520px;border-radius:50%;
+         background:radial-gradient(circle,rgba(232,58,61,0.22),transparent 70%)}
+  .glow2{position:absolute;bottom:-180px;left:-140px;width:560px;height:560px;border-radius:50%;
+         background:radial-gradient(circle,rgba(46,64,112,0.65),transparent 70%)}
+  .content{position:absolute;top:92px;left:92px;right:92px}
+  .badge{display:inline-flex;align-items:center;gap:13px;padding:12px 26px;border-radius:999px;
+         border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06)}
+  .badge i{width:5px;height:22px;background:#e83a3d;border-radius:2px;display:block}
+  .badge span{color:#fff;font-size:20px;font-weight:700;letter-spacing:3px}
+  h1{margin:46px 0 0;color:#fff;font-size:74px;line-height:1.08;font-weight:800;letter-spacing:-1.5px}
+  h1 .hl{color:#e83a3d}
+  .rule{width:96px;height:6px;background:#e83a3d;border-radius:3px;margin:42px 0 0}
+  .sub{margin:34px 0 0;color:rgba(255,255,255,0.78);font-size:30px;line-height:1.45;font-weight:400;max-width:840px}
+  .kicker{color:rgba(255,255,255,0.5);font-size:20px;font-weight:700;letter-spacing:3px}
+  h2{margin:14px 0 0;color:#fff;font-size:64px;font-weight:800;letter-spacing:-1px}
+  .emp{display:flex;align-items:flex-start;gap:26px;margin-top:38px}
+  .num{flex:none;width:58px;height:58px;border-radius:50%;background:#e83a3d;color:#fff;
+       font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .en{color:#fff;font-size:34px;font-weight:700;line-height:1.1}
+  .ed{color:rgba(255,255,255,0.7);font-size:26px;font-weight:400;margin-top:4px}
+  .swoosh{position:absolute;bottom:0;left:0;width:400px;height:218px;background:#fff;border-top-right-radius:200px}
+  .logo{position:absolute;bottom:24px;left:38px;height:168px;width:auto}
+  .cta{position:absolute;bottom:62px;right:92px;background:#e83a3d;color:#fff;font-size:25px;
+       font-weight:700;padding:18px 36px;border-radius:999px}
+  .swipe{position:absolute;bottom:74px;right:92px;color:rgba(255,255,255,0.85);font-size:26px;font-weight:700;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="glow1"></div><div class="glow2"></div>
+    <div class="content">
+      <div class="badge"><i></i><span>AI GROWTH SYSTEM</span></div>
+      <h1>Your next 5 employees don't need a <span class="hl">salary, sleep,</span> or sick days</h1>
+      <div class="rule"></div>
+      <p class="sub">A team of AI employees that answers every call, follows up every lead, and wins back old customers, so you can focus on running your business.</p>
+    </div>
+    <div class="swoosh"></div>
+    <img class="logo" src="essetechlogo.png" alt="Essetech IT Consulting">
+    <div class="swipe">Swipe &rarr;</div>
+  </div>
+
+  <div class="card">
+    <div class="glow1"></div><div class="glow2"></div>
+    <div class="content">
+      <div class="kicker">FIVE AI EMPLOYEES &middot; ONE SYSTEM</div>
+      <h2>Meet the team</h2>
+      <div class="emp"><span class="num">1</span><div><div class="en">Lead Reactivation</div><div class="ed">Wakes up your existing database and books appointments with no ad spend</div></div></div>
+      <div class="emp"><span class="num">2</span><div><div class="en">AI Receptionist</div><div class="ed">Answers every missed call and enquiry, 24/7</div></div></div>
+      <div class="emp"><span class="num">3</span><div><div class="en">Website Follow Up</div><div class="ed">Replies to every web enquiry in seconds</div></div></div>
+      <div class="emp"><span class="num">4</span><div><div class="en">Reviews &amp; Referrals</div><div class="ed">Turns happy customers into 5 star reviews</div></div></div>
+      <div class="emp"><span class="num">5</span><div><div class="en">AI Sales Coach</div><div class="ed">Helps you close more of what already comes in</div></div></div>
+    </div>
+    <div class="swoosh"></div>
+    <img class="logo" src="essetechlogo.png" alt="Essetech IT Consulting">
+    <div class="swipe">Swipe &rarr;</div>
+  </div>
+
+  <div class="card">
+    <div class="glow1"></div><div class="glow2"></div>
+    <div class="content">
+      <div class="badge"><i></i><span>FREE AI AUDIT</span></div>
+      <h1>See what we can <span class="hl">recover</span> for your business</h1>
+      <div class="rule"></div>
+      <p class="sub">Every engagement starts with a free AI audit. Fully done for you, in plain English. Adelaide based. No lock in.</p>
+      <p class="sub" style="margin-top:22px;color:#fff;font-weight:700;font-size:32px;">Comment &ldquo;AUDIT&rdquo; or DM me &middot; essetech.com.au</p>
+    </div>
+    <div class="swoosh"></div>
+    <img class="logo" src="essetechlogo.png" alt="Essetech IT Consulting">
+    <div class="cta">Book your free AI audit</div>
+  </div>
+
+</body>
+</html>
