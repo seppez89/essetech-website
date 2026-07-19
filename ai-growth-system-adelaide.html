@@ -482,30 +482,34 @@
                 </div>
             </div>
 
-            <!-- LinkedIn video embed -->
+            <!-- AI Growth System demo video (click-to-play YouTube facade) -->
             <div class="max-w-3xl mx-auto mt-14 reveal">
                 <div class="text-center mb-5">
                     <h3 class="text-xl font-bold text-white">Watch: AI automation for your business</h3>
-                    <p class="text-white/50 text-sm mt-1">A quick walkthrough of these tools in action.</p>
+                    <p class="text-white/50 text-sm mt-1">A quick walkthrough of your five AI employees in action.</p>
                 </div>
-                <!-- ============================================================= -->
-                <!-- TODO (Jonathon): paste your LinkedIn video here.               -->
-                <!-- Option A (recommended): upload the .mp4 to this folder and use: -->
-                <!--   <video controls poster="figurine-jonathon.jpg" class="w-full h-full object-cover"> -->
-                <!--     <source src="your-video.mp4" type="video/mp4"></video>                          -->
-                <!-- Option B: replace the block below with a YouTube/Vimeo <iframe>. -->
-                <!-- LinkedIn itself does not give a clean public embed, so re-upload  -->
-                <!-- the file or mirror it to YouTube/Vimeo for the smoothest result.  -->
-                <!-- ============================================================= -->
-                <div class="aspect-video rounded-3xl overflow-hidden border border-white/10 bg-navy-800 flex items-center justify-center relative group cursor-default">
-                    <div class="text-center px-6">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-fire-500/90 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <!-- Poster loads instantly; the YouTube player only loads on click (keeps the page fast & distraction-free). -->
+                <div class="aspect-video rounded-3xl overflow-hidden border border-white/10 bg-navy-800 relative group cursor-pointer shadow-2xl"
+                     onclick="playGrowthVideo(this)" role="button" tabindex="0"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playGrowthVideo(this);}"
+                     aria-label="Play the AI automation demo video">
+                    <img src="ai-growth-video-poster.jpg" alt="Watch the essetech AI Growth System demo — AI that never sleeps" class="absolute inset-0 w-full h-full object-cover" width="1280" height="720">
+                    <div class="absolute inset-0 bg-navy-900/10 group-hover:bg-navy-900/25 transition-colors"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-full bg-fire-500 flex items-center justify-center shadow-lg shadow-fire-500/40 group-hover:scale-110 transition-transform duration-200">
+                            <svg class="w-9 h-9 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
-                        <p class="text-white/70 text-sm font-medium">Your AI automation demo video drops in here</p>
-                        <p class="text-white/30 text-xs mt-1">(See the note in the page source to embed it.)</p>
                     </div>
                 </div>
+                <script>
+                function playGrowthVideo(el){
+                    el.outerHTML = '<div class="aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">'
+                        + '<iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/poQUNkpoWH0?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white" '
+                        + 'title="essetech AI Growth System demo" frameborder="0" '
+                        + 'allow="accelerated-sensors; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" '
+                        + 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+                }
+                </script>
             </div>
         </div>
     </section>
