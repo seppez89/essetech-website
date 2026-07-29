@@ -39,12 +39,11 @@
         "offers": {
             "@type": "Offer",
             "priceCurrency": "AUD",
-            "price": "2950.00",
+            "availability": "https://schema.org/InStock",
             "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "2950.00",
+                "@type": "PriceSpecification",
                 "priceCurrency": "AUD",
-                "description": "AI Action Plan (AI readiness audit) $2,950 fixed (credited toward rollout). Secure AI Rollout from $9,750. AI Managed Service from $2,950/month. Prices ex GST."
+                "description": "Three stages: the AI Action Plan (AI readiness audit, fixed fee credited toward your rollout), the Secure AI Rollout, and an ongoing AI Managed Service. Each stage is quoted to your team size and systems after a free 30-minute AI readiness briefing."
             }
         }
     }</script>
@@ -56,7 +55,7 @@
             {"@type": "Question", "name": "Which AI tools do you deploy?", "acceptedAnswer": {"@type": "Answer", "text": "We're vendor-agnostic. Most rollouts are built on Microsoft 365 Copilot, Anthropic Claude, or Google Gemini — chosen to fit the systems you already run, not the other way around. Where a specific workflow needs it, we build custom AI agents on top."}},
             {"@type": "Question", "name": "Do our staff need to be technical?", "acceptedAnswer": {"@type": "Answer", "text": "No. Training is part of the rollout — practical, role-by-role workshops using your real documents and tasks, not theory. Staff leave with working skills and clear rules on what's safe to use AI for. Ongoing support is included in the managed service."}},
             {"@type": "Question", "name": "What size business is this for?", "acceptedAnswer": {"@type": "Answer", "text": "Any business — from a handful of staff through to a few hundred. Professional services, construction and trades head offices, healthcare and aged care, manufacturing, wholesale and distribution. We scale the audit, rollout and training to the size and systems you run."}},
-            {"@type": "Question", "name": "How much does Secure AI Enablement cost?", "acceptedAnswer": {"@type": "Answer", "text": "The AI Action Plan (also known as an AI readiness audit) is $2,950 fixed (ex GST) and is fully credited toward your rollout if you go ahead within 60 days. The Secure AI Rollout starts from $9,750 depending on team size and systems. The ongoing AI Managed Service starts from $2,950 per month, month-to-month. Every engagement starts with a free 30-minute AI readiness briefing."}},
+            {"@type": "Question", "name": "How much does Secure AI Enablement cost?", "acceptedAnswer": {"@type": "Answer", "text": "Each stage is quoted to your business, because the cost depends on your team size, your systems and how much is already in place. The AI Action Plan (also known as an AI readiness audit) is a fixed fee, fully credited toward your rollout if you go ahead within 60 days. The Secure AI Rollout is quoted as a 4-6 week engagement, and the ongoing AI Managed Service is month-to-month with no lock-in. Every engagement starts with a free 30-minute AI readiness briefing, and you'll have exact figures before you commit to anything."}},
             {"@type": "Question", "name": "Our team already uses ChatGPT — do we still need this?", "acceptedAnswer": {"@type": "Answer", "text": "That's usually the strongest reason to act. Unmanaged AI use means company and client data flowing into free public tools, inconsistent quality, and none of the gains being shared across the team. We turn scattered individual use into a secure, managed capability the whole business benefits from."}}
         ]
     }</script>
@@ -238,23 +237,23 @@
                         <div class="px-1">
                             <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fire-500">Step 1</div>
                             <div class="mt-1.5 text-xs sm:text-base font-bold text-navy-900 leading-tight">AI Action Plan</div>
-                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">$2,950</div>
+                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">Fixed fee</div>
                             <div class="text-[10px] sm:text-xs text-gray-500 mt-0.5">two weeks</div>
                         </div>
                         <div class="px-1 border-x border-navy-100">
                             <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fire-500">Step 2</div>
                             <div class="mt-1.5 text-xs sm:text-base font-bold text-navy-900 leading-tight">Secure Rollout</div>
-                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">$9,750</div>
+                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">Quoted</div>
                             <div class="text-[10px] sm:text-xs text-gray-500 mt-0.5">4&ndash;6 weeks</div>
                         </div>
                         <div class="px-1">
                             <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-fire-500">Step 3</div>
                             <div class="mt-1.5 text-xs sm:text-base font-bold text-navy-900 leading-tight">We Run It</div>
-                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">$2,950</div>
-                            <div class="text-[10px] sm:text-xs text-gray-500 mt-0.5">per month</div>
+                            <div class="mt-2 text-base sm:text-2xl font-black text-navy-900">Monthly</div>
+                            <div class="text-[10px] sm:text-xs text-gray-500 mt-0.5">no lock-in</div>
                         </div>
                     </div>
-                    <p class="mt-5 text-center text-xs text-gray-400">Almost everyone starts at step 1 &mdash; and the fee comes back off step 2. Prices from, ex GST.</p>
+                    <p class="mt-5 text-center text-xs text-gray-400">Almost everyone starts at step 1 &mdash; and the fee comes back off step 2. Every stage is quoted to your business after a free briefing.</p>
                 </div>
             </div>
             <div class="grid lg:grid-cols-3 gap-6 items-stretch">
@@ -263,7 +262,7 @@
                     <div class="text-5xl font-black text-fire-500/20 emp-num">1</div>
                     <h3 class="text-lg font-bold text-navy-900 mt-2">The AI Action Plan</h3>
                     <p class="text-gray-500 text-sm mt-1">The 5 jobs AI should do first in your business &mdash; costed and ranked.</p>
-                    <div class="mt-6"><span class="text-4xl font-black text-navy-900">$2,950</span><span class="text-gray-500 text-sm"> fixed</span></div>
+                    <div class="mt-6"><span class="text-3xl font-black text-navy-900">Fixed fee</span><span class="text-gray-500 text-sm"> &middot; quoted upfront</span></div>
                     <div class="text-gray-500 text-sm mt-1">Two weeks &middot; fully credited toward your rollout*</div>
                     <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
                         <li class="flex gap-2"><svg class="w-5 h-5 text-fire-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <span><strong class="text-navy-900">We find out which AI tools your staff already use</strong> &mdash; it's usually a surprise</span></li>
@@ -279,8 +278,8 @@
                     <div class="text-5xl font-black text-white/10 emp-num">2</div>
                     <h3 class="text-lg font-bold text-white mt-2">Secure AI Rollout</h3>
                     <p class="text-white/50 text-sm mt-1">AI set up properly &mdash; and three real jobs automated.</p>
-                    <div class="mt-6"><span class="text-4xl font-black text-white">from $9,750</span></div>
-                    <div class="text-white/50 text-sm mt-1">4&ndash;6 week engagement</div>
+                    <div class="mt-6"><span class="text-3xl font-black text-white">Custom quote</span></div>
+                    <div class="text-white/50 text-sm mt-1">4&ndash;6 week engagement &middot; scoped to your team</div>
                     <ul class="mt-6 space-y-3 text-sm text-white/70 flex-1">
                         <li class="flex gap-2"><svg class="w-5 h-5 text-fire-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <span><strong class="text-white">Enterprise AI running in your own environment</strong> &mdash; Copilot, Claude or Gemini, whichever fits what you already pay for</span></li>
                         <li class="flex gap-2"><svg class="w-5 h-5 text-fire-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <span><strong class="text-white">Your client data locked down</strong> &mdash; access controls and an AI use policy your staff actually sign</span></li>
@@ -294,7 +293,7 @@
                     <div class="text-5xl font-black text-fire-500/20 emp-num">3</div>
                     <h3 class="text-lg font-bold text-navy-900 mt-2">AI Managed Service</h3>
                     <p class="text-gray-500 text-sm mt-1">We keep building it, and we keep it safe.</p>
-                    <div class="mt-6"><span class="text-4xl font-black text-navy-900">from $2,950</span><span class="text-gray-500 text-sm"> /month</span></div>
+                    <div class="mt-6"><span class="text-3xl font-black text-navy-900">Custom quote</span><span class="text-gray-500 text-sm"> &middot; monthly</span></div>
                     <div class="text-gray-500 text-sm mt-1">Month-to-month &middot; no lock-in</div>
                     <ul class="mt-6 space-y-3 text-sm text-gray-600 flex-1">
                         <li class="flex gap-2"><svg class="w-5 h-5 text-fire-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> <span><strong class="text-navy-900">A new automation built every month</strong> &mdash; month one your quotes, month two your reporting, month three whatever's slowest</span></li>
@@ -306,7 +305,7 @@
                 </div>
             </div>
             <div class="mt-10 text-center reveal">
-                <p class="inline-flex items-center gap-2 text-sm text-gray-500 bg-white px-5 py-3 rounded-full border border-navy-100"><svg class="w-5 h-5 text-fire-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> *Go ahead with the rollout within 60 days and the full $2,950 comes off the price. Prices ex GST.</p>
+                <p class="inline-flex items-center gap-2 text-sm text-gray-500 bg-white px-5 py-3 rounded-full border border-navy-100"><svg class="w-5 h-5 text-fire-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> *Go ahead with the rollout within 60 days and the full Action Plan fee comes off the price. All quotes ex GST.</p>
             </div>
         </div>
     </section>
@@ -333,7 +332,7 @@
                     </ul>
                     <p class="mt-6 text-sm text-white/90 bg-white/5 rounded-xl px-4 py-3 leading-relaxed"><strong class="text-white">What you get:</strong> your team does the same work in less time, and your client data stays where it belongs.</p>
                     <div class="mt-5 flex items-baseline gap-2">
-                        <span class="text-2xl font-black text-white">from $2,950</span>
+                        <span class="text-2xl font-black text-white">Custom quote</span>
                         <span class="text-xs text-white/40">&middot; usually 15+ staff</span>
                     </div>
                     <a href="#briefing" class="btn-shimmer bg-fire-500 text-white mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold transition-all">Book a free chat
@@ -353,7 +352,7 @@
                     </ul>
                     <p class="mt-6 text-sm text-white/90 bg-white/5 rounded-xl px-4 py-3 leading-relaxed"><strong class="text-white">What you get:</strong> every call, enquiry and old lead actually turns into booked work.</p>
                     <div class="mt-5 flex items-baseline gap-2">
-                        <span class="text-2xl font-black text-white">from $997/mo</span>
+                        <span class="text-2xl font-black text-white">Custom quote</span>
                         <span class="text-xs text-white/40">&middot; usually under 20 staff</span>
                     </div>
                     <a href="/ai-growth-system-adelaide.html" class="bg-white text-navy-900 hover:bg-white/90 mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold transition-all">See the Growth System
@@ -697,7 +696,7 @@
                 </div>
                 <div class="faq-item bg-white rounded-2xl p-6">
                     <button class="faq-toggle flex items-center justify-between w-full text-left"><span class="font-semibold text-navy-900 pr-4">How much does it cost?</span><span class="faq-icon flex-shrink-0 w-8 h-8 bg-navy-50 rounded-full flex items-center justify-center text-navy-500 font-bold text-xl leading-none">+</span></button>
-                    <div class="faq-answer text-gray-600 text-sm leading-relaxed">The AI Action Plan (other firms call this an AI readiness audit) is <strong>$2,950 fixed</strong> (ex GST), fully credited toward your rollout if you go ahead within 60 days. The Secure AI Rollout starts <strong>from $9,750</strong> depending on team size and systems. The ongoing AI Managed Service starts <strong>from $2,950/month</strong>, month-to-month. Every engagement starts with a free 30-minute briefing &mdash; you'll know exactly what you'd pay before committing to anything.</div>
+                    <div class="faq-answer text-gray-600 text-sm leading-relaxed">Each stage is quoted to your business, because the cost moves with your team size, your systems and how much is already in place. The AI Action Plan (other firms call this an AI readiness audit) is a <strong>fixed fee</strong>, fully credited toward your rollout if you go ahead within 60 days. The Secure AI Rollout is quoted as a 4&ndash;6 week engagement, and the ongoing AI Managed Service is <strong>month-to-month with no lock-in</strong>. Every engagement starts with a free 30-minute briefing &mdash; you'll know exactly what you'd pay before committing to anything.</div>
                 </div>
                 <div class="faq-item bg-white rounded-2xl p-6">
                     <button class="faq-toggle flex items-center justify-between w-full text-left"><span class="font-semibold text-navy-900 pr-4">Our team already uses ChatGPT — do we still need this?</span><span class="faq-icon flex-shrink-0 w-8 h-8 bg-navy-50 rounded-full flex items-center justify-center text-navy-500 font-bold text-xl leading-none">+</span></button>

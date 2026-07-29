@@ -173,9 +173,11 @@ Each page includes:
 3. **Safe AI** — "Your data stays private and compliant with Australian law"
 
 ### AI Service Packages to Offer
-1. **AI Starter** ($2,000) — Workflow automation for 1-2 processes
-2. **AI Pro** ($5,000) — Chatbot + 3-5 workflow automations + training
-3. **AI Enterprise** (Custom) — Full AI strategy, custom integrations, ongoing optimisation
+1. **AI Starter** (quoted) — Workflow automation for 1-2 processes
+2. **AI Pro** (quoted) — Chatbot + 3-5 workflow automations + training
+3. **AI Enterprise** (quoted) — Full AI strategy, custom integrations, ongoing optimisation
+
+> Site-wide rule (2026-07-29): the website is **quote-only**. No package prices are published on any page, in meta descriptions, FAQ copy, or JSON-LD. Real figures live in the sales docs under `essetech-offer/`, not here.
 
 ---
 
