@@ -451,8 +451,8 @@
                                     <option data-emp="receptionist">We miss too many phone calls</option>
                                     <option data-emp="catcher">Leads go cold before we follow up</option>
                                     <option data-emp="reactivator">We have old leads/customers we never contact</option>
-                                    <option data-emp="reputation">We don't get enough reviews or referrals</option>
-                                    <option data-emp="coach">My team isn't great at converting enquiries</option>
+                                    <option data-emp="outreach">We need to reach new customers we've never contacted</option>
+                                    <option data-emp="assistant">We answer the same customer questions over and over</option>
                                     <option data-emp="accelerator">We need more leads coming in, full stop</option>
                                 </select>
                             </div>
@@ -773,7 +773,7 @@
                 </div>
                 <div class="faq-item bg-white rounded-2xl p-6">
                     <button class="faq-toggle flex items-center justify-between w-full text-left"><span class="font-semibold text-navy-900 pr-4">How fast will I see results?</span><span class="faq-icon flex-shrink-0 w-8 h-8 bg-navy-50 rounded-full flex items-center justify-center text-navy-500 font-bold text-xl leading-none">+</span></button>
-                    <div class="faq-answer text-gray-600 text-sm leading-relaxed">The Lead Reactivator often books appointments from your existing database within the first couple of weeks &mdash; with zero ad spend. The full system is typically live within 2&ndash;4 weeks of your audit, and most businesses reach a positive return within 3&ndash;6 months.</div>
+                    <div class="faq-answer text-gray-600 text-sm leading-relaxed">Waking up your old leads often books appointments from your existing database within the first couple of weeks &mdash; with zero ad spend. The full system is typically live within 2&ndash;4 weeks of your audit, and most businesses reach a positive return within 3&ndash;6 months.</div>
                 </div>
                 <div class="faq-item bg-white rounded-2xl p-6">
                     <button class="faq-toggle flex items-center justify-between w-full text-left"><span class="font-semibold text-navy-900 pr-4">Is my customer data safe?</span><span class="faq-icon flex-shrink-0 w-8 h-8 bg-navy-50 rounded-full flex items-center justify-center text-navy-500 font-bold text-xl leading-none">+</span></button>
@@ -1000,12 +1000,12 @@
 
         // ---- Quote builder ----
         var empMap={
-            receptionist:{name:'The AI Receptionist',desc:'answers the calls your team misses and books them in 24/7.'},
-            catcher:{name:'The Lead Catcher',desc:'replies to web enquiries in seconds so leads never go cold.'},
-            reactivator:{name:'The Lead Reactivator',desc:'wakes up your old leads and books them back in — no ad spend.'},
-            reputation:{name:'The Reputation Builder',desc:'gets you more 5-star reviews and referrals automatically.'},
-            coach:{name:'The Sales Coach',desc:'trains your team to convert more of every enquiry.'},
-            accelerator:{name:'The Growth Accelerator',desc:'brings in fresh leads with done-for-you ads + AI follow-up.'}
+            receptionist:{name:'the AI that answers your phone',desc:'picks up the calls your team misses and books them straight in, 24/7.'},
+            catcher:{name:'the 60-second reply',desc:'texts every web enquiry back within a minute, qualifies them and books them.'},
+            reactivator:{name:'old-lead reactivation',desc:'wakes up the leads already sitting in your database — no ad spend.'},
+            outreach:{name:'new-customer outreach',desc:'builds your target list and writes the personal outreach for you to approve.'},
+            assistant:{name:'the AI assistant',desc:'answers customer questions 24/7 using only your own pricing and policies.'},
+            accelerator:{name:'done-for-you ads',desc:'brings in fresh leads with paid ads and instant AI follow-up behind them.'}
         };
         var qBtn=document.getElementById('qBtn'),qResult=document.getElementById('qResult');
         qBtn.addEventListener('click',function(){
@@ -1017,7 +1017,7 @@
             qResult.classList.remove('hidden');
             qResult.innerHTML=
                 '<div class="text-xs font-bold uppercase tracking-wider text-fire-500">Your recommendation</div>'+
-                '<div class="text-lg font-bold text-navy-900 mt-1">Start with '+lead.name+'</div>'+
+                '<div class="text-lg font-bold text-navy-900 mt-1">Start with '+lead.name.charAt(0).toUpperCase()+lead.name.slice(1)+'</div>'+
                 '<p class="text-sm text-gray-600 mt-2">For a '+biz.toLowerCase()+' business your size, we\'d begin with <strong>'+lead.name+'</strong> — it '+lead.desc+'</p>'+
                 '<p class="text-sm text-gray-600 mt-2">Then we\'d layer in the rest of <strong>'+rec+'</strong> so every lead, call and customer is covered.</p>'+
                 '<a href="#audit" class="btn-shimmer mt-4 inline-flex items-center justify-center gap-2 bg-fire-500 text-white px-6 py-3 rounded-full text-sm font-bold w-full">Get my exact quote in a free audit</a>';
