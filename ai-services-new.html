@@ -208,6 +208,26 @@ h3{font-size:22px;letter-spacing:-.02em;line-height:1.2;font-weight:700}
 .big .foot{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
 .big .foot span{font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);border-radius:999px;padding:4px 10px}
 @media (max-width:760px){.bigs{grid-template-columns:1fr}}
+.dash{margin-top:16px;background:linear-gradient(135deg,#fff 0%,#fff7f4 100%);border:1px solid var(--line);border-radius:28px;padding:32px}
+.dash h3{font-size:clamp(24px,3.2vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.12;margin-top:4px}
+.dash .dlead{color:var(--muted);font-size:15.5px;line-height:1.55;margin-top:12px}
+.dash ul{margin-top:16px}
+.dash ul li .n{border:1px solid var(--line);color:var(--fire)}
+.dash .yt .vlabel{position:absolute;z-index:2;left:16px;bottom:14px;color:#fff;font-size:13px;font-weight:700;background:rgba(0,0,0,.45);padding:5px 11px;border-radius:999px;backdrop-filter:blur(6px)}
+.dash .toggle{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--fire);padding:6px 0}
+.dash .toggle svg{width:16px;height:16px;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.dash.open .toggle svg{transform:rotate(180deg)}
+.dash .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.8,.2,1)}
+.dash.open .body{grid-template-rows:1fr}
+.dash .body>div{overflow:hidden}
+.dash ol{list-style:none;counter-reset:b;margin-top:8px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.dash ol li{counter-increment:b;display:flex;align-items:flex-start;color:var(--ink);gap:12px;font-size:14.5px;line-height:1.45;opacity:0;transform:translateX(-12px);transition:opacity .4s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.dash ol li::before{content:counter(b);flex:0 0 26px;height:26px;border-radius:50%;background:#fff5f2;border:2px solid var(--fire);color:var(--fire);font-size:12px;font-weight:800;display:grid;place-items:center}
+.dash.open ol li{opacity:1;transform:none}
+.dash.open ol li:nth-child(2){transition-delay:.15s}.dash.open ol li:nth-child(3){transition-delay:.3s}.dash.open ol li:nth-child(4){transition-delay:.45s}
+.dash .foot{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.dash .foot span{font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);border-radius:999px;padding:4px 10px}
+@media (max-width:760px){.dash{padding:18px;border-radius:22px}.dash .vidwrap{gap:22px}}
 .ideas{display:flex;flex-direction:column;gap:24px;margin-top:48px}
 .idea{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;transition:box-shadow .4s,border-color .4s}
 .idea.done{border-color:rgba(47,158,87,.45);box-shadow:0 0 0 4px rgba(47,158,87,.08)}
@@ -418,7 +438,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
       <p class="eyebrow rv">AI for everyday work &middot; by Essetech</p>
       <h1 class="rv d1"><span>Less admin.</span><span class="grad">More of what matters.</span></h1>
       <p class="lead rv d2">Simple AI that runs inside the Microsoft 365 you already use. Nothing complicated, nothing new to install, and every idea explained step by step.</p>
-      <div class="btn-row rv d3"><a class="btn btn-fire" href="#autopilots">Explore the Autopilots</a><a class="btn btn-ghost" href="#watch">Watch the video &rsaquo;</a></div>
+      <div class="btn-row rv d3"><a class="btn btn-fire" href="#autopilots">Explore the Autopilots</a><a class="btn btn-ghost" href="#dashboard">See the office dashboard &rsaquo;</a></div>
       <div class="chips rv d3"><span class="chip">Microsoft 365 Copilot</span><span class="chip">Outlook &amp; Teams</span><span class="chip">Power Automate</span><span class="chip">Local support</span></div>
     </div>
     <div class="engine rv d2" id="engine" aria-hidden="true">
@@ -447,7 +467,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   <a class="tb" href="#autopilots"><i></i>Autopilots</a>
   <a class="tb" href="#more"><i></i>More ideas</a>
   <a class="tb" href="#money"><i></i>Money makers</a>
-  <a class="tb" href="#watch"><i></i>Watch</a>
   <a class="tb" href="#rollout"><i></i>Rollout</a>
   <a class="tb" href="#faq"><i></i>FAQ</a>
   <a class="tb" href="#talk"><i></i>Let's talk</a>
@@ -679,18 +698,17 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     <div class="bigs">
       <article class="big rv"><div class="big-top"><span class="ic" style="background:rgba(232,68,37,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#E84425" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span><h4>Function centre enquiries &amp; bookings</h4></div><span class="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Brings in revenue</span><p class="why">A fast, friendly reply is the difference between a booking and a lost one.</p><span class="mv g-fire"><span class="bb">Hi, is the function room free on 14 Nov for 120 people?</span><span class="bb gr">Yes! 14 Nov is available (up to 230 guests). Here are the rates and a booking link.</span><span class="pl p-grn" style="display:inline-block">Replied in 1 minute, 8:02pm</span></span><button class="toggle" aria-expanded="false">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="body"><div><ol><li>Enquiries come in through a simple booking page or website form.</li><li>The enquirer instantly gets capacity, rates and available dates.</li><li>Confirmed bookings land on a shared calendar, with reminders for staff and the hirer.</li><li>A thank-you and review request goes out after the event.</li></ol><div class="foot"><span>Microsoft Bookings</span><span>Power Automate</span><span>Bigger build</span></div></div></div></article><article class="big rv d1"><div class="big-top"><span class="ic" style="background:rgba(47,158,87,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#2f9e57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><h4>Unpaid fees follow-up</h4></div><span class="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Recovers money</span><p class="why">Chasing fees by hand is awkward and easy to forget. This keeps it polite and consistent.</p><span class="mv g-green"><span class="cd"><span class="t">Overdue fees</span><span class="ln"><span>Club B &middot; $420</span><span class="pl p-blu">Reminder sent</span></span><span class="ln"><span>Club F &middot; $180</span><span class="pl p-blu">Reminder sent</span></span><span class="ln"><span>Club D &middot; $0</span><span class="pl p-grn">Paid</span></span></span></span><button class="toggle" aria-expanded="false">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="body"><div><ol><li>Each week, the fees export is saved to SharePoint.</li><li>Power Automate finds anything overdue.</li><li>Each club secretary gets a friendly reminder with the amount and how to pay.</li><li>You get a one-line summary of who was reminded.</li></ol><div class="foot"><span>Power Automate</span><span>Excel</span><span>Bigger build</span></div></div></div></article><article class="big rv"><div class="big-top"><span class="ic" style="background:rgba(224,138,0,.13)"><svg viewBox="0 0 24 24" fill="none" stroke="#e08a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span><h4>Sponsor renewals &amp; reports</h4></div><span class="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Keeps sponsors coming back</span><p class="why">Happy sponsors renew. Nothing slips through at renewal time.</p><span class="mv g-amber"><span class="cd" style="margin-bottom:5px"><span class="ln"><span><b>Local Bakery</b> &middot; renews in 60 days</span><span class="pl p-amb">Reminder</span></span></span><span class="cd"><span class="t">End-of-season report</span><span class="ln"><span>Logo, posts and photos from the season</span><span class="pl p-grn">Drafted</span></span></span></span><button class="toggle" aria-expanded="false">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="body"><div><ol><li>Sponsors live in one list, with renewal dates and what was promised.</li><li>Sixty days before renewal, the right person gets a reminder.</li><li>Copilot drafts an end-of-season report for each sponsor from your photos, posts and results.</li><li>You add a personal note and send.</li></ol><div class="foot"><span>SharePoint</span><span>Power Automate</span><span>Copilot</span><span>Bigger build</span></div></div></div></article><article class="big rv d1"><div class="big-top"><span class="ic" style="background:rgba(17,26,51,.07)"><svg viewBox="0 0 24 24" fill="none" stroke="#111a33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Tribunal &amp; disciplinary tracker</h4></div><span class="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Protects the league</span><p class="why">Reports, hearings and deadlines in one place, with letters drafted from your templates.</p><span class="mv g-navy"><span class="cd"><span class="t">Case 12 &middot; private</span><span class="ln"><span>Notice letter</span><span class="pl p-grn">Drafted</span></span><span class="ln"><span>Hearing</span><span class="pl p-blu">Tue 7pm</span></span><span class="ln"><span>Appeal window</span><span class="pl p-red">3 days left</span></span></span></span><button class="toggle" aria-expanded="false">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="body"><div><ol><li>A report is submitted through a simple form.</li><li>A private case record is created, and the committee is notified in Teams.</li><li>Copilot drafts the notice letter from your by-laws and templates.</li><li>Hearing dates and appeal deadlines send reminders automatically.</li></ol><div class="foot"><span>Microsoft Forms</span><span>SharePoint</span><span>Copilot</span><span>Bigger build</span></div></div></div></article>
     </div>
-  </div>
-</section>
-
-<section id="watch">
-  <div class="wrap">
-    <div class="vidwrap">
-      <div class="rv"><button class="yt" data-id="Z7Evlj8BctU" aria-label="Play: A custom AI dashboard for a busy office"><span class="play"><svg viewBox="0 0 24 24" fill="#1d1d1f"><path d="M8 5v14l11-7z"/></svg></span></button></div>
-      <div>
-        <p class="eyebrow rv">Watch</p>
-        <h2 class="rv d1" style="font-size:clamp(30px,4vw,42px)">A custom AI dashboard for a busy office.</h2>
-        <p class="lead rv d2" style="margin-top:14px;font-size:17px">A five-minute walkthrough of something I built: one screen that pulls the working day together.</p>
-        <ul class="rv d3"><li><span class="n">1</span>Inbox sorted by what needs you</li><li><span class="n">2</span>Meetings prepped in advance</li><li><span class="n">3</span>The team's priorities in one place</li></ul>
+    <div class="dash rv" id="dashboard">
+      <div class="vidwrap">
+        <div><button class="yt" data-id="Z7Evlj8BctU" aria-label="Play: A custom AI dashboard for a busy office"><span class="play"><svg viewBox="0 0 24 24" fill="#1d1d1f"><path d="M8 5v14l11-7z"/></svg></span><span class="vlabel">5-min walkthrough</span></button></div>
+        <div>
+          <span class="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Ties it all together</span>
+          <h3>Then bring it all onto <span class="grad">one screen.</span></h3>
+          <p class="dlead">Once a few Autopilots are running, a custom dashboard puts everything they find in one place, so nobody has to go looking. The video shows one I built for a busy office. Here's what SAASL's would show each morning:</p>
+          <ul><li><span class="n">1</span>The emails that actually need a reply today</li><li><span class="n">2</span>Function centre bookings and enquiries this week</li><li><span class="n">3</span>Overdue fees and sponsor renewals coming up</li><li><span class="n">4</span>Refs and volunteers still unconfirmed for the weekend</li></ul>
+          <button class="toggle" aria-expanded="false">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="body"><div><ol><li>Each Autopilot saves what it finds (emails, bookings, fees, rosters) into one shared list.</li><li>The dashboard reads that list and shows it on one screen, pinned as a tab in Teams.</li><li>Copilot adds a three-line summary at the top each morning: what's urgent, what's waiting, what's done.</li><li>Tap anything to open the email, booking or record it came from.</li></ol><div class="foot"><span>SharePoint</span><span>Teams</span><span>Copilot</span><span>Built last, once the Autopilots are running</span></div></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -801,6 +819,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
       if(opened.size===4)say('All 4 bigger builds explored','Each one brings money in or protects it.')}
   })});
   // Explainers
+  var dsh=document.getElementById('dashboard');dsh.querySelector('.toggle').addEventListener('click',function(){var o=dsh.classList.toggle('open');this.setAttribute('aria-expanded',o)});
   var ideas=document.querySelectorAll('.idea'),explored=new Set();
   var ring=document.getElementById('ring'),tracker=document.getElementById('tracker'),tText=document.getElementById('trackText'),C=94.25;
   function updateTracker(){ring.style.strokeDashoffset=C*(1-explored.size/6);tText.textContent=explored.size===6?'Plan complete':explored.size+' of 6 explored';tracker.classList.toggle('done',explored.size===6);tracker.classList.add('bump');setTimeout(function(){tracker.classList.remove('bump')},350)}
