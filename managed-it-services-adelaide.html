@@ -39,7 +39,7 @@
             "postalCode": "5032",
             "addressCountry": "AU"
         },
-        "areaServed": {"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},
+        "areaServed": [{"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},{"@type":"Country","name":"Australia"}],
         "priceRange": "$$",
         "openingHours": "Mo-Fr 08:00-18:00"
     }</script>
@@ -52,7 +52,7 @@
             "name": "Essetech",
             "url": "https://www.essetech.com.au"
         },
-        "areaServed": {"@type": "City", "name": "Adelaide"},
+        "areaServed": [{"@type": "City", "name": "Adelaide"},{"@type":"Country","name":"Australia"}],
         "description": "Proactive managed IT services for Adelaide businesses. 24/7 monitoring, cybersecurity, cloud management, and predictable monthly pricing.",
         "serviceType": "Managed IT Services",
         "offers": {
@@ -113,6 +113,7 @@
             }
         ]
     }</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.essetech.com.au/"},{"@type":"ListItem","position":2,"name":"Managed IT Services","item":"https://www.essetech.com.au/managed-it-services-adelaide.html"}]}</script>
 
     <link rel="stylesheet" href="/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

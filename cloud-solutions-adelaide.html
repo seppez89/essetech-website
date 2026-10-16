@@ -39,7 +39,7 @@
             "postalCode": "5032",
             "addressCountry": "AU"
         },
-        "areaServed": {"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},
+        "areaServed": [{"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},{"@type":"Country","name":"Australia"}],
         "priceRange": "$$",
         "openingHours": "Mo-Fr 08:00-18:00"
     }</script>
@@ -52,7 +52,7 @@
             "name": "Essetech",
             "url": "https://www.essetech.com.au"
         },
-        "areaServed": {"@type": "City", "name": "Adelaide"},
+        "areaServed": [{"@type": "City", "name": "Adelaide"},{"@type":"Country","name":"Australia"}],
         "description": "Cloud migration and management for Adelaide businesses. Microsoft 365, Azure, AWS, Google Workspace. Zero-downtime migrations and ongoing cloud support.",
         "serviceType": "Cloud Solutions",
         "offers": {
@@ -113,6 +113,7 @@
             }
         ]
     }</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.essetech.com.au/"},{"@type":"ListItem","position":2,"name":"Cloud Solutions","item":"https://www.essetech.com.au/cloud-solutions-adelaide.html"}]}</script>
 
     <link rel="stylesheet" href="/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
