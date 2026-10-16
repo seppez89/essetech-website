@@ -185,7 +185,7 @@
             </div>
         </div>
         <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-navy-900/95 backdrop-blur-xl shadow-2xl z-50 p-8 pt-24 md:hidden">
-            <button id="menuClose" class="absolute top-6 right-6 text-white/80 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <button id="menuClose" aria-label="Close menu" class="absolute top-6 right-6 text-white/80 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
             <nav class="flex flex-col gap-6">
                 <a href="https://www.essetech.com.au/" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Home</a>
                 <a href="https://www.essetech.com.au/#services" class="mobile-link text-lg font-medium text-white/90 hover:text-fire-400 transition-colors">Services</a>
@@ -195,6 +195,8 @@
             </nav>
         </div>
     </header>
+
+    <main id="main">
 
     <!-- HERO -->
     <section class="hero-mesh bg-navy-900 pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
@@ -516,41 +518,43 @@
         </div>
     </section>
 
+    </main>
+
     <!-- FOOTER -->
     <footer class="bg-navy-900 py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-10 md:gap-8">
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-4"><img src="essetech-logo.png" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert"></div>
-                    <p class="text-white/40 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible &mdash; so you can focus on what matters most.</p>
+                    <p class="text-white/60 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible &mdash; so you can focus on what matters most.</p>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h4>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="/managed-it-services-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Managed IT Services</a></li>
-                        <li><a href="/fractional-it-manager-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Fractional IT Manager</a></li>
-                        <li><a href="/it-support-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">IT Support</a></li>
-                        <li><a href="/cybersecurity-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cybersecurity</a></li>
-                        <li><a href="/cloud-solutions-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cloud Solutions</a></li>
-                        <li><a href="/secure-ai-enablement-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Secure AI Enablement</a></li>
-                        <li><a href="/web-design-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Web Design</a></li>
-                        <li><a href="/pricing-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Pricing</a></li>
+                        <li><a href="/managed-it-services-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Managed IT Services</a></li>
+                        <li><a href="/fractional-it-manager-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Fractional IT Manager</a></li>
+                        <li><a href="/it-support-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT Support</a></li>
+                        <li><a href="/cybersecurity-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Cybersecurity</a></li>
+                        <li><a href="/cloud-solutions-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Cloud Solutions</a></li>
+                        <li><a href="/secure-ai-enablement-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Secure AI Enablement</a></li>
+                        <li><a href="/web-design-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Web Design</a></li>
+                        <li><a href="/pricing-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Pricing</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h4>
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h3>
                     <ul class="space-y-3">
-                        <li><a href="mailto:support@essetech.com.au" class="text-sm text-white/40 hover:text-fire-400 transition-colors">support@essetech.com.au</a></li>
-                        <li><a href="tel:0404311791" class="text-sm text-white/40 hover:text-fire-400 transition-colors">0404 311 791</a></li>
-                        <li><span class="text-sm text-white/40">Adelaide, SA</span></li>
+                        <li><a href="mailto:support@essetech.com.au" class="text-sm text-white/60 hover:text-fire-400 transition-colors">support@essetech.com.au</a></li>
+                        <li><a href="tel:0404311791" class="text-sm text-white/60 hover:text-fire-400 transition-colors">0404 311 791</a></li>
+                        <li><span class="text-sm text-white/60">Adelaide, SA</span></li>
                     </ul>
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-white/30">&copy; 2026 Essetech. All rights reserved.</p>
+                <p class="text-xs text-white/60">&copy; 2026 Essetech. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-xs text-white/30 hover:text-white/50 transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-xs text-white/30 hover:text-white/50 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-xs text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs text-white/60 hover:text-white transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

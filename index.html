@@ -530,7 +530,7 @@
             </div>
         </div>
         <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-navy-900/95 backdrop-blur-xl shadow-2xl z-50 p-8 pt-24 md:hidden">
-            <button id="menuClose" class="absolute top-6 right-6 text-white/80 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <button id="menuClose" aria-label="Close menu" class="absolute top-6 right-6 text-white/80 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
             <nav class="flex flex-col gap-6">
                 <div class="mobile-services" id="mobileServices">
                     <button class="mobile-services-toggle text-lg font-medium text-white/90 hover:text-fire-400 transition-colors" type="button" aria-expanded="false">
@@ -584,6 +584,8 @@
         </div>
     </header>
 
+    <main id="main">
+
     <!-- ===== HERO — CINEMATIC AI ===== -->
     <section class="hero-cinema min-h-screen relative overflow-hidden flex flex-col">
         <video id="heroVideo" class="hero-video" src="hero-ai.mp4" poster="hero-ai-poster.jpg" autoplay muted playsinline preload="auto" aria-label="Miniature figurine of Jonathon, founder of Essetech, working on a laptop surrounded by holographic AI dashboards"></video>
@@ -609,7 +611,7 @@
                 </a>
             </div>
 
-            <a href="#contact" class="founder-badge anim-fade-up d5 mt-9 inline-flex items-center gap-3 group" aria-label="Meet Jonathon, founder of Essetech">
+            <a href="#contact" class="founder-badge anim-fade-up d5 mt-9 inline-flex items-center gap-3 group">
                 <span class="founder-avatar relative">
                     <picture>
                         <source srcset="jonathon-sm.webp" type="image/webp">
@@ -952,7 +954,7 @@
                                 <span class="w-3 h-3 rounded-full bg-white/15"></span>
                                 <span class="w-3 h-3 rounded-full bg-white/15"></span>
                                 <span class="w-3 h-3 rounded-full bg-white/15"></span>
-                                <span class="ml-2 text-white/40 text-xs">Claude · with the Essetech tool installed</span>
+                                <span class="ml-2 text-white/60 text-xs">Claude · with the Essetech tool installed</span>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex justify-end">
@@ -963,7 +965,7 @@
                                         <div class="flex items-center justify-between gap-4"><span class="text-white/90 font-semibold text-sm">AI-Readiness: 58/100</span><span class="text-fire-400 text-xs font-semibold bg-fire-400/10 px-2 py-0.5 rounded-full">Emerging</span></div>
                                         <div class="h-2 w-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-navy-400 to-fire-500 rounded-full" style="width:58%"></div></div>
                                         <p class="text-white/60 text-xs leading-relaxed">Biggest gaps: process clarity &amp; team adoption. Top quick win &mdash; <span class="text-white/80">client onboarding automation</span> (high impact, medium effort)&hellip;</p>
-                                        <div class="flex items-center gap-2 pt-1 border-t border-white/10"><svg class="w-3.5 h-3.5 text-fire-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span class="text-white/40 text-xs">Powered by Essetech &middot; free consultation available</span></div>
+                                        <div class="flex items-center gap-2 pt-1 border-t border-white/10"><svg class="w-3.5 h-3.5 text-fire-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span class="text-white/60 text-xs">Powered by Essetech &middot; free consultation available</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -1237,15 +1239,17 @@
         </div>
     </section>
 
+    </main>
+
     <!-- ===== FOOTER ===== -->
     <footer class="bg-navy-900 py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-10 md:gap-8">
-                <div class="md:col-span-2"><div class="flex items-center gap-3 mb-4"><img src="essetech-logo.png" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert"></div><p class="text-white/40 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible &mdash; so you can focus on what matters most.</p></div>
-                <div><h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h4><ul class="space-y-3"><li><a href="/secure-ai-enablement-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Secure AI Enablement</a></li><li><a href="/ai-growth-system-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">AI Growth System</a></li><li><a href="/managed-it-services-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Managed IT Services</a></li><li><a href="/fractional-it-manager-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Fractional IT Manager</a></li><li><a href="/it-support-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">IT Support</a></li><li><a href="/web-design-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Web Design</a></li><li><a href="/pricing-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Pricing</a></li><li><a href="/cybersecurity-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cybersecurity</a></li><li><a href="/cloud-solutions-adelaide.html" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Cloud Solutions</a></li><li><a href="/blog/" class="text-sm text-white/40 hover:text-fire-400 transition-colors">Blog &amp; Insights</a></li></ul></div>
-                <div><h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h4><ul class="space-y-3"><li><a href="mailto:support@essetech.com.au" class="text-sm text-white/40 hover:text-fire-400 transition-colors">support@essetech.com.au</a></li><li><a href="tel:0404311791" class="text-sm text-white/40 hover:text-fire-400 transition-colors">0404 311 791</a></li><li><span class="text-sm text-white/40">Adelaide, SA</span></li></ul></div>
+                <div class="md:col-span-2"><div class="flex items-center gap-3 mb-4"><img src="essetech-logo.png" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert"></div><p class="text-white/60 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible &mdash; so you can focus on what matters most.</p></div>
+                <div><h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h3><ul class="space-y-3"><li><a href="/secure-ai-enablement-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Secure AI Enablement</a></li><li><a href="/ai-growth-system-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Growth System</a></li><li><a href="/managed-it-services-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Managed IT Services</a></li><li><a href="/fractional-it-manager-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Fractional IT Manager</a></li><li><a href="/it-support-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT Support</a></li><li><a href="/web-design-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Web Design</a></li><li><a href="/pricing-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Pricing</a></li><li><a href="/cybersecurity-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Cybersecurity</a></li><li><a href="/cloud-solutions-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Cloud Solutions</a></li><li><a href="/blog/" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Blog &amp; Insights</a></li></ul></div>
+                <div><h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h3><ul class="space-y-3"><li><a href="mailto:support@essetech.com.au" class="text-sm text-white/60 hover:text-fire-400 transition-colors">support@essetech.com.au</a></li><li><a href="tel:0404311791" class="text-sm text-white/60 hover:text-fire-400 transition-colors">0404 311 791</a></li><li><span class="text-sm text-white/60">Adelaide, SA</span></li></ul></div>
             </div>
-            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4"><p class="text-xs text-white/30">&copy; 2026 Essetech. All rights reserved.</p><div class="flex gap-6"><a href="#" class="text-xs text-white/30 hover:text-white/50 transition-colors">Privacy Policy</a><a href="#" class="text-xs text-white/30 hover:text-white/50 transition-colors">Terms of Service</a></div></div>
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4"><p class="text-xs text-white/60">&copy; 2026 Essetech. All rights reserved.</p><div class="flex gap-6"><a href="#" class="text-xs text-white/60 hover:text-white transition-colors">Privacy Policy</a><a href="#" class="text-xs text-white/60 hover:text-white transition-colors">Terms of Service</a></div></div>
         </div>
     </footer>
 
