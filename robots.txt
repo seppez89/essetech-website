@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://essetech.com.au/sitemap.xml
+Sitemap: https://www.essetech.com.au/sitemap.xml
