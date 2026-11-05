@@ -455,6 +455,7 @@
         .mobile-sub-link:hover,.mobile-sub-link:active{background:rgba(232,68,37,0.1);color:#fff}
         .mobile-sub-icon{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,rgba(78,106,175,0.22),rgba(232,68,37,0.15));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,0.85)}
     </style>
+    <script defer src="/site.js"></script>
 </head>
 <body class="bg-white text-gray-800 antialiased overflow-x-hidden">
 
@@ -1220,7 +1221,7 @@
                         <form id="contactForm" action="https://formsubmit.co/jonathon@essetech.com.au" method="POST" class="space-y-5">
                             <input type="hidden" name="_subject" value="New enquiry from essetech.com.au">
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://www.essetech.com.au/#contact">
+                            <input type="hidden" name="_next" value="https://www.essetech.com.au/thanks.html">
                             <input type="text" name="_honey" style="display:none">
                             <div class="grid sm:grid-cols-2 gap-5">
                                 <div><label for="firstName" class="block text-sm font-bold text-navy-800 mb-1.5">First name</label><input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-navy-800 text-sm focus:ring-2 focus:ring-fire-500/20 focus:border-fire-500 outline-none transition-all" placeholder="John"></div>
@@ -1233,7 +1234,6 @@
                             <button type="submit" class="btn-shimmer w-full inline-flex items-center justify-center gap-2 bg-fire-500 text-white px-8 py-4 rounded-xl text-base font-bold">Send Message <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
                             <p class="text-xs text-gray-400 text-center mt-3">We'll respond within one business day. No spam, ever.</p>
                         </form>
-                        <div id="formSuccess" class="hidden text-center py-10"><div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h4 class="text-lg font-black text-navy-800 mb-2">Message sent!</h4><p class="text-gray-600 text-sm">Thanks for reaching out. We'll be in touch within one business day.</p></div>
                     </div>
                 </div>
             </div>
@@ -1535,15 +1535,6 @@
             document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));
             if(!isOpen){answer.classList.add('open');icon.classList.add('rotated');item.classList.add('active')}
         });
-    });
-
-    // Contact form
-    document.getElementById('contactForm').addEventListener('submit',e=>{
-        e.preventDefault();
-        const form=e.target;
-        fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(()=>{
-            form.classList.add('hidden');document.getElementById('formSuccess').classList.remove('hidden');
-        }).catch(()=>{form.classList.add('hidden');document.getElementById('formSuccess').classList.remove('hidden')});
     });
 
     // Smooth scroll

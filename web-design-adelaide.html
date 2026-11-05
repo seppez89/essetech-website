@@ -292,6 +292,7 @@
         .showcase-meta{transition:all .3s ease}
         .showcase-meta:hover{transform:translateY(-2px)}
     </style>
+    <script defer src="/site.js"></script>
 </head>
 <body class="bg-white text-navy-800 antialiased">
 
@@ -1064,7 +1065,7 @@
                         <form id="contactForm" action="https://formsubmit.co/jonathon@essetech.com.au" method="POST" class="space-y-5">
                             <input type="hidden" name="_subject" value="New website enquiry from essetech.com.au">
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://www.essetech.com.au/web-design-adelaide.html#enquire">
+                            <input type="hidden" name="_next" value="https://www.essetech.com.au/thanks.html">
                             <input type="text" name="_honey" style="display:none">
                             <div class="grid sm:grid-cols-2 gap-5">
                                 <div>
@@ -1104,13 +1105,6 @@
                             </button>
                             <p class="text-xs text-gray-400 text-center mt-3">We'll respond within one business day. No spam, ever.</p>
                         </form>
-                        <div id="formSuccess" class="hidden text-center py-10">
-                            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <h4 class="text-lg font-black text-navy-800 mb-2">Enquiry sent</h4>
-                            <p class="text-gray-500 text-sm">Thanks for reaching out &mdash; we'll be in touch within one business day.</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1242,17 +1236,6 @@
                 card.addEventListener('touchend',()=>setTimeout(resetTilt,300),{passive:true});
             }
         });
-
-        // Contact form (AJAX submit to FormSubmit)
-        const form=document.getElementById('contactForm');
-        if(form){
-            form.addEventListener('submit',e=>{
-                e.preventDefault();
-                fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-                    .then(()=>{form.classList.add('hidden');document.getElementById('formSuccess').classList.remove('hidden')})
-                    .catch(()=>{form.classList.add('hidden');document.getElementById('formSuccess').classList.remove('hidden')});
-            });
-        }
 
         // Smooth scroll for internal anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
