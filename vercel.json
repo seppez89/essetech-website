@@ -1,6 +1,56 @@
 {
   "redirects": [
     {
+      "source": "/privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use/",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service/",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
       "source": "/services",
       "destination": "/#services",
       "permanent": true
