@@ -1,6 +1,61 @@
 {
   "redirects": [
     {
+      "source": "/services",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign",
+      "destination": "/web-design-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign/",
+      "destination": "/web-design-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/cyber-security",
+      "destination": "/cybersecurity-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/cyber-security/",
+      "destination": "/cybersecurity-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/remote-in",
+      "destination": "/it-support-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/remote-in/",
+      "destination": "/it-support-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/:page(it-support-adelaide|managed-it-services-adelaide|cybersecurity-adelaide|cloud-solutions-adelaide|fractional-it-manager-adelaide|fractional-it-manager-australia|pricing-adelaide|secure-ai-enablement-adelaide|ai-growth-system-adelaide|web-design-adelaide|remote-it-support-australia|ai-automation-consultant-australia|secure-ai-copilot-rollout-australia|how-remote-delivery-works)",
+      "destination": "/:page.html",
+      "permanent": true
+    },
+    {
       "source": "/about",
       "destination": "/about.html",
       "permanent": true
