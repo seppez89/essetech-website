@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "essetech-website.vercel.app"
+        }
+      ],
+      "destination": "https://www.essetech.com.au/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -112,7 +123,7 @@
       "permanent": true
     },
     {
-      "source": "/:page(it-support-adelaide|managed-it-services-adelaide|cybersecurity-adelaide|cloud-solutions-adelaide|fractional-it-manager-adelaide|fractional-it-manager-australia|pricing-adelaide|secure-ai-enablement-adelaide|ai-growth-system-adelaide|web-design-adelaide|remote-it-support-australia|ai-automation-consultant-australia|secure-ai-copilot-rollout-australia|how-remote-delivery-works|it-for-trades-adelaide|it-for-medical-clinics-adelaide|it-for-not-for-profits-adelaide)",
+      "source": "/:page(it-support-adelaide|managed-it-services-adelaide|cybersecurity-adelaide|cloud-solutions-adelaide|fractional-it-manager-adelaide|fractional-it-manager-australia|pricing-adelaide|secure-ai-enablement-adelaide|ai-growth-system-adelaide|web-design-adelaide|remote-it-support-australia|ai-automation-consultant-australia|secure-ai-copilot-rollout-australia|how-remote-delivery-works|it-for-trades-adelaide|it-for-medical-clinics-adelaide|it-for-not-for-profits-adelaide|ai-consultant-adelaide|microsoft-copilot-consultant-adelaide|microsoft-365-support-adelaide|essential-eight-adelaide|it-consulting-adelaide)",
       "destination": "/:page.html",
       "permanent": true
     },
