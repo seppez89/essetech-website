@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "essetech-website.vercel.app"
+        }
+      ],
+      "destination": "https://www.essetech.com.au/:path*",
+      "permanent": true
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy.html",
       "permanent": true
@@ -101,7 +112,7 @@
       "permanent": true
     },
     {
-      "source": "/:page(it-support-adelaide|managed-it-services-adelaide|cybersecurity-adelaide|cloud-solutions-adelaide|fractional-it-manager-adelaide|fractional-it-manager-australia|pricing-adelaide|secure-ai-enablement-adelaide|ai-growth-system-adelaide|web-design-adelaide|remote-it-support-australia|ai-automation-consultant-australia|secure-ai-copilot-rollout-australia|how-remote-delivery-works)",
+      "source": "/:page(it-support-adelaide|managed-it-services-adelaide|cybersecurity-adelaide|cloud-solutions-adelaide|fractional-it-manager-adelaide|fractional-it-manager-australia|pricing-adelaide|secure-ai-enablement-adelaide|ai-growth-system-adelaide|web-design-adelaide|remote-it-support-australia|ai-automation-consultant-australia|secure-ai-copilot-rollout-australia|how-remote-delivery-works|it-for-trades-adelaide|it-for-medical-clinics-adelaide|it-for-not-for-profits-adelaide)",
       "destination": "/:page.html",
       "permanent": true
     },
@@ -154,6 +165,26 @@
       "source": "/website-care",
       "destination": "/web-design-adelaide.html",
       "permanent": true
+    },
+    {
+      "source": "/blog/:post(ai-for-accounting-firms|can-remote-it-support-replace-an-on-site-tech|fractional-it-manager-cost-australia|fractional-it-manager-vs-msp|it-support-cost-adelaide-2027)",
+      "destination": "/blog/:post.html",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/pricing-adelaide.html",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [
@@ -190,6 +221,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(email-signature|ai-services-new).html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }
