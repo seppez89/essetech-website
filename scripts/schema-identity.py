@@ -27,6 +27,7 @@ PERSON_ID = BASE + "/about.html#jonathon-battifuoco"
 SAME_AS = [
     "https://www.google.com/maps?cid=16344603218736363948",
     "https://www.youtube.com/@Essetech_IT",
+    "https://www.facebook.com/p/Essetech-100087886136587/",
     "https://abr.business.gov.au/ABN/View?abn=33697426163",
 ]
 
