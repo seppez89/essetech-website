@@ -27,12 +27,19 @@
     <meta name="twitter:description" content="A part-time IT manager for Adelaide trades and construction businesses, plus AI help with quotes, follow-ups and the office inbox.">
     <meta name="twitter:image" content="https://www.essetech.com.au/og-image.png">
 
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+    {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": [
+            "LocalBusiness",
+            "ProfessionalService"
+        ],
+        "@id": "https://www.essetech.com.au/#business",
         "name": "Essetech",
-        "description": "Adelaide-based IT partner offering fractional IT management, managed IT and IT support for small to medium businesses.",
-        "url": "https://www.essetech.com.au",
+        "legalName": "Essetech Pty Ltd",
+        "url": "https://www.essetech.com.au/",
+        "logo": "https://www.essetech.com.au/essetech-logo.png",
+        "image": "https://www.essetech.com.au/og-image.png",
         "telephone": "+61404311791",
         "email": "support@essetech.com.au",
         "address": {
@@ -42,18 +49,55 @@
             "postalCode": "5032",
             "addressCountry": "AU"
         },
-        "areaServed": [{"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},{"@type":"Country","name":"Australia"}],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Adelaide",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "South Australia"
+                }
+            },
+            {
+                "@type": "Country",
+                "name": "Australia"
+            }
+        ],
         "priceRange": "$$",
-        "openingHours": "Mo-Fr 08:00-18:00"
-    }</script>
-    <script type="application/ld+json">{
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            }
+        ],
+        "founder": {
+            "@id": "https://www.essetech.com.au/about.html#jonathon-battifuoco"
+        },
+        "sameAs": [
+            "https://www.google.com/maps?cid=16344603218736363948",
+            "https://www.youtube.com/@Essetech_IT",
+            "https://abr.business.gov.au/ABN/View?abn=33697426163"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "IT management and AI admin help for Adelaide trades businesses",
         "provider": {
-            "@type": "Organization",
+            "@type": "LocalBusiness",
+            "@id": "https://www.essetech.com.au/#business",
             "name": "Essetech",
-            "url": "https://www.essetech.com.au"
+            "url": "https://www.essetech.com.au/"
         },
         "areaServed": [
             {
@@ -71,7 +115,8 @@
         },
         "description": "Part-time IT management for Adelaide trades and construction businesses with 5 to 30 staff: devices, logins, Microsoft 365, backups, security and vendors, plus AI help with quotes, follow-ups and office admin.",
         "serviceType": "Fractional IT Management"
-    }</script>
+    }
+    </script>
     <script type="application/ld+json">{
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -559,8 +604,8 @@
     <!-- FOOTER -->
     <footer class="lp-footer py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-10 md:gap-8">
-                <div class="md:col-span-2">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
+                <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-4"><img src="essetech-logo-160.webp" width="160" height="160" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert"></div>
                     <p class="text-white/60 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services, run hands-on by founder Jonathon Battifuoco from Brooklyn Park.</p>
                 </div>
@@ -577,6 +622,7 @@
                         <li><a href="/pricing-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Pricing</a></li><li><a href="/case-studies/deidentified-network-remediation/" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Case Study</a></li>
                     </ul>
                 </div>
+                <!-- SPECIALIST LINKS START (scripts/footer-links.py) --><div><h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Specialist help</h3><ul class="space-y-3"><li><a href="/ai-growth-system-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Growth System</a></li><li><a href="/ai-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Consultant</a></li><li><a href="/microsoft-copilot-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft Copilot Setup</a></li><li><a href="/microsoft-365-support-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft 365 Support</a></li><li><a href="/essential-eight-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Essential Eight</a></li><li><a href="/it-consulting-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT Consulting</a></li><li><a href="/it-for-trades-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Trades</a></li><li><a href="/it-for-medical-clinics-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Medical Clinics</a></li><li><a href="/it-for-not-for-profits-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Not-for-Profits</a></li></ul></div><!-- SPECIALIST LINKS END -->
                 <div>
                     <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h3>
                     <ul class="space-y-3">

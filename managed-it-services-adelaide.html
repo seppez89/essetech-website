@@ -24,12 +24,19 @@
     <meta name="twitter:description" content="Managed IT services in Adelaide: 24/7 monitoring, cybersecurity and cloud management for small businesses on predictable monthly pricing. Book an IT audit.">
     <meta name="twitter:image" content="https://www.essetech.com.au/og-image.png">
 
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+    {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": [
+            "LocalBusiness",
+            "ProfessionalService"
+        ],
+        "@id": "https://www.essetech.com.au/#business",
         "name": "Essetech",
-        "description": "Adelaide-based IT support and managed services provider offering proactive managed IT services for small to medium businesses.",
-        "url": "https://www.essetech.com.au",
+        "legalName": "Essetech Pty Ltd",
+        "url": "https://www.essetech.com.au/",
+        "logo": "https://www.essetech.com.au/essetech-logo.png",
+        "image": "https://www.essetech.com.au/og-image.png",
         "telephone": "+61404311791",
         "email": "support@essetech.com.au",
         "address": {
@@ -39,20 +46,66 @@
             "postalCode": "5032",
             "addressCountry": "AU"
         },
-        "areaServed": [{"@type": "City", "name": "Adelaide", "containedInPlace": {"@type": "State", "name": "South Australia"}},{"@type":"Country","name":"Australia"}],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Adelaide",
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "South Australia"
+                }
+            },
+            {
+                "@type": "Country",
+                "name": "Australia"
+            }
+        ],
         "priceRange": "$$",
-        "openingHours": "Mo-Fr 08:00-18:00"
-    }</script>
-    <script type="application/ld+json">{
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            }
+        ],
+        "founder": {
+            "@id": "https://www.essetech.com.au/about.html#jonathon-battifuoco"
+        },
+        "sameAs": [
+            "https://www.google.com/maps?cid=16344603218736363948",
+            "https://www.youtube.com/@Essetech_IT",
+            "https://abr.business.gov.au/ABN/View?abn=33697426163"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Managed IT Services Adelaide",
         "provider": {
-            "@type": "Organization",
+            "@type": "LocalBusiness",
+            "@id": "https://www.essetech.com.au/#business",
             "name": "Essetech",
-            "url": "https://www.essetech.com.au"
+            "url": "https://www.essetech.com.au/"
         },
-        "areaServed": [{"@type": "City", "name": "Adelaide"},{"@type":"Country","name":"Australia"}],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Adelaide"
+            },
+            {
+                "@type": "Country",
+                "name": "Australia"
+            }
+        ],
         "description": "Proactive managed IT services for Adelaide businesses. 24/7 monitoring, cybersecurity, cloud management, and predictable monthly pricing.",
         "serviceType": "Managed IT Services",
         "offers": {
@@ -64,11 +117,12 @@
                 "priceCurrency": "AUD",
                 "unitText": "per user per month",
                 "minPrice": 99,
-                    "maxPrice": 175,
-                    "description": "$99 to $175 per user per month + GST, depending on the plan. No hidden fees, no lock-in contracts."
+                "maxPrice": 175,
+                "description": "$99 to $175 per user per month + GST, depending on the plan. No hidden fees, no lock-in contracts."
             }
         }
-    }</script>
+    }
+    </script>
     <script type="application/ld+json">{
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -110,7 +164,7 @@
                 "name": "How quickly can you onboard our business?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Typical onboarding takes 1 to 2 weeks depending on the size and complexity of your IT environment. We handle the entire process with zero disruption to your day-to-day operations, including system auditing, monitoring setup, documentation, and staff introductions."
+                    "text": "Typical onboarding takes 1 to 2 weeks depending on the size and complexity of your IT environment. We handle the entire process and plan it around your working day, including system auditing, monitoring setup, documentation, and staff introductions."
                 }
             }
         ]
@@ -240,6 +294,28 @@
             </div>
         </div>
     </section>
+
+    <!-- KEY FACTS START (generated by scripts/key-facts.py, edit the facts there) -->
+    <section class="py-10 md:py-14 bg-white" aria-labelledby="key-facts">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl border border-navy-100 bg-navy-50 p-6 sm:p-8 lg:p-10">
+                <h2 id="key-facts" class="text-2xl sm:text-3xl font-black text-navy-900">Managed IT services in Adelaide: key facts</h2>
+                <p class="mt-3 max-w-3xl text-gray-600 leading-relaxed">Managed IT from Essetech is a monthly plan priced per user. It replaces hourly IT bills with one fixed fee and one number to call.</p>
+                <dl class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Support plan</dt><dd class="mt-1 font-bold text-navy-900">$99 per user per month + GST</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Remote and onsite help desk for your staff.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Support + Security plan</dt><dd class="mt-1 font-bold text-navy-900">$139 per user per month + GST</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Adds Microsoft 365 security and Essential Eight controls.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Fully Managed plan</dt><dd class="mt-1 font-bold text-navy-900">$175 per user per month + GST</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Adds cloud management across Microsoft 365, Azure or Google Workspace.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Monitoring</dt><dd class="mt-1 font-bold text-navy-900">24/7, included in every plan</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Servers, PCs and Microsoft 365 are watched and alerts are acted on.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Contract</dt><dd class="mt-1 font-bold text-navy-900">No lock-in</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">No hidden fees. The cost moves with your headcount.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Getting started</dt><dd class="mt-1 font-bold text-navy-900">Usually 1 to 2 weeks</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">We audit your setup, add monitoring, document it and meet your staff.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Best for</dt><dd class="mt-1 font-bold text-navy-900">Businesses with 5 or more staff</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Smaller teams can use pay-as-you-go IT support at $150 an hour instead.</dd></div>
+                    <div><dt class="text-xs font-bold uppercase tracking-wider text-fire-600">Where</dt><dd class="mt-1 font-bold text-navy-900">Onsite across metro Adelaide</dd><dd class="mt-1 text-sm leading-relaxed text-gray-600">Based in Brooklyn Park. Remote support Australia-wide.</dd></div>
+                </dl>
+                <p class="mt-8 text-sm text-gray-600">Prices are in Australian dollars and exclude GST. Checked <time datetime="2026-11-11">11 November 2026</time>. <a href="/pricing-adelaide.html" class="font-semibold text-fire-600 underline hover:text-fire-700">See the full price list</a>.</p>
+            </div>
+        </div>
+    </section>
+    <!-- KEY FACTS END -->
 
     <!-- SERVICE DESCRIPTION -->
     <section class="py-20 md:py-28">
@@ -611,6 +687,8 @@
                 <li><a href="/blog/fractional-it-manager-vs-msp.html" class="font-semibold text-fire-600 hover:underline">Fractional IT manager or MSP</a></li>
                 <li><a href="/remote-it-support-australia.html" class="font-semibold text-fire-600 hover:underline">Remote IT support across Australia</a></li>
                 <li><a href="/how-remote-delivery-works.html" class="font-semibold text-fire-600 hover:underline">How remote delivery works</a></li>
+                <li><a href="/essential-eight-adelaide.html" class="font-semibold text-fire-600 hover:underline">Essential Eight help in Adelaide</a></li>
+                <li><a href="/microsoft-365-support-adelaide.html" class="font-semibold text-fire-600 hover:underline">Microsoft 365 support in Adelaide</a></li>
             </ul>
         </div>
     </section>
@@ -620,8 +698,8 @@
     <!-- FOOTER -->
     <footer class="bg-navy-900 py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-10 md:gap-8">
-                <div class="md:col-span-2">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
+                <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-4"><img src="essetech-logo-160.webp" width="160" height="160" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert"></div>
                     <p class="text-white/60 text-sm leading-relaxed max-w-sm">Adelaide-based IT support and managed services. We make technology seamless, secure, and invisible &mdash; so you can focus on what matters most.</p>
                 </div>
@@ -638,6 +716,7 @@
                         <li><a href="/pricing-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Pricing</a></li><li><a href="/case-studies/deidentified-network-remediation/" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Case Study</a></li>
                     </ul>
                 </div>
+                <!-- SPECIALIST LINKS START (scripts/footer-links.py) --><div><h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Specialist help</h3><ul class="space-y-3"><li><a href="/ai-growth-system-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Growth System</a></li><li><a href="/ai-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Consultant</a></li><li><a href="/microsoft-copilot-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft Copilot Setup</a></li><li><a href="/microsoft-365-support-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft 365 Support</a></li><li><a href="/essential-eight-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Essential Eight</a></li><li><a href="/it-consulting-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT Consulting</a></li><li><a href="/it-for-trades-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Trades</a></li><li><a href="/it-for-medical-clinics-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Medical Clinics</a></li><li><a href="/it-for-not-for-profits-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Not-for-Profits</a></li></ul></div><!-- SPECIALIST LINKS END -->
                 <div>
                     <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h3>
                     <ul class="space-y-3">

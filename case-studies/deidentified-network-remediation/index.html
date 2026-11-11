@@ -16,6 +16,8 @@
     <meta property="og:title" content="Network Remediation Case Study | Essetech Adelaide">
     <meta property="og:description" content="Network remediation case study from Essetech, Adelaide. A de-identified example of turning assessment findings into actions, estimates and handover docs.">
     <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-05-28T09:00:00+09:30">
+    <meta property="article:modified_time" content="2026-05-28T09:00:00+09:30">
     <meta property="og:url" content="https://www.essetech.com.au/case-studies/deidentified-network-remediation/">
     <meta property="og:image" content="https://www.essetech.com.au/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -27,26 +29,33 @@
     <meta name="twitter:description" content="Network remediation case study from Essetech, Adelaide. A de-identified example of turning assessment findings into actions, estimates and handover docs.">
     <meta name="twitter:image" content="https://www.essetech.com.au/og-image.png">
 
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+    {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "De-identified Network Remediation Case Study",
         "description": "A de-identified capability demo showing how Essetech converts technical findings into scoped remediation work, evidence, estimates and handover documentation.",
         "author": {
             "@type": "Organization",
-            "name": "Essetech"
+            "@id": "https://www.essetech.com.au/#business",
+            "name": "Essetech",
+            "url": "https://www.essetech.com.au/"
         },
         "publisher": {
             "@type": "Organization",
+            "@id": "https://www.essetech.com.au/#business",
             "name": "Essetech",
+            "url": "https://www.essetech.com.au/",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.essetech.com.au/essetechlogo.png"
+                "url": "https://www.essetech.com.au/essetech-logo.png"
             }
         },
         "dateModified": "2026-05-28",
-        "mainEntityOfPage": "https://www.essetech.com.au/case-studies/deidentified-network-remediation/"
-    }</script>
+        "mainEntityOfPage": "https://www.essetech.com.au/case-studies/deidentified-network-remediation/",
+        "datePublished": "2026-05-28"
+    }
+    </script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.essetech.com.au/"},{"@type":"ListItem","position":2,"name":"Network Remediation Case Study","item":"https://www.essetech.com.au/case-studies/deidentified-network-remediation/"}]}</script>
 
     <link rel="stylesheet" href="/tailwind.css">
@@ -99,6 +108,8 @@
         .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.22,1,.36,1)}
         .reveal-left{opacity:0;transform:translateX(-50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
         .reveal-right{opacity:0;transform:translateX(50px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+/* On phones a sideways start position made the page wider than the screen until the panel animated in. */
+@media (max-width:767px){.reveal-left,.reveal-right{transform:translateY(40px)}}
         .visible{opacity:1!important;transform:none!important}
         .case-card{background:linear-gradient(180deg,#fff 0%,#f8faff 100%);border:1px solid rgba(184,196,225,.45);border-radius:20px;box-shadow:0 18px 55px -24px rgba(78,106,175,.45);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
         .case-card:hover{transform:translateY(-5px);border-color:rgba(232,68,37,.24);box-shadow:0 28px 70px -26px rgba(78,106,175,.55),0 16px 40px -28px rgba(232,68,37,.45)}
@@ -689,8 +700,8 @@
 
     <footer class="bg-navy-900 py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-10 md:gap-8">
-                <div class="md:col-span-2">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
+                <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-4">
                         <img src="/essetech-logo-160.webp" width="160" height="160" alt="Essetech IT Consulting Adelaide" class="h-10 w-auto brightness-0 invert" onerror="this.outerHTML='<span class=\'text-white text-xl font-black\'>Essetech</span>'">
                     </div>
@@ -709,6 +720,7 @@
                         <li><a href="/pricing-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Pricing</a></li>
                     </ul>
                 </div>
+                <!-- SPECIALIST LINKS START (scripts/footer-links.py) --><div><h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Specialist help</h3><ul class="space-y-3"><li><a href="/ai-growth-system-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Growth System</a></li><li><a href="/ai-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">AI Consultant</a></li><li><a href="/microsoft-copilot-consultant-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft Copilot Setup</a></li><li><a href="/microsoft-365-support-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Microsoft 365 Support</a></li><li><a href="/essential-eight-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">Essential Eight</a></li><li><a href="/it-consulting-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT Consulting</a></li><li><a href="/it-for-trades-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Trades</a></li><li><a href="/it-for-medical-clinics-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Medical Clinics</a></li><li><a href="/it-for-not-for-profits-adelaide.html" class="text-sm text-white/60 hover:text-fire-400 transition-colors">IT for Not-for-Profits</a></li></ul></div><!-- SPECIALIST LINKS END -->
                 <div>
                     <h3 class="text-sm font-bold text-white uppercase mb-4">Contact</h3>
                     <ul class="space-y-3">
