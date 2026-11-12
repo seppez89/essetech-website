@@ -495,6 +495,32 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
   .tbl-stack td:first-child{padding-top:0}
   .tbl-stack td:first-child:before{display:none}
 }
+
+/* 06 Claude Projects */
+.together{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.together .card h3{font-size:17px}
+.together .card p{margin-top:8px}
+.together .flowline{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.together .flowrow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.chip{
+  display:inline-block;font-size:12.5px;font-weight:700;color:var(--text);
+  background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 10px;line-height:1.3;
+}
+.together .arrow{color:var(--sky);font-weight:700}
+.cp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cp{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 20px}
+.cp h3{font-size:18px}
+.cp .who{color:var(--sky);font-size:13.5px;margin-top:6px;font-weight:600}
+.cp dl{margin:14px 0 0;display:grid;gap:10px}
+.cp dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--hot2);font-weight:700}
+.cp dd{margin:4px 0 0;color:var(--mute);font-size:14.5px}
+.cp .est{margin-top:14px;color:var(--ok);font-size:14.5px;font-weight:700}
+.cp .est span{display:block;color:var(--dim);font-weight:500;font-size:12.5px;margin-top:3px}
+.setup{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.setup .card h3{font-size:16px}
+@media (max-width:1080px){
+  .together,.cp-grid,.setup{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -831,10 +857,141 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
     </div>
   </section>
 
-  <!-- 5 SOLUTION -->
+
+  <!-- 6 CLAUDE PROJECTS -->
+  <section id="projects">
+    <div class="sec-head">
+      <p class="eyebrow">06 · Claude Projects for the office team</p>
+      <h2>A place for the questions the pipeline cannot answer.</h2>
+      <p class="lede">A Claude Project is a shared workspace with its own knowledge files and standing instructions, so every chat in that Project starts with the same approved documents. This is a proposal for how we would set that up. It is not work already done.</p>
+    </div>
+
+    <h3 class="sub" style="margin-top:0">How this sits with the pipeline</h3>
+    <div class="together">
+      <div class="card">
+        <h3>The Docket-to-Claim pipeline</h3>
+        <p>Does the repetitive bulk work, automatically. Photos in, claims and draft invoices out, with a person still approving.</p>
+        <div class="flowline">
+          <div class="flowrow">
+            <span class="chip">Photo</span><span class="arrow">→</span>
+            <span class="chip">AI reads</span><span class="arrow">→</span>
+            <span class="chip">Rules price</span>
+          </div>
+          <div class="flowrow">
+            <span class="chip">Person checks</span><span class="arrow">→</span>
+            <span class="chip">Draft invoice</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Claude Projects</h3>
+        <p>Help people with judgement work: contract questions, writing, and disputes. A person still reviews and sends anything that leaves the building.</p>
+        <div class="flowline">
+          <div class="flowrow">
+            <span class="chip">A question</span><span class="arrow">→</span>
+            <span class="chip">Project files</span>
+          </div>
+          <div class="flowrow">
+            <span class="chip">Draft or answer</span><span class="arrow">→</span>
+            <span class="chip">Person reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>They do different jobs.</b> The pipeline processes hundreds of dockets a month. Projects help when someone needs to interpret the Santos contract, draft a letter, or answer "how do we do this?". One does not replace the other.</p>
+
+    <h3 class="sub">Six Projects we would set up</h3>
+    <div class="cp-grid">
+      <div class="cp">
+        <h3>1. Santos contract and rates</h3>
+        <p class="who">Used by contracts admin, project engineers and the estimator</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>The current Santos rate schedule, the variation and standby rules, and the agreed contract extracts. Instructions: answer only from those files, quote the clause, and say when it is unclear.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: 10 to 20 minutes saved on a "can we charge for this?" question.<span>A person still makes the call before anything is claimed.</span></p>
+      </div>
+      <div class="cp">
+        <h3>2. Claims and dispute replies</h3>
+        <p class="who">Used by contracts admin</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>The contract clauses on claims, common bounce reasons, and a few approved reply templates. A redacted sample docket can sit alongside, if ICE agrees. Instructions: draft a reply in ICE's tone, tied to the clause and the docket, and flag anything missing.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: 30 to 60 minutes saved per bounced-claim reply.<span>A named person still checks and sends it.</span></p>
+      </div>
+      <div class="cp">
+        <h3>3. Quotes and variation letters</h3>
+        <p class="who">Used by the estimator and project engineers</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>The rate schedule, ICE's letter templates, and a short style guide. Instructions: draft from the template and the rates, show the working, and do not invent a rate that is not on the schedule.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: 20 to 40 minutes saved per letter, because you are not starting from a blank page.<span>The estimator still owns the numbers.</span></p>
+      </div>
+      <div class="cp">
+        <h3>4. Safety and site documents</h3>
+        <p class="who">Used by supervisors and project engineers</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>ICE's own SWMS and JSA templates, and any standing site rules you choose to include. Instructions: draft only from those templates, keep ICE's headings, and mark every draft as needing a person's review and sign-off.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: 30 to 45 minutes on the first draft of a familiar SWMS or toolbox talk note.<span>This does not replace a signed, site-specific safety document.</span></p>
+      </div>
+      <div class="cp">
+        <h3>5. Supervisor and admin help desk</h3>
+        <p class="who">Used by supervisors and contracts admin</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>The SOPs and the check-screen guide for the new docket process, once those exist. Instructions: give short how-to answers from the SOPs, and say when the person should ask the process owner.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: fewer "how do I do this?" interruptions in the first months after go-live.<span>This Project is built after the pipeline guide exists, so it stays accurate.</span></p>
+      </div>
+      <div class="cp">
+        <h3>6. Monthly reporting</h3>
+        <p class="who">Used by finance, the GM, and the owner on ICE's side</p>
+        <dl>
+          <dt>What goes in</dt>
+          <dd>A monthly export of the leak-register and invoicing figures, with no personal or payroll data. Instructions: turn the numbers into a short management summary, keep the working visible, and do not add figures that are not in the file.</dd>
+        </dl>
+        <p class="est">Benefit, as an estimate: 1 to 2 hours saved each month packing the numbers into a note.<span>Finance still signs off the figures before they go further.</span></p>
+      </div>
+    </div>
+
+    <h3 class="sub">How we would set it up</h3>
+    <div class="setup">
+      <div class="card">
+        <h3>1. Team seats</h3>
+        <p>ICE takes a Claude Team plan, in ICE's name. Team is needed so Projects can be shared with the people who will use them. You can keep a Project private to invited people, or open it to the organisation. Each person can view and chat, or edit the files, depending on the permission you set. Their individual chats stay private unless they share them.</p>
+      </div>
+      <div class="card">
+        <h3>2. Build each Project</h3>
+        <p>We curate the knowledge files and write the instructions for each of the six Projects, then test them on real examples you provide. The approved documents live in the Project knowledge, so every chat in that Project starts from the same source.</p>
+      </div>
+      <div class="card">
+        <h3>3. Data rules</h3>
+        <p>No personal data, no payroll records, no tax file numbers and no bank details. We check ICE's Santos contract before any Santos document is loaded. On the Team plan, Anthropic does not train its models on your content by default. ICE remains in control of the account.</p>
+      </div>
+      <div class="card">
+        <h3>4. Microsoft 365, if you want it</h3>
+        <p>Claude has a Microsoft 365 connector that can search SharePoint, OneDrive, Outlook and Teams, using only the access each person already has. A Claude owner in ICE turns it on, a Microsoft administrator grants consent, then each person connects their own account. We would still put the approved files into the Project knowledge, so answers stay on the documents you have signed off. We would not turn on write access (sending mail or editing files) unless ICE asks for that later.</p>
+      </div>
+      <div class="card">
+        <h3>5. Owners and training</h3>
+        <p>Each Project gets a named ICE owner, who decides what is added. We run a short training session for the people who will use them: how to ask, how to check a draft, and what must never go in.</p>
+      </div>
+      <div class="card">
+        <h3>6. Quarterly refresh</h3>
+        <p>When the rate schedule changes, a template is updated, or the docket process changes, the owner and essetech refresh the files and instructions. Without that, the Project will slowly go stale.</p>
+      </div>
+    </div>
+    <p class="note"><b>What this costs to run.</b> Anthropic's current Team Standard list price, checked on 13 November 2026 against claude.com/pricing and Anthropic's Help Center, is US$20 per seat per month if billed annually, or US$25 per seat per month if billed monthly, excluding tax. The plan has a minimum of two seats. Currency and GST for Australian buyers are shown at checkout. Seats are passed through at cost, on ICE's own Team account. Premium seats cost more and are only needed if someone regularly hits the Standard usage limit.</p>
+  </section>
+
+  <!-- 7 SOLUTION -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">06 · The product</p>
+      <p class="eyebrow">07 · The product</p>
       <h2>Docket-to-Claim: the claim is ready while the crew is still on site.</h2>
       <p class="lede">The supervisor takes the same photo they take today and sends it to a shared Outlook mailbox or a Teams channel, so the file stays in your Microsoft 365 tenant. Everything after that is drafted by the system. A named person checks it before it leaves the building. Nothing is sent to Santos without that approval.</p>
     </div>
@@ -969,10 +1126,10 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
     <p class="note"><b>What the AI actually does:</b> it reads, the way a person reads a docket, only it does about 400 a month without getting tired. That is about 14 minutes of typing per docket today, and about 3 minutes of checking after. <b>The pricing is plain rules</b> from your rate schedule, so it is the same every time. <b>A person still signs off</b> every claim. It sits on top of Excel, MYOB, Employment Hero and SharePoint. Supervisors keep the same photo habit. Admins learn one check screen. Nothing you use today is replaced.</p>
   </section>
 
-  <!-- 6 AUTOMATIC INVOICING -->
+  <!-- 8 AUTOMATIC INVOICING -->
   <section id="invoicing">
     <div class="sec-head">
-      <p class="eyebrow">07 · Automatic invoicing</p>
+      <p class="eyebrow">08 · Automatic invoicing</p>
       <h2>The invoice is drafted automatically, once a person says yes.</h2>
       <p class="lede">Once the claim is approved inside ICE, the invoice is drafted on hold in MYOB Advanced. Line items come off the docket. Each line is priced from the Santos rate schedule, not by AI, and tied to the right work order and purchase order. The signed dockets are attached. Finance releases the invoice. Nobody types it. A claim cycle is the monthly window from work done to the claim being sent to Santos.</p>
     </div>
@@ -1043,10 +1200,10 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
     </div>
   </section>
 
-  <!-- 7 BUSINESS CASE -->
+  <!-- 9 BUSINESS CASE -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">08 · The business case</p>
+      <p class="eyebrow">09 · The business case</p>
       <h2>$334k is the in-scope leak. The modelled improvement is $221k a year.</h2>
       <p class="lede">These are estimates, if the plan holds after go-live, at full run-rate. Year one means the first 12 months after the first crew is live, not the 8 weeks of build. The $58, $95 and 9% rates are assumptions to be confirmed with ICE finance. Sample figures, as the footer says.</p>
     </div>
@@ -1083,10 +1240,10 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
     <p class="note" style="margin-top:18px"><b>All-in $50,580</b> is the build fee plus 12 months of support and AI/hosting ($1,200 + $640). It does not include ICE's own time, MYOB partner fees, licence changes or travel. Support in the first 30 days after the first crew is live is already in the build fee. The $1,200 month starts after that.</p>
   </section>
 
-  <!-- 8 ROADMAP -->
+  <!-- 10 ROADMAP -->
   <section id="delivery">
     <div class="sec-head">
-      <p class="eyebrow">09 · Delivery</p>
+      <p class="eyebrow">10 · Delivery</p>
       <h2>Eight weeks to first crew live.</h2>
       <p class="lede">It runs beside your current process until the numbers can be explained. Your team keeps doing what they do now until we can show it is safe to stop. Further crews roll out across the next rotation, once the first crew is stable, and are quoted then.</p>
     </div>
@@ -1170,10 +1327,10 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
     </div>
   </section>
 
-  <!-- 9 INVESTMENT -->
+  <!-- 11 INVESTMENT -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">10 · Investment</p>
+      <p class="eyebrow">11 · Investment</p>
       <h2>Fixed price for the first crew. You own the work.</h2>
     </div>
     <div class="grid2 top">
@@ -1201,15 +1358,21 @@ a.inpage:hover,a.inpage:focus{text-decoration:underline}
       </div>
     </div>
     <div class="card" style="margin-top:16px">
+      <h3>Optional add-on: Claude Projects for the office team</h3>
+      <p style="margin-top:8px"><b class="num" style="color:var(--text);font-size:22px">$2,100</b> <span style="color:var(--mute)">+ GST, fixed</span></p>
+      <p style="color:var(--mute);margin-top:10px">About 14 hours at $150 an hour. That covers building the six Projects, writing the instructions, loading the curated knowledge files, setting data rules and owners, and one training session. It is optional, and it is not included in the $28,500 build or the $50,580 all-in pipeline figure.</p>
+      <p style="color:var(--mute);margin-top:10px">Claude Team seats are billed to ICE's own account and passed through at Anthropic's current list price: US$20 per seat per month if billed annually, or US$25 if billed monthly, excluding tax, with a minimum of two seats. Check claude.com/pricing or claude.ai/upgrade for the figure in AUD, including GST, on the day you buy.</p>
+    </div>
+    <div class="card" style="margin-top:16px">
       <h3>Next step</h3>
       <p>Pick the first crew and the owner on your side. We agree a start date once access is confirmed. This proposal is version 1.0, dated 12 November 2026, and is valid until 12 December 2026.</p>
     </div>
   </section>
 
-  <!-- 10 TERMS -->
+  <!-- 12 TERMS -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">11 · Terms in brief</p>
+      <p class="eyebrow">12 · Terms in brief</p>
       <h2>The rules this proposal sits on.</h2>
       <p class="lede">Plain English, so both sides know what happens if something changes. A short statement of work will repeat these terms on sign-off.</p>
     </div>
