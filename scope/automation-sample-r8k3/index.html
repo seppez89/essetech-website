@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torrens Valley Plumbing &amp; Gas · Automation Discovery &amp; Scope</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{
+  --ink:#0b1124; --navy:#111a33; --panel:#16203f; --panel2:#1b2749; --line:#2a3862;
+  --blue:#4E6AAF; --sky:#8fa6e0; --text:#eef1f9; --mute:#a3aecb; --dim:#7682a6;
+  --hot:#E84425; --hot2:#ff7a4d; --ok:#3ecf8e; --amber:#f5b942; --paper:#f6f1e8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 520px at 85% -10%,rgba(232,68,37,.20),transparent 60%),
+             radial-gradient(800px 600px at -10% 20%,rgba(78,106,175,.22),transparent 60%)}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.08}
+h1{font-size:clamp(34px,5.4vw,64px);font-weight:800}
+h2{font-size:clamp(26px,3.4vw,40px);font-weight:800}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot2);font-weight:700}
+.take{color:var(--mute);font-size:17px;max-width:64ch;hyphens:none;-webkit-hyphens:none}
+.take b{color:var(--text)}
+section{padding:72px 0;border-top:1px solid rgba(255,255,255,.06)}
+.sec-head{display:grid;gap:14px;margin-bottom:28px}
+.hot{color:var(--hot2)}
+.ok{color:var(--ok)}
+.sub{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:28px 0 14px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.logo{background:var(--paper);border-radius:14px;padding:6px 14px 6px 6px;display:flex;align-items:center;gap:10px;
+  color:var(--navy);font-weight:800;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.logo img{width:40px;height:40px;display:block;object-fit:contain}
+.logo small{display:block;font-weight:600;font-size:10px;letter-spacing:.14em;color:#5b6582}
+.tag{font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 13px;line-height:1.4}
+.tag b{color:var(--text)}
+.hero{padding:48px 0 36px;border:0}
+.hero h1 span{background:linear-gradient(92deg,var(--hot2),#ffb199);-webkit-background-clip:text;background-clip:text;color:transparent}
+.meta{display:flex;flex-wrap:wrap;gap:10px 26px;color:var(--mute);font-size:14px;margin:22px 0 36px}
+.meta b{color:var(--text);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:22px;
+  box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 24px 50px rgba(0,0,0,.35)}
+.kpi.big{border-color:rgba(232,68,37,.55);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 0 0 1px rgba(232,68,37,.15),0 26px 70px rgba(232,68,37,.22)}
+.kpi .v{font-size:clamp(28px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.kpi .l{color:var(--mute);font-size:14px;margin-top:10px}
+.grid4,.grid3,.grid2{display:grid;gap:14px}
+.grid4{grid-template-columns:repeat(4,1fr)}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.grid2{grid-template-columns:1fr 1fr}
+.grid2.top{align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card p{color:var(--mute);font-size:15px;margin-top:8px}
+.card .n{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.note{margin-top:16px;border-left:3px solid var(--blue);padding:6px 0 6px 16px;color:var(--mute);font-size:15px;max-width:78ch}
+.note b{color:var(--text)}
+.sample-note{color:var(--mute);font-size:13.5px;margin:0 0 12px}
+.tblwrap{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 10px 8px;overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:left;font-weight:700;padding:0 14px 12px}
+.tbl td{padding:14px;border-top:1px solid var(--line);vertical-align:top;color:var(--mute)}
+.tbl td.r,.tbl th.r{text-align:right}
+.tbl td b,.tbl .num{color:var(--text)}
+.kind{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.wk-tbl td:first-child{color:var(--text);font-weight:700;white-space:nowrap}
+.wk-tbl .gate{color:var(--ok);font-weight:700;font-size:13.5px}
+.price{background:linear-gradient(180deg,#1f2c55,var(--panel));border:1px solid rgba(232,68,37,.5);border-radius:22px;padding:28px;box-shadow:0 30px 80px rgba(232,68,37,.16)}
+.price .v{font-size:48px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.price .v small{font-size:16px;color:var(--mute);font-weight:500;letter-spacing:0}
+.list{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px;color:var(--mute);font-size:15px}
+.list li{padding-left:22px;position:relative}
+.list li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:3px;background:var(--hot)}
+.list.x li:before{background:var(--dim)}
+.list.ok li:before{background:var(--ok)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:s}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 14px}
+.st:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--hot);font-weight:800;font-size:14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(232,68,37,.5)}
+.st h3{font-size:16px}
+.st p{font-size:13.5px;color:var(--mute);margin-top:6px}
+.st .tool{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:700;color:var(--sky);
+  background:rgba(78,106,175,.12);border:1px solid rgba(78,106,175,.35);border-radius:999px;padding:4px 9px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.sign .line{border-bottom:1px solid var(--line);min-height:42px;margin-top:6px}
+.sign label{font-size:12px;color:var(--dim);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid rgba(255,255,255,.06)}
+.savings{padding-top:12px}
+.sav-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sav-col{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px 20px}
+.sav-col.after{border-color:rgba(62,207,142,.5);box-shadow:0 0 0 1px rgba(62,207,142,.12)}
+.sav-steps{display:flex;flex-wrap:nowrap;gap:6px;align-items:stretch;margin-top:16px}
+.sav-step{flex:1 1 0;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.sav-step svg{width:26px;height:26px;color:var(--sky);display:block;margin:0 auto}
+.sav-col.after .sav-step svg{color:var(--ok)}
+.sav-step b{display:block;font-size:13px;margin-top:8px;line-height:1.25}
+.sav-step span{display:block;font-size:11.5px;color:var(--dim);margin-top:4px;line-height:1.3}
+.sav-join{display:flex;align-items:center;justify-content:center;color:var(--sky);flex:0 0 14px;font-size:16px;font-weight:800}
+.sav-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sav-badge{border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:700}
+.sav-badge.bad{background:rgba(232,68,37,.14);border:1px solid rgba(232,68,37,.45);color:#ffd9cf}
+.sav-badge.good{background:rgba(62,207,142,.12);border:1px solid rgba(62,207,142,.4);color:#bfeeda}
+.sav-marks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.sav-mark{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.sav-mark h3{display:flex;align-items:center;gap:10px;font-size:16px}
+.sav-mark h3 svg{width:22px;height:22px;flex:0 0 22px}
+.sav-mark.time h3{color:var(--sky)}
+.sav-mark.money h3{color:var(--ok)}
+.sav-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.sav-num{background:var(--panel2);border-radius:14px;padding:14px 10px;text-align:center}
+.sav-num .v{font-size:clamp(18px,2vw,26px);font-weight:800;letter-spacing:-.03em;line-height:1.15;white-space:nowrap}
+.sav-num .l{font-size:12.5px;color:var(--mute);margin-top:6px;line-height:1.35}
+.sav-foot{color:var(--dim);font-size:13.5px;margin-top:14px}
+.rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.in .rise,.rise.in{opacity:1;transform:none}
+.in .rise:nth-child(2){transition-delay:.07s}.in .rise:nth-child(3){transition-delay:.14s}
+.in .rise:nth-child(4){transition-delay:.21s}.in .rise:nth-child(5){transition-delay:.28s}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
+@media (max-width:1080px){
+  .kpis,.grid4,.steps{grid-template-columns:1fr 1fr}
+  .grid3,.grid2,.sav-marks,.sign,.terms-grid{grid-template-columns:1fr}
+  .sav-nums{grid-template-columns:1fr 1fr}
+  .sav-steps{flex-direction:column}
+  .sav-step{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px}
+  .sav-step svg{margin:0}
+  .sav-step b{margin-top:0}
+  .sav-join{flex:0 0 auto;transform:rotate(90deg);height:16px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}section{padding:52px 0}
+  .kpis,.grid4,.grid3,.steps,.sav-nums{grid-template-columns:1fr}
+  .bar{flex-wrap:wrap}
+  .tag{display:inline-block;max-width:100%}
+  .wk-tbl thead{display:none}
+  .wk-tbl,.tbl-stack{min-width:0}
+  .wk-tbl tr,.tbl-stack tr{display:block;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:12px;background:var(--panel)}
+  .wk-tbl td,.tbl-stack td{display:block;border:0;padding:4px 0;text-align:left}
+  .wk-tbl td:first-child,.tbl-stack td:first-child{font-size:15px;margin-bottom:6px}
+  .wk-tbl td::before,.tbl-stack td::before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--hot2);font-weight:700;margin-bottom:2px}
+  .wk-tbl td:first-child::before,.tbl-stack td:first-child::before{content:none}
+  .tbl-stack thead,.tbl-stack tr:first-child{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <div class="logo"><img src="/essetech-mark.png" alt="essetech"><div>essetech<small>IT CONSULTING</small></div></div>
+    <div class="tag"><b>Sample scope</b> · workflows and figures are illustrative</div>
+  </div>
+
+  <section class="hero in">
+    <p class="eyebrow rise">Automation discovery &amp; scope · prepared for Torrens Valley Plumbing &amp; Gas</p>
+    <h1 class="rise" style="margin-top:16px">A finished job becomes an invoice in about two days, not nine.</h1>
+    <div class="meta rise">
+      <span><b>Prepared by</b> Jonathon Battifuoco, essetech</span>
+      <span><b>Date</b> 13 November 2026 · valid until 13 December 2026</span>
+      <span><b>Business</b> 18 staff, 12 technicians, Adelaide north-east</span>
+      <span><b>Scope</b> Job sheet to invoice, review and next-service reminder</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi big rise"><div class="v num hot">10 min</div><div class="l">saved per job, as an estimate, once the office is checking instead of typing</div></div>
+      <div class="kpi rise"><div class="v num">60 hrs</div><div class="l">of office time freed up each month, on about 360 jobs</div></div>
+      <div class="kpi rise"><div class="v num">9 → 2 days</div><div class="l">from job finished to invoice sent, if the plan holds</div></div>
+      <div class="kpi rise"><div class="v num">$21,600</div><div class="l">modelled yearly extras caught, if the plan holds after go-live</div></div>
+    </div>
+  </section>
+
+  <section id="savings" class="savings">
+    <div class="sec-head">
+      <p class="eyebrow">Job sheet to cash</p>
+      <h2>Where time and money are saved.</h2>
+      <p class="take"><b>Takeaway:</b> stop typing the job sheet, catch extra materials and variations, and invoice about a week sooner. Figures below are estimates, if the plan holds.</p>
+    </div>
+    <div class="sav-grid" role="img" aria-label="Before and after flow from job sheet to cash. Today the photo is typed into Fergus and the invoice takes about 9 days, with extras often missed. With the plan the photo is read by AI, the job is filled in Fergus with extras flagged, a person checks it, and a draft invoice is raised in Xero in about 2 days. Estimates: about 10 minutes saved per job, 60 office hours a month, and modelled yearly figures of $21,600 for extras caught and $5,040 from cash in sooner.">
+      <div class="sav-col">
+        <p class="eyebrow" style="color:var(--mute)">Today</p>
+        <div class="sav-steps">
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 8 10 5.5h4L15.5 8"/><rect x="3.5" y="8" width="17" height="12.5" rx="2.5"/><circle cx="12" cy="14.2" r="3.2"/></svg><b>Photo</b><span>Job sheet and site</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5h6l4 4V20a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4.5"/></svg><b>Typed into Fergus</b><span>Office re-enters the job</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg><b>Invoice in 9 days</b><span>Raised later, often by hand in Xero</span></div>
+        </div>
+        <div class="sav-badges">
+          <span class="sav-badge bad">Extras often missed</span>
+          <span class="sav-badge bad">Follow-up is easy to forget</span>
+        </div>
+      </div>
+      <div class="sav-col after">
+        <p class="eyebrow" style="color:var(--ok)">With the plan</p>
+        <div class="sav-steps">
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 8 10 5.5h4L15.5 8"/><rect x="3.5" y="8" width="17" height="12.5" rx="2.5"/><circle cx="12" cy="14.2" r="3.2"/></svg><b>Photo</b><span>Same habit</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="12" height="16" rx="2"/><path d="M6 9h6M6 12.5h6M6 16h3.5"/><path d="M17.8 3.2 19 6.1l3 .4-2.2 2.2.5 3-2.5-1.5-2.5 1.5.5-3-2.2-2.2 3-.4z" fill="currentColor" stroke="none"/></svg><b>AI reads it</b><span>Fields off the page</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5h12l4 4v10H4z"/><path d="M16 5v4h4"/><path d="M8 12h8M8 15.5h5"/></svg><b>Job in Fergus</b><span>Extras flagged</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="7.5" r="3"/><path d="M3.8 19c0-3.2 2.5-5.2 5.7-5.2 3.2 0 5.7 2 5.7 5.2"/><path d="m14.5 13.2 2.2 2.2 4-4"/></svg><b>Office checks</b><span>Approve or fix</span></div>
+          <span class="sav-join" aria-hidden="true">→</span>
+          <div class="sav-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg><b>Draft in Xero</b><span>About 2 days</span></div>
+        </div>
+        <div class="sav-badges">
+          <span class="sav-badge good">Variations and extra materials flagged</span>
+          <span class="sav-badge good">Review request and next-service reminder sent</span>
+        </div>
+      </div>
+    </div>
+    <div class="sav-marks">
+      <div class="sav-mark time">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/></svg> Time saved, as an estimate</h3>
+        <div class="sav-nums">
+          <div class="sav-num"><div class="v num">10 min</div><div class="l">Saved per job, typing becomes checking</div></div>
+          <div class="sav-num"><div class="v num">60 hrs</div><div class="l">Office hours a month, on 360 jobs</div></div>
+          <div class="sav-num"><div class="v num">9 → 2 days</div><div class="l">Job finished to invoice, about 7 days sooner</div></div>
+        </div>
+      </div>
+      <div class="sav-mark money">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6.5" width="18" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M7 9.2h.5M16.5 14.8h.5"/></svg> Money saved, modelled estimates</h3>
+        <div class="sav-nums">
+          <div class="sav-num"><div class="v num">$21,600</div><div class="l">Extras and variations caught, if the customer accepts</div></div>
+          <div class="sav-num"><div class="v num">$5,040</div><div class="l">Cash in sooner, from the 7 days cut</div></div>
+          <div class="sav-num"><div class="v num">$36,000</div><div class="l">Staff time value. Not cash unless hours actually fall</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="sav-foot">Modelled year-one improvement is <b class="num" style="color:var(--text)">$62,640</b>, if the plan holds at full run-rate after go-live. That total includes staff time, which is not cash unless hours actually fall. This is a proposal, not a result already delivered. See the business case for the working.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">01 · What we looked at</p>
+      <h2>A small office, carrying 12 technicians.</h2>
+      <p class="take"><b>Takeaway:</b> the job is done on site, then typed up later. Extras and follow-up depend on someone remembering. Figures on this sample page are illustrative, as the footer says.</p>
+    </div>
+    <div class="grid4">
+      <div class="card rise"><div class="n num">18</div><h3>Staff</h3><p>12 technicians, plus the office.</p></div>
+      <div class="card rise"><div class="n num">360</div><h3>Jobs a month</h3><p>About 7 to 8 jobs a week for each technician.</p></div>
+      <div class="card rise"><div class="n num">3</div><h3>Tools in the chain</h3><p>Fergus for jobs, Xero for accounts, Pipedrive for follow-up.</p></div>
+      <div class="card rise"><div class="n num">9 days</div><h3>Today's invoice lag</h3><p>The job is finished. The invoice waits on the typing.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">02 · What we'll build</p>
+      <h2>Photo, check, draft invoice, then a reminder.</h2>
+      <p class="take"><b>Takeaway:</b> AI reads the job sheet, Fergus is filled in, a person checks it, a draft invoice goes to Xero, and Pipedrive sends the follow-up. This is a proposal, not work already done.</p>
+    </div>
+    <div class="steps">
+      <div class="st"><h3>Photo, same as today</h3><p>The technician photographs the job sheet and the site, and sends it to a shared mailbox.</p><span class="tool">The technician's phone · shared mailbox</span></div>
+      <div class="st"><h3>AI reads the sheet</h3><p>Names, hours, materials and notes come off the page. Low-confidence items go to a person. Images are not used to train any model.</p><span class="tool">A commercial document reader</span></div>
+      <div class="st"><h3>The job is filled in Fergus</h3><p>The job record is updated. Extra materials and variations are flagged for a person, not silently billed.</p><span class="tool">Fergus API</span></div>
+      <div class="st"><h3>The office checks</h3><p>The photo sits beside the job lines. Approve, fix, or send it back. Nothing is invoiced without this step.</p><span class="tool">A check screen in your Microsoft 365</span></div>
+      <div class="st"><h3>Draft invoice and follow-up</h3><p>A draft invoice is created in Xero, for a person to release. Pipedrive then sends a review request and sets a next-service reminder.</p><span class="tool">Xero API · Pipedrive Automations</span></div>
+    </div>
+    <p class="note"><b>About the tools.</b> Fergus has a public API and a built-in Xero link. For a draft invoice that a person still releases, we will use the Xero API after the office checks the job. We can use Fergus's own Xero link instead, if you prefer invoices to post from Fergus. Pipedrive Automations, on the Growth plan or higher, can send the review request and the reminder from your own inbox. That email does not post a Google review for you. The Fergus API has a published rate limit per company, which is fine for this volume.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">03 · How we'd build it</p>
+      <h2>Six weeks to live, beside the current process.</h2>
+      <p class="take"><b>Takeaway:</b> we test on your past job sheets first. The office keeps doing what it does now until the numbers can be explained. All 12 technicians are in this build.</p>
+    </div>
+    <div class="tblwrap">
+      <table class="tbl wk-tbl">
+        <thead><tr><th>When</th><th>We build</th><th>Gate</th></tr></thead>
+        <tr>
+          <td>Weeks 1–2</td>
+          <td data-label="We build">Shared mailbox intake, and the reader tested on about 150 past job sheets, plus a held-out set of hard photos.</td>
+          <td data-label="Gate" class="gate">95% of agreed fields. Paid stop/go. Money fields have a separate target.</td>
+        </tr>
+        <tr>
+          <td>Weeks 3–4</td>
+          <td data-label="We build">Fergus job update, flags for extras and variations, the check screen, and a draft invoice in Xero. One week beside the current process.</td>
+          <td data-label="Gate" class="gate">Every difference from the manual invoice is explained. You sign that pack off.</td>
+        </tr>
+        <tr>
+          <td>Weeks 5–6, then 30 days</td>
+          <td data-label="We build">Pipedrive review request and next-service reminder, office training, then go live. 30 days of close support.</td>
+          <td data-label="Gate" class="gate">Live for all 12 technicians, in accounts you own.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card"><h3>What we need from you</h3><ul class="list ok">
+        <li>One owner, about 2 hours a week</li>
+        <li>About 150 past job sheets, and API access to Fergus, Xero and Pipedrive</li>
+        <li>Your materials and rate list, and the wording for the review email</li>
+        <li>A Pipedrive Growth plan or higher, with email sync turned on</li></ul></div>
+      <div class="card"><h3>Risks we are managing</h3><ul class="list x">
+        <li>Messy handwriting: low-confidence fields go to a person</li>
+        <li>Job photos stay in your Microsoft 365 tenant. The reader is a commercial service, in a region we agree in writing</li>
+        <li>Extras are flagged, not billed, until a person says yes</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">04 · The business case</p>
+      <h2>$62,640 modelled in year one, if the plan holds.</h2>
+      <p class="take"><b>Takeaway:</b> these are estimates at full run-rate, for the first 12 months after go-live. Extras alone cover the $14,500 build. Staff time is not cash unless hours actually fall.</p>
+    </div>
+    <p class="sample-note">Sample scope. The figures are illustrative. They show the method, not a result already delivered. The $50 hour rate and 9% cost of money are assumptions to confirm with your bookkeeper.</p>
+    <div class="tblwrap">
+      <table class="tbl tbl-stack">
+        <tr><th>Item</th><th>How we worked it out</th><th class="r">Found / yr</th><th class="r">Modelled</th><th class="r">Year one</th></tr>
+        <tr><td><b>Missed extras and variations</b><span class="kind">Revenue, if the customer accepts</span></td><td data-label="How we worked it out">About $3,000 a month of extras done but not invoiced, or $36,000 a year. We model 60%, because some items will still lack a photo or a customer okay.</td><td data-label="Found / yr" class="r num">$36,000</td><td data-label="Modelled" class="r num">60%</td><td data-label="Year one" class="r num"><b>$21,600</b></td></tr>
+        <tr><td><b>Slow invoicing</b><span class="kind">Cost of money</span></td><td data-label="How we worked it out">About $240,000 invoiced a month. Seven days sooner is $56,000 less sitting unbilled. At 9%, that is $5,040 a year.</td><td data-label="Found / yr" class="r num">$5,040</td><td data-label="Modelled" class="r num">100%</td><td data-label="Year one" class="r num"><b>$5,040</b></td></tr>
+        <tr><td><b>Office retyping</b><span class="kind">Staff time</span></td><td data-label="How we worked it out">10 minutes a job × 360 jobs a month = 60 hours, at $50 an hour loaded, for 12 months.</td><td data-label="Found / yr" class="r num">$36,000</td><td data-label="Modelled" class="r num">100%</td><td data-label="Year one" class="r num"><b>$36,000</b></td></tr>
+        <tr><td colspan="2"><b>Year one, at full run-rate after go-live</b></td><td class="r num"><b>$77,040</b></td><td></td><td class="r num"><b class="hot" style="font-size:19px;color:var(--hot2)">$62,640</b></td></tr>
+      </table>
+    </div>
+    <div class="grid3" style="margin-top:16px">
+      <div class="card"><div class="n num">$5,220</div><h3>Modelled per month</h3><p>$62,640 ÷ 12, at full run-rate after go-live.</p></div>
+      <div class="card"><div class="n num">2.5×</div><h3>Gross year-one return</h3><p>$62,640 against the $25,300 all-in cost, which is 2.48, rounded to 2.5×. About 1.5× net. Includes staff time.</p></div>
+      <div class="card"><div class="n num hot">~11 months</div><h3>Cautious payback after go-live</h3><p>If we count only extras and cash in sooner, about 11 months after go-live. Sooner if office hours actually fall. Not 11 months from signing.</p></div>
+    </div>
+    <p class="note"><b>The cautious case.</b> Extras alone, $21,600, cover the $14,500 build. Staff time and cost of money are extra, and they are not cash until hours fall or cash actually moves forward.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">05 · Investment</p>
+      <h2>A fixed price, in accounts you own.</h2>
+      <p class="take"><b>Takeaway:</b> $14,500 + GST, fixed, for all 12 technicians. You own the work. This proposal is valid until 13 December 2026.</p>
+    </div>
+    <div class="grid2 top">
+      <div class="price">
+        <p class="eyebrow">Job-sheet-to-invoice build</p>
+        <div class="v num" style="margin-top:14px">$14,500 <small>+ GST, fixed</small></div>
+        <ul class="list ok" style="margin-top:20px">
+          <li>Intake, reading, Fergus job update, check screen, draft invoices in Xero, and Pipedrive review and reminder</li>
+          <li>Built in accounts you own, in your name, from day one</li>
+          <li>Office training and 30 days of close support after go-live</li>
+        </ul>
+        <p style="color:var(--mute);font-size:14px;margin-top:18px">Paid in three parts, 14 days from invoice: 40% to start, 30% when the side-by-side test is signed off, 30% when you are live. The 95% reading gate in weeks 1–2 is a paid stop/go. We start on an agreed date after sign-off, once access is in place.</p>
+      </div>
+      <div style="display:grid;gap:14px">
+        <div class="card"><h3>Running it after go-live</h3><ul class="list">
+          <li><b style="color:var(--text)" class="num">$600 a month</b> support: monitoring, fixes, rate and materials updates. Starts after the 30 days of close support. Extra work is quoted first</li>
+          <li><b style="color:var(--text)" class="num">About $300 a month</b> AI reading, hosting and licences, billed to your accounts at cost. Volume and model changes can move this number</li>
+          <li>Month to month, 30 days' notice. After cancel, the system stays in your accounts</li></ul></div>
+        <div class="card"><h3>All-in, year one</h3>
+          <p><b class="num" style="color:var(--text);font-size:22px">$25,300</b></p>
+          <p>The $14,500 build, plus 12 months of support and AI ($600 + $300). It does not include your own time, Xero or Pipedrive plan fees, or Fergus fees.</p>
+        </div>
+        <div class="card"><h3>Not in this scope</h3><ul class="list x">
+          <li>Replacing Fergus, Xero or Pipedrive</li>
+          <li>Payroll, awards or quoting from scratch</li>
+          <li>A Google Business Profile integration, or SMS review requests</li></ul></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Next step</h3>
+      <p>Name an owner on your side. We agree a start date once access is confirmed. This proposal is version 1.0, dated 13 November 2026, and is valid until 13 December 2026.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">06 · Terms in brief</p>
+      <h2>The rules this proposal sits on.</h2>
+      <p class="take"><b>Takeaway:</b> a short statement of work will repeat these terms on sign-off.</p>
+    </div>
+    <div class="terms-grid">
+      <div class="card"><h3>Assumptions</h3><ul class="list">
+        <li>About 360 jobs a month, on the current job sheet</li>
+        <li>API access to Fergus, Xero and Pipedrive, plus a test company in Xero</li>
+        <li>Pipedrive is on Growth or higher, with email sync</li>
+        <li>A person in the office is available to check jobs</li></ul></div>
+      <div class="card"><h3>Change control and acceptance</h3><ul class="list">
+        <li>Changes are requested in writing. We confirm the effect on price and time before the work starts</li>
+        <li>The gates in the plan are the acceptance tests. You sign each one</li>
+        <li>If a gate is not signed within 10 business days of us asking, and no written defect is raised, that gate is taken as accepted</li></ul></div>
+      <div class="card"><h3>Data, privacy and security</h3><ul class="list">
+        <li>Job photos and files live in your Microsoft 365 tenant. Invoices live in Xero. Job records stay in Fergus</li>
+        <li>The AI provider and region are agreed in writing before any customer job sheet is sent</li>
+        <li>Access uses named accounts, least privilege and MFA. Access is removed at the end</li></ul></div>
+      <div class="card"><h3>Ownership, warranty and liability</h3><ul class="list">
+        <li>Deliverables are assigned to you on payment. essetech keeps a licence to its pre-existing tools. Third-party products stay under their own licences</li>
+        <li>Defects in the delivered work, as against this scope, are fixed at no charge during the 30-day close support window</li>
+        <li>Liability is capped at fees paid under this proposal. Consequential loss is excluded, including missed extras. You remain responsible for approving invoices. essetech holds professional indemnity, public liability and cyber insurance</li></ul></div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Sign-off</h3>
+      <p style="color:var(--mute);margin:8px 0 16px">Jonathon Battifuoco will do the work for Essetech Pty Ltd (ABN 33 697 426 163). A backup is named in the statement of work if the engagement proceeds. support@essetech.com.au · 0404 311 791.</p>
+      <div class="sign">
+        <div><label>Torrens Valley Plumbing &amp; Gas signatory, name and title</label><div class="line"></div></div>
+        <div><label>Date</label><div class="line"></div></div>
+        <div><label>Purchase order number</label><div class="line"></div></div>
+        <div><label>For essetech · Jonathon Battifuoco</label><div class="line"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>essetech · ESSETECH PTY LTD · ABN 33 697 426 163 · Adelaide · essetech.com.au</p>
+    <p style="margin-top:8px">Sample scope. The workflows, quotes and figures on this page are illustrative and are not the records of any company named. Torrens Valley Plumbing &amp; Gas is a fictional business used for this sample. All amounts in AUD, excluding GST.</p>
+  </footer>
+</div>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  io.unobserve(e.target);
+}),{threshold:.12});
+document.querySelectorAll('section').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
