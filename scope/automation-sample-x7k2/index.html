@@ -429,6 +429,72 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
 @media (max-width:640px){
   .summary{grid-template-columns:1fr}
 }
+
+/* 05 What we'll build */
+.arch{display:flex;flex-direction:column;margin:0 0 8px;padding-left:10px}
+.arch-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:stretch}
+.arch-rail{display:flex;flex-direction:column;align-items:center}
+.arch-node{
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
+  display:grid;place-items:center;
+  background:var(--panel2);border:2px solid var(--blue);color:var(--sky);
+  box-shadow:0 0 0 6px var(--ink);
+  z-index:1;
+}
+.arch-node svg{width:18px;height:18px}
+.arch-step.human .arch-node{border-color:var(--ok);color:var(--ok);background:#163528}
+.arch-step.money .arch-node{border-color:var(--hot);color:var(--hot2);background:rgba(232,68,37,.16)}
+.arch-rail i{
+  display:block;flex:1;width:2px;min-height:18px;
+  background:linear-gradient(180deg,var(--blue),rgba(78,106,175,.25));
+}
+.arch-step:last-child .arch-rail i{display:none}
+.arch-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:16px;
+  padding:16px 18px 16px;margin-bottom:12px;
+}
+.arch-card h3{font-size:17px}
+.arch-card p{color:var(--mute);font-size:14.5px;margin-top:6px}
+.arch-card .tool{
+  display:inline-block;margin-top:10px;
+  font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--sky);
+  background:rgba(78,106,175,.12);border:1px solid rgba(78,106,175,.35);
+  border-radius:999px;padding:5px 10px;line-height:1.3;
+}
+.wks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wk{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 20px}
+.wk .when{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);font-weight:700}
+.wk h3{font-size:18px;margin-top:6px}
+.wk dl{margin:14px 0 0;display:grid;gap:10px}
+.wk dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--hot2);font-weight:700}
+.wk dd{margin:4px 0 0;color:var(--mute);font-size:14.5px}
+.life{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.life .card h3{font-size:17px}
+.life .tagline{color:var(--dim);font-size:13px;margin:4px 0 0}
+.life .pair{margin-top:16px;display:grid;gap:12px}
+.life .pair h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 6px}
+.life .pair .now h4{color:var(--dim)}
+.life .pair .then h4{color:var(--ok)}
+.life .pair p{margin:0;font-size:14.5px;color:var(--mute)}
+a.inpage{color:var(--hot2);font-weight:700;text-decoration:none}
+a.inpage:hover,a.inpage:focus{text-decoration:underline}
+@media (max-width:1080px){
+  .wks,.life{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .tbl-stack{min-width:0}
+  .tbl-stack thead, .tbl-stack tr.hd{display:none}
+  .tbl-stack tr{display:block;padding:16px 8px 8px;border-top:1px solid var(--line)}
+  .tbl-stack tr:first-child{display:none}
+  .tbl-stack td{display:block;padding:4px 0 10px;border:0;text-align:left}
+  .tbl-stack td:before{
+    content:attr(data-label);display:block;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--dim);font-weight:700;margin-bottom:4px;
+  }
+  .tbl-stack td:first-child{padding-top:0}
+  .tbl-stack td:first-child:before{display:none}
+}
 </style>
 </head>
 <body>
@@ -460,7 +526,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
       <p>23 days down to 12, which is 11 days sooner. The invoice is drafted on hold in MYOB Advanced once a person approves the docket. Finance then releases it.</p>
     </div>
     <div class="summary">
-      <div class="card rise"><h3>What we will do</h3><p>Docket-to-Claim, one crew first. AI reads the photo. Rules price it. A person approves. The invoice is drafted on hold in MYOB.</p></div>
+      <div class="card rise"><h3>What we will do</h3><p>Docket-to-Claim, one crew first. AI reads the photo. Rules price it. A person approves. The invoice is drafted on hold in MYOB.</p><p style="margin-top:12px"><a class="inpage" href="#build">See exactly how we will build it</a></p></div>
       <div class="card rise"><h3>What it costs</h3><p>$28,500 + GST to get the first crew live. Then $1,200 a month support, and about $640 a month for AI and hosting.</p></div>
       <div class="card rise"><h3>The cautious case</h3><p>The modelled figure is $221k a year if the plan holds. Variations alone, $102k, still cover the $50,580 all-in cost about twice.</p></div>
       <div class="card rise"><h3>The main risks</h3><p>Reading accuracy, access taking longer than planned, and whether invoices still wait for Santos. Each has a plan below.</p></div>
@@ -583,10 +649,192 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     </div>
   </section>
 
+
+  <!-- 5 WHAT WE'LL BUILD -->
+  <section id="build">
+    <div class="sec-head">
+      <p class="eyebrow">05 · What we'll build and exactly how</p>
+      <h2>The new automation, step by step.</h2>
+      <p class="lede">This is the Docket-to-Claim build for the first crew. It is a proposal for work we will do, not a record of work already done. AI reads the photo. Rules price it. A named person approves. The invoice is drafted on hold, and finance releases it.</p>
+    </div>
+
+    <h3 class="sub" style="margin-top:0">How the system is put together</h3>
+    <div class="arch" role="img" aria-label="Build architecture. A docket photo goes to a shared mailbox or Teams, an AI reader extracts the fields, rules price the claim and flag missing items, a person approves, a draft invoice is created on hold in MYOB, and a claim pack is ready to upload.">
+      <div class="arch-step">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 8 10 5.5h4L15.5 8"/><rect x="3.5" y="8" width="17" height="12.5" rx="2.5"/><circle cx="12" cy="14.2" r="3.2"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>1. Photo, same as today</h3>
+          <p>The supervisor photographs the signed paper docket or timesheet. That habit does not change.</p>
+          <span class="tool">Paper docket · the supervisor's phone</span>
+        </div>
+      </div>
+      <div class="arch-step">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="m4 6.5 8 6 8-6"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>2. Intake</h3>
+          <p>The photo is sent to a shared Outlook mailbox or a Teams channel, so it stays in your Microsoft 365 tenant. Power Automate picks it up and files it in the claims folder in SharePoint.</p>
+          <span class="tool">Microsoft 365 · Power Automate · SharePoint</span>
+        </div>
+      </div>
+      <div class="arch-step">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="12" height="16" rx="2"/><path d="M6 9h6M6 12.5h6M6 16h3.5"/><path d="M17.8 3.2 19 6.1l3 .4-2.2 2.2.5 3-2.5-1.5-2.5 1.5.5-3-2.2-2.2 3-.4z" fill="currentColor" stroke="none"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>3. AI reads the fields</h3>
+          <p>A document reader pulls names, hours, plant, work order, signature and handwritten notes off the page. Low-confidence fields are marked for a person. The images are not used to train any model.</p>
+          <span class="tool">A commercial AI document reader, in a region we agree in writing</span>
+        </div>
+      </div>
+      <div class="arch-step">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5h12l4 4v10H4z"/><path d="M16 5v4h4"/><path d="M8 12h8M8 15.5h5"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>4. Rules price the claim</h3>
+          <p>Each line is priced from your Santos rate schedule, held in a SharePoint list. Standby, variations and missing approvals are flagged. Pricing is plain rules, not AI.</p>
+          <span class="tool">SharePoint list · rules engine</span>
+        </div>
+      </div>
+      <div class="arch-step human">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="7.5" r="3"/><path d="M3.8 19c0-3.2 2.5-5.2 5.7-5.2 3.2 0 5.7 2 5.7 5.2"/><path d="m14.5 13.2 2.2 2.2 4-4"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>5. A person checks</h3>
+          <p>A named admin opens the review queue. The photo sits beside the claim lines. They approve, fix, or send it back to the supervisor. Nothing is sent to Santos without this step.</p>
+          <span class="tool">Review queue in SharePoint, opened as a check screen</span>
+        </div>
+      </div>
+      <div class="arch-step money">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>6. Draft invoice and payroll hours</h3>
+          <p>The invoice is drafted on hold in MYOB Advanced, for finance to release. Hours are sent to Employment Hero for payroll to approve, if API access is ready. Billable hours are not always payable hours.</p>
+          <span class="tool">MYOB Advanced · Employment Hero</span>
+        </div>
+      </div>
+      <div class="arch-step">
+        <div class="arch-rail"><div class="arch-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5H8a1 1 0 0 0-1 1V20a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8.5z"/><path d="M14 3.5V8h4.5"/><path d="M9.5 13h7M9.5 16.5h5"/></svg></div><i></i></div>
+        <div class="arch-card">
+          <h3>7. Claim pack, ready to upload</h3>
+          <p>A portal-ready pack is built, with the signed dockets attached. An admin still uploads it to the Santos portal. There is no portal integration.</p>
+          <span class="tool">A file you upload to the client portal</span>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>Where the work runs.</b> Intake, files, the rate list and the review queue sit in your Microsoft 365 tenant. Power Automate runs the flow. The AI reader is a commercial service, in a region we agree in writing, before any Santos document is sent. Accounts stay in MYOB Advanced. Payroll stays in Employment Hero.</p>
+
+    <h3 class="sub">What we found, and what this build fixes</h3>
+    <div class="tblwrap">
+      <table class="tbl tbl-stack">
+        <tr><th>The leak</th><th>What happens today</th><th>What we will build</th></tr>
+        <tr><td><b>Unclaimed variations and standby</b></td><td data-label="What happens today">Extra work is missed if someone forgets to claim it.</td><td data-label="What we will build">The rules engine looks for standby and variations on every docket and flags them in the check screen, before the claim goes out.</td></tr>
+        <tr><td><b>Docket retyping</b></td><td data-label="What happens today">Admins type the same docket into Excel, MYOB and payroll.</td><td data-label="What we will build">The AI reader fills the fields. Admins check them on one screen, instead of typing them.</td></tr>
+        <tr><td><b>Slow invoicing</b></td><td data-label="What happens today">The invoice waits until the typing catches up, and is raised after Santos approves.</td><td data-label="What we will build">The invoice is drafted on hold in MYOB the day ICE approves the docket. Finance releases it.</td></tr>
+        <tr><td><b>Rejected claims</b></td><td data-label="What happens today">17% bounce first time, for a wrong rate, a missing signature or a PO mismatch.</td><td data-label="What we will build">The check screen tests the PO, the rates and the signature before the pack is built.</td></tr>
+      </table>
+    </div>
+    <p class="sample-note" style="margin-top:12px">The other three leaks (compliance, estimates and the WIP report) are not in this first-crew build. They are listed in section 04, as next, later or phase 2.</p>
+
+    <h3 class="sub">The eight-week build, week by week</h3>
+    <p class="lede" style="margin-bottom:18px">One crew first. It runs beside your current process until the numbers can be explained. Further crews are quoted once this crew is stable.</p>
+    <div class="wks">
+      <div class="wk">
+        <span class="when">Weeks 1–2</span>
+        <h3>Set up</h3>
+        <dl>
+          <dt>We build</dt>
+          <dd>One clean rate schedule in SharePoint, the shared mailbox or Teams intake, and the link to the AI reader.</dd>
+          <dt>We test</dt>
+          <dd>The reader is tested and tuned against 300 past dockets, plus a held-out set that includes hard, WhatsApp-quality photos. The gate is 95% of agreed fields. Money fields (hours, dates, rates) have a separate target, including a cap on silent errors.</dd>
+          <dt>You get</dt>
+          <dd>The intake working, the rate list, and a written gate result. This is a paid stop/go. If the gate is missed, ICE can extend tuning, change the docket form, narrow the scope, or stop, at a fee cap agreed in writing.</dd>
+        </dl>
+      </div>
+      <div class="wk">
+        <span class="when">Weeks 3–4</span>
+        <h3>Side-by-side test</h3>
+        <dl>
+          <dt>We build</dt>
+          <dd>The pricing rules and the flags for standby, variations, missing signatures and hours above the work order or PO limit.</dd>
+          <dt>We test</dt>
+          <dd>One crew, one work order type. The reader and the rules run beside the current process. This is a reading and pricing test, before the check screen is finished.</dd>
+          <dt>You get</dt>
+          <dd>A results pack that explains every difference from the manual claim. ICE signs that pack off. That sign-off is the second payment milestone.</dd>
+        </dl>
+      </div>
+      <div class="wk">
+        <span class="when">Weeks 5–6</span>
+        <h3>Check screen and automatic invoice</h3>
+        <dl>
+          <dt>We build</dt>
+          <dd>The check screen, the approval step, the portal-ready pack, the invoice drafted on hold in MYOB, and a timesheet feed into Employment Hero for this crew, if API access is in place.</dd>
+          <dt>We test</dt>
+          <dd>A first-crew pack can be built and a draft invoice appears on hold in MYOB, with dockets attached, without anyone typing the lines.</dd>
+          <dt>You get</dt>
+          <dd>A working check screen and a first-crew pack, ready for an admin to upload. ICE accepts it when that pack is ready to upload, not when Santos has approved the claim.</dd>
+        </dl>
+      </div>
+      <div class="wk">
+        <span class="when">Weeks 7–8, then 30 days</span>
+        <h3>First crew live</h3>
+        <dl>
+          <dt>We build</dt>
+          <dd>That crew goes live. Supervisors get a short site briefing. Admins get the check-screen guide. Other crews wait for the next rotation.</dd>
+          <dt>We test</dt>
+          <dd>The first-crew process runs beside the old one until ICE is ready to stop the extra typing for that crew.</dd>
+          <dt>You get</dt>
+          <dd>The first crew live, in accounts you own, plus 30 days of close support. The last payment is due when this crew is live. Rollout to other crews is quoted after that.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">What changes for your team</h3>
+    <div class="life">
+      <div class="card">
+        <h3>Supervisor</h3>
+        <p class="tagline">On site, with the crew</p>
+        <div class="pair">
+          <div class="now">
+            <h4>Today</h4>
+            <p>Fill in the paper docket, get it signed, take a photo, send it on WhatsApp. If the photo is late or goes missing, the whole crew can miss the claim.</p>
+          </div>
+          <div class="then">
+            <h4>With the plan</h4>
+            <p>Same photo, same paper, same sign-off. The only change is where the photo goes: a shared mailbox or a Teams channel. No new app.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Contracts admin</h3>
+        <p class="tagline">In the office, building the claim</p>
+        <div class="pair">
+          <div class="now">
+            <h4>Today</h4>
+            <p>Type every docket into Excel, then into MYOB, then into payroll. Chase missing photos and signatures. Monday and Tuesday disappear into typing.</p>
+          </div>
+          <div class="then">
+            <h4>With the plan</h4>
+            <p>Open the check screen. The photo is beside the claim lines. Approve, fix, or send it back. No retyping. You do learn this one screen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Finance</h3>
+        <p class="tagline">Raising the invoice in MYOB</p>
+        <div class="pair">
+          <div class="now">
+            <h4>Today</h4>
+            <p>Wait until the claim has been typed, and until Santos has approved it, then raise the invoice by hand in MYOB Advanced.</p>
+          </div>
+          <div class="then">
+            <h4>With the plan</h4>
+            <p>A draft invoice is already on hold in MYOB when the docket is approved. You check it and release it. If invoices must still wait for Santos, we confirm that at kickoff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 5 SOLUTION -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">05 · The product</p>
+      <p class="eyebrow">06 · The product</p>
       <h2>Docket-to-Claim: the claim is ready while the crew is still on site.</h2>
       <p class="lede">The supervisor takes the same photo they take today and sends it to a shared Outlook mailbox or a Teams channel, so the file stays in your Microsoft 365 tenant. Everything after that is drafted by the system. A named person checks it before it leaves the building. Nothing is sent to Santos without that approval.</p>
     </div>
@@ -724,7 +972,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- 6 AUTOMATIC INVOICING -->
   <section id="invoicing">
     <div class="sec-head">
-      <p class="eyebrow">06 · Automatic invoicing</p>
+      <p class="eyebrow">07 · Automatic invoicing</p>
       <h2>The invoice is drafted automatically, once a person says yes.</h2>
       <p class="lede">Once the claim is approved inside ICE, the invoice is drafted on hold in MYOB Advanced. Line items come off the docket. Each line is priced from the Santos rate schedule, not by AI, and tied to the right work order and purchase order. The signed dockets are attached. Finance releases the invoice. Nobody types it. A claim cycle is the monthly window from work done to the claim being sent to Santos.</p>
     </div>
@@ -798,7 +1046,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- 7 BUSINESS CASE -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">07 · The business case</p>
+      <p class="eyebrow">08 · The business case</p>
       <h2>$334k is the in-scope leak. The modelled improvement is $221k a year.</h2>
       <p class="lede">These are estimates, if the plan holds after go-live, at full run-rate. Year one means the first 12 months after the first crew is live, not the 8 weeks of build. The $58, $95 and 9% rates are assumptions to be confirmed with ICE finance. Sample figures, as the footer says.</p>
     </div>
@@ -838,7 +1086,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- 8 ROADMAP -->
   <section id="delivery">
     <div class="sec-head">
-      <p class="eyebrow">08 · Delivery</p>
+      <p class="eyebrow">09 · Delivery</p>
       <h2>Eight weeks to first crew live.</h2>
       <p class="lede">It runs beside your current process until the numbers can be explained. Your team keeps doing what they do now until we can show it is safe to stop. Further crews roll out across the next rotation, once the first crew is stable, and are quoted then.</p>
     </div>
@@ -925,7 +1173,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- 9 INVESTMENT -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">09 · Investment</p>
+      <p class="eyebrow">10 · Investment</p>
       <h2>Fixed price for the first crew. You own the work.</h2>
     </div>
     <div class="grid2 top">
@@ -961,7 +1209,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- 10 TERMS -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">10 · Terms in brief</p>
+      <p class="eyebrow">11 · Terms in brief</p>
       <h2>The rules this proposal sits on.</h2>
       <p class="lede">Plain English, so both sides know what happens if something changes. A short statement of work will repeat these terms on sign-off.</p>
     </div>
