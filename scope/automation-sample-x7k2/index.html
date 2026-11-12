@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
              radial-gradient(800px 600px at -10% 20%,rgba(78,106,175,.22),transparent 60%)}
 .wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
 h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.08}
-h1{font-size:clamp(38px,6vw,76px);font-weight:800}
+h1{font-size:clamp(36px,6vw,72px);font-weight:800}
 h2{font-size:clamp(28px,3.6vw,44px);font-weight:800}
 h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
 p{margin:0}
@@ -32,16 +32,14 @@ section{padding:84px 0;border-top:1px solid rgba(255,255,255,.06)}
 .sec-head{display:grid;gap:14px;margin-bottom:38px}
 .hot{color:var(--hot2)}
 
-/* top bar */
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;flex-wrap:wrap}
 .logo{background:var(--paper);border-radius:14px;padding:6px 14px 6px 6px;display:flex;align-items:center;gap:10px;
   color:var(--navy);font-weight:800;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .logo img{width:40px;height:40px;display:block}
 .logo small{display:block;font-weight:600;font-size:10px;letter-spacing:.14em;color:#5b6582}
-.tag{font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 13px;white-space:nowrap}
+.tag{font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 13px}
 .tag b{color:var(--text)}
 
-/* hero */
 .hero{padding:56px 0 76px;border:0}
 .hero h1 span{background:linear-gradient(92deg,var(--hot2),#ffb199);-webkit-background-clip:text;background-clip:text;color:transparent}
 .meta{display:flex;flex-wrap:wrap;gap:10px 26px;color:var(--mute);font-size:14px;margin:26px 0 44px}
@@ -50,145 +48,88 @@ section{padding:84px 0;border-top:1px solid rgba(255,255,255,.06)}
 .kpi{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:24px;
   box-shadow:0 1px 0 rgba(255,255,255,.07) inset,0 24px 50px rgba(0,0,0,.35)}
 .kpi.big{border-color:rgba(232,68,37,.55);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 0 0 1px rgba(232,68,37,.15),0 26px 70px rgba(232,68,37,.22)}
-.kpi .v{font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.kpi .v{font-size:clamp(26px,2.7vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 .kpi .l{color:var(--mute);font-size:14px;margin-top:10px}
 
-/* generic cards */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid2.wide{grid-template-columns:1.25fr 1fr;align-items:start}.grid2.top{align-items:start}
-.grid2>*,.grid3>*,.ba>*{min-width:0}
+.grid2>*{min-width:0}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
 .card p{color:var(--mute);font-size:15px;margin-top:8px}
 .card .n{font-size:30px;font-weight:800;letter-spacing:-.02em}
-.quote{border-left:3px solid var(--hot);padding:4px 0 4px 16px;color:var(--text);font-size:16px}
-.quote small{display:block;color:var(--dim);margin-top:6px;font-size:13px}
 
-/* flow map */
-.flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;position:relative}
-.stage{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 14px 14px;position:relative;display:flex;flex-direction:column;gap:8px;min-height:250px}
-.stage:not(:last-child):after{content:"";position:absolute;right:-11px;top:34px;width:12px;height:2px;background:var(--blue)}
-.stage .step{font-size:11px;letter-spacing:.14em;color:var(--dim);font-weight:700}
-.stage h3{font-size:16px}
-.stage .how{font-size:13px;color:var(--mute);flex:1}
-.stage .tools{font-size:11.5px;color:var(--sky)}
-.leak{margin-top:6px;border-radius:12px;padding:10px 11px;background:rgba(232,68,37,.12);border:1px solid rgba(232,68,37,.5);font-size:12.5px;color:#ffd9cf}
-.leak b{display:block;font-size:18px;color:#fff;letter-spacing:-.02em}
-.leak.none{background:rgba(62,207,142,.08);border-color:rgba(62,207,142,.35);color:#bfeeda}
-.stage.hotstage{border-color:rgba(232,68,37,.6);box-shadow:0 18px 50px rgba(232,68,37,.16)}
-.legend{display:flex;gap:20px;flex-wrap:wrap;color:var(--dim);font-size:13px;margin-top:18px}
-.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.problems{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.problems .card .n{color:var(--hot2);font-size:22px;margin-bottom:10px}
+.sum{margin-top:18px;border-left:3px solid var(--hot);padding:6px 0 6px 16px;color:var(--text);font-size:18px;max-width:70ch}
+.sum span{color:var(--mute)}
 
-/* bars */
-.bars{display:grid;gap:14px}
-.bar-row{display:grid;grid-template-columns:270px 1fr 96px;gap:16px;align-items:center}
-.bar-row .name{font-size:15px;font-weight:600}
-.bar-row .name small{display:block;color:var(--dim);font-weight:400;font-size:12.5px}
-.track{height:26px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}
-.fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--hot),var(--hot2));transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
-.fill.b{background:linear-gradient(90deg,#3d5796,var(--blue))}
-.bar-row .amt{text-align:right;font-weight:700}
-.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:22px;padding-top:18px;font-size:17px}
-.total b{font-size:30px;letter-spacing:-.02em}
-
-/* tables */
-.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
-.tbl th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:left;font-weight:700;padding:0 14px 12px}
-.tbl td{padding:15px 14px;border-top:1px solid var(--line);vertical-align:top}
-.tbl td.r,.tbl th.r{text-align:right}
-.tbl td small{display:block;color:var(--dim);font-size:13px;margin-top:3px}
-.tblwrap{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 10px 8px;overflow-x:auto}
-.pill{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:4px 10px;white-space:nowrap}
-.p-build{background:rgba(232,68,37,.18);color:#ffb39e;border:1px solid rgba(232,68,37,.5)}
-.p-next{background:rgba(78,106,175,.2);color:#b9c8f2;border:1px solid rgba(78,106,175,.6)}
-.p-buy{background:rgba(245,185,66,.14);color:#f8d488;border:1px solid rgba(245,185,66,.45)}
-.p-skip{background:rgba(255,255,255,.06);color:var(--mute);border:1px solid var(--line)}
-.score{font-weight:800;font-size:17px}
-
-/* matrix */
-.matrix{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
-.matrix svg{width:100%;height:auto;display:block}
-
-
-/* touch-point swimlane */
-.lanes-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
-.lanes{display:grid;grid-template-columns:128px repeat(7,minmax(118px,1fr));gap:6px;min-width:1010px}
-.lanes .hd{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700;padding:4px 8px 10px}
-.lanes .who{display:flex;align-items:center;font-weight:700;font-size:14px;padding:0 8px;border-right:2px solid var(--line)}
-.lanes .c{min-height:92px;border-radius:12px;background:rgba(255,255,255,.025)}
-.lanes .t{background:var(--panel2);border:1px solid var(--line);padding:10px 10px 9px;display:flex;flex-direction:column;gap:6px}
-.lanes .t b{font-size:13px;line-height:1.25}
-.lanes .t i{font-style:normal;font-size:11px;color:var(--sky)}
-.lanes .t.lk{border-color:rgba(232,68,37,.65);background:rgba(232,68,37,.12);box-shadow:0 10px 30px rgba(232,68,37,.16)}
-.lanes .t em{font-style:normal;margin-top:auto;font-size:12px;font-weight:800;color:#ffb39e}
-.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
-.app{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.app b{font-size:15px}.app p{font-size:13px;color:var(--mute);margin-top:4px}
-.sub{font-size:22px;font-weight:800;letter-spacing:-.01em;margin:44px 0 16px}
-.plain{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.plain .card .big{font-size:26px;font-weight:800;color:var(--ok);letter-spacing:-.02em;margin-top:14px}
-.plain .card h3{font-size:18px}
-.note{margin-top:16px;border-left:3px solid var(--blue);padding:6px 0 6px 16px;color:var(--mute);font-size:16px;max-width:78ch}
-.note b{color:var(--text)}
-@media (max-width:1000px){.apps,.plain{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.apps,.plain{grid-template-columns:1fr}}
-
-/* solution */
-.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:s}
-.st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 14px;position:relative}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 18px;position:relative}
 .st:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--hot);font-weight:800;font-size:14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(232,68,37,.5)}
-.st h3{font-size:15px}
-.st p{font-size:13px;color:var(--mute);margin-top:6px}
-.st .who{margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-.who.ai{color:var(--hot2)} .who.hu{color:var(--ok)} .who.sys{color:var(--sky)}
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-.ba .card ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:9px;font-size:15px;color:var(--mute)}
-.ba .card li{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed rgba(255,255,255,.08);padding-bottom:9px}
-.ba .card li b{color:var(--text);white-space:nowrap}
+.st h3{font-size:18px}
+.st p{font-size:15px;color:var(--mute);margin-top:8px}
+.st.invoice{border-color:rgba(232,68,37,.55);box-shadow:0 18px 50px rgba(232,68,37,.16)}
+
+.banner{margin-top:22px;background:linear-gradient(180deg,#1f2c55,var(--panel));border:1px solid rgba(232,68,37,.55);
+  border-radius:22px;padding:28px 30px;box-shadow:0 30px 80px rgba(232,68,37,.16);display:grid;gap:10px}
+.banner .v{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.banner p{color:var(--mute);font-size:17px;max-width:70ch}
+.banner b{color:var(--text);font-weight:700}
+
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba .card ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:9px;font-size:16px;color:var(--mute)}
+.ba .card li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px dashed rgba(255,255,255,.08);padding-bottom:9px}
+.ba .card li b{color:var(--text);white-space:nowrap;font-variant-numeric:tabular-nums}
 .after{border-color:rgba(62,207,142,.45);box-shadow:0 20px 60px rgba(62,207,142,.1)}
 .after li b{color:var(--ok)!important}
 
-/* roadmap */
+.worth{display:grid;grid-template-columns:minmax(240px,.8fr) 1.2fr;gap:16px;align-items:stretch}
+.worth .price{background:linear-gradient(180deg,#1f2c55,var(--panel));border:1px solid rgba(232,68,37,.5);border-radius:22px;padding:30px;box-shadow:0 30px 80px rgba(232,68,37,.16)}
+.worth .price .v{font-size:clamp(42px,5vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.worth .price .v small{font-size:18px;color:var(--mute);font-weight:600;letter-spacing:0}
+.worth .price p{color:var(--mute);font-size:16px;margin-top:16px;max-width:36ch}
+.bullets{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.bullets li{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px;color:var(--text);font-size:16px;padding-left:22px;position:relative}
+.bullets li:before{content:"";position:absolute;left:18px;top:22px;width:9px;height:9px;border-radius:3px;background:var(--ok)}
+.bullets li{padding-left:40px}
+
 .road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .wk{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;border-top:3px solid var(--blue)}
 .wk.go{border-top-color:var(--ok)}
 .wk .when{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);font-weight:700}
 .wk h3{margin:8px 0 6px;font-size:17px}
 .wk p{font-size:14px;color:var(--mute)}
-.wk .gate{margin-top:12px;font-size:12.5px;color:var(--amber)}
 
-.price{background:linear-gradient(180deg,#1f2c55,var(--panel));border:1px solid rgba(232,68,37,.5);border-radius:22px;padding:30px;box-shadow:0 30px 80px rgba(232,68,37,.16)}
-.price .v{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1}
-.price .v small{font-size:16px;color:var(--mute);font-weight:500;letter-spacing:0}
+.invest{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.pricebox{background:linear-gradient(180deg,#1f2c55,var(--panel));border:1px solid rgba(232,68,37,.5);border-radius:22px;padding:30px;box-shadow:0 30px 80px rgba(232,68,37,.16)}
+.pricebox .v{font-size:clamp(40px,5vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.pricebox .v small{font-size:16px;color:var(--mute);font-weight:500;letter-spacing:0}
+.pricebox p{color:var(--mute);font-size:15px;margin-top:14px}
 .list{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px;color:var(--mute);font-size:15px}
 .list li{padding-left:22px;position:relative}
 .list li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:3px;background:var(--hot)}
-.list.x li:before{background:var(--dim)}
 .list.ok li:before{background:var(--ok)}
+.list b{color:var(--text)}
 
-.cta{display:inline-block;margin-top:22px;background:var(--hot);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 14px 40px rgba(232,68,37,.45)}
+.closer{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:32px}
+.closer p{color:var(--mute);font-size:18px;max-width:66ch;margin-top:12px}
+.closer p b{color:var(--text);font-weight:700}
+
 footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid rgba(255,255,255,.06)}
 
-/* self-playing entrance (on load / when a section comes into view, never tied to scroll position) */
-.rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-.in .rise,.rise.in{opacity:1;transform:none}
-.in .rise:nth-child(2){transition-delay:.07s}.in .rise:nth-child(3){transition-delay:.14s}
-.in .rise:nth-child(4){transition-delay:.21s}.in .rise:nth-child(5){transition-delay:.28s}
-.in .rise:nth-child(6){transition-delay:.35s}.in .rise:nth-child(7){transition-delay:.42s}
-@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}.fill{transition:none}}
-
 @media (max-width:1000px){
-  .kpis{grid-template-columns:1fr 1fr}.grid3,.road{grid-template-columns:1fr 1fr}
-  .flow{grid-template-columns:1fr}.stage{min-height:0}.stage:not(:last-child):after{right:auto;left:26px;top:auto;bottom:-11px;width:2px;height:12px}
-  .steps{grid-template-columns:1fr 1fr}.grid2,.grid2.wide,.ba{grid-template-columns:1fr}
+  .kpis,.grid4,.road,.steps{grid-template-columns:1fr 1fr}
+  .grid2,.ba,.worth,.invest{grid-template-columns:1fr}
 }
 @media (max-width:640px){
-  .wrap{padding:0 16px}section{padding:60px 0}
-  .kpis,.grid3,.road,.steps{grid-template-columns:1fr}
-  .bar-row{grid-template-columns:1fr 84px}.bar-row .track{grid-column:1/-1;order:3}
-  .tag{display:none}
+  .wrap{padding:0 16px}
+  section{padding:60px 0}
+  .kpis,.grid4,.road,.steps,.problems{grid-template-columns:1fr}
+  .hero{padding:36px 0 56px}
+  .ba .card li{flex-direction:column;align-items:flex-start;gap:4px}
+  .ba .card li b{white-space:normal}
 }
-@media print{body{background:#fff;color:#111}body:before{display:none}.rise{opacity:1;transform:none}}
+@media print{body{background:#fff;color:#111}body:before{display:none}}
 </style>
 </head>
 <body>
@@ -199,259 +140,197 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     <div class="tag"><b>Sample scope</b> · workflows and figures are illustrative</div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero in">
-    <p class="eyebrow rise">Automation discovery &amp; scope · prepared for ICE Engineering</p>
-    <h1 class="rise" style="margin-top:18px">You are losing about <span class="num">$478k</span> a year between the job site and the invoice.</h1>
-    <div class="meta rise">
+  <section class="hero">
+    <p class="eyebrow">Automation discovery and scope · prepared for ICE Engineering</p>
+    <h1 style="margin-top:18px">Invoices out in <span>half the time</span>.</h1>
+    <p class="lede" style="margin-top:22px">A sample plan for ICE Engineering, after discovery on the Santos field services contract. Once a person approves the docket, the invoice is created automatically, with the help of AI. What used to take 23 days takes about 12.</p>
+    <div class="meta">
       <span><b>Prepared by</b> Jonathon Battifuoco, essetech</span>
       <span><b>Discovery</b> 3 weeks on site and remote</span>
-      <span><b>Scope</b> Santos field services contract, work order to cash</span>
+      <span><b>Scope</b> Santos field services contract, work order to invoice</span>
     </div>
     <div class="kpis">
-      <div class="kpi big rise"><div class="v num hot">$478k</div><div class="l">leaking each year across 7 points in the workflow</div></div>
-      <div class="kpi rise"><div class="v num">252 hrs</div><div class="l">of manual admin every month, mostly retyping</div></div>
-      <div class="kpi rise"><div class="v num">23 days</div><div class="l">average from work done to invoice sent</div></div>
-      <div class="kpi rise"><div class="v num">$221k</div><div class="l">a year recovered by the first automation, paid back in under 8 weeks</div></div>
+      <div class="kpi big"><div class="v num hot">23 → 12</div><div class="l">days from work done to invoice</div></div>
+      <div class="kpi"><div class="v num">Half the time</div><div class="l">invoice created automatically, with the help of AI</div></div>
+      <div class="kpi"><div class="v num">$221k</div><div class="l">a year, what the first plan is worth in year one</div></div>
+      <div class="kpi"><div class="v num">&lt; 8 weeks</div><div class="l">payback after the plan goes live</div></div>
     </div>
   </section>
 
-  <!-- 1 WHAT WE DID -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">01 · What we looked at</p>
-      <h2>We followed the paper, not the org chart.</h2>
-      <p class="lede">Before recommending anything we traced real jobs from the Santos work order through to the money landing. The numbers on this page come from your own jobs and your own people's time.</p>
+      <p class="eyebrow">What ICE asked for</p>
+      <h2>A clear picture of the path from the job site to the invoice.</h2>
     </div>
-    <div class="grid3">
-      <div class="card rise"><div class="n num">11</div><h3>Interviews</h3><p>Contracts admin, payroll, two supervisors, project engineers, the estimator, finance and the GM.</p></div>
-      <div class="card rise"><div class="n num">40</div><h3>Jobs traced end to end</h3><p>Every docket, timesheet, claim line and invoice on 40 completed work orders from the last quarter.</p></div>
-      <div class="card rise"><div class="n num">7</div><h3>Apps in the chain</h3><p>Outlook, Excel, SharePoint, MYOB Advanced, Employment Hero, the client portal and WhatsApp. Plus paper.</p></div>
-    </div>
-    <div class="grid2" style="margin-top:16px">
-      <div class="card rise"><p class="quote">"Monday and Tuesday I just type dockets. If a supervisor is late sending photos, that whole crew misses the claim."<small>Contracts administrator</small></p></div>
-      <div class="card rise"><p class="quote">"We did the standby. We had the crew out there. I couldn't find the signed docket so it never went on the claim."<small>Project engineer</small></p></div>
-    </div>
+    <p class="lede">ICE Engineering asked us to look at how work on their Santos field services contract gets from a finished job to an invoice. They wanted to know where time and money were slipping through, and a plan to fix the worst of it. This page is that plan.</p>
   </section>
 
-  <!-- 2 FLOW MAP -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">02 · Current state</p>
-      <h2>One docket. 13 touches, 5 people, 7 apps.</h2>
-      <p class="lede">Every box is someone touching the job. The label under it is the app they use. Red boxes are where time or money leaks, with what it costs a year.</p>
+      <p class="eyebrow">What discovery found</p>
+      <h2>Four problems kept showing up.</h2>
+      <p class="lede">Over three weeks we sat with the team and traced 40 real jobs, from the Santos work order through to the invoice. We also spoke with 11 people and followed the paperwork across 7 apps.</p>
     </div>
-    <div class="lanes-wrap rise"><div class="lanes"><div class="hd"></div><div class="hd">1 · Work order</div><div class="hd">2 · Estimate</div><div class="hd">3 · Mobilise</div><div class="hd">4 · On site</div><div class="hd">5 · Build claim</div><div class="hd">6 · Submit</div><div class="hd">7 · Invoice</div><div class="who">Santos rep</div><div class="c t"><b>Raises the work order</b><i>Client portal</i></div><div class="c"></div><div class="c"></div><div class="c t"><b>Signs the docket</b><i>Paper</i></div><div class="c"></div><div class="c t"><b>Approves or rejects</b><i>Client portal</i></div><div class="c"></div><div class="who">Supervisor</div><div class="c"></div><div class="c"></div><div class="c t"><b>Confirms the crew</b><i>Outlook</i></div><div class="c t lk"><b>Fills in docket, sends a photo</b><i>Paper · WhatsApp</i><em>$170k missed</em></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="who">Contracts admin</div><div class="c t"><b>Retypes it into the job sheet</b><i>Outlook · Excel</i></div><div class="c"></div><div class="c t lk"><b>Checks tickets by hand</b><i>Excel</i><em>$59k</em></div><div class="c"></div><div class="c t lk"><b>Types every docket twice</b><i>Excel · MYOB · Employment Hero</i><em>$67k</em></div><div class="c t lk"><b>Uploads the claim</b><i>Client portal</i><em>$38k</em></div><div class="c"></div><div class="who">Project engineer</div><div class="c"></div><div class="c t lk"><b>Rebuilds the estimate</b><i>Excel · SharePoint</i><em>$59k</em></div><div class="c"></div><div class="c"></div><div class="c t"><b>Chases missing variations</b><i>Outlook</i></div><div class="c"></div><div class="c t lk"><b>Builds the weekly WIP report</b><i>Excel</i><em>$25k</em></div><div class="who">Finance</div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c t lk"><b>Raises the invoice</b><i>MYOB Advanced</i><em>$60k</em></div></div></div>
-    <h3 class="sub">The apps in the chain</h3>
-    <div class="apps">
-<div class="app rise"><b>Paper + WhatsApp</b><p>Where the job is recorded. Nothing downstream can read it.</p></div>
-<div class="app rise"><b>Excel</b><p>Job sheet, rate schedule, tickets register and WIP. Four files, four owners.</p></div>
-<div class="app rise"><b>MYOB Advanced</b><p>Job costing and invoicing. Fed by hand from Excel.</p></div>
-<div class="app rise"><b>Employment Hero</b><p>Payroll. The same timesheet hours are typed in a second time.</p></div>
-<div class="app rise"><b>Outlook</b><p>Work orders, approvals and variation chases live in inboxes.</p></div>
-<div class="app rise"><b>SharePoint</b><p>Past estimates and signed dockets. Hard to search, so people rebuild.</p></div>
-<div class="app rise"><b>Client portal</b><p>Work orders in, claims out. Rejects anything that does not match the PO.</p></div>
-<div class="app rise"><b>Microsoft Teams</b><p>Where questions get asked. Answers never make it back to the job.</p></div>
-</div>
-    <h3 class="sub">What each step costs</h3>
-    <div class="flow">
-      <div class="stage rise"><span class="step">STEP 1</span><h3>Work order in</h3><p class="how">Santos raises a work order. It arrives by portal and email, then gets retyped into a job sheet.</p><p class="tools">Portal · Outlook · Excel</p><div class="leak none">Small. Fixed as part of the claim build.</div></div>
-      <div class="stage rise"><span class="step">STEP 2</span><h3>Estimate</h3><p class="how">Engineers rebuild estimates from old spreadsheets. Rates live in three places.</p><p class="tools">Excel · SharePoint</p><div class="leak"><b class="num">$59k</b>52 hrs a month of engineer time</div></div>
-      <div class="stage rise"><span class="step">STEP 3</span><h3>Mobilise</h3><p class="how">Tickets, inductions and medicals checked by hand against a spreadsheet before each swing.</p><p class="tools">Excel · email</p><div class="leak"><b class="num">$59k</b>44 hrs a month plus 6 stood-down crews a year</div></div>
-      <div class="stage rise hotstage"><span class="step">STEP 4</span><h3>Work on site</h3><p class="how">Paper dockets and timesheets, signed by the client rep, photographed and sent on WhatsApp.</p><p class="tools">Paper · WhatsApp</p><div class="leak"><b class="num">$170k</b>Variations and standby done but never claimed</div></div>
-      <div class="stage rise hotstage"><span class="step">STEP 5</span><h3>Build the claim</h3><p class="how">Three admins retype every docket into Excel, price it, key it into MYOB, then key the hours into payroll.</p><p class="tools">Excel · MYOB · Employment Hero</p><div class="leak"><b class="num">$67k</b>96 hrs a month of retyping</div></div>
-      <div class="stage rise"><span class="step">STEP 6</span><h3>Submit</h3><p class="how">Claim uploaded to the portal. 17% bounce first time: wrong rate, missing signature, PO mismatch.</p><p class="tools">Client portal</p><div class="leak"><b class="num">$38k</b>Rework plus cash arriving 19 days later</div></div>
-      <div class="stage rise"><span class="step">STEP 7</span><h3>Invoice and cash</h3><p class="how">Invoice raised after approval. 23 days on average from work done to invoice sent.</p><p class="tools">MYOB Advanced</p><div class="leak"><b class="num">$60k</b>Cost of $661k sitting unbilled</div></div>
-    </div>
-    <div class="legend">
-      <span><i class="dot" style="background:var(--hot)"></i>Annual cost of the leak at that step</span>
-      <span><i class="dot" style="background:var(--ok)"></i>No material leak</span>
-      <span>Not shown on the line: weekly WIP reporting, built by hand, <b class="num" style="color:var(--text)">$25k</b> a year.</span>
-    </div>
-  </section>
-
-  <!-- 3 LEAK RANK -->
-  <section id="leaks">
-    <div class="sec-head">
-      <p class="eyebrow">03 · The leak register</p>
-      <h2>Seven leaks, ranked by dollars.</h2>
-      <p class="lede">Orange is money. Blue is time. The top four all live in the same stretch of the workflow, which is why one build can close most of them.</p>
-    </div>
-    <div class="card">
-      <div class="bars">
-        <div class="bar-row"><div class="name">Unclaimed variations and standby<small>1.2% of $14.2M time-and-materials revenue</small></div><div class="track"><div class="fill" data-w="100"></div></div><div class="amt num">$170,400</div></div>
-        <div class="bar-row"><div class="name">Docket retyping<small>96 hrs a month at $58 an hour</small></div><div class="track"><div class="fill b" data-w="39.2"></div></div><div class="amt num">$66,816</div></div>
-        <div class="bar-row"><div class="name">Slow invoicing<small>17 days of avoidable lag on $38.9k a day</small></div><div class="track"><div class="fill" data-w="34.9"></div></div><div class="amt num">$59,523</div></div>
-        <div class="bar-row"><div class="name">Compliance checks and stand-downs<small>44 hrs a month plus 6 failed mobilisations</small></div><div class="track"><div class="fill b" data-w="34.9"></div></div><div class="amt num">$59,424</div></div>
-        <div class="bar-row"><div class="name">Estimate rebuilds<small>52 hrs a month at $95 an hour</small></div><div class="track"><div class="fill b" data-w="34.8"></div></div><div class="amt num">$59,280</div></div>
-        <div class="bar-row"><div class="name">Rejected claims<small>38 hrs a month rework plus delayed cash</small></div><div class="track"><div class="fill" data-w="22.1"></div></div><div class="amt num">$37,726</div></div>
-        <div class="bar-row"><div class="name">Weekly WIP report<small>22 hrs a month at $95 an hour</small></div><div class="track"><div class="fill b" data-w="14.7"></div></div><div class="amt num">$25,080</div></div>
+    <div class="problems">
+      <div class="card">
+        <div class="n">1. Dockets typed three times</div>
+        <h3>The same job, entered again and again</h3>
+        <p>Crews write up a docket on site. Back at the office, someone types it into a spreadsheet, then into MYOB, then into payroll. That is 96 hours a month of retyping.</p>
       </div>
-      <div class="total"><span>Total found in discovery</span><b class="num hot">$478,249 a year</b></div>
-    </div>
-  </section>
-
-  <!-- 4 OPPORTUNITIES -->
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">04 · What to build, buy and skip</p>
-      <h2>Four opportunities. One to start on.</h2>
-      <p class="lede">Each one is scored on impact (how much it is worth) and fit (how ready your data and process are for AI). Both are out of 5, multiplied. Anything under 12 waits.</p>
-    </div>
-    <div class="grid2 wide">
-      <div class="tblwrap">
-        <table class="tbl">
-          <tr><th>Opportunity</th><th class="r">Worth / yr</th><th class="r">Score</th><th>Call</th></tr>
-          <tr><td><b>Docket-to-Claim</b><small>Closes leaks at steps 4, 5, 6 and 7</small></td><td class="r num">$334k</td><td class="r"><span class="score hot num">20</span></td><td><span class="pill p-build">BUILD FIRST</span></td></tr>
-          <tr><td><b>Compliance expiry watch</b><small>Flags tickets and medicals before a swing</small></td><td class="r num">$59k</td><td class="r"><span class="score num">15</span></td><td><span class="pill p-next">BUILD NEXT</span></td></tr>
-          <tr><td><b>Weekly WIP report</b><small>Falls out of the claim data for free</small></td><td class="r num">$25k</td><td class="r"><span class="score num">10</span></td><td><span class="pill p-buy">CONFIGURE</span></td></tr>
-          <tr><td><b>Estimate assistant</b><small>Needs one clean rate library first</small></td><td class="r num">$59k</td><td class="r"><span class="score num">9</span></td><td><span class="pill p-skip">LATER</span></td></tr>
-          <tr><td><b>Website chatbot / AI receptionist</b><small>No leak found here. Your work comes from contracts, not enquiries.</small></td><td class="r num">$0</td><td class="r"><span class="score num">2</span></td><td><span class="pill p-skip">SKIP</span></td></tr>
-        </table>
+      <div class="card">
+        <div class="n">2. Extra work not billed</div>
+        <h3>Standby and variations get forgotten</h3>
+        <p>Extra work often never makes it onto the claim, because someone has to remember it. On the jobs we traced, that added up to about $170k a year.</p>
       </div>
-      <div class="matrix">
-        <svg viewBox="0 0 440 360" role="img" aria-label="Impact against effort matrix. Docket-to-Claim is high impact, medium effort.">
-          <rect x="50" y="20" width="185" height="145" rx="10" fill="rgba(232,68,37,.10)"/>
-          <rect x="239" y="20" width="185" height="145" rx="10" fill="rgba(255,255,255,.03)"/>
-          <rect x="50" y="169" width="185" height="145" rx="10" fill="rgba(78,106,175,.10)"/>
-          <rect x="239" y="169" width="185" height="145" rx="10" fill="rgba(255,255,255,.02)"/>
-          <text x="60" y="40" fill="#ffb39e" font-size="11" font-weight="700" letter-spacing="1.5">DO FIRST</text>
-          <text x="249" y="40" fill="#7682a6" font-size="11" font-weight="700" letter-spacing="1.5">PLAN</text>
-          <text x="60" y="305" fill="#8fa6e0" font-size="11" font-weight="700" letter-spacing="1.5">QUICK WINS</text>
-          <text x="249" y="305" fill="#7682a6" font-size="11" font-weight="700" letter-spacing="1.5">LEAVE</text>
-          <text x="237" y="344" fill="#a3aecb" font-size="12" text-anchor="middle">Effort to deliver →</text>
-          <text x="24" y="167" fill="#a3aecb" font-size="12" text-anchor="middle" transform="rotate(-90 24 167)">Value per year →</text>
-          <circle cx="196" cy="62" r="26" fill="#E84425" opacity=".25"/><circle cx="196" cy="62" r="15" fill="#E84425"/>
-          <text x="196" y="108" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">Docket-to-Claim</text>
-          <circle cx="112" cy="222" r="9" fill="#4E6AAF"/><text x="127" y="226" fill="#eef1f9" font-size="12">Compliance watch</text>
-          <circle cx="92" cy="268" r="7" fill="#f5b942"/><text x="105" y="272" fill="#eef1f9" font-size="12">WIP report</text>
-          <circle cx="330" cy="222" r="9" fill="#7682a6"/><text x="330" y="246" fill="#a3aecb" font-size="12" text-anchor="middle">Estimate assistant</text>
-        </svg>
+      <div class="card">
+        <div class="n">3. Invoices go out 23 days later</div>
+        <h3>The work is done. The bill waits on the typing.</h3>
+        <p>On average it is 23 days from work done to invoice. The money sits unbilled while the paperwork catches up.</p>
+      </div>
+      <div class="card">
+        <div class="n">4. Claims bounce for mistakes</div>
+        <h3>About 17% come back first time</h3>
+        <p>Wrong rate, missing signature, or a mismatch with the purchase order. Then someone has to fix it and send it again.</p>
       </div>
     </div>
+    <p class="sum">Across the whole workflow, that adds up to about <b class="num">$478k</b> a year, and <b class="num">252 hours</b> a month of admin, mostly retyping. <span>Those figures are from discovery. They are the starting point for the plan below.</span></p>
   </section>
 
-  <!-- 5 SOLUTION -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">05 · The product</p>
-      <h2>Docket-to-Claim: the claim builds itself while the crew is still on site.</h2>
-      <p class="lede">The supervisor takes the same photo they take today. Everything after that is done by the system, and a person checks it before it leaves the building. Nothing is sent to Santos without a named approver.</p>
+      <p class="eyebrow">The fix</p>
+      <h2>Four steps, from a photo to an invoice.</h2>
+      <p class="lede">The plan is called Docket-to-Claim. Supervisors do not learn a new app. They take the same photo they take today. A person still checks every claim before anything is sent to Santos.</p>
     </div>
     <div class="steps">
-      <div class="st rise"><h3>Photo in</h3><p>Supervisor sends the signed docket or timesheet to one number or inbox. No new app.</p><p class="who hu">Supervisor</p></div>
-      <div class="st rise"><h3>AI reads it</h3><p>Pulls names, hours, plant, work order, signature and handwritten notes off the page.</p><p class="who ai">AI</p></div>
-      <div class="st rise"><h3>Matched to the contract</h3><p>Each line is priced from one rate schedule and tied to the right work order and PO.</p><p class="who sys">Rules</p></div>
-      <div class="st rise"><h3>Problems flagged</h3><p>Missing signature, hours over the cap, standby or variation with no approval, crew not on the job.</p><p class="who ai">AI</p></div>
-      <div class="st rise"><h3>Admin approves</h3><p>One screen: the photo beside the claim lines. Fix, approve or send back to the supervisor.</p><p class="who hu">Contracts admin</p></div>
-      <div class="st rise"><h3>Claim pack out</h3><p>Portal-ready claim with dockets attached, invoice drafted in MYOB, hours sent to Employment Hero.</p><p class="who sys">System</p></div>
+      <div class="st">
+        <h3>Photo of the docket</h3>
+        <p>The supervisor sends a photo of the signed docket to one number or inbox.</p>
+      </div>
+      <div class="st">
+        <h3>AI reads it and prices it</h3>
+        <p>The system reads the names, hours and notes, then prices each line from the rate schedule.</p>
+      </div>
+      <div class="st">
+        <h3>A person checks and approves</h3>
+        <p>An admin sees the photo beside the claim lines, then fixes, approves or sends it back.</p>
+      </div>
+      <div class="st invoice">
+        <h3>The invoice is created automatically</h3>
+        <p>Once the docket is approved, the invoice is created in MYOB with the help of AI. The claim pack is ready too, and the hours go across to payroll.</p>
+      </div>
+    </div>
+    <div class="banner">
+      <p class="eyebrow">The result</p>
+      <div class="v"><span class="hot">Invoices out in half the time</span></div>
+      <p><b>23 days down to about 12.</b> Invoicing is done in about half the time, because the invoice is created automatically once the docket is approved, not when the typing catches up.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Before and after</p>
+      <h2>What changes if the plan is built.</h2>
     </div>
     <div class="ba">
-      <div class="card"><p class="eyebrow" style="color:var(--mute)">Today</p><ul>
-        <li>Docket retyping<b class="num">96 hrs / month</b></li>
-        <li>Work done to invoice<b class="num">23 days</b></li>
-        <li>Claims bounced first time<b class="num">17%</b></li>
-        <li>Variations and standby captured<b>If someone remembers</b></li></ul></div>
-      <div class="card after"><p class="eyebrow" style="color:var(--ok)">With Docket-to-Claim</p><ul>
-        <li>Docket checking<b class="num">19 hrs / month</b></li>
-        <li>Work done to invoice<b class="num">12 days</b></li>
-        <li>Claims bounced first time<b class="num">5%</b></li>
-        <li>Variations and standby captured<b>Flagged on every docket</b></li></ul></div>
-    </div>
-
-    <h3 class="sub">In plain words: how this saves time and money</h3>
-    <div class="plain">
-      <div class="card rise"><h3>Type it once</h3><p>Today a docket is written on site, typed into Excel, typed into MYOB and typed into payroll. The AI reads the photo and fills in all three. Your admins check it instead of typing it.</p><div class="big num">77 hrs a month back</div></div>
-      <div class="card rise"><h3>Nothing gets forgotten</h3><p>Standby and extra work get missed because someone has to remember to claim them. The system looks for them on every docket and asks before the claim goes out.</p><div class="big num">$102k a year billed</div></div>
-      <div class="card rise"><h3>Right the first time</h3><p>Before a claim is sent it is checked against the PO, the rates and the signature. Mistakes get fixed here, not after Santos sends it back.</p><div class="big num">17% bounced → 5%</div></div>
-      <div class="card rise"><h3>Bill sooner</h3><p>The claim is ready the day the work is done, not when the typing catches up. The invoice goes out 11 days earlier, so the cash arrives 11 days earlier.</p><div class="big num">23 days → 12</div></div>
-    </div>
-    <p class="note"><b>What the AI actually does:</b> it reads, the way a person reads a docket, only it does 400 a week without getting tired. <b>The pricing is plain rules</b> from your rate schedule, so it is the same every time. <b>A person still signs off</b> every claim. It sits on top of Excel, MYOB, Employment Hero and SharePoint. Nobody has to learn a new app, and nothing you use today is replaced.</p>
-  </section>
-
-  <!-- 6 BUSINESS CASE -->
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">06 · The business case</p>
-      <h2>$334k is on the table. We have counted $221k of it.</h2>
-      <p class="lede">We only count what we are confident of recovering in year one. The working is shown so your finance team can change any assumption and see what moves.</p>
-    </div>
-    <div class="tblwrap">
-      <table class="tbl">
-        <tr><th>Leak</th><th>How we worked it out</th><th class="r">Leak / yr</th><th class="r">We count</th><th class="r">Recovered</th></tr>
-        <tr><td><b>Unclaimed variations and standby</b></td><td>On 40 traced jobs, 1.2% of billable value never reached a claim. Applied to $14.2M T&amp;M revenue.</td><td class="r num">$170,400</td><td class="r num">60%</td><td class="r num"><b>$102,240</b></td></tr>
-        <tr><td><b>Docket retyping</b></td><td>3 admins, 96 hrs a month, $58 an hour loaded.</td><td class="r num">$66,816</td><td class="r num">80%</td><td class="r num"><b>$53,453</b></td></tr>
-        <tr><td><b>Slow invoicing</b></td><td>17 avoidable days × $38.9k a day = $661k unbilled, at 9% cost of money.</td><td class="r num">$59,523</td><td class="r num">65%</td><td class="r num"><b>$38,690</b></td></tr>
-        <tr><td><b>Rejected claims</b></td><td>38 hrs a month rework, plus 19 days delay on 17% of $1.18M monthly claims.</td><td class="r num">$37,726</td><td class="r num">70%</td><td class="r num"><b>$26,408</b></td></tr>
-        <tr><td colspan="2"><b>Year one, Docket-to-Claim only</b></td><td class="r num"><b>$334,465</b></td><td></td><td class="r num"><b class="hot" style="font-size:19px">$220,791</b></td></tr>
-      </table>
-    </div>
-    <div class="grid3" style="margin-top:16px">
-      <div class="card"><div class="n num">$18,400</div><h3>Recovered per month</h3><p>Once all crews are live.</p></div>
-      <div class="card"><div class="n num">4.4×</div><h3>Year-one return</h3><p>$220,791 recovered against $50,580 all-in cost.</p></div>
-      <div class="card"><div class="n num hot">&lt; 8 weeks</div><h3>Payback after go-live</h3><p>The build fee is covered before the second claim cycle closes.</p></div>
+      <div class="card">
+        <p class="eyebrow" style="color:var(--mute)">Today</p>
+        <ul>
+          <li>Hours of typing<b>96 hrs a month</b></li>
+          <li>Days to invoice<b>23 days</b></li>
+          <li>Claims bounced first time<b>17%</b></li>
+          <li>Extra work captured<b>If someone remembers</b></li>
+        </ul>
+      </div>
+      <div class="card after">
+        <p class="eyebrow" style="color:var(--ok)">With the plan</p>
+        <ul>
+          <li>Hours of checking<b>19 hrs a month</b></li>
+          <li>Days to invoice<b>12 days</b></li>
+          <li>Claims bounced first time<b>5%</b></li>
+          <li>Extra work captured<b>Flagged on every docket</b></li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- 7 ROADMAP -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">07 · Delivery</p>
+      <p class="eyebrow">What it is worth</p>
+      <h2>What this first plan is worth.</h2>
+    </div>
+    <div class="worth">
+      <div class="price">
+        <p class="eyebrow">Year one, this first plan</p>
+        <div class="v num" style="margin-top:14px">$221k <small>a year</small></div>
+        <p>That is what we count as recoverable in year one. Discovery found about $478k leaking across the wider workflow. The build pays for itself in under 8 weeks after go-live.</p>
+      </div>
+      <ul class="bullets">
+        <li>About 77 hours a month of typing handed back to the office team</li>
+        <li>Extra work like standby caught on every job, worth about $102k a year</li>
+        <li>Invoices out in about 12 days instead of 23, so the money comes in sooner</li>
+        <li>Claims sent back for mistakes drop from 17% to 5%</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">How it rolls out</p>
       <h2>Eight weeks, one crew first.</h2>
-      <p class="lede">It runs beside your current process until the numbers match. Your team keeps doing what they do now until we can show it is safe to stop.</p>
+      <p class="lede">It runs beside the current process until the numbers match. The team keeps doing what they do now until it is safe to stop.</p>
     </div>
     <div class="road">
-      <div class="wk rise"><span class="when">Weeks 1–2</span><h3>Set up</h3><p>One clean rate schedule. Docket reader trained on 300 of your past dockets.</p><p class="gate">Gate: reads 95% of fields correctly</p></div>
-      <div class="wk rise"><span class="when">Weeks 3–4</span><h3>Shadow run</h3><p>One crew, one work order type. System and admins build the same claims side by side.</p><p class="gate">Gate: claims match to the dollar</p></div>
-      <div class="wk rise"><span class="when">Weeks 5–6</span><h3>Claim pack</h3><p>Exception screen, approval step, portal-ready pack and MYOB draft invoice.</p><p class="gate">Gate: first live claim accepted first time</p></div>
-      <div class="wk go rise"><span class="when">Weeks 7–8</span><h3>All crews</h3><p>Roll out, train supervisors in a toolbox talk, hand over the run book.</p><p class="gate" style="color:var(--ok)">Go-live, then 30 days of close support</p></div>
-    </div>
-    <div class="grid2" style="margin-top:16px">
-      <div class="card"><h3>What we need from you</h3><ul class="list ok">
-        <li>One owner on your side, about 3 hours a week</li>
-        <li>The current Santos rate schedule and 300 past dockets</li>
-        <li>Access to MYOB Advanced, Employment Hero and the claims folder in SharePoint</li>
-        <li>One crew and supervisor willing to go first</li></ul></div>
-      <div class="card"><h3>Risks we are managing</h3><ul class="list x">
-        <li>Messy handwriting: anything the AI is unsure of goes to a person, never guessed</li>
-        <li>Client data: stays in your Microsoft 365 tenancy, not used to train any model</li>
-        <li>Portal changes: claim pack is a file you upload, so nothing breaks if the portal does</li>
-        <li>Adoption: supervisors change nothing except where the photo goes</li></ul></div>
+      <div class="wk">
+        <span class="when">Weeks 1–2</span>
+        <h3>Set up</h3>
+        <p>One clean rate schedule, and the docket reader trained on 300 past dockets.</p>
+      </div>
+      <div class="wk">
+        <span class="when">Weeks 3–4</span>
+        <h3>Shadow run</h3>
+        <p>One crew, side by side. The system and the admins build the same claims.</p>
+      </div>
+      <div class="wk">
+        <span class="when">Weeks 5–6</span>
+        <h3>Invoice and claim pack</h3>
+        <p>The approval step, the claim pack, and the automatic invoice in MYOB.</p>
+      </div>
+      <div class="wk go">
+        <span class="when">Weeks 7–8</span>
+        <h3>All crews</h3>
+        <p>Roll out, a short toolbox talk for supervisors, then 30 days of close support.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 8 INVESTMENT -->
   <section>
     <div class="sec-head">
-      <p class="eyebrow">08 · Investment</p>
-      <h2>Fixed price. You own everything.</h2>
+      <p class="eyebrow">Investment</p>
+      <h2>A fixed price to build it. A low cost to run it.</h2>
     </div>
-    <div class="grid2 top">
-      <div class="price">
+    <div class="invest">
+      <div class="pricebox">
         <p class="eyebrow">Docket-to-Claim build</p>
         <div class="v num" style="margin-top:14px">$28,500 <small>+ GST, fixed</small></div>
-        <ul class="list ok" style="margin-top:22px">
-          <li>Everything in the eight-week plan above</li>
-          <li>Built in accounts you own, in your name, from day one</li>
-          <li>Run book and training for admins and supervisors</li>
-          <li>30 days of close support after go-live</li>
-        </ul>
-        <p style="color:var(--mute);font-size:14px;margin-top:20px">Paid in three parts: 40% to start, 30% when the shadow run matches, 30% at go-live.</p>
+        <p>You own it from day one. Paid in three parts as the work is done. Includes the eight-week plan, training, and 30 days of close support after go-live.</p>
       </div>
-      <div style="display:grid;gap:16px">
-        <div class="card"><h3>Running it after go-live</h3><ul class="list">
-          <li><b style="color:var(--text)" class="num">$1,200 a month</b> support: monitoring, fixes, rate schedule updates</li>
-          <li><b style="color:var(--text)" class="num">About $640 a month</b> AI and hosting, billed to you directly at cost</li>
-          <li>Month to month. Cancel and it keeps running, because it is yours.</li></ul></div>
-        <div class="card"><h3>Not in this scope</h3><ul class="list x">
-          <li>Replacing MYOB or the client portal</li>
-          <li>Payroll changes. Timesheet data is passed across, payroll rules are untouched.</li>
-          <li>Compliance watch and WIP report, quoted separately once this is live</li></ul></div>
+      <div class="card">
+        <h3>Running it after go-live</h3>
+        <ul class="list ok">
+          <li><b class="num">$1,200 a month</b> for support, monitoring, fixes and rate updates</li>
+          <li><b class="num">About $640 a month</b> for AI and hosting, billed to you at cost</li>
+          <li>Month to month. Cancel and it keeps running, because it is yours.</li>
+        </ul>
       </div>
     </div>
-    <div class="card" style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
-      <div><h3>Next step</h3><p>Pick the first crew and the owner on your side. We start the Monday after sign-off.</p></div>
-      <span class="cta">Approve the scope</span>
+  </section>
+
+  <section>
+    <div class="closer">
+      <p class="eyebrow">What discovery looks like for you</p>
+      <h2 style="margin-top:12px">This is the kind of plan you get after discovery.</h2>
+      <p>We sit with your team, follow a handful of real jobs from quote to payment, and put a dollar figure on where time and money slip through. Then you get a clear picture of what to fix first, what it costs, and when it pays for itself.</p>
     </div>
   </section>
 
@@ -460,16 +339,5 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     <p style="margin-top:8px">Sample scope. The workflows, quotes and figures on this page are illustrative and are not the records of any company named. All amounts in AUD, excluding GST.</p>
   </footer>
 </div>
-
-<script>
-// Plays once when a section first comes into view. Not tied to scroll position.
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  e.target.classList.add('in');
-  e.target.querySelectorAll('.fill').forEach((f,i)=>setTimeout(()=>f.style.width=f.dataset.w+'%',120+i*90));
-  io.unobserve(e.target);
-}),{threshold:.12});
-document.querySelectorAll('section').forEach(s=>io.observe(s));
-</script>
 </body>
 </html>
