@@ -130,6 +130,160 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   .ba .card li b{white-space:normal}
 }
 @media print{body{background:#fff;color:#111}body:before{display:none}}
+
+/* diagrams */
+.diagrams{padding-top:64px}
+.how{
+  display:grid;
+  grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr;
+  align-items:stretch;
+  gap:0 0;
+}
+.how-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px 18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:100%;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 18px 40px rgba(0,0,0,.25);
+}
+.how-card.invoice{
+  border-color:rgba(232,68,37,.55);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 18px 50px rgba(232,68,37,.16);
+}
+.how-ico{
+  width:52px;height:52px;border-radius:16px;
+  display:grid;place-items:center;flex-shrink:0;
+  background:rgba(232,68,37,.14);
+  color:var(--hot2);
+}
+.how-card.invoice .how-ico{background:rgba(232,68,37,.22)}
+.how-ico svg{width:28px;height:28px;display:block}
+.how-copy{display:flex;flex-direction:column;gap:8px;min-width:0}
+.how-card h3{font-size:20px}
+.how-card p{color:var(--mute);font-size:14.5px;line-height:1.45;margin:0}
+.how-join{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sky);
+}
+.how-join svg{width:28px;height:28px;display:block}
+.flag{
+  grid-column:3;
+  grid-row:2;
+  margin-top:12px;
+  background:rgba(245,185,66,.12);
+  border:1px solid rgba(245,185,66,.5);
+  color:#f8d488;
+  border-radius:14px;
+  padding:10px 12px 11px;
+  font-size:13.5px;
+  line-height:1.4;
+  font-weight:600;
+  position:relative;
+}
+.flag:before{
+  content:"";
+  position:absolute;left:28px;top:-7px;
+  width:12px;height:12px;
+  background:rgba(245,185,66,.12);
+  border-left:1px solid rgba(245,185,66,.5);
+  border-top:1px solid rgba(245,185,66,.5);
+  transform:rotate(45deg);
+}
+.flag strong{display:block;color:var(--amber);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+
+.compare{
+  margin-top:36px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:28px 28px 24px;
+}
+.compare .sec-mini{margin-bottom:22px}
+.compare .sec-mini h2{font-size:clamp(24px,3vw,34px)}
+.vs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:26px;
+}
+.vs-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px 22px 18px;
+  background:var(--panel2);
+}
+.vs-card.after{
+  border-color:rgba(62,207,142,.45);
+  box-shadow:0 16px 40px rgba(62,207,142,.1);
+}
+.vs-card .eyebrow{margin-bottom:10px}
+.vs-card.after .eyebrow{color:var(--ok)}
+.vs-stat{display:flex;flex-direction:column;gap:8px}
+.vs-stat .big{font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.vs-stat .sub{color:var(--mute);font-size:15px}
+.vs-pips{display:flex;gap:8px;margin:4px 0 2px}
+.pip{
+  width:34px;height:42px;border-radius:8px;
+  border:1px solid rgba(232,68,37,.45);
+  background:rgba(232,68,37,.16);
+  display:grid;place-items:center;color:var(--hot2);
+}
+.pip svg{width:18px;height:18px}
+.pip.empty{
+  border-color:rgba(62,207,142,.4);
+  background:rgba(62,207,142,.1);
+  color:var(--ok);
+  width:auto;padding:0 10px;font-weight:800;font-size:13px;letter-spacing:.04em;
+}
+.half-badge{
+  display:inline-block;
+  margin-top:12px;
+  background:linear-gradient(92deg,var(--hot2),#ffb199);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:800;font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;line-height:1.15;
+}
+
+.cmp-bars{display:grid;gap:22px}
+.cmp-block h3{font-size:15px;color:var(--text);margin-bottom:12px;font-weight:700}
+.cmp-row{
+  display:grid;
+  grid-template-columns:128px 1fr 92px;
+  gap:14px;
+  align-items:center;
+  margin-top:8px;
+}
+.cmp-row .lab{font-size:14px;font-weight:600;color:var(--mute)}
+.cmp-row .lab small{font-weight:500;font-size:12px;color:var(--dim)}
+.track{height:22px;background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden}
+.fill{height:100%;border-radius:8px;width:0}
+.fill.today{width:100%;background:linear-gradient(90deg,var(--hot),var(--hot2))}
+.fill.days-after{width:52.17%;background:linear-gradient(90deg,#1f8a5a,var(--ok))}
+.fill.hrs-after{width:19.79%;background:linear-gradient(90deg,#1f8a5a,var(--ok))}
+.cmp-row .amt{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;font-size:15px}
+.cmp-row.after .amt{color:var(--ok)}
+
+@media (max-width:1080px){
+  .how{grid-template-columns:1fr;gap:0}
+  .how-card{flex-direction:row;align-items:flex-start;gap:16px;min-height:0}
+  .how-join{
+    height:36px;width:36px;justify-self:center;
+    transform:rotate(90deg);
+    margin:2px 0;
+  }
+  .flag{grid-column:auto;grid-row:auto;margin:14px 0 10px}
+  .vs{grid-template-columns:1fr}
+  .cmp-row{grid-template-columns:1fr 78px;grid-template-areas:"lab amt" "track track";gap:6px 10px;margin-top:14px}
+  .cmp-row .lab{grid-area:lab}
+  .cmp-row .amt{grid-area:amt}
+  .track{grid-area:track}
+}
+@media (max-width:640px){
+  .compare{padding:20px 16px 18px}
+}
 </style>
 </head>
 <body>
@@ -156,6 +310,110 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
       <div class="kpi"><div class="v num">&lt; 8 weeks</div><div class="l">payback after the plan goes live</div></div>
     </div>
   </section>
+
+  <section class="diagrams" id="diagrams">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>From a photo to an invoice.</h2>
+      <p class="lede">Supervisors take the same photo they take today. A person still checks every claim before anything is sent to Santos.</p>
+    </div>
+
+    <div class="how">
+      <article class="how-card">
+        <div class="how-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 8 10 5.5h4L15.5 8"/><rect x="3.5" y="8" width="17" height="12.5" rx="2.5"/><circle cx="12" cy="14.2" r="3.2"/></svg></div>
+        <div class="how-copy">
+        <h3>Photo</h3>
+        <p>Supervisor snaps the docket</p>
+        </div>
+      </article>
+      <div class="how-join" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
+      <article class="how-card">
+        <div class="how-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="12" height="16" rx="2"/><path d="M6 9h6M6 12.5h6M6 16h3.5"/><path d="M17.8 3.2 19 6.1l3 .4-2.2 2.2.5 3-2.5-1.5-2.5 1.5.5-3-2.2-2.2 3-.4z" fill="currentColor" stroke="none"/></svg></div>
+        <div class="how-copy">
+        <h3>AI reads it</h3>
+        <p>Names, hours, work order, priced from the rate sheet</p>
+        </div>
+      </article>
+      <aside class="flag"><strong>Flagged</strong> Missing signatures or unclaimed extra work</aside>
+      <div class="how-join" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
+      <article class="how-card">
+        <div class="how-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="7.5" r="3"/><path d="M3.8 19c0-3.2 2.5-5.2 5.7-5.2 3.2 0 5.7 2 5.7 5.2"/><path d="m14.5 13.2 2.2 2.2 4-4"/></svg></div>
+        <div class="how-copy">
+        <h3>Person checks</h3>
+        <p>One screen, approve or fix</p>
+        </div>
+      </article>
+      <div class="how-join" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
+      <article class="how-card invoice">
+        <div class="how-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg></div>
+        <div class="how-copy">
+        <h3>Invoice done</h3>
+        <p>Created automatically in MYOB, claim pack ready</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="compare" id="compare">
+      <div class="sec-mini">
+        <p class="eyebrow">Before vs after</p>
+        <h2>The difference at a glance.</h2>
+      </div>
+      <div class="vs">
+        <div class="vs-card">
+          <p class="eyebrow" style="color:var(--mute)">Today</p>
+          <div class="vs-stat">
+            <div class="vs-pips">
+              <span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5h6l4 4V20a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4.5"/></svg></span>
+              <span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5h6l4 4V20a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4.5"/></svg></span>
+              <span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5h6l4 4V20a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M14 3.5V8h4.5"/></svg></span>
+            </div>
+            <div class="big">Typed 3 times</div>
+            <div class="sub">Invoice in 23 days</div>
+          </div>
+        </div>
+        <div class="vs-card after">
+          <p class="eyebrow">With AI</p>
+          <div class="vs-stat">
+            <div class="vs-pips">
+              <span class="pip empty">0 times</span>
+            </div>
+            <div class="big">Typed 0 times</div>
+            <div class="sub">Invoice in 12 days</div>
+            <div class="half-badge">Invoices out in half the time</div>
+          </div>
+        </div>
+      </div>
+      <div class="cmp-bars">
+        <div class="cmp-block">
+          <h3>Days from work done to invoice</h3>
+          <div class="cmp-row">
+            <div class="lab">Today</div>
+            <div class="track"><div class="fill today"></div></div>
+            <div class="amt num">23 days</div>
+          </div>
+          <div class="cmp-row after">
+            <div class="lab">With AI</div>
+            <div class="track"><div class="fill days-after"></div></div>
+            <div class="amt num">12 days</div>
+          </div>
+        </div>
+        <div class="cmp-block">
+          <h3>Hours spent on dockets a month</h3>
+          <div class="cmp-row">
+            <div class="lab">Today <small>· typing</small></div>
+            <div class="track"><div class="fill today"></div></div>
+            <div class="amt num">96 hrs</div>
+          </div>
+          <div class="cmp-row after">
+            <div class="lab">With AI <small>· checking</small></div>
+            <div class="track"><div class="fill hrs-after"></div></div>
+            <div class="amt num">19 hrs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section>
     <div class="sec-head">
@@ -194,64 +452,6 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
       </div>
     </div>
     <p class="sum">Across the whole workflow, that adds up to about <b class="num">$478k</b> a year, and <b class="num">252 hours</b> a month of admin, mostly retyping. <span>Those figures are from discovery. They are the starting point for the plan below.</span></p>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">The fix</p>
-      <h2>Four steps, from a photo to an invoice.</h2>
-      <p class="lede">The plan is called Docket-to-Claim. Supervisors do not learn a new app. They take the same photo they take today. A person still checks every claim before anything is sent to Santos.</p>
-    </div>
-    <div class="steps">
-      <div class="st">
-        <h3>Photo of the docket</h3>
-        <p>The supervisor sends a photo of the signed docket to one number or inbox.</p>
-      </div>
-      <div class="st">
-        <h3>AI reads it and prices it</h3>
-        <p>The system reads the names, hours and notes, then prices each line from the rate schedule.</p>
-      </div>
-      <div class="st">
-        <h3>A person checks and approves</h3>
-        <p>An admin sees the photo beside the claim lines, then fixes, approves or sends it back.</p>
-      </div>
-      <div class="st invoice">
-        <h3>The invoice is created automatically</h3>
-        <p>Once the docket is approved, the invoice is created in MYOB with the help of AI. The claim pack is ready too, and the hours go across to payroll.</p>
-      </div>
-    </div>
-    <div class="banner">
-      <p class="eyebrow">The result</p>
-      <div class="v"><span class="hot">Invoices out in half the time</span></div>
-      <p><b>23 days down to about 12.</b> Invoicing is done in about half the time, because the invoice is created automatically once the docket is approved, not when the typing catches up.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <p class="eyebrow">Before and after</p>
-      <h2>What changes if the plan is built.</h2>
-    </div>
-    <div class="ba">
-      <div class="card">
-        <p class="eyebrow" style="color:var(--mute)">Today</p>
-        <ul>
-          <li>Hours of typing<b>96 hrs a month</b></li>
-          <li>Days to invoice<b>23 days</b></li>
-          <li>Claims bounced first time<b>17%</b></li>
-          <li>Extra work captured<b>If someone remembers</b></li>
-        </ul>
-      </div>
-      <div class="card after">
-        <p class="eyebrow" style="color:var(--ok)">With the plan</p>
-        <ul>
-          <li>Hours of checking<b>19 hrs a month</b></li>
-          <li>Days to invoice<b>12 days</b></li>
-          <li>Claims bounced first time<b>5%</b></li>
-          <li>Extra work captured<b>Flagged on every docket</b></li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <section>
