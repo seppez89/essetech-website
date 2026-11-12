@@ -243,6 +243,24 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/scope/automation-sample-x7k2",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/scope/automation-sample-x7k2/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }
