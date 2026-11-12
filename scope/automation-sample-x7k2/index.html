@@ -70,7 +70,7 @@ section{padding:84px 0;border-top:1px solid rgba(255,255,255,.06)}
 .stage:not(:last-child):after{content:"";position:absolute;right:-11px;top:34px;width:12px;height:2px;background:var(--blue)}
 .stage .step{font-size:11px;letter-spacing:.14em;color:var(--dim);font-weight:700}
 .stage h3{font-size:16px}
-.stage .how{font-size:13px;color:var(--mute);flex:1}
+.stage .how{font-size:13px;color:var(--mute);flex:1;display:block}
 .stage .tools{font-size:11.5px;color:var(--sky)}
 .leak{margin-top:6px;border-radius:12px;padding:10px 11px;background:rgba(232,68,37,.12);border:1px solid rgba(232,68,37,.5);font-size:12.5px;color:#ffd9cf}
 .leak b{display:block;font-size:18px;color:#fff;letter-spacing:-.02em}
@@ -92,7 +92,8 @@ section{padding:84px 0;border-top:1px solid rgba(255,255,255,.06)}
 .total b{font-size:30px;letter-spacing:-.02em}
 
 /* tables */
-.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.tbl-case{min-width:860px}
 .tbl th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:left;font-weight:700;padding:0 14px 12px}
 .tbl td{padding:15px 14px;border-top:1px solid var(--line);vertical-align:top}
 .tbl td.r,.tbl th.r{text-align:right}
@@ -186,9 +187,19 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   .wrap{padding:0 16px}section{padding:60px 0}
   .kpis,.grid3,.road,.steps{grid-template-columns:1fr}
   .bar-row{grid-template-columns:1fr 84px}.bar-row .track{grid-column:1/-1;order:3}
-  .tag{display:none}
+  .bar{flex-wrap:wrap;align-items:flex-start}
+  .tag{display:inline-block;white-space:normal;max-width:100%;line-height:1.4}
 }
-@media print{body{background:#fff;color:#111}body:before{display:none}.rise{opacity:1;transform:none}}
+@media print{
+  body{background:#fff;color:#111}
+  body:before{display:none}
+  .rise{opacity:1;transform:none}
+  .num,.kpi-strip .v span,.half-badge,.stage .leak,.stage .leak b,.leak em{color:#111 !important;-webkit-text-fill-color:#111 !important;background:none !important}
+  .fill,.track,.bar-row .track{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .fill{min-width:8px}
+  .card,.kpi,.panel,.price,.inv-card,.tv,.inv-stat,.vs-card{background:#fff;color:#111;border-color:#ccc}
+  p,li,td,th,h1,h2,h3,.lede,.mute,.l{color:#111}
+}
 
 /* added diagrams, invoice section, delivery timeline, hero strip */
 .kpi-strip{
@@ -205,7 +216,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
 .kpi-strip p{color:var(--mute);font-size:16px;max-width:62ch;margin:0}
 
 .diagrams{margin:8px 0 36px}
-.how{
+.diagrams .how{
   display:grid;
   grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr;
   align-items:stretch;
@@ -379,7 +390,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
 .tv p{color:var(--mute);font-size:13.5px;margin-top:6px}
 
 @media (max-width:1080px){
-  .how{grid-template-columns:1fr}
+  .diagrams .how{grid-template-columns:1fr}
   .how-card{flex-direction:row;align-items:flex-start;gap:16px;min-height:0}
   .how-join{height:36px;width:36px;justify-self:center;transform:rotate(90deg);margin:2px 0}
   .flag{grid-column:auto;grid-row:auto;margin:14px 0 10px}
@@ -399,6 +410,25 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   .compare{padding:20px 16px 18px}
   .vs,.inv-grid,.inv-stats,.checks,.tl-value,.inv-meta{grid-template-columns:1fr}
 }
+
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px}
+.summary .card p{color:var(--mute);font-size:14px;margin-top:8px}
+.summary .card h3{font-size:15px}
+.kind{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.sample-note{color:var(--mute);font-size:13.5px;margin:0 0 12px}
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:16px}
+.split ul.list li{margin-top:8px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.sign .line{border-bottom:1px solid var(--line);min-height:42px;margin-top:6px}
+.sign label{font-size:12px;color:var(--dim);font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:normal}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:1080px){
+  .summary{grid-template-columns:1fr 1fr}
+  .split,.sign,.terms-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .summary{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -412,21 +442,29 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <!-- HERO -->
   <section class="hero in">
     <p class="eyebrow rise">Automation discovery &amp; scope · prepared for ICE Engineering</p>
-    <h1 class="rise" style="margin-top:18px">You are losing about <span class="num">$478k</span> a year between the job site and the invoice.</h1>
+    <h1 class="rise" style="margin-top:18px">We found about <span class="num">$478k</span> a year leaking across work order to cash.</h1>
     <div class="meta rise">
       <span><b>Prepared by</b> Jonathon Battifuoco, essetech</span>
+      <span><b>Date</b> 12 November 2026 · valid until 12 December 2026</span>
       <span><b>Discovery</b> 3 weeks on site and remote</span>
       <span><b>Scope</b> Santos field services contract, work order to cash</span>
     </div>
     <div class="kpis">
-      <div class="kpi big rise"><div class="v num hot">$478k</div><div class="l">leaking each year across 7 points in the workflow</div></div>
-      <div class="kpi rise"><div class="v num">252 hrs</div><div class="l">of manual admin every month, mostly retyping</div></div>
+      <div class="kpi big rise"><div class="v num hot">$478k</div><div class="l">found across 7 points, from work order to cash. $334k of that sits between the docket and the invoice</div></div>
+      <div class="kpi rise"><div class="v num">252 hrs</div><div class="l">of manual work every month, across admin and engineers. Retyping is 96 of those hours</div></div>
       <div class="kpi rise"><div class="v num">23 days</div><div class="l">average from work done to invoice sent</div></div>
-      <div class="kpi rise"><div class="v num">$221k</div><div class="l">a year recovered by the first automation, paid back in under 8 weeks</div></div>
+      <div class="kpi rise"><div class="v num">$221k</div><div class="l">modelled yearly improvement from the first automation, after go-live, if the plan holds</div></div>
     </div>
     <div class="kpi-strip rise">
-      <div class="v">Invoices out in <span>half the time</span></div>
-      <p>23 days down to 12, because the invoice is created automatically in MYOB Advanced once a person approves the docket.</p>
+      <div class="v">Invoices out about <span>half the time</span></div>
+      <p>23 days down to 12, which is 11 days sooner. The invoice is drafted on hold in MYOB Advanced once a person approves the docket. Finance then releases it.</p>
+    </div>
+    <div class="summary">
+      <div class="card rise"><h3>What we will do</h3><p>Docket-to-Claim, one crew first. AI reads the photo. Rules price it. A person approves. The invoice is drafted on hold in MYOB.</p></div>
+      <div class="card rise"><h3>What it costs</h3><p>$28,500 + GST to get the first crew live. Then $1,200 a month support, and about $640 a month for AI and hosting.</p></div>
+      <div class="card rise"><h3>The cautious case</h3><p>The modelled figure is $221k a year if the plan holds. Variations alone, $102k, still cover the $50,580 all-in cost about twice.</p></div>
+      <div class="card rise"><h3>The main risks</h3><p>Reading accuracy, access taking longer than planned, and whether invoices still wait for Santos. Each has a plan below.</p></div>
+      <div class="card rise"><h3>What ICE provides</h3><p>Access, the rate schedule, 300 past dockets, a first crew, and time from IT, payroll and your MYOB partner.</p></div>
     </div>
   </section>
 
@@ -435,16 +473,16 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     <div class="sec-head">
       <p class="eyebrow">01 · What we looked at</p>
       <h2>We followed the paper, not the org chart.</h2>
-      <p class="lede">Before recommending anything we traced real jobs from the Santos work order through to the money landing. The numbers on this page come from your own jobs and your own people's time.</p>
+      <p class="lede">This is how we trace work from the Santos work order through to the money landing. On this sample page the figures and quotes are illustrative, as the footer says. A live proposal would use your jobs and your people's time.</p>
     </div>
     <div class="grid3">
       <div class="card rise"><div class="n num">11</div><h3>Interviews</h3><p>Contracts admin, payroll, two supervisors, project engineers, the estimator, finance and the GM.</p></div>
       <div class="card rise"><div class="n num">40</div><h3>Jobs traced end to end</h3><p>Every docket, timesheet, claim line and invoice on 40 completed work orders from the last quarter.</p></div>
-      <div class="card rise"><div class="n num">7</div><h3>Apps in the chain</h3><p>Outlook, Excel, SharePoint, MYOB Advanced, Employment Hero, the client portal and WhatsApp. Plus paper.</p></div>
+      <div class="card rise"><div class="n num">8</div><h3>Tools in the chain</h3><p>Seven core apps: Outlook, Excel, SharePoint, MYOB Advanced, Employment Hero, the client portal and WhatsApp. Plus paper, and Teams for questions.</p></div>
     </div>
     <div class="grid2" style="margin-top:16px">
-      <div class="card rise"><p class="quote">"Monday and Tuesday I just type dockets. If a supervisor is late sending photos, that whole crew misses the claim."<small>Contracts administrator</small></p></div>
-      <div class="card rise"><p class="quote">"We did the standby. We had the crew out there. I couldn't find the signed docket so it never went on the claim."<small>Project engineer</small></p></div>
+      <div class="card rise"><p class="quote">"Monday and Tuesday I just type dockets. If a supervisor is late sending photos, that whole crew misses the claim."<small>Illustrative quote · contracts administrator</small></p></div>
+      <div class="card rise"><p class="quote">"We did the standby. We had the crew out there. I couldn't find the signed docket so it never went on the claim."<small>Illustrative quote · project engineer</small></p></div>
     </div>
   </section>
 
@@ -452,16 +490,16 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <section>
     <div class="sec-head">
       <p class="eyebrow">02 · Current state</p>
-      <h2>One docket. 13 touches, 5 people, 7 apps.</h2>
+      <h2>One docket. 13 touches, 5 roles, 8 tools.</h2>
       <p class="lede">Every box is someone touching the job. The label under it is the app they use. Red boxes are where time or money leaks, with what it costs a year.</p>
     </div>
-    <div class="lanes-wrap rise"><div class="lanes"><div class="hd"></div><div class="hd">1 · Work order</div><div class="hd">2 · Estimate</div><div class="hd">3 · Mobilise</div><div class="hd">4 · On site</div><div class="hd">5 · Build claim</div><div class="hd">6 · Submit</div><div class="hd">7 · Invoice</div><div class="who">Santos rep</div><div class="c t"><b>Raises the work order</b><i>Client portal</i></div><div class="c"></div><div class="c"></div><div class="c t"><b>Signs the docket</b><i>Paper</i></div><div class="c"></div><div class="c t"><b>Approves or rejects</b><i>Client portal</i></div><div class="c"></div><div class="who">Supervisor</div><div class="c"></div><div class="c"></div><div class="c t"><b>Confirms the crew</b><i>Outlook</i></div><div class="c t lk"><b>Fills in docket, sends a photo</b><i>Paper · WhatsApp</i><em>$170k missed</em></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="who">Contracts admin</div><div class="c t"><b>Retypes it into the job sheet</b><i>Outlook · Excel</i></div><div class="c"></div><div class="c t lk"><b>Checks tickets by hand</b><i>Excel</i><em>$59k</em></div><div class="c"></div><div class="c t lk"><b>Types every docket twice</b><i>Excel · MYOB · Employment Hero</i><em>$67k</em></div><div class="c t lk"><b>Uploads the claim</b><i>Client portal</i><em>$38k</em></div><div class="c"></div><div class="who">Project engineer</div><div class="c"></div><div class="c t lk"><b>Rebuilds the estimate</b><i>Excel · SharePoint</i><em>$59k</em></div><div class="c"></div><div class="c"></div><div class="c t"><b>Chases missing variations</b><i>Outlook</i></div><div class="c"></div><div class="c t lk"><b>Builds the weekly WIP report</b><i>Excel</i><em>$25k</em></div><div class="who">Finance</div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c t lk"><b>Raises the invoice</b><i>MYOB Advanced</i><em>$60k</em></div></div></div>
-    <h3 class="sub">The apps in the chain</h3>
+    <div class="lanes-wrap rise"><div class="lanes"><div class="hd"></div><div class="hd">1 · Work order</div><div class="hd">2 · Estimate</div><div class="hd">3 · Mobilise</div><div class="hd">4 · On site</div><div class="hd">5 · Build claim</div><div class="hd">6 · Submit</div><div class="hd">7 · Invoice</div><div class="who">Santos rep</div><div class="c t"><b>Raises the work order</b><i>Client portal</i></div><div class="c"></div><div class="c"></div><div class="c t"><b>Signs the docket</b><i>Paper</i></div><div class="c"></div><div class="c t"><b>Approves or rejects</b><i>Client portal</i></div><div class="c"></div><div class="who">Supervisor</div><div class="c"></div><div class="c"></div><div class="c t"><b>Confirms the crew</b><i>Outlook</i></div><div class="c t lk"><b>Fills in docket, sends a photo</b><i>Paper · WhatsApp</i><em>$170k missed</em></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="who">Contracts admin</div><div class="c t"><b>Retypes it into the job sheet</b><i>Outlook · Excel</i></div><div class="c"></div><div class="c t lk"><b>Checks tickets by hand</b><i>Excel</i><em>$59k</em></div><div class="c"></div><div class="c t lk"><b>Types every docket three times</b><i>Excel · MYOB · Employment Hero</i><em>$67k</em></div><div class="c t lk"><b>Uploads the claim</b><i>Client portal</i><em>$38k</em></div><div class="c"></div><div class="who">Project engineer</div><div class="c"></div><div class="c t lk"><b>Rebuilds the estimate</b><i>Excel · SharePoint</i><em>$59k</em></div><div class="c"></div><div class="c"></div><div class="c t"><b>Chases missing variations</b><i>Outlook</i></div><div class="c"></div><div class="c t lk"><b>Builds the weekly WIP report</b><i>Excel</i><em>$25k</em></div><div class="who">Finance</div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c t lk"><b>Invoice waits to be raised</b><i>MYOB Advanced</i><em>$60k cost of money</em></div></div></div>
+    <h3 class="sub">The tools in the chain</h3>
     <div class="apps">
 <div class="app rise"><b>Paper + WhatsApp</b><p>Where the job is recorded. Nothing downstream can read it.</p></div>
 <div class="app rise"><b>Excel</b><p>Job sheet, rate schedule, tickets register and WIP. Four files, four owners.</p></div>
 <div class="app rise"><b>MYOB Advanced</b><p>Job costing and invoicing. Fed by hand from Excel.</p></div>
-<div class="app rise"><b>Employment Hero</b><p>Payroll. The same timesheet hours are typed in a second time.</p></div>
+<div class="app rise"><b>Employment Hero</b><p>Payroll. The same timesheet hours are typed in a third time.</p></div>
 <div class="app rise"><b>Outlook</b><p>Work orders, approvals and variation chases live in inboxes.</p></div>
 <div class="app rise"><b>SharePoint</b><p>Past estimates and signed dockets. Hard to search, so people rebuild.</p></div>
 <div class="app rise"><b>Client portal</b><p>Work orders in, claims out. Rejects anything that does not match the PO.</p></div>
@@ -469,13 +507,13 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
 </div>
     <h3 class="sub">What each step costs</h3>
     <div class="flow">
-      <div class="stage rise"><span class="step">STEP 1</span><h3>Work order in</h3><p class="how">Santos raises a work order. It arrives by portal and email, then gets retyped into a job sheet.</p><p class="tools">Portal · Outlook · Excel</p><div class="leak none">Small. Fixed as part of the claim build.</div></div>
+      <div class="stage rise"><span class="step">STEP 1</span><h3>Work order in</h3><p class="how">Santos raises a work order. It arrives by portal and email, then gets retyped into a job sheet.</p><p class="tools">Portal · Outlook · Excel</p><div class="leak none">Small. Out of this build. The claim uses the work order already on the docket.</div></div>
       <div class="stage rise"><span class="step">STEP 2</span><h3>Estimate</h3><p class="how">Engineers rebuild estimates from old spreadsheets. Rates live in three places.</p><p class="tools">Excel · SharePoint</p><div class="leak"><b class="num">$59k</b>52 hrs a month of engineer time</div></div>
-      <div class="stage rise"><span class="step">STEP 3</span><h3>Mobilise</h3><p class="how">Tickets, inductions and medicals checked by hand against a spreadsheet before each swing.</p><p class="tools">Excel · email</p><div class="leak"><b class="num">$59k</b>44 hrs a month plus 6 stood-down crews a year</div></div>
+      <div class="stage rise"><span class="step">STEP 3</span><h3>Mobilise</h3><p class="how">Tickets, inductions and medicals checked by hand against a spreadsheet before each swing.</p><p class="tools">Excel · email</p><div class="leak"><b class="num">$59k</b>44 hrs a month at $58, plus 6 stood-down crews at $4,800</div></div>
       <div class="stage rise hotstage"><span class="step">STEP 4</span><h3>Work on site</h3><p class="how">Paper dockets and timesheets, signed by the client rep, photographed and sent on WhatsApp.</p><p class="tools">Paper · WhatsApp</p><div class="leak"><b class="num">$170k</b>Variations and standby done but never claimed</div></div>
       <div class="stage rise hotstage"><span class="step">STEP 5</span><h3>Build the claim</h3><p class="how">Three admins retype every docket into Excel, price it, key it into MYOB, then key the hours into payroll.</p><p class="tools">Excel · MYOB · Employment Hero</p><div class="leak"><b class="num">$67k</b>96 hrs a month of retyping</div></div>
       <div class="stage rise"><span class="step">STEP 6</span><h3>Submit</h3><p class="how">Claim uploaded to the portal. 17% bounce first time: wrong rate, missing signature, PO mismatch.</p><p class="tools">Client portal</p><div class="leak"><b class="num">$38k</b>Rework plus cash arriving 19 days later</div></div>
-      <div class="stage rise"><span class="step">STEP 7</span><h3>Invoice and cash</h3><p class="how">Invoice raised after approval. 23 days on average from work done to invoice sent.</p><p class="tools">MYOB Advanced</p><div class="leak"><b class="num">$60k</b>Cost of $661k sitting unbilled</div></div>
+      <div class="stage rise"><span class="step">STEP 7</span><h3>Invoice and cash</h3><p class="how">Invoice raised after Santos approval. 23 days average. 17 of those days are avoidable lag inside ICE.</p><p class="tools">MYOB Advanced</p><div class="leak"><b class="num">$60k</b>Cost of $661k sitting unbilled</div></div>
     </div>
     <div class="legend">
       <span><i class="dot" style="background:var(--hot)"></i>Annual cost of the leak at that step</span>
@@ -489,16 +527,16 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     <div class="sec-head">
       <p class="eyebrow">03 · The leak register</p>
       <h2>Seven leaks, ranked by dollars.</h2>
-      <p class="lede">Orange is money. Blue is time. The top four all live in the same stretch of the workflow, which is why one build can close most of them.</p>
+      <p class="lede">Orange is mostly money. Blue is mostly time. Some lines are a mix. This build covers ranks 1, 2, 3 and 6: the leaks from the docket through to the invoice. That is $334,465 of the $478,249.</p>
     </div>
     <div class="card">
       <div class="bars">
         <div class="bar-row"><div class="name">Unclaimed variations and standby<small>1.2% of $14.2M time-and-materials revenue</small></div><div class="track"><div class="fill" data-w="100"></div></div><div class="amt num">$170,400</div></div>
         <div class="bar-row"><div class="name">Docket retyping<small>96 hrs a month at $58 an hour</small></div><div class="track"><div class="fill b" data-w="39.2"></div></div><div class="amt num">$66,816</div></div>
-        <div class="bar-row"><div class="name">Slow invoicing<small>17 days of avoidable lag on $38.9k a day</small></div><div class="track"><div class="fill" data-w="34.9"></div></div><div class="amt num">$59,523</div></div>
-        <div class="bar-row"><div class="name">Compliance checks and stand-downs<small>44 hrs a month plus 6 failed mobilisations</small></div><div class="track"><div class="fill b" data-w="34.9"></div></div><div class="amt num">$59,424</div></div>
+        <div class="bar-row"><div class="name">Slow invoicing<small>17 avoidable days, after a 6-day floor, on $38.9k a day</small></div><div class="track"><div class="fill" data-w="34.9"></div></div><div class="amt num">$59,523</div></div>
+        <div class="bar-row"><div class="name">Compliance checks and stand-downs<small>44 hrs a month at $58 ($30,624) plus 6 stand-downs at $4,800 ($28,800)</small></div><div class="track"><div class="fill b" data-w="34.9"></div></div><div class="amt num">$59,424</div></div>
         <div class="bar-row"><div class="name">Estimate rebuilds<small>52 hrs a month at $95 an hour</small></div><div class="track"><div class="fill b" data-w="34.8"></div></div><div class="amt num">$59,280</div></div>
-        <div class="bar-row"><div class="name">Rejected claims<small>38 hrs a month rework plus delayed cash</small></div><div class="track"><div class="fill" data-w="22.1"></div></div><div class="amt num">$37,726</div></div>
+        <div class="bar-row"><div class="name">Rejected claims<small>38 hrs a month at $58, plus 19 days delay on 17% of claims at 9%</small></div><div class="track"><div class="fill" data-w="22.1"></div></div><div class="amt num">$37,726</div></div>
         <div class="bar-row"><div class="name">Weekly WIP report<small>22 hrs a month at $95 an hour</small></div><div class="track"><div class="fill b" data-w="14.7"></div></div><div class="amt num">$25,080</div></div>
       </div>
       <div class="total"><span>Total found in discovery</span><b class="num hot">$478,249 a year</b></div>
@@ -509,16 +547,16 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <section>
     <div class="sec-head">
       <p class="eyebrow">04 · What to build, buy and skip</p>
-      <h2>Four opportunities. One to start on.</h2>
-      <p class="lede">Each one is scored on impact (how much it is worth) and fit (how ready your data and process are for AI). Both are out of 5, multiplied. Anything under 12 waits.</p>
+      <h2>Five options. One to start on.</h2>
+      <p class="lede">Each one is scored on impact (the size of the leak) and fit (how ready your data and process are). Both are out of 5, multiplied. Anything under 12 waits. A digital docket, signed on a phone, would also cut typing. This build reads the paper dockets you already use, because the Santos rep still signs on paper, and a new site process is a bigger change than this scope.</p>
     </div>
     <div class="grid2 wide">
       <div class="tblwrap">
         <table class="tbl">
-          <tr><th>Opportunity</th><th class="r">Worth / yr</th><th class="r">Score</th><th>Call</th></tr>
+          <tr><th>Opportunity</th><th class="r">Leak / yr</th><th class="r">Score</th><th>Call</th></tr>
           <tr><td><b>Docket-to-Claim</b><small>Closes leaks at steps 4, 5, 6 and 7</small></td><td class="r num">$334k</td><td class="r"><span class="score hot num">20</span></td><td><span class="pill p-build">BUILD FIRST</span></td></tr>
           <tr><td><b>Compliance expiry watch</b><small>Flags tickets and medicals before a swing</small></td><td class="r num">$59k</td><td class="r"><span class="score num">15</span></td><td><span class="pill p-next">BUILD NEXT</span></td></tr>
-          <tr><td><b>Weekly WIP report</b><small>Falls out of the claim data for free</small></td><td class="r num">$25k</td><td class="r"><span class="score num">10</span></td><td><span class="pill p-buy">CONFIGURE</span></td></tr>
+          <tr><td><b>Weekly WIP report</b><small>Quoted once Docket-to-Claim is live. Score 10, so it waits under the rule above</small></td><td class="r num">$25k</td><td class="r"><span class="score num">10</span></td><td><span class="pill p-skip">PHASE 2</span></td></tr>
           <tr><td><b>Estimate assistant</b><small>Needs one clean rate library first</small></td><td class="r num">$59k</td><td class="r"><span class="score num">9</span></td><td><span class="pill p-skip">LATER</span></td></tr>
           <tr><td><b>Website chatbot / AI receptionist</b><small>No leak found here. Your work comes from contracts, not enquiries.</small></td><td class="r num">$0</td><td class="r"><span class="score num">2</span></td><td><span class="pill p-skip">SKIP</span></td></tr>
         </table>
@@ -531,7 +569,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
           <rect x="239" y="169" width="185" height="145" rx="10" fill="rgba(255,255,255,.02)"/>
           <text x="60" y="40" fill="#ffb39e" font-size="11" font-weight="700" letter-spacing="1.5">DO FIRST</text>
           <text x="249" y="40" fill="#7682a6" font-size="11" font-weight="700" letter-spacing="1.5">PLAN</text>
-          <text x="60" y="305" fill="#8fa6e0" font-size="11" font-weight="700" letter-spacing="1.5">QUICK WINS</text>
+          <text x="60" y="305" fill="#8fa6e0" font-size="11" font-weight="700" letter-spacing="1.5">SMALL VALUE</text>
           <text x="249" y="305" fill="#7682a6" font-size="11" font-weight="700" letter-spacing="1.5">LEAVE</text>
           <text x="237" y="344" fill="#a3aecb" font-size="12" text-anchor="middle">Effort to deliver →</text>
           <text x="24" y="167" fill="#a3aecb" font-size="12" text-anchor="middle" transform="rotate(-90 24 167)">Value per year →</text>
@@ -549,8 +587,8 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <section>
     <div class="sec-head">
       <p class="eyebrow">05 · The product</p>
-      <h2>Docket-to-Claim: the claim builds itself while the crew is still on site.</h2>
-      <p class="lede">The supervisor takes the same photo they take today. Everything after that is done by the system, and a person checks it before it leaves the building. Nothing is sent to Santos without a named approver.</p>
+      <h2>Docket-to-Claim: the claim is ready while the crew is still on site.</h2>
+      <p class="lede">The supervisor takes the same photo they take today and sends it to a shared Outlook mailbox or a Teams channel, so the file stays in your Microsoft 365 tenant. Everything after that is drafted by the system. A named person checks it before it leaves the building. Nothing is sent to Santos without that approval.</p>
     </div>
 
     <div class="diagrams" id="diagrams">
@@ -584,8 +622,8 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
         <article class="how-card invoice">
           <div class="how-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg></div>
           <div class="how-copy">
-          <h3>Invoice done</h3>
-          <p>Created automatically in MYOB, claim pack ready</p>
+          <h3>Invoice drafted</h3>
+          <p>On hold in MYOB, for finance to release</p>
           </div>
         </article>
       </div>
@@ -612,11 +650,11 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
             <p class="eyebrow">With the plan</p>
             <div class="vs-stat">
               <div class="vs-pips">
-                <span class="pip empty">0 times</span>
+                <span class="pip empty">Checked</span>
               </div>
-              <div class="big">Typed 0 times</div>
+              <div class="big">No retyping</div>
               <div class="sub">Invoice in 12 days</div>
-              <div class="half-badge">Invoices out in half the time</div>
+              <div class="half-badge">About half the time, 11 days sooner</div>
             </div>
           </div>
         </div>
@@ -653,12 +691,12 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
 
     <h3 class="sub">The steps, in more detail</h3>
     <div class="steps">
-      <div class="st rise"><h3>Photo in</h3><p>Supervisor sends the signed docket or timesheet to one number or inbox. No new app.</p><p class="who hu">Supervisor</p></div>
-      <div class="st rise"><h3>AI reads it</h3><p>Pulls names, hours, plant, work order, signature and handwritten notes off the page.</p><p class="who ai">AI</p></div>
+      <div class="st rise"><h3>Photo in</h3><p>Supervisor sends the signed docket or timesheet to a shared mailbox or Teams channel. No new app for the crew.</p><p class="who hu">Supervisor</p></div>
+      <div class="st rise"><h3>AI reads it</h3><p>Pulls names, hours, plant, work order, signature and handwritten notes off the page. Low-confidence fields go to a person.</p><p class="who ai">AI</p></div>
       <div class="st rise"><h3>Matched to the contract</h3><p>Each line is priced from one rate schedule and tied to the right work order and PO.</p><p class="who sys">Rules</p></div>
-      <div class="st rise"><h3>Problems flagged</h3><p>Missing signature, hours over the cap, standby or variation with no approval, crew not on the job.</p><p class="who ai">AI</p></div>
-      <div class="st rise"><h3>Admin approves</h3><p>One screen: the photo beside the claim lines. Fix, approve or send back to the supervisor.</p><p class="who hu">Contracts admin</p></div>
-      <div class="st rise"><h3>Claim pack out</h3><p>Portal-ready claim with dockets attached, invoice drafted in MYOB, hours sent to Employment Hero.</p><p class="who sys">System</p></div>
+      <div class="st rise"><h3>Problems flagged</h3><p>Missing signature, hours above the work order or PO limit, standby or variation with no approval, crew not on the job.</p><p class="who ai">AI + rules</p></div>
+      <div class="st rise"><h3>Admin approves</h3><p>One check screen: the photo beside the claim lines. Fix, approve or send back to the supervisor.</p><p class="who hu">Contracts admin</p></div>
+      <div class="st rise"><h3>Claim pack out</h3><p>Portal-ready pack with dockets attached, invoice drafted on hold in MYOB, hours sent to Employment Hero for payroll to approve.</p><p class="who sys">System</p></div>
     </div>
     <div class="ba">
       <div class="card"><p class="eyebrow" style="color:var(--mute)">Today</p><ul>
@@ -678,28 +716,27 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
       <div class="card rise"><h3>Type it once</h3><p>Today a docket is written on site, typed into Excel, typed into MYOB and typed into payroll. The AI reads the photo and fills in all three. Your admins check it instead of typing it.</p><div class="big num">77 hrs a month back</div></div>
       <div class="card rise"><h3>Nothing gets forgotten</h3><p>Standby and extra work get missed because someone has to remember to claim them. The system looks for them on every docket and asks before the claim goes out.</p><div class="big num">$102k a year billed</div></div>
       <div class="card rise"><h3>Right the first time</h3><p>Before a claim is sent it is checked against the PO, the rates and the signature. Mistakes get fixed here, not after Santos sends it back.</p><div class="big num">17% bounced → 5%</div></div>
-      <div class="card rise"><h3>Bill sooner</h3><p>The claim is ready the day the work is done, not when the typing catches up. The invoice goes out 11 days earlier, so the cash arrives 11 days earlier.</p><div class="big num">23 days → 12</div></div>
+      <div class="card rise"><h3>Bill sooner</h3><p>The claim is ready the day the work is done, not when the typing catches up. The invoice is expected to go out 11 days earlier, if finance can release it without waiting on Santos.</p><div class="big num">23 days → 12</div></div>
     </div>
-    <p class="note"><b>What the AI actually does:</b> it reads, the way a person reads a docket, only it does 400 a week without getting tired. <b>The pricing is plain rules</b> from your rate schedule, so it is the same every time. <b>A person still signs off</b> every claim. It sits on top of Excel, MYOB, Employment Hero and SharePoint. Nobody has to learn a new app, and nothing you use today is replaced.</p>
+    <p class="note"><b>What the AI actually does:</b> it reads, the way a person reads a docket, only it does about 400 a month without getting tired. That is about 14 minutes of typing per docket today, and about 3 minutes of checking after. <b>The pricing is plain rules</b> from your rate schedule, so it is the same every time. <b>A person still signs off</b> every claim. It sits on top of Excel, MYOB, Employment Hero and SharePoint. Supervisors keep the same photo habit. Admins learn one check screen. Nothing you use today is replaced.</p>
   </section>
 
-  
   <!-- 6 AUTOMATIC INVOICING -->
   <section id="invoicing">
     <div class="sec-head">
       <p class="eyebrow">06 · Automatic invoicing</p>
-      <h2>The invoice is created automatically, once a person says yes.</h2>
-      <p class="lede">Once the claim is approved, the invoice is created automatically in MYOB Advanced, with the help of AI. Line items come off the docket. Each line is priced from the Santos rate schedule and tied to the right work order and purchase order. The signed dockets are attached. The invoice is ready to send. Nobody types it.</p>
+      <h2>The invoice is drafted automatically, once a person says yes.</h2>
+      <p class="lede">Once the claim is approved inside ICE, the invoice is drafted on hold in MYOB Advanced. Line items come off the docket. Each line is priced from the Santos rate schedule, not by AI, and tied to the right work order and purchase order. The signed dockets are attached. Finance releases the invoice. Nobody types it. A claim cycle is the monthly window from work done to the claim being sent to Santos.</p>
     </div>
 
     <div class="inv-grid">
-      <div class="inv-card" aria-label="Sample invoice, auto-filled from an approved docket">
+      <div class="inv-card" aria-label="Sample invoice, drafted on hold from an approved docket">
         <div class="inv-top">
           <div>
             <b>Draft invoice</b>
-            <span>MYOB Advanced · from the approved docket</span>
+            <span>MYOB Advanced · on hold, from the approved docket</span>
           </div>
-          <div class="inv-badge">Ready to send</div>
+          <div class="inv-badge">On hold for finance</div>
         </div>
         <div class="inv-meta">
           <div><i>Work order</i><b>Tied to the job</b></div>
@@ -722,13 +759,13 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
         <div class="inv-flow">
           <div class="inv-step"><b>1. Claim approved</b><p>A named person signs off the docket and the claim lines.</p></div>
           <div class="inv-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
-          <div class="inv-step"><b>2. Checks run</b><p>PO, rates and signature are checked before anything is raised.</p></div>
+          <div class="inv-step"><b>2. Checks run</b><p>PO, rates and signature are checked before anything is drafted.</p></div>
           <div class="inv-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
-          <div class="inv-step"><b>3. Invoice created</b><p>Raised automatically in MYOB Advanced, with the help of AI.</p></div>
+          <div class="inv-step"><b>3. Invoice drafted</b><p>Created on hold in MYOB Advanced. Pricing is from the rate schedule, not from AI.</p></div>
           <div class="inv-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M14 6l6 6-6 6"/></svg></div>
-          <div class="inv-step"><b>4. Claim pack ready</b><p>Dockets attached, hours sent to Employment Hero, ready to send.</p></div>
+          <div class="inv-step"><b>4. Claim pack ready</b><p>Dockets attached, hours sent to Employment Hero, finance releases the invoice. An admin still uploads the claim pack to the Santos portal. There is no portal integration.</p></div>
         </div>
-        <p class="note" style="margin-top:18px"><b>Nobody types the invoice.</b> The lines, the rates and the attachments are already there when the approver says yes.</p>
+        <p class="note" style="margin-top:18px"><b>Nobody types the invoice.</b> The lines, the rates and the attachments are already there when the approver says yes. If ICE still waits for Santos to approve the claim before the invoice is released, we will confirm that at kickoff. In that case the 12-day target applies only to the part ICE controls.</p>
       </div>
     </div>
 
@@ -736,7 +773,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
     <div class="inv-stats">
       <div class="inv-stat">
         <div class="v num hot">23 → 12 days</div>
-        <p>From work done to invoice sent. Invoices out in half the time, because the invoice is drafted the day the docket is approved, not when the typing catches up.</p>
+        <p>From work done to invoice sent. That is 11 days sooner, about half the time, because the invoice is drafted the day the docket is approved, not when the typing catches up.</p>
       </div>
       <div class="inv-stat">
         <div class="v num ok">17% → 5%</div>
@@ -744,17 +781,17 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
       </div>
       <div class="inv-stat">
         <div class="v num">$59,523</div>
-        <p>The slow-invoicing leak we counted. 17 avoidable days × $38.9k a day leaves $661k sitting unbilled. At 9% cost of money that is $59,523 a year. We count 65% of it, which is <b class="num" style="color:var(--text)">$38,690</b> recovered in year one.</p>
+        <p>The slow-invoicing leak. Of the 23 days, 6 are a floor ICE does not control. The other 17 are avoidable. 17 × $38.9k a day leaves $661k sitting unbilled. At 9% cost of money that is $59,523 a year. The plan cuts 11 of those 17 days, which is 65%, or <b class="num" style="color:var(--text)">$38,690</b> modelled in year one.</p>
       </div>
     </div>
 
     <h3 class="sub">Checks before it is sent</h3>
-    <p class="lede" style="margin-bottom:18px">Nothing is sent to Santos without a named approver. Before the invoice is raised, the claim is checked against the purchase order, the rate schedule and the signature on the docket.</p>
+    <p class="lede" style="margin-bottom:18px">Nothing is sent to Santos without a named approver. Before the invoice is drafted, the claim is checked against the purchase order, the rate schedule and the signature on the docket. Finance releases it as a separate step.</p>
     <div class="checks">
       <div class="check"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><h3>Purchase order</h3><p>The claim is tied to the right PO and work order, so it does not bounce for a mismatch.</p></div>
       <div class="check"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><h3>Rate schedule</h3><p>Each line is priced from the Santos rate schedule, so the rate is the same every time.</p></div>
       <div class="check"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><h3>Signature</h3><p>A missing signature is flagged before the claim goes out, not after it comes back.</p></div>
-      <div class="check"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><h3>Named approver</h3><p>A person still signs off every claim. Hours over the cap, unapproved standby or a crew not on the job are sent back to be fixed.</p></div>
+      <div class="check"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><h3>Named approver</h3><p>A person still signs off every claim. Hours above the work order or PO limit, unapproved standby or a crew not on the job are sent back to be fixed.</p></div>
     </div>
   </section>
 
@@ -762,32 +799,48 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <section>
     <div class="sec-head">
       <p class="eyebrow">07 · The business case</p>
-      <h2>$334k is on the table. We have counted $221k of it.</h2>
-      <p class="lede">We only count what we are confident of recovering in year one. The working is shown so your finance team can change any assumption and see what moves.</p>
+      <h2>$334k is the in-scope leak. The modelled improvement is $221k a year.</h2>
+      <p class="lede">These are estimates, if the plan holds after go-live, at full run-rate. Year one means the first 12 months after the first crew is live, not the 8 weeks of build. The $58, $95 and 9% rates are assumptions to be confirmed with ICE finance. Sample figures, as the footer says.</p>
     </div>
+    <p class="sample-note">Sample scope. The figures in this table are illustrative. They show the method, not a result already delivered.</p>
     <div class="tblwrap">
-      <table class="tbl">
-        <tr><th>Leak</th><th>How we worked it out</th><th class="r">Leak / yr</th><th class="r">We count</th><th class="r">Recovered</th></tr>
-        <tr><td><b>Unclaimed variations and standby</b></td><td>On 40 traced jobs, 1.2% of billable value never reached a claim. Applied to $14.2M T&amp;M revenue.</td><td class="r num">$170,400</td><td class="r num">60%</td><td class="r num"><b>$102,240</b></td></tr>
-        <tr><td><b>Docket retyping</b></td><td>3 admins, 96 hrs a month, $58 an hour loaded.</td><td class="r num">$66,816</td><td class="r num">80%</td><td class="r num"><b>$53,453</b></td></tr>
-        <tr><td><b>Slow invoicing</b></td><td>17 avoidable days × $38.9k a day = $661k unbilled, at 9% cost of money.</td><td class="r num">$59,523</td><td class="r num">65%</td><td class="r num"><b>$38,690</b></td></tr>
-        <tr><td><b>Rejected claims</b></td><td>38 hrs a month rework, plus 19 days delay on 17% of $1.18M monthly claims.</td><td class="r num">$37,726</td><td class="r num">70%</td><td class="r num"><b>$26,408</b></td></tr>
-        <tr><td colspan="2"><b>Year one, Docket-to-Claim only</b></td><td class="r num"><b>$334,465</b></td><td></td><td class="r num"><b class="hot" style="font-size:19px">$220,791</b></td></tr>
+      <table class="tbl tbl-case">
+        <tr><th>Leak</th><th>How we worked it out</th><th class="r">Leak / yr</th><th class="r">Modelled</th><th class="r">Year one</th></tr>
+        <tr><td><b>Unclaimed variations and standby</b><span class="kind">Revenue, if Santos accepts</span></td><td>On 40 traced jobs, 1.2% of billable value never reached a claim. Applied to $14.2M T&amp;M revenue. We model 60% because some items will still lack a signature or approval, and Santos must still accept the claim.</td><td class="r num">$170,400</td><td class="r num">60%</td><td class="r num"><b>$102,240</b></td></tr>
+        <tr><td><b>Docket retyping</b><span class="kind">Staff time</span></td><td>3 admins, 96 hrs a month, $58 an hour loaded. 80% is the planned drop from 96 hours of typing to 19 hours of checking.</td><td class="r num">$66,816</td><td class="r num">80%</td><td class="r num"><b>$53,453</b></td></tr>
+        <tr><td><b>Slow invoicing</b><span class="kind">Cost of money</span></td><td>23 days minus a 6-day floor = 17 avoidable days × $38.9k a day = $661k unbilled, at 9% cost of money. 65% is 11 of those 17 days, which is the 23 → 12 day plan.</td><td class="r num">$59,523</td><td class="r num">65%</td><td class="r num"><b>$38,690</b></td></tr>
+        <tr><td><b>Rejected claims</b><span class="kind">Staff time and cost of money</span></td><td>38 hrs a month at $58, plus 19 days delay on 17% of $1.18M monthly claims at 9%. 70% is the planned drop from 17% bounce to 5%.</td><td class="r num">$37,726</td><td class="r num">70%</td><td class="r num"><b>$26,408</b></td></tr>
+        <tr><td colspan="2"><b>Year one, Docket-to-Claim only, at full run-rate</b></td><td class="r num"><b>$334,465</b></td><td></td><td class="r num"><b class="hot" style="font-size:19px">$220,791</b></td></tr>
       </table>
     </div>
-    <div class="grid3" style="margin-top:16px">
-      <div class="card"><div class="n num">$18,400</div><h3>Recovered per month</h3><p>Once all crews are live.</p></div>
-      <div class="card"><div class="n num">4.4×</div><h3>Year-one return</h3><p>$220,791 recovered against $50,580 all-in cost.</p></div>
-      <div class="card"><div class="n num hot">&lt; 8 weeks</div><h3>Payback after go-live</h3><p>The build fee is covered before the second claim cycle closes.</p></div>
+    <div class="split">
+      <div class="card">
+        <h3>What that $221k is made of</h3>
+        <ul class="list">
+          <li><b style="color:var(--text)">$102,240 revenue (46%).</b> Real cash if Santos accepts the claims.</li>
+          <li><b style="color:var(--text)">About $46,600 cost of money (21%).</b> Real if ICE carries debt at about 9%, and if earlier invoices actually move cash forward.</li>
+          <li><b style="color:var(--text)">About $72,000 staff time (33%).</b> This is not cash unless hours, overtime or a hire actually fall. 77 hours a month is about half a person, spread across three people.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The cautious case</h3>
+        <p>If we counted only the variation revenue already on this page, the modelled $102,240 still covers the $50,580 all-in cost about twice. Staff time and cost of money are extra, and they are not cash until hours actually fall or debt is reduced.</p>
+      </div>
     </div>
+    <div class="grid3" style="margin-top:16px">
+      <div class="card"><div class="n num">$18,400</div><h3>Modelled per month</h3><p>At full run-rate, once all crews are live. $220,791 ÷ 12. Not the average of year one if rollout is staged.</p></div>
+      <div class="card"><div class="n num">4.4×</div><h3>Gross year-one return</h3><p>$220,791 modelled against $50,580 all-in cost, which is 4.37, rounded to 4.4×. Net of that cost the return is about 3.4×. Both assume 12 months at full run-rate after go-live.</p></div>
+      <div class="card"><div class="n num hot">&lt; 8 weeks</div><h3>Payback after go-live</h3><p>$28,500 ÷ ($18,400 − $1,840) is about 1.7 months, or 7.5 weeks, at full run-rate. Ramp-up and Santos payment terms push cash payback later. This is not 8 weeks from signing.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px"><b>All-in $50,580</b> is the build fee plus 12 months of support and AI/hosting ($1,200 + $640). It does not include ICE's own time, MYOB partner fees, licence changes or travel. Support in the first 30 days after the first crew is live is already in the build fee. The $1,200 month starts after that.</p>
   </section>
 
   <!-- 8 ROADMAP -->
   <section id="delivery">
     <div class="sec-head">
       <p class="eyebrow">08 · Delivery</p>
-      <h2>Eight weeks, one crew first.</h2>
-      <p class="lede">It runs beside your current process until the numbers match. Your team keeps doing what they do now until we can show it is safe to stop.</p>
+      <h2>Eight weeks to first crew live.</h2>
+      <p class="lede">It runs beside your current process until the numbers can be explained. Your team keeps doing what they do now until we can show it is safe to stop. Further crews roll out across the next rotation, once the first crew is stable, and are quoted then.</p>
     </div>
 
     <div class="tl" id="timeline">
@@ -795,68 +848,77 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
         <div class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3V20.5M4.8 6.5l1.6 1.6M17.6 15.9l1.6 1.6M3.5 12h2.2M18.3 12H20.5M4.8 17.5l1.6-1.6M17.6 8.1l1.6-1.6"/></svg></div>
         <span class="when">Weeks 1–2</span>
         <h3>Set up</h3>
-        <p>One clean rate schedule, and the docket reader trained on 300 past dockets.</p>
-        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Reads 95% of fields correctly</span>
+        <p>One clean rate schedule, the shared mailbox or Teams intake, and the docket reader tested and tuned against 300 past dockets, plus a held-out set that includes hard photos.</p>
+        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> 95% of agreed fields on the held-out set</span>
       </div>
       <div class="tl-stage">
         <div class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8" r="2.4"/><path d="M3.5 19c.3-3 2.4-4.6 4.5-4.6s4.2 1.6 4.5 4.6M11.5 19c.3-3 2.4-4.6 4.5-4.6s4.2 1.6 4.5 4.6"/></svg></div>
         <span class="when">Weeks 3–4</span>
-        <h3>Shadow run</h3>
-        <p>One crew, one work order type. System and admins build the same claims side by side.</p>
-        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Claims match to the dollar</span>
+        <h3>Side-by-side test</h3>
+        <p>One crew, one work order type. The reader and the pricing rules run beside the current process. This is a reading and pricing test, before the check screen is finished.</p>
+        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Every difference from the manual claim is explained</span>
       </div>
       <div class="tl-stage">
         <div class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h9l4.5 4.5V20.5H7A1.5 1.5 0 0 1 5.5 19V4.5A1.5 1.5 0 0 1 7 3z"/><path d="M16 3v4.5h4.5"/><path d="M12 10.2v8.2"/><path d="M10.2 12c.5-.9 1.3-1.3 2.1-1.3 1.2 0 2.1.7 2.1 1.8 0 2.4-4.2 1.5-4.2 3.6 0 1.1 1 1.8 2.1 1.8.8 0 1.6-.4 2.1-1.2"/></svg></div>
         <span class="when">Weeks 5–6</span>
         <h3>Claim pack and automatic invoice</h3>
-        <p>Exception screen, approval step, portal-ready pack and the invoice drafted in MYOB.</p>
-        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> First live claim accepted first time</span>
+        <p>Check screen, approval step, portal-ready pack, the invoice drafted on hold in MYOB, and a timesheet feed into Employment Hero for this crew, if API access is in place.</p>
+        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> First-crew pack ready for ICE to upload</span>
       </div>
       <div class="tl-stage">
         <div class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="2.4"/><circle cx="5.5" cy="8.5" r="2"/><circle cx="18.5" cy="8.5" r="2"/><path d="M7.8 19c.2-3.1 2.2-4.8 4.2-4.8s4 1.7 4.2 4.8M2.8 19c.2-2.4 1.6-3.7 3.2-3.9M21.2 19c-.2-2.4-1.6-3.7-3.2-3.9"/></svg></div>
         <span class="when">Weeks 7–8</span>
-        <h3>All crews</h3>
-        <p>Roll out, train supervisors in a toolbox talk, and hand over the run book.</p>
-        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Go-live</span>
+        <h3>First crew live</h3>
+        <p>That crew goes live. Supervisors get a short site briefing. Admins get the check-screen guide. Other crews wait for the next rotation.</p>
+        <span class="tl-gate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> First crew live</span>
       </div>
       <div class="tl-end">
         <div class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
         <span class="when">After week 8</span>
-        <h3>Go-live</h3>
-        <p>+ 30 days of close support</p>
-        <span class="tl-gate ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> Go-live + 30 days support</span>
+        <h3>Close support</h3>
+        <p>30 days of close support for the first crew.</p>
+        <span class="tl-gate ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg> First crew live + 30 days support</span>
       </div>
     </div>
 
     <div class="tl-value">
       <div class="tv">
         <div class="v num">4.4×</div>
-        <h3>Expected year-one return</h3>
-        <p>$220,791 counted as recovered against $50,580 all-in cost, if the plan holds once it is live.</p>
+        <h3>Expected gross year-one return</h3>
+        <p>$220,791 modelled against $50,580 all-in cost, if the plan holds at full run-rate after go-live. About 3.4× net.</p>
       </div>
       <div class="tv">
         <div class="v num">&lt; 8 weeks</div>
         <h3>Expected payback after go-live</h3>
-        <p>The build fee is expected to be covered before the second claim cycle closes.</p>
+        <p>About 7.5 weeks at full run-rate, after running costs. Ramp-up and payment terms push cash payback later.</p>
       </div>
       <div class="tv">
         <div class="v num">$18,400</div>
         <h3>A month, once all crews are live</h3>
-        <p>What we count as recovered per month after the eight-week rollout, not a result already delivered.</p>
+        <p>What we model as recovered per month at full run-rate, not a result already delivered.</p>
       </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3>If the 95% reading gate is missed</h3>
+      <p>We measure agreed fields on a held-out set that includes WhatsApp-quality photos and hard handwriting. Money fields (hours, dates, rates) have a separate target, agreed at kickoff, including a cap on silent errors: wrong values the system did not flag. This is a paid stop/go at the end of weeks 1–2. If the gate is missed, ICE can extend tuning, change the docket form, narrow the scope, or stop. A fee cap for extra tuning is agreed in writing before we continue. If we stop, only the first 40% plus any agreed extra tuning is payable.</p>
     </div>
 
     <div class="grid2" style="margin-top:16px">
       <div class="card"><h3>What we need from you</h3><ul class="list ok">
-        <li>One owner on your side, about 3 hours a week</li>
-        <li>The current Santos rate schedule and 300 past dockets</li>
-        <li>Access to MYOB Advanced, Employment Hero and the claims folder in SharePoint</li>
-        <li>One crew and supervisor willing to go first</li></ul></div>
+        <li>One owner on your side, about 3 hours a week. Delays on your side move the timeline</li>
+        <li>Admins, one supervisor per rotation, payroll and IT time as below</li>
+        <li>The current Santos rate schedule, with classifications and effective dates</li>
+        <li>300 past dockets, and agreement on the held-out test set</li>
+        <li>Access to MYOB Advanced (including a test company, through your MYOB partner), Employment Hero timesheet API, and the claims folder in SharePoint</li>
+        <li>A first crew and supervisor willing to go first, plus a roster of expected dockets</li>
+        <li>Where variation approvals live, and the portal file format for the claim pack</li>
+        <li>Payroll sign-off on imported hours before every pay run</li></ul></div>
       <div class="card"><h3>Risks we are managing</h3><ul class="list x">
-        <li>Messy handwriting: anything the AI is unsure of goes to a person, never guessed</li>
-        <li>Client data: stays in your Microsoft 365 tenancy, not used to train any model</li>
-        <li>Portal changes: claim pack is a file you upload, so nothing breaks if the portal does</li>
-        <li>Adoption: supervisors change nothing except where the photo goes</li></ul></div>
+        <li>Messy handwriting: low-confidence or conflicting fields go to a person. We do not promise the system never guesses. Cross-checks catch many errors</li>
+        <li>Client data: dockets and claims are stored in your Microsoft 365 tenant. The AI reading service is a commercial provider, in a region we agree in writing. Images are not used to train any model. If you prefer WhatsApp intake, those images also pass through Meta</li>
+        <li>Portal changes: the claim pack is a file an admin uploads. There is no portal integration. If the portal format changes, the pack may need a change request</li>
+        <li>Adoption: supervisors change only where the photo goes. Admins learn the check screen</li></ul></div>
     </div>
   </section>
 
@@ -864,39 +926,79 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;border-top:1px solid 
   <section>
     <div class="sec-head">
       <p class="eyebrow">09 · Investment</p>
-      <h2>Fixed price. You own everything.</h2>
+      <h2>Fixed price for the first crew. You own the work.</h2>
     </div>
     <div class="grid2 top">
       <div class="price">
-        <p class="eyebrow">Docket-to-Claim build</p>
+        <p class="eyebrow">Docket-to-Claim build, first crew</p>
         <div class="v num" style="margin-top:14px">$28,500 <small>+ GST, fixed</small></div>
         <ul class="list ok" style="margin-top:22px">
-          <li>Everything in the eight-week plan above</li>
+          <li>Intake, reading, checks, check screen, MYOB draft invoices, claim pack, and a timesheet feed for this crew if Employment Hero API access is ready</li>
           <li>Built in accounts you own, in your name, from day one</li>
-          <li>Run book and training for admins and supervisors</li>
-          <li>30 days of close support after go-live</li>
+          <li>Check-screen guide and a short site briefing for the first crew</li>
+          <li>30 days of close support after the first crew is live</li>
         </ul>
-        <p style="color:var(--mute);font-size:14px;margin-top:20px">Paid in three parts: 40% to start, 30% when the shadow run matches, 30% at go-live.</p>
+        <p style="color:var(--mute);font-size:14px;margin-top:20px">Paid in three parts, 14 days from invoice: 40% to start, 30% when the side-by-side test is signed off, 30% when the first crew is live. The 95% reading gate in weeks 1–2 is a paid stop/go, as set out above. We start on an agreed date after sign-off, once access is in place.</p>
       </div>
       <div style="display:grid;gap:16px">
         <div class="card"><h3>Running it after go-live</h3><ul class="list">
-          <li><b style="color:var(--text)" class="num">$1,200 a month</b> support: monitoring, fixes, rate schedule updates</li>
-          <li><b style="color:var(--text)" class="num">About $640 a month</b> AI and hosting, billed to you directly at cost</li>
-          <li>Month to month. Cancel and it keeps running, because it is yours.</li></ul></div>
+          <li><b style="color:var(--text)" class="num">$1,200 a month</b> support: monitoring, fixes, rate schedule updates. About one day a month. Extra work is quoted first. Starts after the 30 days of close support</li>
+          <li><b style="color:var(--text)" class="num">About $640 a month</b> AI reading, hosting and licences, billed to your accounts at cost, in the vendor's currency. Volume and model changes can move this number</li>
+          <li>Month to month, 30 days' notice. After cancel, the system stays in your accounts. You will still need to maintain API access, licences and model updates.</li></ul></div>
         <div class="card"><h3>Not in this scope</h3><ul class="list x">
-          <li>Replacing MYOB or the client portal</li>
-          <li>Payroll changes. Timesheet data is passed across, payroll rules are untouched.</li>
-          <li>Compliance watch and WIP report, quoted separately once this is live</li></ul></div>
+          <li>Replacing MYOB or the client portal, or integrating with the portal</li>
+          <li>Payroll rules, awards or EA interpretation. Timesheet data is passed across. Payroll approves imported hours. Billable hours are not always payable hours</li>
+          <li>Rollout to remaining crews, compliance watch and the WIP report, quoted once the first crew is live</li>
+          <li>MYOB partner fees, Employment Hero plan or API fees, devices, after-hours support, travel, data clean-up, and back-claims of past variations</li></ul></div>
       </div>
     </div>
-    <div class="card" style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
-      <div><h3>Next step</h3><p>Pick the first crew and the owner on your side. We start the Monday after sign-off.</p></div>
-      <span class="cta">Approve the scope</span>
+    <div class="card" style="margin-top:16px">
+      <h3>Next step</h3>
+      <p>Pick the first crew and the owner on your side. We agree a start date once access is confirmed. This proposal is version 1.0, dated 12 November 2026, and is valid until 12 December 2026.</p>
+    </div>
+  </section>
+
+  <!-- 10 TERMS -->
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">10 · Terms in brief</p>
+      <h2>The rules this proposal sits on.</h2>
+      <p class="lede">Plain English, so both sides know what happens if something changes. A short statement of work will repeat these terms on sign-off.</p>
+    </div>
+    <div class="terms-grid">
+      <div class="card"><h3>Assumptions</h3><ul class="list">
+        <li>About 400 dockets a month, on the current docket template</li>
+        <li>API access to MYOB Advanced and Employment Hero (timesheets only), plus a test environment</li>
+        <li>The Santos portal accepts a file upload in a format we can confirm</li>
+        <li>ICE confirms whether invoices can be released before Santos approves the claim</li>
+        <li>People named in "What we need from you" are available</li></ul></div>
+      <div class="card"><h3>Change control and acceptance</h3><ul class="list">
+        <li>Changes are requested in writing. We confirm the effect on price and time before the work starts</li>
+        <li>The gates in the timeline are the acceptance tests. ICE signs each one</li>
+        <li>If a gate is not signed within 10 business days of us asking, and no written defect is raised, that gate is taken as accepted</li></ul></div>
+      <div class="card"><h3>Data, privacy and security</h3><ul class="list">
+        <li>Dockets, claims and invoices live in your Microsoft 365 tenant and in MYOB. We ask only for timesheet access in Employment Hero, not tax file numbers or bank details</li>
+        <li>The AI provider and region are agreed in writing before any Santos document is sent. We will check ICE's Santos contract for confidentiality, security and AI clauses first</li>
+        <li>Access uses named accounts, least privilege and MFA. Access is removed at the end. Dockets that support invoices are kept for five years</li></ul></div>
+      <div class="card"><h3>Ownership, warranty and liability</h3><ul class="list">
+        <li>Deliverables are assigned to ICE on payment. essetech keeps a licence to its pre-existing tools. Third-party products stay under their own licences</li>
+        <li>Defects in the delivered work, as against this scope, are fixed at no charge during the 30-day close support window. A change to the process or a new requirement is a change request</li>
+        <li>Liability is capped at fees paid under this proposal. Consequential loss is excluded, including missed variation revenue. ICE remains responsible for approving invoices and pay. essetech holds professional indemnity, public liability and cyber insurance</li></ul></div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Sign-off</h3>
+      <p style="color:var(--mute);margin:8px 0 16px">Jonathon Battifuoco will do the work for Essetech Pty Ltd (ABN 33 697 426 163). A backup is named in the statement of work if the engagement proceeds. support@essetech.com.au · 0404 311 791.</p>
+      <div class="sign">
+        <div><label>ICE Engineering signatory, name and title</label><div class="line"></div></div>
+        <div><label>Date</label><div class="line"></div></div>
+        <div><label>Purchase order number</label><div class="line"></div></div>
+        <div><label>For essetech · Jonathon Battifuoco</label><div class="line"></div></div>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>essetech · ESSETECH PTY LTD · Adelaide · essetech.com.au</p>
+    <p>essetech · ESSETECH PTY LTD · ABN 33 697 426 163 · Adelaide · essetech.com.au</p>
     <p style="margin-top:8px">Sample scope. The workflows, quotes and figures on this page are illustrative and are not the records of any company named. All amounts in AUD, excluding GST.</p>
   </footer>
 </div>
