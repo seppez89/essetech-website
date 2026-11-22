@@ -50,7 +50,7 @@
         .liquid-glass.lg-open{overflow:visible}
         .nav-pill{transition:background .4s ease,box-shadow .4s ease;background:rgba(9,13,24,0.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 
-        /* ===== HERO — JONATHON + EMMA (time-based loops + pointer depth, no scroll motion) ===== */
+        /* ===== HERO — JONATHON, KAT + EMMA (time-based loops + pointer depth, no scroll motion) ===== */
         .hd{--u:min(1vw,1.6vh);--mx:0;--my:0;--gx:50%;--gy:50%;position:relative;overflow:hidden;isolation:isolate;color:#fff;padding:112px 0 32px;background:radial-gradient(60% 45% at 62% 80%,rgba(232,68,37,.16),transparent 72%),radial-gradient(55% 45% at 10% 6%,rgba(78,106,175,.26),transparent 70%),linear-gradient(180deg,#0b1226 0%,#111a33 58%,#0b1226 100%)}
         .hd-bg{position:absolute;inset:0;pointer-events:none}
         .hd-cursor{position:absolute;left:0;top:0;width:clamp(420px,calc(46*var(--u)),720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(244,99,63,.46),rgba(232,68,37,.17) 48%,transparent 100%);transform:translate3d(calc(var(--gx) - 50%),calc(var(--gy) - 50%),0);opacity:0;transition:opacity .6s ease}
@@ -70,12 +70,17 @@
         @keyframes hdStrike{0%,9%{transform:scaleX(0)}17%,87%{transform:scaleX(1)}94%,100%{transform:scaleX(0)}}
         @keyframes hdStamp{0%,17%{opacity:0;scale:.6;translate:0 .3em}21%{opacity:1;scale:1.1;translate:0 0}24%,86%{opacity:1;scale:1;translate:0 0}92%,100%{opacity:0;scale:.92;translate:0 -.3em}}
 
-        .hd-duo{order:2;position:relative;width:min(100%,600px);aspect-ratio:1.568;margin-top:-5vw}
-        .hd-halo{--d:12px;position:absolute;left:-8%;right:-8%;top:-14%;bottom:-6%;pointer-events:none;background:radial-gradient(30% 36% at 32% 30%,rgba(244,99,63,.55),rgba(232,68,37,.18) 55%,transparent 76%),radial-gradient(28% 34% at 70% 37%,rgba(232,68,37,.48),rgba(232,68,37,.15) 55%,transparent 76%),radial-gradient(55% 42% at 50% 100%,rgba(232,68,37,.32),transparent 72%);animation:hdGlowIn 1.6s ease-out both,hdBreathe 6s ease-in-out 1.6s infinite alternate}
-        .hd-fig{position:absolute;bottom:0;width:58.14%;animation:hdRise 1.1s cubic-bezier(.22,1,.36,1) both}
-        .hd-jon{--d:22px;left:0;z-index:2;animation-delay:.2s}
-        .hd-emma{--d:14px;left:41.86%;z-index:1;animation-delay:.38s}
-        .hd-fig img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to top,transparent,#000 18%);mask-image:linear-gradient(to top,transparent,#000 18%);animation:hdFloat 7s ease-in-out 1.4s infinite alternate}
+        /* Trio: Jonathon front and centre, Kat back-left, Emma back-right. Every
+           figure and tag is placed in % of the trio box, so one aspect ratio per
+           breakpoint keeps faces and chips apart (checked by collide-check.js). */
+        .hd-trio{order:2;position:relative;width:min(100%,560px);aspect-ratio:1.15;margin-top:-6vw}
+        .hd-halo{--d:12px;position:absolute;left:-6%;right:-6%;top:-6%;bottom:-4%;pointer-events:none;background:radial-gradient(24% 30% at 21% 40%,rgba(244,99,63,.4),rgba(232,68,37,.13) 55%,transparent 76%),radial-gradient(28% 34% at 50% 34%,rgba(244,99,63,.52),rgba(232,68,37,.17) 55%,transparent 76%),radial-gradient(24% 30% at 79% 40%,rgba(232,68,37,.4),rgba(232,68,37,.13) 55%,transparent 76%),radial-gradient(60% 40% at 50% 100%,rgba(232,68,37,.32),transparent 72%);animation:hdGlowIn 1.6s ease-out both,hdBreathe 6s ease-in-out 1.6s infinite alternate}
+        .hd-fig{position:absolute;bottom:var(--fb,0);left:var(--fl);width:var(--fw);animation:hdRise 1.1s cubic-bezier(.22,1,.36,1) both}
+        .hd-jon{--d:22px;--fl:21.5%;--fw:62%;z-index:2;animation-delay:.2s}
+        .hd-kat{--d:13px;--fl:-2.5%;--fw:50%;z-index:1;animation-delay:.34s}
+        .hd-emma{--d:14px;--fl:56.5%;--fw:50%;z-index:1;animation-delay:.46s}
+        .hd-fig img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to top,transparent,#000 22%);mask-image:linear-gradient(to top,transparent,#000 22%);animation:hdFloat 7s ease-in-out 1.4s infinite alternate}
+        .hd-kat img{animation-duration:8s;animation-delay:1.7s}
         .hd-emma img{animation-duration:8.5s;animation-delay:2s}
         @keyframes hdUp{from{opacity:0;translate:0 .35em}}
         @keyframes hdRise{from{opacity:0;translate:0 7%;scale:.96}}
@@ -83,11 +88,13 @@
         @keyframes hdGlowIn{from{opacity:0;scale:.85}}
         @keyframes hdBreathe{to{opacity:.72;scale:1.05}}
 
-        .hd-tag{--d:30px;position:absolute;z-index:3;bottom:4%;display:flex;flex-direction:column;align-items:flex-start;gap:5px;max-width:48%}
-        .hd-tag-jon{left:2%}
-        .hd-tag-emma{--d:26px;right:2%;align-items:flex-end}
+        .hd-tag{--d:30px;position:absolute;z-index:3;left:var(--tx,auto);right:var(--tr,auto);top:var(--ty);display:flex;flex-direction:column;align-items:flex-start;gap:5px;max-width:var(--tw,46%)}
+        .hd-tag-kat{--d:24px;--tx:1%;--ty:7%;--tw:47%}
+        .hd-tag-emma{--d:26px;--tr:1%;--ty:7%;--tw:47%;align-items:flex-end}
+        .hd-tag-jon{--tx:50%;--ty:71%;--tw:94%;translate:-50% 0;align-items:center}
         .hd-name{position:relative;display:flex;flex-direction:column;gap:2px;margin:0;padding:6px 9px;border-radius:12px;background:rgba(11,18,38,.9);border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 30px -12px rgba(0,0,0,.7);font-size:10.5px;font-weight:600;line-height:1.3;color:#fff;animation:hdPop .6s cubic-bezier(.22,1,.36,1) 1s both}
-        .hd-tag-emma .hd-name{animation-delay:1.15s}
+        .hd-tag-kat .hd-name{animation-delay:1.08s}
+        .hd-tag-emma .hd-name{animation-delay:1.16s}
         .hd-name span{text-wrap:balance}
         .hd-name b{font-weight:800}
         .hd-name-sub{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,.72)}
@@ -131,27 +138,31 @@
             .hd-task{border-radius:999px;white-space:nowrap}
             .hd-name-sub{font-size:10.5px}
             .hd-display{flex-direction:row;justify-content:center;gap:.2em;font-size:12.5vw}
-            .hd-duo{margin-top:-3vw}
+            .hd-trio{width:min(100%,780px);aspect-ratio:1.8;margin-top:1vw}
+            .hd-jon{--fl:21.1%;--fw:54%}
+            .hd-kat{--fl:-3.9%;--fw:53.5%;--fb:-4%}
+            .hd-emma{--fl:48%;--fw:54.5%}
+            .hd-tag-kat{--tx:10%;--ty:53%;--tw:26%}
+            .hd-tag-jon{--tx:30%;--ty:76%;--tw:36%;translate:none;align-items:flex-start}
+            .hd-tag-emma{--tr:0%;--ty:54%;--tw:26%}
             .hd-ctas{flex-direction:row;flex-wrap:wrap}
         }
         @media (min-width:1180px) and (min-height:640px){
-            .hd{--duo-x:max(calc(50% - 20.8*var(--u)),calc(100% - 71*var(--u)));--card-x:clamp(24px,calc(50% - 48*var(--u)),4vw);height:100vh;min-height:640px;max-height:1100px;padding:0}
+            .hd{--trio-x:max(calc(50% - 22*var(--u)),calc(100% - 73.5*var(--u)));--card-x:clamp(24px,calc(50% - 48*var(--u)),4vw);height:100vh;min-height:640px;max-height:1100px;padding:0}
             .hd-stage{position:absolute;inset:0;display:block}
             .hd-display{position:absolute;left:0;right:0;bottom:calc(39*var(--u));font-size:calc(13*var(--u))}
-            .hd-duo{position:absolute;bottom:0;left:var(--duo-x);width:calc(68.8*var(--u));margin:0}
-            .hd-tag{bottom:auto;max-width:none}
-            .hd-tag-jon{left:12%;top:53%}
-            .hd-tag-emma{left:70%;right:auto;top:62%;align-items:flex-start}
+            .hd-trio{position:absolute;bottom:0;left:var(--trio-x);width:calc(72*var(--u));max-width:none;margin:0}
+            .hd-tag{max-width:none}
             .hd-name{padding:8px 13px;font-size:12.5px}
             .hd-name-sub{font-size:11px}
             .hd-task{font-size:12px}
             .hd-lead{display:block;position:absolute;left:22px;bottom:100%;width:1px;height:calc(3.2*var(--u));background:linear-gradient(0deg,rgba(255,255,255,.55),rgba(255,255,255,.12))}
             .hd-lead::after{content:'';position:absolute;left:-4px;top:-4px;width:9px;height:9px;border-radius:50%;background:#f4633f;box-shadow:0 0 0 3px rgba(244,99,63,.25),0 0 12px rgba(244,99,63,.85)}
-            .hd-badge{--d:34px;position:absolute;z-index:3;left:87%;top:22%;display:grid;place-items:center;width:clamp(100px,calc(9*var(--u)),150px);aspect-ratio:1;border-radius:50%;color:#fff;background:radial-gradient(circle at 30% 25%,#ff8a62,#E84425 55%,#c2341b);box-shadow:0 18px 50px -12px rgba(232,68,37,.75),inset 0 1px 0 rgba(255,255,255,.35);animation:hdBadgeIn .9s cubic-bezier(.22,1,.36,1) 1.3s both;transition:scale .35s cubic-bezier(.22,1,.36,1)}
+            .hd-badge{--d:34px;position:absolute;z-index:3;left:87.5%;top:3%;display:grid;place-items:center;width:clamp(100px,calc(9*var(--u)),150px);aspect-ratio:1;border-radius:50%;color:#fff;background:radial-gradient(circle at 30% 25%,#ff8a62,#E84425 55%,#c2341b);box-shadow:0 18px 50px -12px rgba(232,68,37,.75),inset 0 1px 0 rgba(255,255,255,.35);animation:hdBadgeIn .9s cubic-bezier(.22,1,.36,1) 1.3s both;transition:scale .35s cubic-bezier(.22,1,.36,1)}
             .hd-badge:hover{scale:1.07}
             .hd-ring{position:absolute;inset:0;width:100%;height:100%;animation:hdSpin 18s linear infinite}
             .hd-badge-arrow{width:30%;height:30%}
-            .hd-card{position:absolute;left:var(--card-x);bottom:calc(3*var(--u));width:clamp(380px,calc(var(--duo-x) - var(--card-x) + 6*var(--u)),476px);max-width:none;margin:0;padding:22px 24px 18px;background:linear-gradient(160deg,rgba(30,43,80,.6),rgba(11,18,38,.7));-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
+            .hd-card{position:absolute;left:var(--card-x);bottom:calc(3*var(--u));width:clamp(380px,calc(var(--trio-x) - var(--card-x) + 6.5*var(--u)),476px);max-width:none;margin:0;padding:22px 24px 18px;background:linear-gradient(160deg,rgba(30,43,80,.6),rgba(11,18,38,.7));-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
             .hd-slogan{font-size:clamp(28px,calc(2.3*var(--u)),36px)}
             .hd-copy{font-size:14.5px}
             .hd-ctas{gap:8px}
@@ -162,6 +173,7 @@
             .hd-slogan{margin-top:6px}
             .hd-copy{margin-top:8px;font-size:13.5px;line-height:1.5}
             .hd-ctas{margin-top:12px}
+            .hd-btn{padding:12px 14px;font-size:14.5px}
             .hd-trust{margin-top:12px;padding-top:10px;gap:6px 12px}
             .hd-note{margin-top:8px;font-size:11px}
         }
@@ -676,7 +688,7 @@
 
     <main id="main">
 
-    <!-- ===== HERO — JONATHON + EMMA ===== -->
+    <!-- ===== HERO — JONATHON, KAT + EMMA ===== -->
     <section class="hd" id="hero" aria-labelledby="hd-h1">
         <div class="hd-bg" aria-hidden="true"><div class="hd-cursor"></div></div>
 
@@ -706,11 +718,16 @@
                 <span class="hd-stuff">STUFF</span>
             </p>
 
-            <div class="hd-duo">
+            <div class="hd-trio">
                 <div class="hd-halo hd-layer" aria-hidden="true"></div>
-                <div class="hd-fig hd-emma hd-layer"><img src="hero-emma.webp" width="1049" height="1000" alt="Emma is our AI assistant &mdash; she answers enquiries, books calls, sends quotes and follows up customers around the clock; Jonathon handles the rest." decoding="async"></div>
-                <div class="hd-fig hd-jon hd-layer"><img src="hero-jonathon.webp" width="628" height="689" alt="Jonathon, founder of Essetech" fetchpriority="high" decoding="async"></div>
+                <div class="hd-fig hd-kat hd-layer"><img src="hero-kat.webp" width="974" height="1000" alt="Kat, accounts at Essetech" decoding="async"></div>
+                <div class="hd-fig hd-emma hd-layer"><img src="hero-emma.webp" width="679" height="677" alt="Emma is our AI assistant &mdash; she answers enquiries, books calls, sends quotes and follows up customers around the clock; Jonathon handles the rest." decoding="async"></div>
+                <div class="hd-fig hd-jon hd-layer"><img src="hero-jonathon.webp" width="836" height="801" alt="Jonathon, founder of Essetech, in an Essetech t-shirt" fetchpriority="high" decoding="async"></div>
 
+                <div class="hd-tag hd-tag-kat hd-layer">
+                    <p class="hd-name"><i class="hd-lead" aria-hidden="true"></i><span><b>Kat</b> &mdash; Accounts</span></p>
+                    <p class="hd-task" data-feed="kat" data-state="done" aria-hidden="true"><i class="hd-task-ic"><svg fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></i><span class="hd-task-txt">Invoices sent</span></p>
+                </div>
                 <div class="hd-tag hd-tag-jon hd-layer">
                     <p class="hd-name"><i class="hd-lead" aria-hidden="true"></i><span><b>Jonathon</b> &mdash; Founder&nbsp;&middot; your IT person</span><span class="hd-name-sub"><i class="hd-live" aria-hidden="true"></i>Real reply within 1 business day</span></p>
                     <p class="hd-task" data-feed="jon" data-state="done" aria-hidden="true"><i class="hd-task-ic"><svg fill="none" stroke="currentColor" stroke-width="3.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></i><span class="hd-task-txt">All patched</span></p>
@@ -1393,11 +1410,18 @@
             {who:'emma',text:'Asking for a Google review',done:'Review request sent'},
             {who:'jon',text:'Patching 14 laptops',done:'All patched'},
             {who:'jon',text:'Checking backups',done:'Backups verified'},
-            {who:'jon',text:'Locking down M365',done:'MFA on for everyone'}
+            {who:'jon',text:'Locking down M365',done:'MFA on for everyone'},
+            {who:'kat',text:'Sending this week\'s invoices',done:'Invoices sent'},
+            {who:'kat',text:'Reconciling payments',done:'Books balanced'},
+            {who:'kat',text:'Setting up a client account',done:'Account ready'},
+            {who:'kat',text:'Answering a billing question',done:'Customer sorted'}
         ];
         // state: [next state, ms spent in this state]
         const STEPS={idle:['working',700],working:['done',2400],done:['leaving',2000],leaving:['idle',450]};
-        const slots=[['jon',1400],['emma',2600]].map(([who,left])=>{
+        // One conductor drives all three chips and fires one change at a time,
+        // at least GAP ms apart, so no two chips ever change together.
+        const GAP=380;
+        const slots=[['jon',1400],['kat',2300],['emma',3200]].map(([who,left])=>{
             const el=hero.querySelector('[data-feed="'+who+'"]');
             return {el,txt:el.querySelector('.hd-task-txt'),tasks:HERO_TASKS.filter(t=>t.who===who),n:0,state:'done',left,due:0};
         });
@@ -1406,11 +1430,13 @@
             if(state==='done')s.txt.textContent=s.tasks[s.n].done;
             s.state=state;s.due=now+STEPS[state][1];s.el.dataset.state=state;
         }
-        let timer=0;
+        let timer=0,lastFire=-1e9;
         function tick(){
             const now=performance.now();
-            slots.forEach(s=>{if(now>=s.due)enter(s,STEPS[s.state][0],now)});
-            timer=setTimeout(tick,Math.max(16,Math.min(...slots.map(s=>s.due))-now));
+            const s=slots.reduce((a,b)=>b.due<a.due?b:a);
+            if(now>=s.due&&now-lastFire>=GAP){enter(s,STEPS[s.state][0],now);lastFire=now}
+            const next=Math.max(Math.min(...slots.map(x=>x.due)),lastFire+GAP);
+            timer=setTimeout(tick,Math.max(16,next-now));
         }
         function play(){if(timer)return;const now=performance.now();slots.forEach(s=>s.due=now+s.left);tick()}
         function pause(){if(!timer)return;clearTimeout(timer);timer=0;const now=performance.now();slots.forEach(s=>s.left=Math.max(0,s.due-now))}
