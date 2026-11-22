@@ -43,26 +43,18 @@
         h1,h2,.slogan{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-.02em;font-synthesis-weight:none}
         h1,h2,h3,.slogan{text-wrap:balance}
 
-        /* ===== CINEMATIC AI HERO (video + liquid glass) ===== */
-        .hero-serif{font-family:'Instrument Serif',Georgia,serif!important;font-weight:400!important;letter-spacing:-.015em}
-        .hero-serif em{font-style:italic;background:linear-gradient(135deg,#f89075 0%,#E84425 55%,#f4633f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding-right:.05em}
+        /* ===== CINEMATIC AI HERO (liquid glass) ===== */
         .hero-cinema{background:#05070d}
-        .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:0;transform:translateY(9%) scale(1.12)}
-        .hero-shade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(66% 50% at 50% 38%,rgba(5,7,13,.78),rgba(5,7,13,0) 76%),linear-gradient(180deg,rgba(5,7,13,.72) 0%,rgba(5,7,13,.38) 24%,rgba(5,7,13,.18) 48%,rgba(5,7,13,.14) 72%,rgba(5,7,13,.66) 100%)}
         .hero-cinema h1,.hero-cinema .slogan{text-shadow:0 3px 30px rgba(5,7,13,.9),0 1px 4px rgba(5,7,13,.6)}
         .hero-ai-pop{background:linear-gradient(135deg,#ff9868 0%,#f4633f 50%,#ffb08a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none;filter:drop-shadow(0 2px 14px rgba(232,68,37,.55))}
         .hero-cinema p{text-shadow:0 2px 18px rgba(5,7,13,.95),0 1px 3px rgba(5,7,13,.8)}
         .hero-btn-solid{background:rgba(17,26,51,.82);border:2px solid rgba(255,255,255,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(0,0,0,.4);transition:all .3s ease}
         .hero-btn-solid:hover{background:rgba(17,26,51,.95);border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
-        @media (prefers-reduced-motion:reduce){.hero-video{display:none}.hero-cinema{background:#05070d url('hero-ai-poster.jpg') center 58%/cover no-repeat}}
         .liquid-glass{background:rgba(255,255,255,0.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,0.1);position:relative;overflow:hidden}
         .liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,0.45) 0%,rgba(255,255,255,0.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.15) 80%,rgba(255,255,255,0.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
         .liquid-glass.lg-open{overflow:visible}
         .nav-pill{transition:background .4s ease,box-shadow .4s ease;background:rgba(9,13,24,0.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-        .hero-chip{transition:background .3s ease,transform .3s ease}
-        .hero-chip:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
         .hero-trust-chip{background:rgba(17,26,51,.72)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);box-shadow:0 6px 22px rgba(0,0,0,.35)}
-        .hero-announce-chip{background:rgba(17,26,51,.72)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 
         /* ===== ANIMATED GRADIENT MESH HERO ===== */
         .hero-mesh{position:relative;background:#111a33;overflow:hidden}
@@ -588,9 +580,6 @@
 
     <!-- ===== HERO — CINEMATIC AI ===== -->
     <section class="hero-cinema min-h-screen relative overflow-hidden flex flex-col">
-        <video id="heroVideo" class="hero-video" src="hero-ai.mp4" poster="hero-ai-poster.jpg" autoplay muted playsinline preload="auto" aria-label="Miniature figurine of Jonathon, founder of Essetech, working on a laptop surrounded by holographic AI dashboards"></video>
-        <div class="hero-shade" aria-hidden="true"></div>
-
         <div class="relative z-10 flex-1 flex flex-col items-center text-center px-4 sm:px-6 pt-28 sm:pt-32 md:pt-36 w-full max-w-5xl mx-auto">
             <h1 class="anim-fade-up d1 mt-7 sm:mt-9 text-sm sm:text-base font-semibold uppercase tracking-wider text-white/90">IT Support, Managed IT and Secure AI for Adelaide Businesses</h1>
             <p class="slogan anim-fade-up d2 mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
@@ -1302,38 +1291,6 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-    // ===== HERO VIDEO — seamless rAF fade loop =====
-    (function(){
-        const v=document.getElementById('heroVideo');
-        if(!v)return;
-        let raf=null;
-        let fadingOut=false;
-        function fadeTo(target,dur){
-            if(raf)cancelAnimationFrame(raf);
-            const start=parseFloat(v.style.opacity)||0;
-            const t0=performance.now();
-            function step(t){
-                const k=Math.min(1,(t-t0)/dur);
-                v.style.opacity=(start+(target-start)*k).toFixed(3);
-                if(k<1)raf=requestAnimationFrame(step);
-            }
-            raf=requestAnimationFrame(step);
-        }
-        v.addEventListener('loadeddata',()=>{fadingOut=false;fadeTo(1,500)});
-        v.addEventListener('playing',()=>{if(!fadingOut&&(parseFloat(v.style.opacity)||0)<1)fadeTo(1,500)});
-        v.addEventListener('timeupdate',()=>{
-            if(!fadingOut&&v.duration&&(v.duration-v.currentTime)<=0.55){
-                fadingOut=true;fadeTo(0,500);
-            }
-        });
-        v.addEventListener('ended',()=>{
-            if(raf)cancelAnimationFrame(raf);
-            v.style.opacity=0;
-            setTimeout(()=>{v.currentTime=0;v.play();fadingOut=false;fadeTo(1,500)},100);
-        });
-        if(v.readyState>=2){fadingOut=false;fadeTo(1,500)}
-    })();
-
     // Particle generator
     (function(){
         const c=document.getElementById('particles');
