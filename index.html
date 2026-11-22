@@ -53,7 +53,7 @@
         /* ===== HERO — JONATHON + EMMA (time-based loops + pointer depth, no scroll motion) ===== */
         .hd{--u:min(1vw,1.6vh);--mx:0;--my:0;--gx:50%;--gy:50%;position:relative;overflow:hidden;isolation:isolate;color:#fff;padding:112px 0 32px;background:radial-gradient(60% 45% at 62% 80%,rgba(232,68,37,.16),transparent 72%),radial-gradient(55% 45% at 10% 6%,rgba(78,106,175,.26),transparent 70%),linear-gradient(180deg,#0b1226 0%,#111a33 58%,#0b1226 100%)}
         .hd-bg{position:absolute;inset:0;pointer-events:none}
-        .hd-cursor{position:absolute;left:0;top:0;width:clamp(420px,calc(46*var(--u)),720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(244,99,63,.34),rgba(232,68,37,.13) 48%,transparent 100%);transform:translate3d(calc(var(--gx) - 50%),calc(var(--gy) - 50%),0);opacity:0;transition:opacity .6s ease}
+        .hd-cursor{position:absolute;left:0;top:0;width:clamp(420px,calc(46*var(--u)),720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(244,99,63,.46),rgba(232,68,37,.17) 48%,transparent 100%);transform:translate3d(calc(var(--gx) - 50%),calc(var(--gy) - 50%),0);opacity:0;transition:opacity .6s ease}
         .hd.hd-lit .hd-cursor{opacity:1}
         .hd-layer{transform:translate3d(calc(var(--mx)*var(--d,0px)*-1),calc(var(--my)*var(--d,0px)*-1),0)}
         .hd-stage{position:relative;display:flex;flex-direction:column;align-items:center}
@@ -95,7 +95,7 @@
         .hd-lead{display:none}
         @keyframes hdPop{from{opacity:0;translate:0 10px;scale:.94}}
         @keyframes hdLive{50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}}
-        .hd-task{display:inline-flex;align-items:center;gap:7px;margin:0;padding:5px 11px 5px 6px;border-radius:999px;background:rgba(17,26,51,.92);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 26px -12px rgba(0,0,0,.7);font-size:11.5px;font-weight:700;line-height:1.2;color:#fff;white-space:nowrap;transition:opacity .35s ease,translate .5s cubic-bezier(.22,1,.36,1),scale .5s cubic-bezier(.22,1,.36,1),border-color .4s ease}
+        .hd-task{display:inline-flex;align-items:center;gap:7px;margin:0;padding:5px 11px 5px 6px;border-radius:14px;background:rgba(17,26,51,.92);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 26px -12px rgba(0,0,0,.7);font-size:11.5px;font-weight:700;line-height:1.2;color:#fff;max-width:100%;animation:hdPop .6s cubic-bezier(.22,1,.36,1) 1.2s both;transition:opacity .35s ease,translate .5s cubic-bezier(.22,1,.36,1),scale .5s cubic-bezier(.22,1,.36,1),border-color .4s ease}
         .hd-task[data-state=idle]{opacity:0;translate:0 10px;scale:.92}
         .hd-task[data-state=leaving]{opacity:0;translate:0 -8px;scale:.97}
         .hd-task[data-state=done]{border-color:rgba(52,211,153,.5)}
@@ -128,6 +128,7 @@
         @media (min-width:640px){
             .hd{padding-top:132px}
             .hd-name{padding:7px 11px;font-size:11.5px}
+            .hd-task{border-radius:999px;white-space:nowrap}
             .hd-name-sub{font-size:10.5px}
             .hd-display{flex-direction:row;justify-content:center;gap:.2em;font-size:12.5vw}
             .hd-duo{margin-top:-3vw}
@@ -139,7 +140,7 @@
             .hd-display{position:absolute;left:0;right:0;bottom:calc(39*var(--u));font-size:calc(13*var(--u))}
             .hd-duo{position:absolute;bottom:0;left:var(--duo-x);width:calc(68.8*var(--u));margin:0}
             .hd-tag{bottom:auto;max-width:none}
-            .hd-tag-jon{left:10%;top:53%}
+            .hd-tag-jon{left:12%;top:53%}
             .hd-tag-emma{left:70%;right:auto;top:62%;align-items:flex-start}
             .hd-name{padding:8px 13px;font-size:12.5px}
             .hd-name-sub{font-size:11px}
@@ -1373,6 +1374,73 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
+    // ===== HERO — live work feed + pointer depth =====
+    (function(){
+        const hero=document.getElementById('hero');
+        if(!hero)return;
+        const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+        const HERO_TASKS=[
+            {who:'emma',text:'Sorting the shared inbox',done:'Inbox sorted'},
+            {who:'emma',text:'Answering a 2:14am enquiry',done:'Lead booked'},
+            {who:'emma',text:'Drafting the Friday report',done:'Report sent'},
+            {who:'jon',text:'Patching 14 laptops',done:'All patched'},
+            {who:'jon',text:'Checking backups',done:'Backups verified'},
+            {who:'jon',text:'Locking down M365',done:'MFA on for everyone'}
+        ];
+        // state: [next state, ms spent in this state]
+        const STEPS={idle:['working',700],working:['done',2400],done:['leaving',2000],leaving:['idle',450]};
+        const slots=[['jon',1400],['emma',2600]].map(([who,left])=>{
+            const el=hero.querySelector('[data-feed="'+who+'"]');
+            return {el,txt:el.querySelector('.hd-task-txt'),tasks:HERO_TASKS.filter(t=>t.who===who),n:0,state:'done',left,due:0};
+        });
+        function enter(s,state,now){
+            if(state==='working'){s.n=(s.n+1)%s.tasks.length;s.txt.textContent=s.tasks[s.n].text}
+            if(state==='done')s.txt.textContent=s.tasks[s.n].done;
+            s.state=state;s.due=now+STEPS[state][1];s.el.dataset.state=state;
+        }
+        let timer=0;
+        function tick(){
+            const now=performance.now();
+            slots.forEach(s=>{if(now>=s.due)enter(s,STEPS[s.state][0],now)});
+            timer=setTimeout(tick,Math.max(16,Math.min(...slots.map(s=>s.due))-now));
+        }
+        function play(){if(timer)return;const now=performance.now();slots.forEach(s=>s.due=now+s.left);tick()}
+        function pause(){if(!timer)return;clearTimeout(timer);timer=0;const now=performance.now();slots.forEach(s=>s.left=Math.max(0,s.due-now))}
+        slots.forEach(s=>{s.txt.textContent=s.tasks[0].done;if(!reduce){s.n=-1;s.state='idle';s.el.dataset.state='idle'}});
+
+        let inView=true;
+        function sync(){
+            const on=inView&&!document.hidden;
+            hero.classList.toggle('hd-paused',!on);
+            if(!reduce)on?play():pause();
+        }
+        if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{inView=e.isIntersecting;sync()}).observe(hero);
+        document.addEventListener('visibilitychange',sync);
+        sync();
+
+        if(reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+        let rect=null,raf=0,tx=0,ty=0,x=0,y=0,gx=0,gy=0,tgx=0,tgy=0;
+        function frame(){
+            x+=(tx-x)*.08;y+=(ty-y)*.08;gx+=(tgx-gx)*.2;gy+=(tgy-gy)*.2;
+            const st=hero.style;
+            st.setProperty('--mx',x.toFixed(4));st.setProperty('--my',y.toFixed(4));
+            st.setProperty('--gx',gx.toFixed(1)+'px');st.setProperty('--gy',gy.toFixed(1)+'px');
+            const moving=Math.abs(tx-x)+Math.abs(ty-y)>.001||Math.abs(tgx-gx)+Math.abs(tgy-gy)>.5;
+            raf=moving?requestAnimationFrame(frame):0;
+        }
+        function aim(e){
+            if(!rect)rect=hero.getBoundingClientRect();
+            tgx=e.clientX-rect.left;tgy=e.clientY-rect.top;
+            tx=tgx/rect.width*2-1;ty=tgy/rect.height*2-1;
+            if(!raf)raf=requestAnimationFrame(frame);
+        }
+        hero.addEventListener('pointerenter',e=>{rect=null;aim(e);gx=tgx;gy=tgy;hero.classList.add('hd-lit')});
+        hero.addEventListener('pointermove',aim);
+        hero.addEventListener('pointerleave',()=>{tx=ty=0;hero.classList.remove('hd-lit');if(!raf)raf=requestAnimationFrame(frame)});
+        addEventListener('scroll',()=>{rect=null},{passive:true});
+    })();
+
     // Particle generator
     (function(){
         const c=document.getElementById('particles');
