@@ -183,24 +183,7 @@
             .hd-cursor{display:none}
         }
 
-        /* ===== ANIMATED GRADIENT MESH HERO ===== */
         .hero-mesh{position:relative;background:#111a33;overflow:hidden}
-        .hero-mesh::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 180deg at 50% 50%,#111a33 0deg,#1e2b50 50deg,#2e4070 110deg,#E84425 175deg,#3e5590 235deg,#4E6AAF 295deg,#111a33 360deg);animation:meshRotate 16s linear infinite;opacity:0.58;will-change:transform}
-        @keyframes meshRotate{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.18)}100%{transform:rotate(360deg) scale(1)}}
-
-        /* Floating orbs */
-        .orb{position:absolute;border-radius:50%;filter:blur(70px);animation:orbFloat 7s ease-in-out infinite;pointer-events:none;will-change:transform,opacity}
-        .orb-1{width:460px;height:460px;background:rgba(232,68,37,0.34);top:8%;right:-6%;animation-delay:0s}
-        .orb-2{width:360px;height:360px;background:rgba(78,106,175,0.38);bottom:8%;left:-6%;animation-delay:-3s}
-        .orb-3{width:300px;height:300px;background:rgba(244,99,63,0.26);top:48%;left:38%;animation-delay:-5s}
-        .orb-4{width:280px;height:280px;background:rgba(78,106,175,0.3);top:22%;right:28%;animation-delay:-6.5s}
-        .orb-5{width:240px;height:240px;background:rgba(232,68,37,0.24);bottom:16%;right:10%;animation-delay:-2s}
-        @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);opacity:.82}50%{transform:translate(24px,-62px) scale(1.16);opacity:1}}
-
-        /* Particle field */
-        .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-        .particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,0.5);border-radius:50%;animation:particleRise linear infinite;box-shadow:0 0 6px rgba(255,255,255,0.45)}
-        @keyframes particleRise{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-20vh) scale(1);opacity:0}}
 
         /* ===== ANIMATIONS ===== */
         @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
@@ -247,32 +230,6 @@
         /* Secondary button glow */
         .btn-outline:hover{background:rgba(255,255,255,0.08);box-shadow:0 0 30px rgba(78,106,175,0.2)}
 
-        /* ===== ORBITING CAPABILITIES SPHERE (hero) ===== */
-        .orbit-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center}
-        .orbit-stage{position:relative;width:min(440px,86vw);aspect-ratio:1/1;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
-        .orbit-stage.dragging{cursor:grabbing}
-        .orbit-stage::before{content:'';position:absolute;inset:8%;border-radius:50%;border:1px dashed rgba(255,255,255,0.10);pointer-events:none}
-        .orbit-stage::after{content:'';position:absolute;inset:24%;border-radius:50%;border:1px dashed rgba(255,255,255,0.06);pointer-events:none}
-        .orbit-glow{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(232,68,37,0.20),rgba(78,106,175,0.12) 46%,transparent 72%);filter:blur(10px);pointer-events:none}
-        /* Center logo core */
-        .orbit-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:100;width:34%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:26px;background:linear-gradient(160deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05));border:1px solid rgba(255,255,255,0.18);box-shadow:0 22px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);pointer-events:none}
-        .orbit-core img{width:78%;height:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.45))}
-        .orbit-core-ring{position:absolute;inset:-12%;border-radius:32px;border:1.5px solid rgba(232,68,37,0.40);animation:orbitCorePulse 3.4s ease-in-out infinite;pointer-events:none}
-        @keyframes orbitCorePulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:.12}}
-        /* Orbiting tiles */
-        .orbit-sphere{position:absolute;inset:0}
-        .orbit-item{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:rgba(17,26,51,0.62);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-shadow:0 10px 30px rgba(0,0,0,0.38);color:#fff;text-decoration:none;cursor:pointer;will-change:transform,opacity;transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
-        .orbit-item svg{width:28px;height:28px;stroke:rgba(255,255,255,0.88);transition:stroke .25s ease}
-        .orbit-item:hover{border-color:rgba(232,68,37,0.65);background:rgba(17,26,51,0.78);box-shadow:0 16px 44px rgba(232,68,37,0.32),0 0 0 3px rgba(232,68,37,0.14)}
-        .orbit-item:hover svg{stroke:#f4633f}
-        .orbit-item--photo{padding:0;overflow:hidden;border-color:rgba(232,68,37,0.45)}
-        .orbit-item--photo img{width:100%;height:100%;object-fit:cover}
-        .orbit-tip{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;font-size:11px;font-weight:700;letter-spacing:.02em;color:#fff;background:rgba(17,26,51,0.94);border:1px solid rgba(255,255,255,0.16);padding:4px 9px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
-        .orbit-item:hover .orbit-tip{opacity:1;transform:translateX(-50%) translateY(0)}
-        .orbit-caption{margin-top:26px;text-align:center}
-        @media (max-width:1023px){.orbit-wrap{margin-top:40px}.orbit-item{width:54px;height:54px;margin:-27px;border-radius:15px}.orbit-item svg{width:24px;height:24px}}
-        @media (prefers-reduced-motion:reduce){.orbit-core-ring{animation:none}}
-
         /* ===== FOUNDER FIGURINE CARD (floating collectible) ===== */
         .founder-portrait{position:relative}
         .founder-fig-card{position:absolute;right:-14px;bottom:-26px;width:40%;max-width:180px;z-index:3;border-radius:22px;padding:9px;background:linear-gradient(160deg,#ffffff,#eef1f7);border:1px solid rgba(17,26,51,0.08);box-shadow:0 26px 55px rgba(17,26,51,0.24),inset 0 1px 0 rgba(255,255,255,0.9);animation:figFloat 6s ease-in-out infinite;will-change:transform}
@@ -285,17 +242,6 @@
         @keyframes figPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.3)}}
         @media (max-width:640px){.founder-fig-card{width:42%;right:-6px;bottom:-18px}}
         @media (prefers-reduced-motion:reduce){.founder-fig-card{animation:none}}
-
-        /* ===== HERO CORNER FIGURINE (swirling collectible) ===== */
-        .hero-fig{position:absolute;top:130px;right:max(18px,calc((100% - 1216px)/2));z-index:20;width:172px;pointer-events:none}
-        .hero-fig-case{position:relative;border-radius:22px;padding:9px;background:linear-gradient(160deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04));border:1px solid rgba(255,255,255,0.16);box-shadow:0 28px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:figFloat 6s ease-in-out infinite;will-change:transform}
-        .hero-fig-case::after{content:'';position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(140deg,rgba(232,68,37,0.6),rgba(78,106,175,0.45),transparent 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-        .hero-fig-screen{position:relative;border-radius:14px;overflow:hidden;background:radial-gradient(125% 105% at 50% 0%,#ffffff 0%,#f3f5fa 60%,#e6ebf4 100%)}
-        .hero-fig-screen video{display:block;width:100%;height:auto}
-        .hero-fig-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);z-index:4;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(17,26,51,0.92);border:1px solid rgba(255,255,255,0.16);font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
-        .hero-fig-badge .dot{width:6px;height:6px;border-radius:50%;background:#E84425;box-shadow:0 0 0 4px rgba(232,68,37,0.22);animation:figPulse 2s ease-in-out infinite}
-        @media (max-width:1199px){.hero-fig{display:none}}
-        @media (prefers-reduced-motion:reduce){.hero-fig-case{animation:none}}
 
         /* ===== SERVICES — engaging card motion ===== */
         .svc-icon svg{transition:transform .3s ease}
@@ -328,30 +274,12 @@
         .step-sparkles i{position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;opacity:0;box-shadow:0 0 9px 1px rgba(232,68,37,.45)}
         .reveal.visible .step-sparkles i{animation:sparkleBurst 1.05s cubic-bezier(.22,1,.36,1) .5s}
         @keyframes sparkleBurst{0%{opacity:0;transform:translate(0,0) scale(.2)}20%{opacity:1;transform:translate(calc(var(--tx)*.5),calc(var(--ty)*.5)) scale(1.25)}100%{opacity:0;transform:translate(calc(var(--tx)*1.5),calc(var(--ty)*1.5)) scale(.6)}}
-        /* ===== SPACEY FLOATING DECOR ===== */
-        .space-decor{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-        .space-orb{position:absolute;border-radius:50%;filter:blur(44px);opacity:.4;will-change:transform}
-        .space-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(78,106,175,.16);will-change:transform}
-        .space-ring::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#E84425;box-shadow:0 0 9px 2px rgba(232,68,37,.6);top:-4px;left:50%;margin-left:-4px}
-        .space-cross{position:absolute;width:14px;height:14px;color:rgba(232,68,37,.5);will-change:transform,opacity;animation:spaceTwinkle 4.5s ease-in-out infinite}
-        .space-cross::before,.space-cross::after{content:'';position:absolute;background:currentColor;border-radius:2px}
-        .space-cross::before{left:50%;top:0;width:2px;height:100%;transform:translateX(-50%)}
-        .space-cross::after{top:50%;left:0;height:2px;width:100%;transform:translateY(-50%)}
-        .space-dots span{position:absolute;border-radius:50%;will-change:transform,opacity}
-        @keyframes spaceDriftA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34px,-30px) scale(1.08)}}
-        @keyframes spaceDriftB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-38px,26px) scale(1.12)}}
-        @keyframes spaceSpinFloat{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-22px) rotate(180deg)}100%{transform:translateY(0) rotate(360deg)}}
-        @keyframes spaceTwinkle{0%,100%{opacity:.2;transform:scale(.65) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
-        @keyframes spaceFloatUp{0%{transform:translateY(12px) translateX(0);opacity:0}12%{opacity:1}50%{transform:translateY(-20px) translateX(10px)}88%{opacity:1}100%{transform:translateY(-46px) translateX(-8px);opacity:0}}
-
         /* ===== SERVICES — floaty cards, glow halos, embers ===== */
         .svc-float{position:relative;z-index:1;height:100%}
         .svc-float>.svc-card{height:100%}
         @keyframes svcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
         .svc-float::before{content:'';position:absolute;inset:-24px;border-radius:34px;z-index:-1;background:radial-gradient(60% 54% at 50% 45%,rgba(232,68,37,.28),rgba(78,106,175,.16) 55%,transparent 78%);filter:blur(20px);opacity:.5}
         @keyframes svcGlow{0%,100%{opacity:.45;transform:scale(.95)}50%{opacity:.95;transform:scale(1.06)}}
-        .spark{position:absolute;border-radius:50%;will-change:transform,opacity}
-        @keyframes sparkFloat{0%{transform:translateY(0) translateX(0) scale(1);opacity:0}10%{opacity:1}45%{transform:translateY(-92px) translateX(12px) scale(.8)}78%{opacity:.85}100%{transform:translateY(-188px) translateX(-8px) scale(.2);opacity:0}}
 
         /* ===== VIBRANT LIVING SERVICE CARDS ===== */
         .svc-float:nth-child(1) .svc-card{--c1:78,106,175;--c2:112,136,195}
@@ -376,7 +304,7 @@
         .who-inner{position:relative;z-index:2}
 
         @media (prefers-reduced-motion:reduce){
-            .svc-float,.svc-float::before,.spark{animation:none!important}
+            .svc-float,.svc-float::before{animation:none!important}
             .who-float,.who-float::before,.who-card .who-icon{animation:none!important}
             .svc-aurora,.svc-aurora2,.svc-icon,.service-card-glow::before,.svc-card .accent-line,#services h2 .gradient-text{animation:none!important}
             .svc-card ul li{opacity:1;transform:none;transition:none}
@@ -384,7 +312,6 @@
             .how-line-fill{transform:scaleX(1);transition:none}
             .how-line-pulse{display:none}
             .reveal.visible .step-circle,.reveal.visible .step-circle::after,.reveal.visible .step-sparkles i{animation:none}
-            .space-orb,.space-ring,.space-cross,.space-dots span{animation:none!important}
         }
 
         /* Sticky header — liquid glass pill */
@@ -429,15 +356,6 @@
         .who-card .who-icon{transition:all .3s ease}
         .who-card:hover .who-icon{transform:scale(1.15) rotate(-5deg)}
 
-        /* Animated gradient border */
-        .gradient-border{position:relative;border-radius:20px;overflow:hidden}
-        .gradient-border::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#4E6AAF,#E84425,#4E6AAF,#E84425);background-size:300% 300%;animation:gradientShift 4s ease infinite;border-radius:22px;z-index:-1}
-        .gradient-border::after{content:'';position:absolute;inset:2px;background:#fff;border-radius:18px;z-index:-1}
-
-        /* Parallax-style depth */
-        .depth-1{will-change:transform}
-        .depth-2{will-change:transform}
-
         /* CTA section */
         .cta-mesh{position:relative;overflow:hidden;background:linear-gradient(135deg,#1e2b50 0%,#2e4070 40%,#3e5590 100%)}
         .cta-mesh::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(232,68,37,0.15),transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(78,106,175,0.2),transparent 50%)}
@@ -465,18 +383,6 @@
         /* Number animation */
         .count-up{font-variant-numeric:tabular-nums}
 
-        /* ===== SCROLL PROGRESS BAR ===== */
-        .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#E84425,#f4633f,#4E6AAF);z-index:9999;width:0%;transition:width 0.1s linear;box-shadow:0 0 10px rgba(232,68,37,0.5)}
-
-        /* ===== CURSOR GLOW ===== */
-        .cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(232,68,37,0.06) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity 0.3s ease;opacity:0;will-change:transform}
-        @media(max-width:768px){.cursor-glow{width:300px;height:300px;background:radial-gradient(circle,rgba(232,68,37,0.1) 0%,transparent 70%)}}
-        @keyframes tapRippleEsse{0%{width:0;height:0;opacity:0.4}100%{width:250px;height:250px;opacity:0}}
-
-        /* ===== TYPING CURSOR ===== */
-        .typing-cursor{display:inline-block;width:3px;height:1em;background:linear-gradient(180deg,#E84425,#f4633f);margin-left:4px;animation:blink 0.8s step-end infinite;vertical-align:text-bottom}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-
         /* ===== MAGNETIC BUTTON ===== */
         .btn-magnetic{transition:transform 0.2s cubic-bezier(.25,.46,.45,.94)}
 
@@ -497,38 +403,6 @@
         /* ===== FLOATING ACTION INDICATOR ===== */
         .float-indicator{animation:floatY 3s ease-in-out infinite}
         @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-
-        /* ===== TEXT HIGHLIGHT ON SCROLL ===== */
-        .text-reveal{background-size:0% 100%;background-repeat:no-repeat;background-image:linear-gradient(90deg,rgba(232,68,37,0.1) 0%,rgba(232,68,37,0.1) 100%);transition:background-size 0.8s cubic-bezier(.25,.46,.45,.94);padding:2px 0}
-        .text-reveal.revealed{background-size:100% 100%}
-
-        /* ===== INTERACTIVE GRID DOTS ===== */
-        .grid-dots{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0.4}
-        .grid-dot{position:absolute;width:2px;height:2px;background:rgba(78,106,175,0.3);border-radius:50%;transition:all 0.4s ease}
-        .grid-dot.active{background:rgba(232,68,37,0.8);transform:scale(3);box-shadow:0 0 10px rgba(232,68,37,0.4)}
-        @media(max-width:768px){
-            .grid-dots{opacity:0.25}
-            .scroll-progress{height:2px}
-            .stat-card{transition:transform 0.2s ease}
-            .stat-card:active{transform:translateY(-4px) scale(1.01)}
-        }
-
-        /* ===== PARTNERSHIP ANNOUNCEMENT (hero) ===== */
-        .announce-banner{position:relative;display:flex;align-items:center;gap:18px;max-width:fit-content;padding:14px 26px 14px 26px;border-radius:18px;background:rgba(17,26,51,0.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(232,68,37,0.25);overflow:hidden;box-shadow:0 14px 44px -16px rgba(232,68,37,0.25);text-decoration:none;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s ease,box-shadow .35s ease}
-        a.announce-banner:hover{transform:translateY(-2px);border-color:rgba(232,68,37,0.55);box-shadow:0 22px 56px -14px rgba(232,68,37,0.42)}
-        .announce-banner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#f4633f,#E84425)}
-        .announce-media{flex-shrink:0;width:78px;height:104px;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px -6px rgba(0,0,0,0.55);outline:1px solid rgba(255,255,255,0.1);outline-offset:-1px}
-        .announce-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-        a.announce-banner:hover .announce-media img{transform:scale(1.06)}
-        .announce-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f89075}
-        .announce-dot{width:8px;height:8px;border-radius:50%;background:#E84425;box-shadow:0 0 0 0 rgba(232,68,37,.7);animation:announcePulse 2.2s ease-in-out infinite}
-        @keyframes announcePulse{0%,100%{box-shadow:0 0 0 0 rgba(232,68,37,.55)}50%{box-shadow:0 0 0 7px rgba(232,68,37,0)}}
-        .announce-headline{margin-top:9px;font-size:1.18rem;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.3}
-        .announce-sub{margin-top:5px;font-size:.82rem;font-weight:500;color:rgba(255,255,255,0.55);line-height:1.45;max-width:34rem}
-        .announce-cta{display:inline-flex;align-items:center;gap:6px;margin-top:11px;font-size:.78rem;font-weight:700;color:#f4633f;letter-spacing:.005em}
-        .announce-cta svg{width:14px;height:14px;transition:transform .3s ease}
-        a.announce-banner:hover .announce-cta svg{transform:translateX(4px)}
-        @media(max-width:480px){.announce-banner{gap:14px;padding:13px 18px 13px 20px}.announce-media{width:60px;height:82px}.announce-headline{font-size:1rem}.announce-sub{font-size:.74rem}.announce-cta{font-size:.72rem}}
 
         /* ===== SERVICES DROPDOWN ===== */
         .nav-dropdown{position:relative}
@@ -559,12 +433,6 @@
     <script defer src="/site.js"></script>
 </head>
 <body class="bg-white text-gray-800 antialiased overflow-x-hidden">
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- ===== HEADER ===== -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
@@ -806,11 +674,6 @@
     <section id="services" class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-navy-100/40 rounded-full blur-[120px] -mt-60 pointer-events-none"></div>
 
-        <!-- Spacey floating decor -->
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:230px;height:230px;left:-70px;top:18%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.5),transparent 70%);animation:spaceDriftA 13s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:300px;height:300px;right:-90px;bottom:-40px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.5),transparent 70%);animation:spaceDriftB 17s ease-in-out infinite"></div>
-        </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
@@ -976,11 +839,6 @@
     <section id="how-it-works" class="py-24 md:py-32 bg-white relative overflow-hidden">
         <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-fire-100/50 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <!-- Spacey floating decor -->
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:260px;height:260px;left:-80px;bottom:-30px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.5),transparent 70%);animation:spaceDriftB 16s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:210px;height:210px;right:-60px;top:6%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.45),transparent 70%);animation:spaceDriftA 14s ease-in-out infinite"></div>
-        </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
@@ -1038,13 +896,6 @@
 
     <!-- ===== AI ASSISTANT TOOL (MCP) ===== -->
     <section id="ai-tools" class="py-24 md:py-32 hero-mesh relative overflow-hidden">
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-cross" style="right:14%;top:18%"></div>
-            <div class="space-cross" style="left:18%;bottom:22%;animation-delay:-2.2s"></div>
-            <div class="space-dots" data-dots="16" data-palette="light"></div>
-        </div>
-        <div class="orb" style="width:300px;height:300px;background:rgba(78,106,175,0.15);top:15%;left:8%;animation-delay:-3s"></div>
-        <div class="orb" style="width:260px;height:260px;background:rgba(232,68,37,0.12);bottom:15%;right:8%;animation-delay:-1s"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -1106,10 +957,6 @@
 
     <!-- ===== WHO WE HELP ===== -->
     <section id="who-we-help" class="py-24 md:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:240px;height:240px;left:-70px;top:12%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.42),transparent 70%);animation:spaceDriftA 14s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:280px;height:280px;right:-80px;bottom:-30px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.42),transparent 70%);animation:spaceDriftB 18s ease-in-out infinite"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="inline-block text-fire-500 font-bold text-sm uppercase tracking-widest mb-4">Who We Help</span>
@@ -1141,10 +988,6 @@
     <!-- ===== STATS + TESTIMONIALS ===== -->
     <section class="py-24 md:py-32 bg-gray-50 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy-200 to-transparent"></div>
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:260px;height:260px;left:-80px;bottom:-20px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.42),transparent 70%);animation:spaceDriftB 16s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:220px;height:220px;right:-60px;top:8%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.38),transparent 70%);animation:spaceDriftA 13s ease-in-out infinite"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Stats -->
             <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
@@ -1218,9 +1061,6 @@
     <!-- ===== MEET THE FOUNDER ===== -->
     <section class="py-24 md:py-32 bg-white relative overflow-hidden">
         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-navy-100/30 rounded-full blur-[120px] -ml-40 pointer-events-none"></div>
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:230px;height:230px;right:-70px;top:10%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.4),transparent 70%);animation:spaceDriftA 15s ease-in-out infinite"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="reveal-left">
@@ -1279,10 +1119,6 @@
 
     <!-- ===== FAQ ===== -->
     <section id="faq" class="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:260px;height:260px;left:-90px;top:14%;background:radial-gradient(circle at 35% 35%,rgba(78,106,175,.4),transparent 70%);animation:spaceDriftB 17s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:240px;height:240px;right:-80px;bottom:-20px;background:radial-gradient(circle at 40% 40%,rgba(232,68,37,.36),transparent 70%);animation:spaceDriftA 14s ease-in-out infinite"></div>
-        </div>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16 reveal">
                 <span class="inline-block text-fire-500 font-bold text-sm uppercase tracking-widest mb-4">FAQ</span>
@@ -1306,10 +1142,6 @@
 
     <!-- ===== FINAL CTA ===== -->
     <section class="py-24 md:py-32 cta-mesh relative">
-        <div class="space-decor" aria-hidden="true">
-        </div>
-        <div class="orb" style="width:300px;height:300px;background:rgba(232,68,37,0.12);top:10%;right:20%;animation-delay:-1s"></div>
-        <div class="orb" style="width:200px;height:200px;background:rgba(78,106,175,0.15);bottom:15%;left:25%;animation-delay:-3s"></div>
 
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
             <div class="reveal">
@@ -1330,10 +1162,6 @@
 
     <!-- ===== CONTACT ===== -->
     <section id="contact" class="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div class="space-decor" aria-hidden="true">
-            <div class="space-orb" style="width:250px;height:250px;left:-80px;top:12%;background:radial-gradient(circle at 35% 35%,rgba(232,68,37,.4),transparent 70%);animation:spaceDriftA 15s ease-in-out infinite"></div>
-            <div class="space-orb" style="width:280px;height:280px;right:-90px;bottom:-30px;background:radial-gradient(circle at 40% 40%,rgba(78,106,175,.42),transparent 70%);animation:spaceDriftB 18s ease-in-out infinite"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16">
                 <div class="reveal-left">
@@ -1474,124 +1302,6 @@
         addEventListener('scroll',()=>{rect=null},{passive:true});
     })();
 
-    // Particle generator
-    (function(){
-        const c=document.getElementById('particles');
-        if(!c)return;
-        // white-weighted palette with orange & blue accents
-        const palette=['255,255,255','255,255,255','244,99,63','112,136,195','232,68,37'];
-        for(let i=0;i<60;i++){
-            const p=document.createElement('div');
-            p.className='particle';
-            const col=palette[Math.floor(Math.random()*palette.length)];
-            const op=(0.4+Math.random()*0.45).toFixed(2);
-            const size=(1.5+Math.random()*3.5).toFixed(1);
-            p.style.left=Math.random()*100+'%';
-            p.style.animationDuration=(7+Math.random()*11)+'s';
-            p.style.animationDelay=(-Math.random()*20)+'s';
-            p.style.width=p.style.height=size+'px';
-            p.style.background='rgba('+col+','+op+')';
-            p.style.boxShadow='0 0 '+(5+Math.random()*7).toFixed(0)+'px rgba('+col+','+op+')';
-            c.appendChild(p);
-        }
-    })();
-
-    // ===== ORBITING CAPABILITIES SPHERE (hero) =====
-    (function(){
-        const stage=document.getElementById('orbitStage');
-        const sphere=document.getElementById('orbitSphere');
-        if(!stage||!sphere)return;
-        const items=Array.from(sphere.querySelectorAll('.orbit-item'));
-        const N=items.length;
-        if(!N)return;
-        const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-        // Fibonacci-sphere base positions (even distribution)
-        const base=items.map((el,i)=>{
-            const y=1-((i+0.5)/N)*2;
-            const r=Math.sqrt(Math.max(0,1-y*y));
-            const t=i*2.399963229728653;
-            return {x:Math.cos(t)*r,y:y,z:Math.sin(t)*r,el:el};
-        });
-
-        let R=stage.clientWidth*0.37;
-        const setR=()=>{R=stage.clientWidth*0.37;};
-        window.addEventListener('resize',setR);
-
-        const AUTO=reduce?0:0.0026;          // idle auto-rotation speed
-        let rotX=0.35, rotY=0;
-        let velX=0, velY=AUTO;
-        let dragging=false, hovering=false, inView=true;
-        let lastX=0, lastY=0, moved=0, raf=null;
-        const clamp=(v,a,b)=>v<a?a:(v>b?b:v);
-
-        function render(){
-            const cy=Math.cos(rotY),sy=Math.sin(rotY),cx=Math.cos(rotX),sx=Math.sin(rotX);
-            for(let i=0;i<base.length;i++){
-                const b=base[i];
-                const x1=b.x*cy+b.z*sy;
-                const z1=-b.x*sy+b.z*cy;
-                const y2=b.y*cx-z1*sx;
-                const z2=b.y*sx+z1*cx;
-                const depth=(z2+1)/2;            // 0 (back) .. 1 (front)
-                let sc=0.62+depth*0.50;
-                if(b.el._hover)sc*=1.18;
-                b.el.style.transform='translate('+(x1*R).toFixed(1)+'px,'+(y2*R).toFixed(1)+'px) scale('+sc.toFixed(3)+')';
-                b.el.style.opacity=(0.42+depth*0.58).toFixed(3);
-                b.el.style.zIndex=Math.round((z2+1)*100);
-                b.el.style.filter=z2<0?('blur('+(-z2*1.6).toFixed(2)+'px)'):'none';
-            }
-        }
-
-        function frame(){
-            if(inView||dragging){
-                if(!dragging){
-                    rotY+=velY; rotX=clamp(rotX+velX,-1.25,1.25);
-                    velX*=0.94;
-                    velY=hovering?velY*0.9:(velY*0.94+AUTO*0.06);
-                }
-                render();
-            }
-            if(reduce&&!dragging&&Math.abs(velX)<0.0003&&Math.abs(velY)<0.0003){raf=null;return;}
-            raf=requestAnimationFrame(frame);
-        }
-        const ensureLoop=()=>{if(!raf)raf=requestAnimationFrame(frame);};
-
-        stage.addEventListener('pointerdown',(e)=>{
-            dragging=true; moved=0; velX=0; velY=0;
-            lastX=e.clientX; lastY=e.clientY;
-            stage.classList.add('dragging');
-            if(stage.setPointerCapture){try{stage.setPointerCapture(e.pointerId);}catch(_){}}
-            ensureLoop();
-        });
-        stage.addEventListener('pointermove',(e)=>{
-            if(!dragging)return;
-            const dx=e.clientX-lastX, dy=e.clientY-lastY;
-            lastX=e.clientX; lastY=e.clientY;
-            moved+=Math.abs(dx)+Math.abs(dy);
-            rotY+=dx*0.006; rotX=clamp(rotX+dy*0.006,-1.25,1.25);
-            velY=dx*0.006; velX=dy*0.006;
-            render();
-        });
-        function endDrag(){ if(!dragging)return; dragging=false; stage.classList.remove('dragging'); ensureLoop(); }
-        stage.addEventListener('pointerup',endDrag);
-        stage.addEventListener('pointercancel',endDrag);
-
-        items.forEach(el=>{
-            el.addEventListener('mouseenter',()=>{el._hover=true; hovering=true; ensureLoop();});
-            el.addEventListener('mouseleave',()=>{el._hover=false; hovering=items.some(i=>i._hover);});
-            el.addEventListener('click',(e)=>{ if(moved>8)e.preventDefault(); });   // suppress click after a drag
-        });
-
-        if('IntersectionObserver' in window){
-            new IntersectionObserver((ents)=>{ents.forEach(en=>{inView=en.isIntersecting; if(inView)ensureLoop();});},{threshold:0.04}).observe(stage);
-        }
-
-        setR();
-        render();
-        if(!reduce)ensureLoop();
-    })();
-
     // ===== HOW IT WORKS — line draw + traveling pulse on scroll-in =====
     (function(){
         const grid=document.getElementById('howSteps');
@@ -1600,55 +1310,6 @@
             ents.forEach(e=>{ if(e.isIntersecting){ grid.classList.add('go'); io.disconnect(); } });
         },{threshold:0.25});
         io.observe(grid);
-    })();
-
-    // ===== SPACEY FLOATING DOTS (services + how it works) =====
-    (function(){
-        const fields=document.querySelectorAll('.space-dots');
-        if(!fields.length||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-        const dark=['232,68,37','78,106,175','244,99,63','112,136,195'];
-        const light=['255,255,255','244,99,63','148,166,210','255,206,150'];
-        fields.forEach(f=>{
-            const cols=f.dataset.palette==='light'?light:dark;
-            const n=parseInt(f.dataset.dots||'14',10);
-            for(let i=0;i<n;i++){
-                const s=document.createElement('span');
-                const c=cols[Math.floor(Math.random()*cols.length)];
-                const op=(0.45+Math.random()*0.4).toFixed(2);
-                const sz=(2+Math.random()*3.2).toFixed(1);
-                s.style.left=Math.random()*100+'%';
-                s.style.top=Math.random()*100+'%';
-                s.style.width=s.style.height=sz+'px';
-                s.style.background='rgba('+c+','+op+')';
-                s.style.boxShadow='0 0 '+(4+Math.random()*6).toFixed(0)+'px rgba('+c+','+op+')';
-                s.style.animation='spaceFloatUp '+(7+Math.random()*8).toFixed(1)+'s ease-in-out '+(-Math.random()*12).toFixed(1)+'s infinite';
-                f.appendChild(s);
-            }
-        });
-    })();
-
-    // ===== EMBER SPARKS (services) =====
-    (function(){
-        const fields=document.querySelectorAll('.spark-field');
-        if(!fields.length||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-        const cols=['232,68,37','244,99,63','255,150,90','255,200,120'];
-        fields.forEach(f=>{
-            const n=parseInt(f.dataset.sparks||'18',10);
-            for(let i=0;i<n;i++){
-                const s=document.createElement('span');
-                s.className='spark';
-                const c=cols[Math.floor(Math.random()*cols.length)];
-                const op=(0.6+Math.random()*0.4).toFixed(2);
-                const sz=(2+Math.random()*2.6).toFixed(1);
-                s.style.left=Math.random()*100+'%';
-                s.style.top=(55+Math.random()*45)+'%';
-                s.style.width=s.style.height=sz+'px';
-                s.style.background='rgba('+c+','+op+')';
-                s.style.boxShadow='0 0 '+(5+Math.random()*7).toFixed(0)+'px rgba('+c+','+op+')';
-                s.style.animation='sparkFloat '+(5+Math.random()*5).toFixed(1)+'s ease-in '+(-Math.random()*9).toFixed(1)+'s infinite';
-                f.appendChild(s);
-            }
-        });
     })();
 
     // Header scroll
@@ -1732,54 +1393,6 @@
         });
     });
 
-    // Parallax on scroll (subtle)
-    let ticking=false;
-    window.addEventListener('scroll',()=>{
-        if(!ticking){requestAnimationFrame(()=>{
-            const scrollY=window.scrollY;
-            document.querySelectorAll('.orb').forEach((orb,i)=>{
-                const speed=0.03+(i*0.01);
-                orb.style.transform=`translateY(${scrollY*speed}px)`;
-            });
-            ticking=false;
-        });ticking=true}
-    });
-
-    // ===== SCROLL PROGRESS BAR =====
-    const progressBar=document.getElementById('scrollProgress');
-    window.addEventListener('scroll',()=>{
-        const winH=document.documentElement.scrollHeight-window.innerHeight;
-        const pct=(window.scrollY/winH)*100;
-        if(progressBar)progressBar.style.width=pct+'%';
-    },{passive:true});
-
-    // ===== CURSOR / TOUCH GLOW =====
-    const cursorGlow=document.getElementById('cursorGlow');
-    if(cursorGlow){
-        document.addEventListener('mousemove',(e)=>{
-            cursorGlow.style.left=e.clientX+'px';
-            cursorGlow.style.top=e.clientY+'px';
-            cursorGlow.style.opacity='1';
-        });
-        document.addEventListener('mouseleave',()=>{cursorGlow.style.opacity='0'});
-        if(isTouch){
-            document.addEventListener('touchstart',(e)=>{
-                const t=e.touches[0];
-                cursorGlow.style.left=t.clientX+'px';
-                cursorGlow.style.top=t.clientY+'px';
-                cursorGlow.style.opacity='1';
-            },{passive:true});
-            document.addEventListener('touchmove',(e)=>{
-                const t=e.touches[0];
-                cursorGlow.style.left=t.clientX+'px';
-                cursorGlow.style.top=t.clientY+'px';
-            },{passive:true});
-            document.addEventListener('touchend',()=>{
-                setTimeout(()=>{cursorGlow.style.opacity='0'},500);
-            },{passive:true});
-        }
-    }
-
     // ===== ANIMATED COUNTERS =====
     const counterObserver=new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
@@ -1834,104 +1447,6 @@
             btn.addEventListener('touchend',()=>{setTimeout(()=>{btn.style.transform='scale(1) translateY(0)'},150)},{passive:true});
         }
     });
-
-    // ===== TEXT REVEAL ON SCROLL =====
-    const textRevealObserver=new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting)entry.target.classList.add('revealed');
-        });
-    },{threshold:0.3});
-    document.querySelectorAll('.text-reveal').forEach(el=>textRevealObserver.observe(el));
-
-    // ===== INTERACTIVE DOT GRID (services section bg) =====
-    (function(){
-        const servicesSection=document.getElementById('services');
-        if(!servicesSection)return;
-        const dotsContainer=document.createElement('div');
-        dotsContainer.className='grid-dots';
-        const spacing=isMobile?55:40;
-        const cols=Math.ceil(servicesSection.offsetWidth/spacing);
-        const maxRows=isMobile?Math.min(Math.ceil(servicesSection.offsetHeight/spacing),12):Math.ceil(servicesSection.offsetHeight/spacing);
-        for(let r=0;r<maxRows;r++){
-            for(let c=0;c<cols;c++){
-                const dot=document.createElement('div');
-                dot.className='grid-dot';
-                dot.style.left=(c*spacing)+'px';
-                dot.style.top=(r*spacing)+'px';
-                dotsContainer.appendChild(dot);
-            }
-        }
-        servicesSection.style.position='relative';
-        servicesSection.insertBefore(dotsContainer,servicesSection.firstChild);
-        const dots=dotsContainer.querySelectorAll('.grid-dot');
-        const activationR=isMobile?60:80;
-        function activateDots(mx,my){
-            dots.forEach(dot=>{
-                const dx=parseFloat(dot.style.left)-mx;
-                const dy=parseFloat(dot.style.top)-my;
-                const dist=Math.sqrt(dx*dx+dy*dy);
-                if(dist<activationR){dot.classList.add('active')}
-                else{dot.classList.remove('active')}
-            });
-        }
-        function clearDots(){dots.forEach(d=>d.classList.remove('active'))}
-        servicesSection.addEventListener('mousemove',(e)=>{
-            const rect=servicesSection.getBoundingClientRect();
-            activateDots(e.clientX-rect.left,e.clientY-rect.top);
-        });
-        servicesSection.addEventListener('mouseleave',clearDots);
-        if(isTouch){
-            servicesSection.addEventListener('touchstart',(e)=>{
-                const t=e.touches[0];const rect=servicesSection.getBoundingClientRect();
-                activateDots(t.clientX-rect.left,t.clientY-rect.top);
-            },{passive:true});
-            servicesSection.addEventListener('touchmove',(e)=>{
-                const t=e.touches[0];const rect=servicesSection.getBoundingClientRect();
-                activateDots(t.clientX-rect.left,t.clientY-rect.top);
-            },{passive:true});
-            servicesSection.addEventListener('touchend',()=>setTimeout(clearDots,500),{passive:true});
-            // Auto-pulse random dots on mobile for ambient effect
-            let autoGrid=setInterval(()=>{
-                for(let a=0;a<2;a++){
-                    const rd=dots[Math.floor(Math.random()*dots.length)];
-                    if(rd){rd.classList.add('active');setTimeout(()=>rd.classList.remove('active'),800)}
-                }
-            },2500);
-            const gridObs=new IntersectionObserver((entries)=>{
-                entries.forEach(en=>{if(!en.isIntersecting&&autoGrid){clearInterval(autoGrid);autoGrid=null}});
-            },{threshold:0.05});
-            gridObs.observe(servicesSection);
-        }
-    })();
-
-    // ===== TYPING EFFECT ON HERO =====
-    (function(){
-        const phrases=['business moving','team productive','data secure','growth possible'];
-        const heroSpan=document.querySelector('.hero-mesh h1 .gradient-text');
-        if(!heroSpan)return;
-        let phraseIdx=0;let charIdx=0;let isDeleting=false;let isPaused=false;
-        const cursor=document.createElement('span');
-        cursor.className='typing-cursor';
-        heroSpan.parentNode.insertBefore(cursor,heroSpan.nextSibling);
-
-        function type(){
-            const current=phrases[phraseIdx];
-            if(isPaused){isPaused=false;setTimeout(type,1500);return}
-            if(!isDeleting){
-                heroSpan.textContent=current.slice(0,charIdx+1);
-                charIdx++;
-                if(charIdx===current.length){isDeleting=true;isPaused=true;setTimeout(type,80);return}
-                setTimeout(type,80+Math.random()*40);
-            }else{
-                heroSpan.textContent=current.slice(0,charIdx-1);
-                charIdx--;
-                if(charIdx===0){isDeleting=false;phraseIdx=(phraseIdx+1)%phrases.length;setTimeout(type,400);return}
-                setTimeout(type,40);
-            }
-        }
-        // Start after initial animation completes
-        setTimeout(type,3000);
-    })();
 
     // ===== TILT ON STAT CARDS (desktop + mobile touch) =====
     const statTiltStr=isMobile?5:8;
