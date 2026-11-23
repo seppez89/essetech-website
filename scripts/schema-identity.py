@@ -29,6 +29,7 @@ SAME_AS = [
     "https://www.youtube.com/@Essetech_IT",
     "https://www.facebook.com/p/Essetech-100087886136587/",
     "https://abr.business.gov.au/ABN/View?abn=33697426163",
+    "https://www.linkedin.com/company/essetech-adelaide/",
 ]
 
 ADDRESS = {
